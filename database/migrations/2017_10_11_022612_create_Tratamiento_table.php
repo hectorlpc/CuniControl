@@ -17,6 +17,8 @@ class CreateTratamientoTable extends Migration
             $table->string('Id_Tratamiento',6);
             $table->string('Id_Enfermedad',6);
             $table->string('Id_Medicamento',6);
+            $table->foreign('Id_Medicamento')->references('Id_Medicamento')->on('Medicamento');
+            $table->timestamps();
         });
     }
 

@@ -14,12 +14,15 @@ class CreateConejoTratamientoTable extends Migration
     public function up()
     {
         Schema::create('Conejo_Tratamiento', function (Blueprint $table) {
-            $table->increments('Id_Conejo_Enfermo');
+            $table->string('Id_Conejo_Enfermo');
             $table->string('Tatuaje_Derecho',5);
             $table->string('Tatuaje_Izquierdo',5);
+            $table->foreign('Tatuaje_Derecho')->references('Tatuaje_Derecho')->on('Conejo');
+            $table->foreign('Tatuaje_Izquierdo')->references('Tatuaje_Izquierdo')->on('Conejo');
             $table->date('Fecha_Inicio');
             $table->date('Fecha_Fin');
             $table->string('Id_Tratamiento',6);
+            $table->timestamps();
         });
     }
 

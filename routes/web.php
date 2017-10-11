@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/cuentas', 'UsuarioController@index');
+Route::get('/cuentas/{curp}', 'UsuarioController@show');

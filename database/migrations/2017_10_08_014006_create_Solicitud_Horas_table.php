@@ -17,6 +17,7 @@ class CreateSolicitudHorasTable extends Migration
             $table->string('Id_Solicitud')->primary('Id_Solicitud');
             $table->string('CURP_Alumno');
             $table->string('Horas_Total');
+            $table->timestamps();
         });
     }
 

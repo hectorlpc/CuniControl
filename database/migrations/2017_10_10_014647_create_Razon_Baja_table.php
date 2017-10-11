@@ -14,7 +14,7 @@ class CreateRazonBajaTable extends Migration
     public function up()
     {
         Schema::create('Razon_Baja', function (Blueprint $table) {
-            $table->string('Id_Razon',6);
+            $table->string('Id_Razon',6)->primary('Id_Razon');
             $table->string('Nombre_Razon',50);
             $table->string('Descripcion_Baja',75);
             $table->timestamps();

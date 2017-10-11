@@ -18,6 +18,7 @@ class CreateProfesorTable extends Migration
             $table->string('Numero_unam',15);
             $table->string('Seguro_social',11);
             $table->string('RfC',13);
+            $table->timestamps();
         });
     }
 

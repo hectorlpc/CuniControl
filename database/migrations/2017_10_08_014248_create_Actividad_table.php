@@ -17,6 +17,7 @@ class CreateActividadTable extends Migration
             $table->string('Id_Actividad',6)->primary('Id_Actividad');
             $table->string('Nombre_Actividad');
             $table->string('Descripcion_Actividad');
+            $table->timestamps();
         });
     }
 

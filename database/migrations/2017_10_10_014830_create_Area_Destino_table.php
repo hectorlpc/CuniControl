@@ -14,7 +14,7 @@ class CreateAreaDestinoTable extends Migration
     public function up()
     {
         Schema::create('Area_Destino', function (Blueprint $table) {
-            $table->string('Id_Area',6);
+            $table->string('Id_Area',6)->primary('Id_Area');
             $table->string('Nombre_Area',50);
             $table->string('Descripcion_Area',75);
             $table->timestamps();

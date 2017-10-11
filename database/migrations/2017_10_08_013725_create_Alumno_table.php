@@ -18,6 +18,7 @@ class CreateAlumnoTable extends Migration
             $table->string('Seguro_Axxa',10);
             $table->string('Seguro_Facultativo',11);
             $table->string('Numero_Cuenta',10);
+            $table->timestamps();
         });
     }
 

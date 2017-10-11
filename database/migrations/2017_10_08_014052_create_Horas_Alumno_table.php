@@ -14,11 +14,12 @@ class CreateHorasAlumnoTable extends Migration
     public function up()
     {
         Schema::create('Horas_Alumno', function (Blueprint $table) {
-            $table->increments('Id_Horas');
+            $table->increments('Id_Horas')->primary('Id_Horas');
             $table->date('Fecha');
             $table->time('Hora_Entrada');
             $table->time('HoraSalida');
             $table->integer('Id_Solicitud');
+            $table->timestamps();
         });
     }
 

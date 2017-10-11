@@ -16,10 +16,12 @@ class CreateConejoTable extends Migration
         Schema::create('Conejo', function (Blueprint $table) {
             $table->string('Tatuaje_Derecho',5);
             $table->string('Tatuaje_Izquierdo',5);
+            $table->primary(['Tatuaje_Derecho','Tatuaje_Izquierdo']);
             $table->integer('Id_Raza');
             $table->enum('Genero',['Macho','Hembra']);
             $table->integer('Peso_Conejo');
             $table->boolean('Status_Conejo');
+            $table->timestamps();
 
         });
     }

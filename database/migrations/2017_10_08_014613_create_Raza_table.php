@@ -17,6 +17,7 @@ class CreateRazaTable extends Migration
             $table->increments('Id_Raza');
             $table->string('Nombre_Raza',20);
             $table->string('Descripcion_Raza',75);
+            $table->timestamps();
         });
     }
 

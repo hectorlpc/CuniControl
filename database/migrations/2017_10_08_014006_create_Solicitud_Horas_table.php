@@ -14,7 +14,7 @@ class CreateSolicitudHorasTable extends Migration
     public function up()
     {
         Schema::create('Solicitud_Horas', function (Blueprint $table) {
-            $table->increments('Id_Solicitud'); ->primary('Id_Solicitud');
+            $table->string('Id_Solicitud')->primary('Id_Solicitud');
             $table->string('CURP_Alumno');
             $table->string('Horas_Total');
         });

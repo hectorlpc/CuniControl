@@ -14,7 +14,7 @@ class CreateProfesorTable extends Migration
     public function up()
     {
         Schema::create('Profesor', function (Blueprint $table) {
-            $table->string('CURP_Profesor',18);
+            $table->string('CURP_Profesor',18)->primary('CURP_Profesor');
             $table->string('Numero_unam',15);
             $table->string('Seguro_social',11);
             $table->string('RfC',13);

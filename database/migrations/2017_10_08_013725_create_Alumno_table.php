@@ -14,7 +14,7 @@ class CreateAlumnoTable extends Migration
     public function up()
     {
         Schema::create('Alumno', function (Blueprint $table) {
-            $table->string('CURP_Alumno',18);
+            $table->string('CURP_Alumno',18)->primary('CURP_Alumno');
             $table->string('Seguro_Axxa',10);
             $table->string('Seguro_Facultativo',11);
             $table->string('Numero_Cuenta',10);

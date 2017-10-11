@@ -16,6 +16,9 @@ class CreateUsuarioRolesTable extends Migration
         Schema::create('Usuario_Roles', function (Blueprint $table) {
             $table->string('CURP',18);
             $table->string('Id_Rol',6);
+            $table->foreign('CURP')->references('CURP')->on('Usuario');
+            $table->foreign('Id_Rol')->references('Id_Rol')->on('Roles');
+            $table->primary(['CURP','Id_Rol']);
             $table->timestamps();
         });
     }

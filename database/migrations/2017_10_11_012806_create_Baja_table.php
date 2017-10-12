@@ -14,7 +14,7 @@ class CreateBajaTable extends Migration
     public function up()
     {
         Schema::create('Baja', function (Blueprint $table) {
-            $table->increments('Id_Baja');
+            $table->string('Id_Baja');
             $table->string('Id_Area',6);
             $table->string('Id_Razon',6);
             $table->date('Fecha_Baja');

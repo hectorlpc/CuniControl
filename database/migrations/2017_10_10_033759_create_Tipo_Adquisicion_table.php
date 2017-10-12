@@ -17,6 +17,7 @@ class CreateTipoAdquisicionTable extends Migration
           $table->string('Id_Adquisicion',6);
           $table->string('Nombre_Adquisicion',50);
           $table->string('Descripcion_Adquisicion',75);
+          $table->timestamps();
         });
     }
 

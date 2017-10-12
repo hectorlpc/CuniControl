@@ -18,6 +18,7 @@ class CreateConejoAdquiridoTable extends Migration
             $table->string('Tatuaje_Izquierdo',5);
             $table->string('Id_Adquisicion',6);
             $table->date('Fecha_Adquisicion');
+            $table->timestamps();
         });
     }
 

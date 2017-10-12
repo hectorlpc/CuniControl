@@ -14,9 +14,10 @@ class CreateConsumoAlimentoTable extends Migration
     public function up()
     {
         Schema::create('Consumo_Alimento', function (Blueprint $table) {
-            $table->increments("Id_Censo");
+            $table->string("Id_Censo")->primary('Id_Censo');
             $table->date('Fecha_Consumo');
             $table->SmallInteger('Catidad_Consumo');
+            $table->timestamps();
         });
     }
 

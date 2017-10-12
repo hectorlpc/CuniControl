@@ -14,7 +14,7 @@ class CreateActividadProgramadaTable extends Migration
     public function up()
     {
         Schema::create('Actividad_Programada', function (Blueprint $table) {
-            $table->increments('Id_Actividad_P');
+            $table->string('Id_Actividad_P');
             $table->date('Fecha_Actividad');
             $table->string('CURP_Encargado',18);
             $table->string('Id_Actividad',6);

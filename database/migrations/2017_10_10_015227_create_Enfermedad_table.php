@@ -14,10 +14,10 @@ class CreateEnfermedadTable extends Migration
     public function up()
     {
         Schema::create('Enfermedad', function (Blueprint $table) {
-          $table->string('Id_Enfermedad',6);
-          $table->primary('Id_Enfermedad');
+          $table->string('Id_Enfermedad',6)->primary('Id_Enfermedad');
           $table->string('Nombre_Razon',50);
           $table->string('Descripcion_Baja',75);
+          $table->timestamps();
         });
     }
 

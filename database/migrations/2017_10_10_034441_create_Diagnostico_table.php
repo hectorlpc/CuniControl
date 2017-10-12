@@ -14,11 +14,11 @@ class CreateDiagnosticoTable extends Migration
     public function up()
     {
         Schema::create('Diagnostico', function (Blueprint $table) {
-            $table->increments('Id_Diagnostico');
+            $table->string('Id_Diagnostico');
             $table->integer('Id_Monta');
             $table->date('Fecha_Disagnostico');
             $table->boolean('Resultado_Disagnostico');
-
+            $table->timestamps();
         });
     }
 

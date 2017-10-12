@@ -14,11 +14,12 @@ class CreateCensoTable extends Migration
     public function up()
     {
         Schema::create('Censo', function (Blueprint $table) {
-            $table->increments('Id_Censo');
+            $table->string('Id_Censo')->primary('Id_Censo');
             $table->date('Fecha_Censo');
             $table->smallInteger('Total_Censo');
             $table->char('Letra_Jaula',1);
             $table->smallInteger('Numero_Jaula');
+            $table->timestamps();
 
         });
     }

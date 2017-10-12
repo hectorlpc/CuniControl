@@ -14,7 +14,7 @@ class CreateBajaConejoTable extends Migration
     public function up()
     {
         Schema::create('Baja_Conejo', function (Blueprint $table) {
-            $table->increments('Id_Baja');
+            $table->string('Id_Baja');
             $table->string('Tatuaje_Derecho',6);
             $table->string('Tatuaje_Izquierdo',6);
             $table->timestamps();

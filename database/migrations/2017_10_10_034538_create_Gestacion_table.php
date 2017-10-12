@@ -14,9 +14,10 @@ class CreateGestacionTable extends Migration
     public function up()
     {
         Schema::create('Gestacion', function (Blueprint $table) {
-            $table->increments('Id_Gestacion');
+            $table->string('Id_Gestacion');
             $table->integer('Id_Diagnostico');
             $table->date('Fecha_Parto');
+            $table->timestamps();
         });
     }
 

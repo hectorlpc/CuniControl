@@ -18,6 +18,7 @@ class CreateMedicamentoTable extends Migration
           $table->string('Nombre_Medicamento',50);
           $table->string('Descripcion_Medicamento',75);
           $table->integer('Cantidad');
+          $table->timestamps();
         });
     }
 

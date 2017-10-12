@@ -23,6 +23,7 @@ class CreateUsuarioTable extends Migration
             $table->date('Fecha_Nacimiento');
             $table->string('Telefono',15);
             $table->string('Celular',15);
+            $table->string('Contrasena',255);
             $table->timestamps();
         });
     }

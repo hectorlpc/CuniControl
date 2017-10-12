@@ -14,9 +14,8 @@ class CreateJaulaTable extends Migration
     public function up()
     {
         Schema::create('Jaula', function (Blueprint $table) {
-            $table->char('Letra', 1);
-            $table->smallInteger('numero');
-            $table->primary(['Letra','numero']);
+            $table->string('Id_Jaula',3);
+            $table->primary('Id_Jaula');
             $table->timestamps();
         });
     }

@@ -14,12 +14,13 @@ class CreateMontaTable extends Migration
     public function up()
     {
         Schema::create('Monta', function (Blueprint $table) {
-            $table->string('Id_Monta')->primary('Id_Monta');
-            $table->string('Tatuaje_Derecho_Macho',6);
-            $table->string('Tatuaje_Izquierdo_Macho',6);
-            $table->string('Tatuaje_Derecho_Hembra',6);
-            $table->string('Tatuaje_Izquierdo_Hembra',6);
-            $table->date('Fecha_Monta');
+            $table->string('Id_Monta',20);
+            $table->date('Fecha_Monta'); 
+            $table->string('Id_Conejo_Hembra',10);
+            $table->string('Id_Conejo_Macho',10);
+            $table->foreign('Id_Conejo_Hembra')->references('Id_Conejo')->on('Conejo');
+            $table->foreign('Id_Conejo_Macho')->references('Id_Conejo')->on('Conejo');
+            $table->primary(['Fecha_Monta','Id_Conejo_Hembra']);
             $table->timestamps();
         });
     }

@@ -15,8 +15,9 @@ class CreateBajaConejoTable extends Migration
     {
         Schema::create('Baja_Conejo', function (Blueprint $table) {
             $table->string('Id_Baja');
-            $table->string('Tatuaje_Derecho',6);
-            $table->string('Tatuaje_Izquierdo',6);
+            $table->string('Id_Conejo');
+            $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
+            $table->primay(['Id_Baja','Id_Conejo']);
             $table->timestamps();
         });
     }

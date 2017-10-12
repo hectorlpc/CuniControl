@@ -14,13 +14,12 @@ class CreateMovimientoJaulaTable extends Migration
     public function up()
     {
         Schema::create('Movimiento_Jaula', function (Blueprint $table) {
-            $table->string('Id_Movimiento')->primary('Id_Movimiento');
-            $table->string('Tatuaje_Derecho',5);
-            $table->string('Tatuaje_Izquierdo',5);
-            $table->char('Letra_Jaula_Anterior',1);
-            $table->smallInteger('Numero_Jaula_Anterior');
-            $table->char('Letra_Jaula_Nueva',1);
-            $table->smallInteger('Numero_Jaula_Nueva');
+            $table->string('Id_Movimiento');
+            $table->string('Id_Conejo');
+            $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
+            $table->char('Id_Jaula_Anterior',3);
+            $table->foreign('Id_Jaula_Anterior')->references('Id_Jaula')->on('Jaula');
+            $table->char('Id_Jaula_Nueva',3);
             $table->string('Curp_Usuario',18);
             $table->foreign('Curp_Usuario')->references('CURP')->on('Usuario');
             $table->timestamps();

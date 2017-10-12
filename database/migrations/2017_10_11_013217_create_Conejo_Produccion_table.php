@@ -14,9 +14,11 @@ class CreateConejoProduccionTable extends Migration
     public function up()
     {
         Schema::create('Conejo_Produccion', function (Blueprint $table) {
-          $table->string('Tatuaje_Derecho',5);
-          $table->string('Tatuaje_Izquierdo',5);
+          $table->string('Id_Conejo');
+          $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');  
           $table->string('Id_Destete');
+          $table->primary(['Id_Conejo','Id_Destete']);
+          $table->timestamps();
         });
     }
 

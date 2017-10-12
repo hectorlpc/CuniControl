@@ -14,9 +14,10 @@ class CreatePartoTable extends Migration
     public function up()
     {
         Schema::create('Parto', function (Blueprint $table) {
-            $table->string('Id_Parto')->primary('Id_Parto');
-            $table->integer('Id_Gestacion');
-            $table->date('Fecha_Parto');
+            $table->date('Fecha_Monta');
+            $table->string('Id_Conejo',10);
+            $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
+            $table->foreign('Fecha_Monta')->references('Fecha_Monta')->on('Monta');        
             $table->smallInteger('Numero_Vivos');
             $table->smallInteger('Numero_Muertos');
             $table->float('Peso_Nacer',2,2);

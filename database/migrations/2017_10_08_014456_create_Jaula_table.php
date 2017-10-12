@@ -16,6 +16,7 @@ class CreateJaulaTable extends Migration
         Schema::create('Jaula', function (Blueprint $table) {
             $table->char('Letra', 1);
             $table->smallInteger('numero');
+            $table->primary(['Letra','numero']);
             $table->timestamps();
         });
     }

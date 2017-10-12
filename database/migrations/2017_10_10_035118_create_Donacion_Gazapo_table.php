@@ -14,7 +14,7 @@ class CreateDonacionGazapoTable extends Migration
     public function up()
     {
         Schema::create('Donacion_Gazapo', function (Blueprint $table) {
-            $table->string('Id_Donacion');
+            $table->string('Id_Donacion')->primary('Id_Donacion');
             $table->integer('Id_Parto_Donante');
             $table->integer('Id_Parto_Donatorio');
             $table->smallInteger('Cantidad_Gazapos');

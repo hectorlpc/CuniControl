@@ -14,7 +14,7 @@ class CreateMovimientoJaulaTable extends Migration
     public function up()
     {
         Schema::create('Movimiento_Jaula', function (Blueprint $table) {
-            $table->string('Id_Movimineto')->primary('Id_Movimineto');
+            $table->string('Id_Movimiento')->primary('Id_Movimiento');
             $table->string('Tatuaje_Derecho',5);
             $table->string('Tatuaje_Izquierdo',5);
             $table->char('Letra_Jaula_Anterior',1);

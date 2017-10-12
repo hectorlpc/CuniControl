@@ -17,7 +17,7 @@ class CreateBajaConejoTable extends Migration
             $table->string('Id_Baja');
             $table->string('Id_Conejo');
             $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
-            $table->primay(['Id_Baja','Id_Conejo']);
+            $table->primary(['Id_Baja','Id_Conejo']);
             $table->timestamps();
         });
     }

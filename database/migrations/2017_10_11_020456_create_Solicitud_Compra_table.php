@@ -15,8 +15,8 @@ class CreateSolicitudCompraTable extends Migration
     {
         Schema::create('Solicitud_Compra', function (Blueprint $table) {
             $table->string('Id_Solicitud')->primary('Id_Solicitud');
-            $table->string('Id_Producto',6);
-            $table->foreign('Id_Producto')->refereces('Id_Producto')->on('Producto');
+            $table->string('Id_Producto');
+            $table->foreign('Id_Producto')->references('Id_Producto')->on('Producto');
             $table->smallInteger('Cantidad_Solicitada');
             $table->string('Encargado_Solicitud',18);
             $table->timestamps();

@@ -24,5 +24,6 @@ $factory->define(App\Usuario::class, function (Faker $faker) {
     	'Fecha_Nacimiento' => $faker->dateTime(),
       'Telefono' => $faker->tollFreePhoneNumber,
       'Celular' => $faker->tollFreePhoneNumber,
+      'Contrasena' => "contraseña",
     ];
 });

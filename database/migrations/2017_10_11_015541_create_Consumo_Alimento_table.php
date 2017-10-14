@@ -17,6 +17,8 @@ class CreateConsumoAlimentoTable extends Migration
             $table->string("Id_Censo")->primary('Id_Censo');
             $table->date('Fecha_Consumo');
             $table->SmallInteger('Catidad_Consumo');
+            $table->string('Id_Producto');
+            $table->foreign('Id_Producto')->references('Id_Producto')->on('Producto');
             $table->timestamps();
         });
     }

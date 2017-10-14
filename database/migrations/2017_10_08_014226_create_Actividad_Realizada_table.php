@@ -14,8 +14,12 @@ class CreateActividadRealizadaTable extends Migration
     public function up()
     {
         Schema::create('Actividad_Realizada', function (Blueprint $table) {
-            $table->integer('Id_Horas');
+            $table->string('Id_Horas');
+           // $table->foreign('Id_Horas')->references('Id_Horas')->on('Horas_Alumno');
             $table->string('Id_Actividad',6);
+           // $table->foreign('Id_Actividad')->references('Id_Actividad')->on('Actividad');
+            $table->string('Hora_Termino');
+            $table->string('Status');
             $table->timestamps();
         });
     }

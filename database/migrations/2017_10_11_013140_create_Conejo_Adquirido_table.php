@@ -17,6 +17,7 @@ class CreateConejoAdquiridoTable extends Migration
             $table->string('Id_Conejo',10);
             $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
             $table->string('Id_Adquisicion',6);
+            //$table->foreign('Id_Adquisicion')->references('Id_Adquisicion')->on('Tipo_Adquisicion');
             $table->date('Fecha_Adquisicion');
             $table->timestamps();
         });

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCensoTable extends Migration
+class CreateCensoJaulaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateCensoTable extends Migration
      */
     public function up()
     {
-        Schema::create('Censo', function (Blueprint $table) {
+        Schema::create('Censo_Jaula', function (Blueprint $table) {
             $table->string('Id_Censo')->primary('Id_Censo');
             $table->date('Fecha_Censo');
             $table->smallInteger('Total_Censo');
-            $table->char('Letra_Jaula',1);
-            $table->smallInteger('Numero_Jaula');
+            $table->string('Id_Jaula');
+            $table->foreign('Id_Jaula')->references('Id_Jaula')->on('Jaula');
             $table->timestamps();
 
         });
@@ -31,6 +31,6 @@ class CreateCensoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Censo');
+        Schema::dropIfExists('Censo_Jaula');
     }
 }

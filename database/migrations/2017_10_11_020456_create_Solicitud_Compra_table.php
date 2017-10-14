@@ -18,7 +18,9 @@ class CreateSolicitudCompraTable extends Migration
             $table->string('Id_Producto');
             $table->foreign('Id_Producto')->references('Id_Producto')->on('Producto');
             $table->smallInteger('Cantidad_Solicitada');
-            $table->string('Encargado_Solicitud',18);
+            $table->string('Encargado_Solicitud');
+            $table->string('CURP');
+            $table->foreign('CURP')->references('CURP')->on('Usuario');
             $table->timestamps();
         });
     }

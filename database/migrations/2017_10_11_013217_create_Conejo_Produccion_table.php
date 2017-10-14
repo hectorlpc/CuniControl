@@ -17,6 +17,7 @@ class CreateConejoProduccionTable extends Migration
           $table->string('Id_Conejo');
           $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');  
           $table->string('Id_Destete');
+          $table->foreign('Id_Destete')->references('Id_Destete')->on('Destete');
           $table->primary(['Id_Conejo','Id_Destete']);
           $table->timestamps();
         });

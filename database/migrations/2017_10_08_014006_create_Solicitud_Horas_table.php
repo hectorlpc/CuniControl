@@ -16,7 +16,13 @@ class CreateSolicitudHorasTable extends Migration
         Schema::create('Solicitud_Horas', function (Blueprint $table) {
             $table->string('Id_Solicitud')->primary('Id_Solicitud');
             $table->string('CURP_Alumno');
-            $table->string('Horas_Total');
+            $table->foreign('CURP_Alumno')->references('CURP_Alumno')->on('Alumno');
+            $table->date('Fecha_Solicitud');
+            $table->string('Horas_Totales');
+            $table->string('Id_Materia');
+            //$table->foreign('Id_Materia')->references('Id_Materia')->on('Materia');
+            $table->string('Id_Grupo');
+            //$table->foreign('Id_Grupo')->references('Id_Grupo')->on('Grupo');
             $table->timestamps();
         });
     }

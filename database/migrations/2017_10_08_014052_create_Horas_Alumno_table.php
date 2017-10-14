@@ -15,10 +15,11 @@ class CreateHorasAlumnoTable extends Migration
     {
         Schema::create('Horas_Alumno', function (Blueprint $table) {
             $table->string('Id_Horas');
+            $table->string('Id_Solicitud');
+            $table->foreign('Id_Solicitud')->references('Id_Solicitud')->on('Solicitud_Horas');
             $table->date('Fecha');
             $table->time('Hora_Entrada');
-            $table->time('HoraSalida');
-            $table->integer('Id_Solicitud');
+            $table->time('Hora_Salida');
             $table->timestamps();
         });
     }

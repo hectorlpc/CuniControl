@@ -15,8 +15,9 @@ class CreateDonacionGazapoTable extends Migration
     {
         Schema::create('Donacion_Gazapo', function (Blueprint $table) {
             $table->string('Id_Donacion')->primary('Id_Donacion');
-            $table->integer('Id_Parto_Donante');
-            $table->integer('Id_Parto_Donatorio');
+            $table->string('Id_Parto_Donante');
+            $table->foreign('Id_Parto_Donante')->references('Id_Parto')->on('Parto');
+            $table->string('Id_Parto_Donatorio');
             $table->smallInteger('Cantidad_Gazapos');
             $table->timestamps();
         });

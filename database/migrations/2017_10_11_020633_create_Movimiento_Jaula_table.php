@@ -20,13 +20,14 @@ class CreateMovimientoJaulaTable extends Migration
             $table->char('Id_Jaula_Anterior',3);
             $table->foreign('Id_Jaula_Anterior')->references('Id_Jaula')->on('Jaula');
             $table->char('Id_Jaula_Nueva',3);
+            $table->foreign('Id_Jaula_Nueva')->references('Id_Jaula')->on('Jaula');
             $table->string('Curp_Usuario',18);
             $table->foreign('Curp_Usuario')->references('CURP')->on('Usuario');
             $table->timestamps();
         });
     }
 
-    /**
+    /**-
      * Reverse the migrations.
      *
      * @return void

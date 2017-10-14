@@ -16,7 +16,9 @@ class CreateBajaTable extends Migration
         Schema::create('Baja', function (Blueprint $table) {
             $table->string('Id_Baja');
             $table->string('Id_Area',6);
+            $table->foreign('Id_Area')->references('Id_Area')->on('Area_Destino');
             $table->string('Id_Razon',6);
+            $table->foreign('Id_Razon')->references('Id_Razon')->on('Razon_Baja');
             $table->date('Fecha_Baja');
         });
     }

@@ -48,13 +48,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'CURP' => 'required|string|max:255',
+            'Nombre_Usuario' => 'required|string|max:255',
+            'Apellido_Paterno' => 'required|string|max:255',
+            'Apellido_Materno' => 'required|string|max:255',
+            'Correo' => 'required|string|email|max:255|unique:users',
+            'Genero' => 'required|string|max:255',
+            'Fecha_Nacimiento' => 'required|date()|max:255',
+            'Telefono' => 'required|string|max:255',
+            'Celular' => 'required|string|max:255',
+            'Contrasena' => 'required|string|min:6|confirmed',
         ]);
     }
 
-    /**
+/**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
@@ -63,9 +70,15 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'Curp' => $data['name'],
-            'email' => $data['email'],
+            'CURP' => $data['CURP'],
+            'Nombre_Usuario' => $data['Nombre_Usuario'],
+            'Apellido_Paterno' => $data['Apellido_Paterno'],
+            'Apellido_Materno' => $data['Apellido_Materno'],
+            'Correo' => $data['Correo'],
+            'Genero' => $data['Genero'],
+            'Fecha_Nacimiento' => $data['Fecha_Nacimiento'],
+            'Telefono' => $data['Telefono'],
+            'Celular' => $data['Celular'],
             'password' => bcrypt($data['password']),
         ]);
     }

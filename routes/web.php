@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->guest('/login');
+    // return view('welcome');
 });
 
 Route::get('/cuentas', 'UsuarioController@index');

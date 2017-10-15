@@ -14,7 +14,7 @@ class CreateRazaTable extends Migration
     public function up()
     {
         Schema::create('Raza', function (Blueprint $table) {
-            $table->string('Id_Raza')->primary('Id_Raza');
+            $table->string('Id_Raza',5)->primary('Id_Raza');
             $table->string('Nombre_Raza',20);
             $table->string('Descripcion_Raza',75);
             $table->timestamps();

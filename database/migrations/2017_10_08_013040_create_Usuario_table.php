@@ -23,8 +23,8 @@ class CreateUsuarioTable extends Migration
             $table->date('Fecha_Nacimiento');
             $table->string('Telefono',15);
             $table->string('Celular',15);
-            $table->password('Contrasena',255);
-            //$table->string('Confirmar_Contrasena',255);
+            $table->string('password',255);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

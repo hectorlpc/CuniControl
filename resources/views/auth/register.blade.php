@@ -148,15 +148,15 @@
                         </div>
 
 
-                        <div class="form-group{{ $errors->has('Contrasena') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Contraseña</label>
 
                             <div class="col-md-6">
-                                <input id="Contrasena" type="password" class="form-control" name="Contrasena" required>
+                                <input id="password" type="password" class="form-control" name="password" required>
 
-                                @if ($errors->has('Contrasena'))
+                                @if ($errors->has('password'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('Contrasena') }}</strong>
+                                        <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -166,7 +166,7 @@
                             <label for="confirm-password" class="col-md-4 control-label">Confirmar Contraseña</label>
 
                             <div class="col-md-6">
-                                <input id="confirm-password" type="password" class="form-control" name="confirm-password" required>
+                                <input id="confirm-password" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
 

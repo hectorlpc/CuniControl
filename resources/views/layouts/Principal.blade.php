@@ -55,17 +55,17 @@
                   <ul>
                     <li> <a href="equipo_agr.php">Registrar baja de conejos por transferencia</a> </li>
 
-                    <li> <a href="facultad_agr.php">Solicitar horas practicas </a> </li>
-                    <li> <a href="facultad_elim.php">Registrar practica</a> </li>
-                    <li> <a href="facultad_mod.php">Inscripción a cursos </a> </li>
-                    <li> <a href="facultad_mod.php">Registra tatuado de conejos </a> </li>
-                    <li> <a href="facultad_mod.php">Supervisión de la monta</a> </li>
-                    <li> <a href="facultad_mod.php">Realiza diagnostico de gestación</a> </li>
-                    <li> <a href="facultad_mod.php">Supervisión de la gestación</a> </li>
-                    <li> <a href="facultad_mod.php">Supervisión del parto</a> </li>
-                    <li> <a href="facultad_mod.php">Registro de destete de gazapos</a> </li>
-                    <li> <a href="facultad_mod.php">Registro de donación de conejos</a> </li>
-                    <li> <a href="facultad_mod.php">Registro de conejo enfermo</a> </li>
+                    <li> <a href="">Solicitar horas practicas </a> </li>
+                    <li> <a href="">Registrar practica</a> </li>
+                    <li> <a href="">Inscripción a cursos </a> </li>
+                    <li> <a href="">Registra tatuado de conejos </a> </li>
+                    <li> <a href="">Supervisión de la monta</a> </li>
+                    <li> <a href="">Realiza diagnostico de gestación</a> </li>
+                    <li> <a href="">Supervisión de la gestación</a> </li>
+                    <li> <a href="">Supervisión del parto</a> </li>
+                    <li> <a href="">Registro de destete de gazapos</a> </li>
+                    <li> <a href="">Registro de donación de conejos</a> </li>
+                    <li> <a href="">Registro de conejo enfermo</a> </li>
                   </ul>
                 </li>
                     <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Administrador<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
@@ -75,20 +75,20 @@
                     </li>
                     <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Encargado Modulo<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                         <ul>
-                          <li> <a href="solicitud_agr.php">Validar practica</a> </li>
-                          <li> <a href="investigador_elim.php">Abrir cursos</a> </li>
-                          <li> <a href="investigador_mod.php">Calendarizar Actividades</a> </li>
-                          <li> <a href="investigador_mod.php">Realizar solicitud de transferencia al taller de carnes</a> </li>
-                          <li> <a href="investigador_mod.php">Realizar solicitud de incineracion</a> </li>
+                          <li> <a href="">Validar practica</a> </li>
+                          <li> <a href="">Abrir cursos</a> </li>
+                          <li> <a href="">Calendarizar Actividades</a> </li>
+                          <li> <a href="">Realizar solicitud de transferencia al taller de carnes</a> </li>
+                          <li> <a href="">Realizar solicitud de incineracion</a> </li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Profesor Encargado<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                         <ul>
-                          <li> <a href="solicitud_agr.php">Programa montas</a> </li>
-                          <li> <a href="solicitud_agr.php">Censo de engorda</a> </li>
-                          <li> <a href="solicitud_agr.php">Censo de muerte</a> </li>
-                          <li> <a href="investigador_agr.php">Autorizar horas practicas</a> </li>
-                          <li> <a href="equipo_agr.php">Gestionar roles</a> </li>
+                          <li> <a href="">Programa montas</a> </li>
+                          <li> <a href="">Censo de engorda</a> </li>
+                          <li> <a href="">Censo de muerte</a> </li>
+                          <li> <a href="">Autorizar horas practicas</a> </li>
+                          <li> <a href="">Gestionar roles</a> </li>
                         </ul>
                     </li>
 

@@ -5,7 +5,7 @@ $('document').ready(function()
    $('.botonMenu').click(function () {
      if (menu=="cerrado"){
        $('.menuNavegacion').animate({left: '0%'});
-       
+
        menu="abierto";
      }
         else {

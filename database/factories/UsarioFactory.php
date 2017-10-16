@@ -16,14 +16,14 @@ use Faker\Generator as Faker;
 $factory->define(App\Usuario::class, function (Faker $faker) {
     return [
    		'CURP' => $faker->numerify('###############'),
-      'Nombre_Usuario' => $faker->firstName,
-      'Apellido_Paterno' => $faker->lastName,
-      'Apellido_Materno' => $faker->lastName,
-      'Correo' => $faker->email,
-      'Genero' => $faker->randomElement(['F', 'M']),
+     	'Nombre_Usuario' => $faker->firstName,
+      	'Apellido_Paterno' => $faker->lastName,
+      	'Apellido_Materno' => $faker->lastName,
+      	'Correo' => $faker->email,
+      	'Genero' => $faker->randomElement(['F', 'M']),
     	'Fecha_Nacimiento' => $faker->dateTime(),
-      'Telefono' => $faker->tollFreePhoneNumber,
-      'Celular' => $faker->tollFreePhoneNumber,
-      'Contrasena' => "contraseña",
+   		'Telefono' => $faker->tollFreePhoneNumber,
+     	'Celular' => $faker->tollFreePhoneNumber,
+     	'password' => "contraseña",
     ];
 });

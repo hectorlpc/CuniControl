@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ URL::to('/') }}/css/register.css">
-    <title>CuniControl | Registro</title>
+    <title>CuniControl | PRrincipal</title>
 </head>
 
 <body>  
@@ -92,7 +92,8 @@
                 </div>
 
                 <input type="submit" id="btn-submit" value="Registrarme">
-                
+                <a href="{{url('/login')}}">Regresar a inicio</a>
+
             </form>
         </div>
     </div>

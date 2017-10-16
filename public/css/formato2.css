@@ -1,0 +1,237 @@
+@font-face
+{
+    font-family: "ios";
+    src: url("ios.ttf");
+}
+html, body
+{
+  margin: 0;
+  /*background: #f5f5f5;*/
+  font-family: ios;
+
+}
+.menuHorizontal
+{
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  top: 0%;
+  left: 0%;
+  background: #121516;
+  box-shadow: 0px 1px 7px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+.botonMenu
+{
+  width: 40px;
+  height: 45px;
+  margin-top: 5px;
+  margin-left: 10px;
+  background: url("../imagenes/icono_menu.png") no-repeat center center;
+  background-size: 30px 30px;
+  display: inline-block;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.menuHorizontal figure
+{
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+  float: right;
+  margin: 5px 15px 5px 0px;
+
+}
+.menuHorizontal figure img
+{
+  width: 110%;
+  height: 100%;
+}
+.menuNavegacion
+{
+  position: fixed;
+  width: 22%;
+  height: calc(100% - 50px);
+  top: 50px;
+  left: -22%;
+  overflow-y: scroll;
+  background-image:url(images/fondo-negro-2218.jpg);
+  box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.2);
+}
+.opcionesDeNavegacion
+{
+  width: 100%;
+  height: 60px;
+  display: table;
+  box-sizing: border-box;
+  color: #4fe527;
+  cursor: pointer;
+}
+.opcionesDeNavegacion span
+{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: left;
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+.opcionesDeNavegacion:hover
+{
+  background: #f9f7f1;
+}
+.contenedorPrincipal
+{
+  width: 100%;
+  height: 100px;
+  min-height: 800px;
+  background-image:url("../imagenes/fondo.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  margin-top: auto;
+  margin-left: 0%;
+  padding-top: 25%;
+  text-align: center;
+
+}
+.contenedorPrincipal h2
+{
+  text-align: center;
+  color: #ed2553;
+}
+.contenedorPrincipal form
+{
+  width: 40%;
+  margin: 0 auto;
+  text-align: center;
+}
+.contenedorPrincipal form input
+{
+  width: 100%;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid #a2a2a2;
+  background: none;
+  font-family: ios;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.contenedorPrincipal form textarea
+{
+  width: 100%;
+  margin-bottom: 20px;
+  border: none;
+  background: #fff;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.contenedorPrincipal form select
+{
+  width: 100%;
+  height: 40px;
+  border: none;
+  -moz-appearance: none;
+  background: url("../imagenes/flechaSelect.png") no-repeat right center;
+  background-color: # #fff;
+  background-size: 20px 20px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  outline: none;
+
+  color: #a2a2a2;
+  color: rgba(0,0,0,0);
+  text-shadow: 0 0 0 #a1a1a1;
+}
+.contenedorPrincipal form select option
+{
+  width: 100%;
+  height: 40px;
+}
+.contenedorPrincipal form input[type="reset"]
+{
+  border: none;
+  background: none;
+  color: #414237;
+  cursor: pointer;
+}
+.contenedorPrincipal form input[type="submit"]
+{
+  border: none;
+  /*background: #66BB6A;
+  color: #fff;*/
+  background: #414237;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.contenedorDeDatos
+{
+  width: 20%;
+  height: 120px;
+  display: inline-block;
+  background: #fff;
+  margin-top: 50px;
+  margin-left: 1%;
+  margin-left: 1%;
+  text-align: right;
+  padding: 10px 20px 10px 20px;
+  font-size: 25px;
+  color: #fff;
+  box-sizing: border-box;
+  vertical-align: top;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+}
+#contenedorDeDatos1
+{
+  background: #03A9F4;
+}
+#contenedorDeDatos2
+{
+  background: #00C853;
+}
+#contenedorDeDatos3
+{
+  background: #627d8d;
+}
+#contenedorDeDatos4
+{
+  background: #f16865;
+}
+.contenedorPrincipal table
+{
+  width: calc(80% + 30px);
+  margin: 0 auto;
+  background: #fff;
+  border-collapse: collapse;
+  border-radius: 3px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+
+}
+.contenedorPrincipal table tr
+{
+  height: 50px;
+}
+table tr:nth-of-type(2n+1)
+{
+  background: #e5e5e5;
+}
+
+table thead tr.cabeceraDeTabla
+{
+  background: #00BCD4;
+  color: #fff;
+  height: 70px;
+}
+.pieDePagina
+{
+  width: 100%;
+  height: 100px;
+  margin-left: 0%;
+  border-top: 1px solid #060606;
+  box-sizing: border-box;
+}
+.pieDePagina p
+{
+  text-align: center;
+  color: #060606;/*a2a2a2*/
+  font-size: 14px;
+}

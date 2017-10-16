@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body{
+  background: #2E4053;
+  font-family: 'Roboto', sans-serif;
+  line-height: 18px;
+}
+
+a{
+  text-decoration: none;
+  color: #fff;
+}
+.btn-menu{
+  background: #0d2c44;
+  color: #fff;
+  display: none;
+  padding: 30px;
+}
+.btn-menu .icono{
+  float: right;
+}
+.contenedor-menu{
+  width: 20%;
+  height: 500px;
+  min-width: 300px;
+  /*margin: 50px;*/
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  line-height: 18px;
+}
+.contenedor-menu .menu{
+  width: 100%;
+}
+.contenedor-menu ul{
+  list-style: none;
+}
+.contenedor-menu .menu li a{
+  color: #494949;
+  display: block;
+  padding: 15px 20px;
+  background: #e9e9e9;
+}
+.contenedor-menu .menu li a:hover{
+  background: #2fadb7; /*COLOR CUNICONTROL*/
+  color: #fff;
+}
+.contenedor-menu .menu .icono{
+  font-size: 12px;
+  line-height: 18px;
+}
+.contenedor-menu .menu .icono.izquierda{
+  float: left;
+  margin-right: 10px;
+}
+.contenedor-menu .menu .icono.derecha{
+  float: right;
+  margin-left: : 10px;
+}
+/*submenu*/
+.contenedor-menu .menu ul{
+  display: none;
+
+}
+.contenedor-menu .menu ul li a{
+  background: #424242;
+  color: #e9e9e9;
+}
+.contenedor-menu .menu .activado > a{
+  background: #1a95d5;
+  color: #fff;
+}
+@media screen and (max-width: 450px){
+  body{
+    padding-top: 80px;
+  }
+  .contenedor-menu {
+    margin:0;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+  .btn-menu {
+    display: block;
+    width: 100%;
+    margin-left: 90px;
+  }
+  .menu{
+    margin-left: 90px;
+    height: 100px;
+  }
+  ul .scroll{
+    height: 250px;
+    overflow-y: scroll;
+  }
+  .contenedor-menu .menu{
+    display:none;
+  }
+  .menuHorizontal{
+    display: none;
+  }
+  .contenedor-menu{
+    width: 100%;
+  }
+
+}

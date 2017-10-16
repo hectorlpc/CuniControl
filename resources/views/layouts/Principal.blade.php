@@ -60,7 +60,7 @@
                     <li> <a href="">Inscripción a cursos </a> </li>
                     <li> <a href="">Registra tatuado de conejos </a> </li>
                     <li> <a href="">Supervisión de la monta</a> </li>
-                    <li> <a href="">Realiza diagnostico de gestación</a> </li>
+                    <li> <a href="{{url('/login')}}">Realiza diagnostico de gestación</a> </li>
                     <li> <a href="">Supervisión de la gestación</a> </li>
                     <li> <a href="">Supervisión del parto</a> </li>
                     <li> <a href="">Registro de destete de gazapos</a> </li>

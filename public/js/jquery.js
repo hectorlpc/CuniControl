@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $('.menu li:has(ul)').click(function(e){
-    e.preventDefault();
+    //e.preventDefault();
 
     if ($(this).hasClass('activado')){
       $(this).removeClass('activado');
@@ -16,7 +16,7 @@ $(document).ready(function(){
     $('.contenedor-menu .menu').slideToggle();
   });
   $(window).resize(function(){
-   
+
     if ($(document).width() > 450){
       $('.contenedor-menu .menu').css({'display' : 'block'});
     }

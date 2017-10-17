@@ -5,7 +5,6 @@
           <div class="form-group">
             <label for="">Fecha de Monta</label>
             <input type="date" class="form-control" id="" placeholder="Introduce la monta">
-
           </div>
           <div class="form-group">
             <label for="">Tatuaje Macho</label>
@@ -19,8 +18,7 @@
               <option value="">Seleccione</option>
             </select>
           </div>
-
-          <button type="submit" class="btn btn-primary">Enviar Registro</button>
+          <button type="submit" class="btn btn-primary">Actualizar</button>
         </form>
 </div>
 @endsection

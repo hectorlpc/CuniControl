@@ -1,18 +1,17 @@
 @extends('layouts.Principal')
 @section('content')
 <div class="container">
-          <form>
-          <div class="form-group">
-            <label for="">Fecha de diagnostico</label>
-            <input type="date" class="form-control" id="" placeholder="Introduce la monta">
-
-          </div>
+    <form>
           <div class="form-group">
             <label for="">Numero Coneja</label>
             <select class="" name="TatuajeH">
               <option value="">Seleccione</option>
             </select>
           </div>
+            <div class="form-group">
+              <label for="">Fecha de diagnostico</label>
+              <input type="date" class="form-control" id="" placeholder="Introduce la monta">
+            </div>
           <div class="form-group">
             <label for="">Resulatdo Diagnostico</label>
             <select class="" name="TatuajeM">

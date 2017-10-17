@@ -22,4 +22,5 @@ Route::post('/cuentas/{curp}/roles', 'UsuarioController@store_rol');
 Route::delete('/cuentas/{curp}/roles/{idrol}', 'UsuarioController@destroy_rol');
 Auth::routes();
 Route::get('/Gestacion', 'GestacionController@index')->name('Gestacion');
+Route::get('/Monta', 'MontaController@index')->name('Monta');
 Route::get('/home', 'HomeController@index')->name('home');

@@ -16,7 +16,7 @@ class ConejoTableSeeder extends Seeder
     	$raza = Raza::first();
 
     	Conejo::create(['Id_Conejo' => '123456', 'Tatuaje_Derecho' => '123', 'Tatuaje_Izquierdo' => '456', 'Id_Raza' => $raza->Id_Raza, 'Genero' =>'Macho', 'Peso_Conejo' => '100', 'Status_Conejo' => false ]);
-    	Conejo::create(['Id_Conejo' => '666999', 'Tatuaje_Derecho' => '666', 'Tatuaje_Izquierdo' => '999', 'Id_Raza' => $raza->Id_Raza, 'Genero' =>'Macho', 'Peso_Conejo' => '100', 'Status_Conejo' => false ]);    	
-    	Conejo::create(['Id_Conejo' => '565232', 'Tatuaje_Derecho' => '565', 'Tatuaje_Izquierdo' => '232', 'Id_Raza' => $raza->Id_Raza, 'Genero' =>'Macho', 'Peso_Conejo' => '100', 'Status_Conejo' => false ]);    	     
+    	Conejo::create(['Id_Conejo' => '666999', 'Tatuaje_Derecho' => '666', 'Tatuaje_Izquierdo' => '999', 'Id_Raza' => $raza->Id_Raza, 'Genero' =>'Hembra', 'Peso_Conejo' => '100', 'Status_Conejo' => false ]);    	
+    	Conejo::create(['Id_Conejo' => '565232', 'Tatuaje_Derecho' => '565', 'Tatuaje_Izquierdo' => '232', 'Id_Raza' => $raza->Id_Raza, 'Genero' =>'Hembra', 'Peso_Conejo' => '100', 'Status_Conejo' => false ]);    	     
     }
 }

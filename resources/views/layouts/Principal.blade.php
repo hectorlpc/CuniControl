@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Prueba HTML5</title>
+    <title>CuniControl | Principal</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -59,7 +59,7 @@
                     <li> <a href="">Registrar practica</a> </li>
                     <li> <a href="">Inscripción a cursos </a> </li>
                     <li> <a href="">Registra tatuado de conejos </a> </li>
-                    <li> <a href="{{url('/Monta')}}">Supervisión de la monta</a> </li>
+                    <li> <a href="{{url('/montas/create')}}">Supervisión de la monta</a> </li>
                     <li> <a href="{{url('/Gestacion')}}">Realiza diagnostico de gestación</a> </li>
                     <li> <a href="">Supervisión de la gestación</a> </li>
                     <li> <a href="">Supervisión del parto</a> </li>

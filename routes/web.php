@@ -21,5 +21,5 @@ Route::get('/cuentas/{curp}', 'UsuarioController@show');
 Route::post('/cuentas/{curp}/roles', 'UsuarioController@store_rol');
 Route::delete('/cuentas/{curp}/roles/{idrol}', 'UsuarioController@destroy_rol');
 Auth::routes();
-Route::get('/Gestacion', 'GestacionController@index')->name('Gestacion');
+Route::get('/gestacion', 'GestacionController@index')->name('gestacion');
 Route::get('/home', 'HomeController@index')->name('home');

@@ -28,4 +28,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/montas/create','MontaController@create');
 
 // Ruta de gestacion
-Route::get('/gestacion', 'GestacionController@index')->name('gestacion');
+Route::get('/gestacion/create', 'GestacionController@create')->name('gestacion');
+Route::get('/gestacion/update', 'GestacionController@edit');

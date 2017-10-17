@@ -16,4 +16,9 @@ class GestacionController extends Controller
     {
     	return view('Gestacion/edit');
     }
+
+    public function delete()
+    {
+    	return view('Gestacion/delete');
+    }
 }

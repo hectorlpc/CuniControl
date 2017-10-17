@@ -29,4 +29,5 @@ Route::get('/montas/create','MontaController@create');
 
 // Ruta de gestacion
 Route::get('/gestacion/create', 'GestacionController@create')->name('gestacion');
-Route::get('/gestacion/update', 'GestacionController@edit');
+Route::get('/gestacion/edit', 'GestacionController@edit');
+Route::get('/gestacion/delete', 'GestacionController@delete');

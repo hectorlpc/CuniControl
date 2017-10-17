@@ -59,7 +59,7 @@
                     <li> <a href="">Registrar practica</a> </li>
                     <li> <a href="">Inscripción a cursos </a> </li>
                     <li> <a href="">Registra tatuado de conejos </a> </li>
-                    <li> <a href="">Supervisión de la monta</a> </li>
+                    <li> <a href="{{url('/Monta')}}">Supervisión de la monta</a> </li>
                     <li> <a href="{{url('/Gestacion')}}">Realiza diagnostico de gestación</a> </li>
                     <li> <a href="">Supervisión de la gestación</a> </li>
                     <li> <a href="">Supervisión del parto</a> </li>

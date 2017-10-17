@@ -11,13 +11,13 @@ class PartoController extends Controller
     	return view('Parto/create');
     }
 
-        public function edit()
+        public function edit($id_parto)
     {
     	return view('Parto/edit');
     }
 
-        public function delete()
+        public function delete($id_parto)
     {
-    	return view('Parto/delete');
+    	return redirect()->back();
     }
 }

@@ -11,13 +11,13 @@ class DesteteController extends Controller
     	return view('Destete.create');
     }
 
-        public function edit()
+        public function edit($id_destete)
     {
     	return view('Destete.edit');
     }
 
-        public function delete()
+        public function delete($id_destete)
     {
-    	return view('Destete.delete');
+    	return redirect()->back();
     }
 }

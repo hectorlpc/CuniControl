@@ -13,13 +13,13 @@ class MontaController extends Controller
         return view('Monta.create',["conejos"=>$conejos]);
     }
 
-    public function edit()
+    public function edit($id_monta)
     {
         return view('Monta.edit');
     }
 
-    public function delete()
+    public function delete($id_monta)
     {
-        return view('Monta.delete');
+        return redirect()->back();
     }
 }

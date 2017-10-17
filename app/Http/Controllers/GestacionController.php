@@ -6,19 +6,18 @@ use Illuminate\Http\Request;
 
 class GestacionController extends Controller
 {
-    //
     public function create()
     {
         return view('Gestacion/create');
     }
 
-    public function edit()
+    public function edit($id_gestacion)
     {
     	return view('Gestacion/edit');
     }
 
-    public function delete()
+    public function delete($id_gestacion)
     {
-    	return view('Gestacion/delete');
+    	return redirect()->back();
     }
 }

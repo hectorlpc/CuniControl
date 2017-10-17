@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use App\Conejo;
 class MontaController extends Controller
 {
     public function create()
     {
-        return view('Monta.create');
+        $conejos=Conejo::all();
+        return view('Monta.create',["conejos"=>$conejos]);
     }
 
     public function edit()

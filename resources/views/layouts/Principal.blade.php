@@ -35,7 +35,7 @@
       <div class="contenedor-menu">
           <a href="#" class="btn-menu">Menu<i class="icono fa fa-bars" aria-hidden="true"></i></a>
           <ul class="menu">
-              <li><a href="#"><i class="icono izquierda fa fa-home" aria-hidden="true"></i>Inicio</a></li>
+              <li><a href="{{url('/home')}}"><i class="icono izquierda fa fa-home" aria-hidden="true"></i>Inicio</a></li>
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Perfil<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li>
@@ -54,7 +54,6 @@
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Alumno<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="equipo_agr.php">Registrar baja de conejos por transferencia</a> </li>
-
                     <li> <a href="">Solicitar horas practicas </a> </li>
                     <li> <a href="">Registrar practica</a> </li>
                     <li> <a href="">Inscripción a cursos </a> </li>
@@ -101,7 +100,7 @@
 
     <footer class="pieDePagina">
       <p>Copyleft @ 2017 UNAM</p>
-      <p>Desarrollado por Jake Vega Perea</p>
+      <p>Desarrollado por BitBox Systems</p>
 
     </footer>
     <script src="js/jquery.min.js"></script>

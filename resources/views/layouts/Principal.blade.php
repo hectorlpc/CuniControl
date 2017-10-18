@@ -54,17 +54,17 @@
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Alumno<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="equipo_agr.php">Registrar baja de conejos por transferencia</a> </li>
-                    <li> <a href="">Solicitar horas practicas </a> </li>
+                    <li> <a href="{{url('/horas/create')}}">Solicitar horas practicas </a> </li>
                     <li> <a href="">Registrar practica</a> </li>
                     <li> <a href="">Inscripción a cursos </a> </li>
                     <li> <a href="">Registra tatuado de conejos </a> </li>
-                    <li> <a href="{{url('/montas/create')}}">Supervisión de la monta</a> </li>
+                    <li> <a href="{{url('/monta/create')}}">Supervisión de la monta</a> </li>
                     <li> <a href="{{url('/gestacion/create')}}">Realiza diagnostico de gestación</a> </li>
                     <li> <a href="">Supervisión de la gestación</a> </li>
                     <li> <a href="">Supervisión del parto</a> </li>
-                    <li> <a href="">Registro de destete de gazapos</a> </li>
+                    <li> <a href="{{url('/destete/create')}}">Registro de destete de gazapos</a> </li>
                     <li> <a href="">Registro de donación de conejos</a> </li>
-                    <li> <a href="">Registro de conejo enfermo</a> </li>
+                    <li> <a href="{{url('enfermo/create')}}">Registro de conejo enfermo</a> </li>
                   </ul>
                 </li>
                     <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Administrador<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>

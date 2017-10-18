@@ -19,7 +19,9 @@
           <div class="form-group">
             <label for="">Tatuaje Hembra</label>
             <select class="" name="TatuajeH">
-              <option value="">Seleccione</option>
+              @foreach($conejos as $conejo)
+              <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
+              @endforeach
             </select>
           </div>
 

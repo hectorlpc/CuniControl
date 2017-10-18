@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Conejo;
 
 class GestacionController extends Controller
 {
     public function create()
     {
-        return view('Gestacion/create');
+        $conejos=Conejo::all();
+        return view('Gestacion/create',['conejos'=>$conejos]);
     }
 
     public function edit($id_gestacion)

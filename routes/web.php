@@ -18,21 +18,21 @@ Route::get('/', function () {
 
 Route::get('/cuentas', 'UsuarioController@index');
 Route::get('/cuentas/{curp}', 'UsuarioController@show');
-Route::post('/cuentas/{curp}/roles', 'UsuarioController@store_rol');
-Route::delete('/cuentas/{curp}/roles/{idrol}', 'UsuarioController@destroy_rol');
+Route::post('/cuentas/{curp}/rol', 'UsuarioController@store_rol');
+Route::delete('/cuentas/{curp}/rol/{idrol}', 'UsuarioController@destroy_rol');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Rutas de montas
-Route::get('/montas/create','MontaController@create');
-Route::get('/montas/{id_monta}', 'MontaController@edit');
-Route::get('/montas/{id_monta}', 'MontaController@delete');
+Route::get('/monta/create','MontaController@create');
+Route::get('/monta/{id_monta}', 'MontaController@edit');
+Route::get('/monta/{id_monta}', 'MontaController@delete');
 
 // Rutas de gestaciones
 Route::get('/gestacion/create', 'GestacionController@create');
 Route::get('/gestacion/{id_gestacion}', 'GestacionController@edit');
-Route::get('/gestacion/{id_gestacion}', 'GestacionController@delete');
+Route::delete('/gestacion/{id_gestacion}', 'GestacionController@delete');
 
 // Rutas de partos
 Route::get('/parto/create', 'PartoController@create');
@@ -42,4 +42,14 @@ Route::delete('/parto/{id_parto}', 'PartoController@delete');
 // Rutas de destetes
 Route::get('/destete/create', 'DesteteController@create');
 Route::get('/destete/{id_destete}', 'DesteteController@edit');
-Route::get('/destete/{id_destete}', 'DesteteController@delete');
+Route::delete('/destete/{id_destete}', 'DesteteController@delete');
+
+//Rutas de conejos enfermos
+Route::get('/enfermo/create', 'EnfermoController@create');
+Route::get('/enfermo/{id_destete}', 'EnfermoController@edit');
+Route::delete('/enfermo/{id_destete}', 'EnfermoController@delete');
+
+//Rutas de horas
+Route::get('/horas/create', 'HorasController@create');
+Route::get('/horas/{id_destete}', 'HorasController@edit');
+Route::delete('/horas/{id_destete}', 'HorasController@delete');

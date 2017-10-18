@@ -6,7 +6,9 @@
           <div class="form-group">
             <label for="">Numero Coneja</label>
             <select class="form-control" name="TatuajeH">
-              <option value="">Seleccione</option>
+              @foreach($conejos as $conejo)
+              <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
+              @endforeach
             </select>
           </div>
             <div class="form-group">

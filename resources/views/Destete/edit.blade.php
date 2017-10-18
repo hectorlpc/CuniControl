@@ -35,7 +35,7 @@
           <input class="form-control" name="peso_destete" type="text" >
 </div>
 <br>
-<button type="submit" class="btn btn-outline-primary">Actualizar</button>
+<button type="submit" class="btn btn-outline-primary" href="{{url('destete/edit')}}">Actualizar</button>
 <button type="submit" class="btn btn-outline-secondary">Regresar</button>
 
   </form>

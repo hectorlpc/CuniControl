@@ -1,15 +1,18 @@
 @extends('layouts.Principal')
 @section('content')
+<label for="destete">INICIO DESTETE</label>
+
 <div class="container">
               <form>
               <div class="form-group">
                 <label for="">Numero de destete</label>
                 <input type="date" class="form-control" id="" placeholder="Buscar">
+                <br>
                 <button type="submit" class="btn btn-primary">Buscar</button>
               </div>
             </form>
-            <table class="table table-striped table-inverse">
-      <thead>
+            <table class="table table-sm table-responsive">
+      <thead class="thead-default">
         <tr>
           <th>Numero de destete</th>
           <th>Numero de parto</th>
@@ -26,7 +29,10 @@
           <td>25/10/2017</td>
           <td>18</td>
           <td>2.4 Kg</td>
-          <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+          <td>
+            <div class="btn-group btn-group-sm" role="group" aria-label="">
+            <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><button type="button" class="btn btn-secondary btn-outline-info">Modificar</button></td>
+            </div>
         </tr>
 
       </tbody>

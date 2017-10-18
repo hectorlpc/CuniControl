@@ -1,5 +1,7 @@
 @extends('layouts.Principal')
 @section('content')
+<label for="destete">ACTUALIZACION DESTETE</label>
+
 <div class="container">
   <form action="/my-handling-form-page" method="post">
       <div>
@@ -32,9 +34,9 @@
           <label for="peso">Peso promedio de los destetados:</label>
           <input class="form-control" name="peso_destete" type="text" >
 </div>
-
-      <button type="submit" class="btn btn-primary">Actualizar</button>
-      <button type="submit" class="btn btn-primary">Regresar</button>
+<br>
+<button type="submit" class="btn btn-outline-primary">Actualizar</button>
+<button type="submit" class="btn btn-outline-secondary">Regresar</button>
 
   </form>
 </div>

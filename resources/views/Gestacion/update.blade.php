@@ -1,6 +1,7 @@
 @extends('layouts.Principal')
 @section('content')
 <div class="container">
+          <h2>Actualizacion de Registro de Gestacion</h2>
           <form>
           <div class="form-group">
             <label for="">Fecha de diagnostico</label>
@@ -22,7 +23,7 @@
             <label for="">Fecha Tentativa de Parto</label>
             <input type="date" name="" value="">
           </div>
-          <button type="submit" class="btn btn-primary">Actualizar Registro</button>
+          <button type="submit" class="btn btn-outline-primary">Actualizar Registro</button>
         </form>
 </div>
 @endsection

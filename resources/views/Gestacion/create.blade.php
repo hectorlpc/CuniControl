@@ -2,9 +2,10 @@
 @section('content')
 <div class="container">
     <form>
+      <h2>Registro de Diagnostico de Gestacion</h2>
           <div class="form-group">
             <label for="">Numero Coneja</label>
-            <select class="" name="TatuajeH">
+            <select class="form-control" name="TatuajeH">
               <option value="">Seleccione</option>
             </select>
           </div>
@@ -14,16 +15,17 @@
             </div>
           <div class="form-group">
             <label for="">Resulatdo Diagnostico</label>
-            <select class="" name="TatuajeM">
+            <select class="form-control" name="TatuajeM">
               <option value="">Positivo</option>
               <option value="">Negativo</option>
             </select>
           </div>
           <div class="form-group">
             <label for="">Fecha Tentativa de Parto</label>
-            <input type="date" name="" value="">
+            <input class="form-control" type="date" name="" value="">
           </div>
-          <button type="submit" class="btn btn-primary">Enviar Registro</button>
+          <br>
+          <button type="submit" class="btn btn-outline-primary">Enviar Registro</button>
         </form>
 </div>
 @endsection

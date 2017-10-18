@@ -8,7 +8,7 @@
             <input type="date" class="form-control" id="" placeholder="Buscar">
             <br>
             <button type="submit" class="btn btn-outline-primary">Buscar</button>
-            <button type="submit" class="btn btn-outline-success">Buscar</button>
+            <button type="submit" class="btn btn-outline-success">Agregar</button>
           </div>
         </form>
         <table class="table table-sm table-responsive">

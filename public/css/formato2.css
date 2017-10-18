@@ -56,7 +56,7 @@ html, body
   left: -22%;
   overflow-y: scroll;
   background: white;
-  background-image:url(images/fondo-negro-2218.jpg);
+  background-image:url("images/fondo-negro-2218.jpg");
   box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -69,9 +69,8 @@ html, body
   background-position: 50% 50%;
   margin-top: auto;
   padding-top: 100px;
-  padding-left: 20%;
-  padding-right: 20%;
-
+  padding-left: 15%;
+  padding-right: 15%;
 
 }
 .pieDePagina
@@ -87,4 +86,12 @@ html, body
   text-align: center;
   color: #060606;/*a2a2a2*/
   font-size: 14px;
+}
+@media screen and (max-width: 450px){
+ .contenedorPrincipal
+{
+  padding-top:50px;
+  padding-left: 3%;
+  padding-right: 3%;
+}
 }

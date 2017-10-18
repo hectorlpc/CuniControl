@@ -24,8 +24,22 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Ruta de montas
+// Rutas de montas
 Route::get('/montas/create','MontaController@create');
+Route::get('/montas/{id_monta}', 'MontaController@edit');
+Route::get('/montas/{id_monta}', 'MontaController@delete');
 
-// Ruta de gestacion
-Route::get('/gestacion', 'GestacionController@index')->name('gestacion');
+// Rutas de gestaciones
+Route::get('/gestacion/create', 'GestacionController@create');
+Route::get('/gestacion/{id_gestacion}', 'GestacionController@edit');
+Route::get('/gestacion/{id_gestacion}', 'GestacionController@delete');
+
+// Rutas de partos
+Route::get('/parto/create', 'PartoController@create');
+Route::get('/parto/{id_parto}', 'PartoController@edit');
+Route::delete('/parto/{id_parto}', 'PartoController@delete');
+
+// Rutas de destetes
+Route::get('/destete/create', 'DesteteController@create');
+Route::get('/destete/{id_destete}', 'DesteteController@edit');
+Route::get('/destete/{id_destete}', 'DesteteController@delete');

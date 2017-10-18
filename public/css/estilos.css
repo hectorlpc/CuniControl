@@ -78,14 +78,15 @@ a{
 .container{
   width: 100%;
   padding: 50px;
-  background-color:rgba(28,28,28,0.5);
-
+  background-color:white;
+  border: 2px solid black;
+  border-radius: 10px;
 }
 .container form{
 
 }
 .form-group{
-  color: white;
+  /*color: white;*/
 }
 @media screen and (max-width: 450px){
   body{

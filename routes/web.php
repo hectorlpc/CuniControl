@@ -53,3 +53,12 @@ Route::delete('/enfermo/{id_destete}', 'EnfermoController@delete');
 Route::get('/horas/create', 'HorasController@create');
 Route::get('/horas/{id_destete}', 'HorasController@edit');
 Route::delete('/horas/{id_destete}', 'HorasController@delete');
+//Rutas de tatuajes
+Route::get('/tatuaje/create', 'TatuajeController@create');
+Route::get('/tatuaje/{id_conejo}', 'TatuajeController@edit');
+Route::delete('/tatuaje/{id_conejo}', 'TatuajeController@delete');
+
+//Rutas de donación
+Route::get('/donacion/create', 'DonacionController@create');
+Route::get('/donacion/{id_conejo}', 'DonacionController@edit');
+Route::delete('/donacion/{id_conejo}', 'DonacionController@delete');

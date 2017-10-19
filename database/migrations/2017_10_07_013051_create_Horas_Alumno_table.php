@@ -14,7 +14,7 @@ class CreateHorasAlumnoTable extends Migration
     public function up()
     {
         Schema::create('Horas_Alumno', function (Blueprint $table) {
-            $table->string('Id_Horas');
+            $table->string('Id_Horas')->primary('Id_Horas');
             $table->string('Id_Solicitud');
             $table->foreign('Id_Solicitud')->references('Id_Solicitud')->on('Solicitud_Horas');
             $table->date('Fecha');

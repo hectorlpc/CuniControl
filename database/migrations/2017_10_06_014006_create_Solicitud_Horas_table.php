@@ -20,9 +20,9 @@ class CreateSolicitudHorasTable extends Migration
             $table->date('Fecha_Solicitud');
             $table->string('Horas_Totales');
             $table->string('Id_Materia');
-            //$table->foreign('Id_Materia')->references('Id_Materia')->on('Materia');
+            $table->foreign('Id_Materia')->references('Id_Materia')->on('Materia');
             $table->string('Id_Grupo');
-            //$table->foreign('Id_Grupo')->references('Id_Grupo')->on('Grupo');
+            $table->foreign('Id_Grupo')->references('Id_Grupo')->on('Grupo');
             $table->timestamps();
         });
     }

@@ -4,29 +4,33 @@
 
       <div class="container">
         <h2>TATUADO DE CONEJOS:</h2>
-          <form>
+          <form method="POST" action="{{url('')}}">
           <div class="form-group">
             <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
-          <select class="form-control" name="Tatuajes">
-            <option>123436</option>
-            <option>9823</option>
-            <option>98373</option>
+          <select class="form-control" name="tatuaje_hembra">
+            @foreach($conejos as $conejo)
+              @if($conejo->Genero == 'Hembra')              
+                <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
+              @endif
+            @endforeach
             </select>
           </div>
           <div class="form-group">
           <label for="exampleInputPassword2">Numero de tatuaje del padre:</label>
-          <select class="form-control" name="Tatuajes">
-            <option>123436</option>
-            <option>9823</option>
-            <option>98373</option>
+          <select class="form-control" name="tatuaje_macho">
+            @foreach($conejos as $conejo)
+              @if($conejo->Genero == 'Macho')
+              <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
+              @endif
+            @endforeach
             </select>
           </div>
           <div class="form-group">
           <label for="exampleInputPassword2">Raza:</label>
-          <select class="form-control" name="Tatuajes">
-            <option>Chinchilla</option>
-            <option>California</option>
-            <option>FESC</option>
+          <select class="form-control" name="raza">
+            @foreach($razas as $raza)
+                <option value="{{$raza->Id_Raza}}">{{$raza->Id_Raza . ' ' . $raza->Nombre_Raza}}</option>
+            @endforeach            
             </select>
           </div>
           <div class="form-group">

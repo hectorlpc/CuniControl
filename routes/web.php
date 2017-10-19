@@ -55,6 +55,7 @@ Route::get('/horas/{id_destete}', 'HorasController@edit');
 Route::delete('/horas/{id_destete}', 'HorasController@delete');
 //Rutas de tatuajes
 Route::get('/tatuaje/create', 'TatuajeController@create');
+Route::post('/tatuaje', 'TatuajeController@store');
 Route::get('/tatuaje/{id_conejo}', 'TatuajeController@edit');
 Route::delete('/tatuaje/{id_conejo}', 'TatuajeController@delete');
 

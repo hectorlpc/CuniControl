@@ -13,12 +13,12 @@ class EnfermoController extends Controller
         return view('Enfermo/create',["conejos"=>$conejos]);
     }
 
-        public function edit($id_conejo);
+        public function edit($id_conejo)
     {
     	return view('Enfermo/edit');
     }
 
-        public function delete($id_conejo);
+        public function delete($id_conejo)
     {
     	return redirect()->back();
     }

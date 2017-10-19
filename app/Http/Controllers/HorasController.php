@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HorasContoller extends Controller
+class HorasController extends Controller
 {
     public function create()
     {

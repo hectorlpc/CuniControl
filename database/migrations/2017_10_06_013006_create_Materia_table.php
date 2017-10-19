@@ -15,7 +15,7 @@ class CreateMateriaTable extends Migration
     {
         Schema::create('Materia', function (Blueprint $table) {
             $table->string('Id_Materia')->primary('Id_Materia');
-            $table->string('Nombre_Carrera',30);
+            $table->string('Nombre_Materia',30);
             $table->string('Id_Carrera');
             $table->foreign('Id_Carrera')->references('Id_Carrera')->on('Carrera');
             $table->timestamps();

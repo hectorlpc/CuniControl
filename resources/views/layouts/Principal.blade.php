@@ -57,13 +57,13 @@
                     <li> <a href="{{url('/horas/create')}}">Solicitar horas practicas </a> </li>
                     <li> <a href="">Registrar practica</a> </li>
                     <li> <a href="">Inscripción a cursos </a> </li>
-                    <li> <a href="">Registra tatuado de conejos </a> </li>
+                    <li> <a href="{{url('/tatuaje/create')}}">Registra tatuado de conejos </a> </li>
                     <li> <a href="{{url('/monta/create')}}">Supervisión de la monta</a> </li>
                     <li> <a href="{{url('/gestacion/create')}}">Realiza diagnostico de gestación</a> </li>
                     <li> <a href="">Supervisión de la gestación</a> </li>
                     <li> <a href="">Supervisión del parto</a> </li>
                     <li> <a href="{{url('/destete/create')}}">Registro de destete de gazapos</a> </li>
-                    <li> <a href="">Registro de donación de conejos</a> </li>
+                    <li> <a href="{{url('/donacion/create')}}"">Registro de donación de conejos</a> </li>
                     <li> <a href="{{url('enfermo/create')}}">Registro de conejo enfermo</a> </li>
                   </ul>
                 </li>

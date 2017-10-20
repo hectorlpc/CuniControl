@@ -103,9 +103,9 @@
       <p>Desarrollado por BitBox Systems</p>
 
     </footer>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/jquery.js"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
   </body>
 </html>

@@ -63,3 +63,8 @@ Route::delete('/tatuaje/{id_conejo}', 'TatuajeController@delete');
 Route::get('/donacion/create', 'DonacionController@create');
 Route::get('/donacion/{id_conejo}', 'DonacionController@edit');
 Route::delete('/donacion/{id_conejo}', 'DonacionController@delete');
+
+//Rutas de donación
+Route::get('/parto/create', 'PartoController@create');
+Route::get('/parto/{id_parto}', 'PartoController@edit');
+Route::delete('/parto/{id_parto}', 'PartoController@delete');

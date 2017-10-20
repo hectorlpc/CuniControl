@@ -63,7 +63,7 @@
                     <li> <a href="">Supervisión de la gestación</a> </li>
                     <li> <a href="{{url('/parto/create')}}">Supervisión del parto</a> </li>
                     <li> <a href="{{url('/destete/create')}}">Registro de destete de gazapos</a> </li>
-                    <li> <a href="{{url('/donacion/create')}}"">Registro de donación de conejos</a> </li>
+                    <li> <a href="{{url('/donacion/create')}}">Registro de donación de conejos</a> </li>
                     <li> <a href="{{url('enfermo/create')}}">Registro de conejo enfermo</a> </li>
                   </ul>
                 </li>

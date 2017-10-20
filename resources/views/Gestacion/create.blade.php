@@ -11,6 +11,14 @@
               @endforeach
             </select>
           </div>
+          <div class="form-group">
+            <label for="">Fecha de Monta: </label>
+            <label for="">2017/10/19</label>
+          </div>
+          <div class="form-group">
+            <label for="">Tatuaje de Conejo: </label>
+            <label for="">23410</label>
+          </div>
             <div class="form-group">
               <label for="">Fecha de diagnostico</label>
               <input type="date" class="form-control" id="" placeholder="Introduce la monta">

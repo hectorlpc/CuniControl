@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
           <form>
-            <h2>Registro Montas</h2>
+            <h2>Modificar Registro Montas</h2>
           <div class="form-group">
             <label for="">Fecha de Monta</label>
             <input type="date" class="form-control" id="" placeholder="Introduce la monta">

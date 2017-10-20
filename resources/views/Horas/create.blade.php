@@ -1,11 +1,11 @@
 @extends('layouts.Principal')
 @section('content')
 <div class="container">
-  <h2>Registro de Horas- Actividades</h2>
+  <h2>Registro de Horas - Actividades</h2>
 </br>
     <form>
     <div class="form-group">
-      <label for="exampleInputEmail1">Fecha:</label>
+      <label for="exampleInputEmail1">Fecha en que realizó actividades:</label>
 
       <input class="form-control" type="date" name="fecha" min="2000-01-01" max="2050-01-01" step="2">
     </div>

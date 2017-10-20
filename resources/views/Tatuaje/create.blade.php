@@ -4,10 +4,11 @@
 
       <div class="container">
         <h2>TATUADO DE CONEJOS:</h2>
-          <form method="POST" action="{{url('')}}">
+          <form method="POST" action="{{url('/tatuaje')}}">
+            {{csrf_field()}}
           <div class="form-group">
             <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
-          <select class="form-control" name="tatuaje_hembra">
+          <select class="form-control" name="Tatuaje_Hembra">
             @foreach($conejos as $conejo)
               @if($conejo->Genero == 'Hembra')              
                 <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
@@ -17,7 +18,7 @@
           </div>
           <div class="form-group">
           <label for="exampleInputPassword2">Numero de tatuaje del padre:</label>
-          <select class="form-control" name="tatuaje_macho">
+          <select class="form-control" name="Tatuaje_Macho">
             @foreach($conejos as $conejo)
               @if($conejo->Genero == 'Macho')
               <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
@@ -27,7 +28,7 @@
           </div>
           <div class="form-group">
           <label for="exampleInputPassword2">Raza:</label>
-          <select class="form-control" name="raza">
+          <select class="form-control" name="Raza">
             @foreach($razas as $raza)
                 <option value="{{$raza->Id_Raza}}">{{$raza->Id_Raza . ' ' . $raza->Nombre_Raza}}</option>
             @endforeach            
@@ -35,8 +36,8 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword2">Genero:</label>
-            <input type="radio" name="genero" value="macho" /> Macho
-            <input type="radio" name="genero" value="hembra" /> Hembra
+            <input type="radio" name="Genero" value="Macho" /> Macho
+            <input type="radio" name="Genero" value="Hembra" /> Hembra
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1"> Fecha de nacimiento:</label>
@@ -44,18 +45,39 @@
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1"> Peso al nacer (kg.):</label>
-             <input type="number" name="peso" list="listapesos" min="0.000" max="10.000" step="0.100">
+             <input type="string" name="Peso">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputEmail1">Tatuaje Derecho:</label>
+             <input type="string" name="Tatuaje_Derecho"">
           </div>
           <div class="form-group">
+            <label for="exampleInputEmail1">Tatuaje Izquierdo:</label>
+             <input type="string" name="Tatuaje_Izquierdo">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword2">Status:</label>
+            <input type="radio" name="Status_Conejo" value="Vivo" /> Vivo
+            <input type="radio" name="Status_Conejo" value="Muerto" /> Muerto
+          </div>
+
+
+
+
+
+<!--           string substr ( string $string , int $start [, int $length ] ) -->
+
+<!--           <div class="form-group">
         <label class="col-lg-2 control-label">Tatuaje derecho:</label>
         <div class="col-lg-10">
-         <p class="form-control-static">1982635</p>
+         <p class="form-control-static">folio d</p>
         </div>
         <label class="col-lg-2 control-label">Tatuaje izquierdo:</label>
         <div class="col-lg-10">
-         <p class="form-control-static">987251</p>
+         <p class="form-control-static">folio i</p>
         </div>
-      </div>
+      </div> -->
          
         </br>
 

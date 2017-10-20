@@ -16,6 +16,8 @@ class CreatePartoTable extends Migration
         Schema::create('Parto', function (Blueprint $table) {
             $table->string('Id_Parto')->primary('Id_Parto');
             $table->date('Fecha_Parto');
+            $table->string('Id_Conejo_Hembra');
+            $table->foreign('Id_Conejo_Hembra')->references('Id_Conejo_Hembra')->on('Monta');
             $table->date('Fecha_Monta');
             $table->foreign('Fecha_Monta')->references('Fecha_Monta')->on('Monta');
             $table->smallInteger('Numero_Vivos');

@@ -26,6 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Rutas de montas
 Route::get('/monta/create','MontaController@create');
+Route::post('/monta', 'MontaController@store');
 Route::get('/monta/{id_monta}', 'MontaController@edit');
 Route::get('/monta/{id_monta}', 'MontaController@delete');
 
@@ -64,7 +65,7 @@ Route::get('/donacion/create', 'DonacionController@create');
 Route::get('/donacion/{id_conejo}', 'DonacionController@edit');
 Route::delete('/donacion/{id_conejo}', 'DonacionController@delete');
 
-//Rutas de donación
+//Rutas de parto
 Route::get('/parto/create', 'PartoController@create');
 Route::get('/parto/{id_parto}', 'PartoController@edit');
 Route::delete('/parto/{id_parto}', 'PartoController@delete');

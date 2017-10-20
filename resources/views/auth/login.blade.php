@@ -11,7 +11,7 @@
             <h2>BIENVENIDO A CUNICONTROL</h2>
             <form method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
-                <p>Curp</p>
+                <p>CURP</p>
                 <input type="text" name="CURP" placeholder="Ingresa CURP">
                 <p>Contraseña</p>
                 <input type="Password" name="password" placeholder="••••••">

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Conejo;
 use App\Raza;
-
+use App\Parto;
+use App\ConejaProductora;
+use Illuminate\Support\Facades\DB;
 class TatuajeController extends Controller
 {
     public function create()
@@ -30,8 +32,12 @@ class TatuajeController extends Controller
 /*        Conejo::create($request->all()); //solicita todos los campos para guardar
 */
         $conejo = new Conejo;
-        $conejo->Tatuaje_Derecho = $request->input('Tatuaje_Derecho');
-        $conejo->Tatuaje_Izquierdo = $request->input('Tatuaje_Izquierdo');
+        /*$parto = DB::table('Parto')->where('Id_Conejo_Hembra',$request->input('Tatuaje_Hembra'));*/
+        $parto = DB::table('Parto')->where ('Id_Conejo_Hembra','=',$request->input('Tatuaje_Hembra'))->first()->get();
+        $productora =DB::table('Coneja_Productora')->where ('Id_Conejo','=',($request->input('Tatuaje_Hembra')))->get();
+        $conejoRaza =DB::table('Conejo')->where ('Id_Conejo','=',$request->input('Tatuaje_Hembra'))->get();
+        $conejo->Tatuaje_Derecho = $conejoRaza->Id_Raza . $productora->Numero_Conejo;
+        $conejo->Tatuaje_Izquierdo = $parto->Fecha_Parto;
         $conejo->Id_Raza = $request->input('Raza');
         $conejo->Genero = $request->input('Genero');
         $conejo->Peso_Conejo = $request->input('Peso');
@@ -39,6 +45,6 @@ class TatuajeController extends Controller
         $conejo->Id_Conejo = $conejo->Tatuaje_Derecho . $conejo->Tatuaje_Izquierdo;
         $conejo->save();
 
-        return 'Conejo registrado xD';
+        return 'Id_Conejo' . $conejo->Tatuaje_Derecho;
     }
 }

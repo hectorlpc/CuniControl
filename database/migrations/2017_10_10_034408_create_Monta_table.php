@@ -19,8 +19,8 @@ class CreateMontaTable extends Migration
             $table->foreign('Id_Conejo_Hembra')->references('Id_Conejo')->on('Conejo');
             $table->string('Id_Conejo_Macho',10);
             $table->foreign('Id_Conejo_Macho')->references('Id_Conejo')->on('Conejo');
-            $table->date('Fecha_Diagnostico');
-            $table->string('Resultado_Diagnostico',200);
+            $table->date('Fecha_Diagnostico')->nullable();
+            $table->string('Resultado_Diagnostico',200)->nullable();
             $table->primary(['Fecha_Monta','Id_Conejo_Hembra']);
             $table->timestamps();
         });

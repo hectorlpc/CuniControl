@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Conejo;
 use App\Parto;
+use App\Monta;
 
 class PartoController extends Controller
 {

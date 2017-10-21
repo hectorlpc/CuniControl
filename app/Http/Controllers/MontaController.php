@@ -8,7 +8,7 @@ use App\Monta;
 
 class MontaController extends Controller
 {
-    public function create()
+    public function create()    
     {
         $conejos = Conejo::all();
         return view('Monta/create',['conejos' => $conejos]);

@@ -3,7 +3,7 @@
 <div class="container">"
           <form action="{{url('/monta')}}" method="POST">
             {{ csrf_field() }}
-            <h2>Registro Montas</h2>
+            <h2>Registrar Monta</h2>
             
           <div class="form-group">
             <label for="">Fecha de Monta</label>

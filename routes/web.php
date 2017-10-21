@@ -50,6 +50,7 @@ Route::delete('/destete/{id_destete}', 'DesteteController@delete');
 
 //Rutas de conejos enfermos
 Route::get('/enfermo/create', 'EnfermoController@create');
+Route::post('/enfermo', 'EnfermoController@store');
 Route::get('/enfermo/{id_destete}', 'EnfermoController@edit');
 Route::delete('/enfermo/{id_destete}', 'EnfermoController@delete');
 

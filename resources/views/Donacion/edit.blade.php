@@ -10,7 +10,7 @@
           <input class="form-control" name="parto" type="text" >
           </div>
           <div class="form-group">
-          <label for="exampleInputPassword2">Parto Donante:</label>
+          <label for="  ">Parto Donante:</label>
           <select class="form-control" name="Tatuajes">
             <option>PA8716</option>
             <option>PA8712</option>
@@ -32,7 +32,7 @@
          
         </br>
 
-          <button type="submit" class="btn btn-outline-primary">Actualizar</button>
+          <DIV align="right"><button type="submit" class="btn btn-outline-primary">Actualizar</button>
         </form>
       </div>
 @endsection

@@ -32,6 +32,7 @@ Route::get('/monta/{id_monta}', 'MontaController@delete');
 
 // Rutas de gestaciones
 Route::get('/gestacion/create', 'GestacionController@create');
+Route::post('/gestacion', 'GestacionController@store');
 Route::get('/gestacion/{id_gestacion}', 'GestacionController@edit');
 Route::delete('/gestacion/{id_gestacion}', 'GestacionController@delete');
 
@@ -64,6 +65,7 @@ Route::delete('/tatuaje/{id_conejo}', 'TatuajeController@delete');
 
 //Rutas de donación
 Route::get('/donacion/create', 'DonacionController@create');
+Route::post('/donacion', 'DonacionController@store');
 Route::get('/donacion/{id_conejo}', 'DonacionController@edit');
 Route::delete('/donacion/{id_conejo}', 'DonacionController@delete');
 

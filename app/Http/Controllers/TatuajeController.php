@@ -33,12 +33,12 @@ class TatuajeController extends Controller
 */
         $conejo = new Conejo;
         /*$parto = DB::table('Parto')->where('Id_Conejo_Hembra',$request->input('Tatuaje_Hembra'));*/
-        $parto = DB::table('Parto')->where ('Id_Conejo_Hembra','=',$request->input('Tatuaje_Hembra'))->first()->get();
+        $parto = DB::table('Parto')->where ('Id_Conejo_Hembra','=',$request->input('Tatuaje_Hembra'))->get();
         $productora =DB::table('Coneja_Productora')->where ('Id_Conejo','=',($request->input('Tatuaje_Hembra')))->get();
         $conejoRaza =DB::table('Conejo')->where ('Id_Conejo','=',$request->input('Tatuaje_Hembra'))->get();
         $conejo->Tatuaje_Derecho = $conejoRaza->Id_Raza . $productora->Numero_Conejo;
         $conejo->Tatuaje_Izquierdo = $parto->Fecha_Parto;
-        $conejo->Id_Raza = $request->input('Raza');
+        $conejo->Id_Raza = $conejoRaza->Id_Raza;
         $conejo->Genero = $request->input('Genero');
         $conejo->Peso_Conejo = $request->input('Peso');
         $conejo->Status_Conejo = $request->input('Status_Conejo');

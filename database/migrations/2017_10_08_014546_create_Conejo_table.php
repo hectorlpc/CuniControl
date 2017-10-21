@@ -14,7 +14,7 @@ class CreateConejoTable extends Migration
     public function up()
     {
         Schema::create('Conejo', function (Blueprint $table) {
-            $table->string('Id_Conejo',10)->primary('Id_Conejo');
+            $table->string('Id_Conejo'/*,10*/)->primary('Id_Conejo');
             $table->string('Tatuaje_Derecho',5);
             $table->string('Tatuaje_Izquierdo',5);
             $table->string('Id_Raza');

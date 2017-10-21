@@ -3,7 +3,7 @@
 <div class="container">
     <form>
       <h2>Registro de Diagnostico de Gestacion</h2>
-          <div class="form-group">
+          <div class="{{url('/gestacion')}}" method="post">
             <label for="">Numero Coneja</label>
             <select class="form-control" name="TatuajeH">
               @foreach($conejos as $conejo)

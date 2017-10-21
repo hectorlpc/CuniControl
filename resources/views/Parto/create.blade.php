@@ -4,10 +4,11 @@
 
 <div class="container">
 
-<form action="/my-handling-form-page" method="post">
+<form action="{{url('/parto')}}" method="post">
+    {{ csrf_field() }}
     <div class="form-group">
             <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
-          <select class="form-control" name="Tatuaje_Hembra">
+          <select class="" name="Id_Conejo_Hembra">
             @foreach($conejos as $conejo)
               @if($conejo->Genero == 'Hembra')              
                 <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
@@ -15,11 +16,6 @@
             @endforeach
             </select>
     </div>
-    <div>
-        <label for="parto">Numero de parto:</label>
-        <input class="form-control" name="parto" type="text" >
-    </div>
-    
     <div>
         <label for="fecha">Fecha de parto:</label>
         <input class="form-control" name="Fecha_Parto" type="date" >
@@ -31,12 +27,12 @@
 
     <div>
         <label for="cant_vivos">Cantidad de gazapos vivos:</label>
-        <input class="form-control" name="Vivos" type="text" >
+        <input class="form-control" name="Numero_Vivos" type="text" >
     </div>
 
     <div>
         <label for="cant_muertos">Cantidad de gazapos muertos:</label>
-        <input class="form-control" name="Muertos" type="text" >
+        <input class="form-control" name="Numero_Muertos" type="text" >
     </div>
 
     <div>

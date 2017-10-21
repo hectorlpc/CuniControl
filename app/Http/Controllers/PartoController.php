@@ -8,19 +8,9 @@ use App\Parto;
 
 class PartoController extends Controller
 {
-    public function create(Request $request){
-
+    public function create(){
         $conejos = Conejo::all();
-        $parto = new Parto;
-        $parto->Fecha_Parto = $request->input('Fecha_Parto');
-        $parto->Id_Conejo_Hembra = $request->input('Tatuaje_Hembra');
-        $parto->Id_Parto = $parto->Id_Conejo_Hembra . $parto->Fecha_Parto; 
-        $parto->Fecha_Monta = $request->input('Fecha_Monta');
-        $parto->Numero_Vivos = $request->input('Vivos');
-        $parto->Numero_Muertos = $request->input('Muertos');
-        $parto->Peso_Nacer = $request->input('Peso_Nacer');
-        $parto->save();
-    	return Parto::create();
+        return view('Parto/create',['conejos' => $conejos]);
     }
 
      public function edit($id_parto)
@@ -31,5 +21,18 @@ class PartoController extends Controller
     public function delete($id_parto)
     {
     	return redirect()->back();
+    }
+    public function store(Request $request){
+        $parto = new Parto;
+        $parto->Fecha_Parto = $request->input('Fecha_Parto');
+        $parto->Id_Conejo_Hembra = $request->input('Id_Conejo_Hembra');
+        $parto->Fecha_Monta = $request->input('Fecha_Monta');
+        $parto->Numero_Vivos = $request->input('Numero_Vivos');
+        $parto->Numero_Muertos = $request->input('Numero_Muertos');
+        $parto->Peso_Nacer = $request->input('Peso_Nacer');
+        $parto->Id_Parto = $parto->Fecha_Parto . $parto->Id_Conejo_Hembra;
+        $parto->save();
+        //Parto::create($request->all());
+        return redirect('/home');
     }
 }

@@ -22,11 +22,17 @@
           </div>
           <div class="form-group">
             <label for="">Tatuaje Hembra</label>
+<<<<<<< Updated upstream
             <select class="" name="Id_Conejo_Hembra">
               @foreach($conejos as $conejo)
                 @if($conejo->Genero == 'Hembra')
                   <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
                 @endif
+=======
+            <select class="" name="TatuajeH">
+              @foreach($conejos as $conejo)
+              <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
+>>>>>>> Stashed changes
               @endforeach
             </select>
           </div>

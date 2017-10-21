@@ -28,6 +28,7 @@ class DonacionController extends Controller{
         $donacion->Id_Donacion = $donacion->Id_Parto_Donante . $donacion->Id_Parto_Donatorio;
         $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
         $donacion->save();
+        
         return redirect('/home');
     }
 }

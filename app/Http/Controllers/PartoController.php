@@ -11,7 +11,8 @@ class PartoController extends Controller
 {
     public function create(){
         $conejos = Conejo::all();
-        return view('Parto/create',['conejos' => $conejos]);
+        $fecha_monta = Monta::all();
+        return view('Parto/create',['conejos' => $conejos,'fecha_monta' =>$fecha_monta]);
     }
 
      public function edit($id_parto)

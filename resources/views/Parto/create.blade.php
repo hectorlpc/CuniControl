@@ -18,9 +18,13 @@
     </div>
     <div>
         <label for="fecha">Fecha de monta:</label>
+            
             <select class="" name="Fecha_Monta">
-                <option value="{{$fecha_monta->fecha_monta}}">{{$fecha_monta->fecha_monta}}</option>
-            </select>        
+                @foreach($fecha_monta as $fecha)
+                    <option value="{{$fecha->Fecha_Monta}}">{{$fecha->Fecha_Monta}}</option>
+                @endforeach
+            </select>       
+                    
 <!--         <input class="form-control" name="Fecha_Monta" type="date" > -->
     </div>
 

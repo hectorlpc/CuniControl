@@ -23,17 +23,6 @@ class EnfermoController extends Controller
             'medicamentos' => $medicamentos
         ]);
     }
-
-        public function edit($id_conejo)
-    {
-    	return view('Enfermo/edit');
-    }
-
-        public function delete($id_conejo)
-    {
-    	return redirect()->back();
-    }
-
     public function store(Request $request) 
     {
         $enfermo = new Enfermo;
@@ -48,4 +37,31 @@ class EnfermoController extends Controller
 
         return redirect('/home');
     }
+
+    public function index()
+    {
+        $medicamentos = Medicamento::all();
+        $enfermedades = Enfermedad::all();
+        $enfermos = Enfermo::all();
+
+        return view('Enfermo.index', [
+            'enfermos' => $enfermos,
+            'enfermedades' => $enfermedades,
+            'medicamentos' => $medicamentos
+        ]);
+    }
+
+       // $enfermos = \DB::table('Conejo_Enfermo')->select('Id_Conejo_Enfermo','Id_Conejo', 'Fecha_Inicio', 'Fecha_Fin', 'Id_Enfermedad', 'Id_Medicamento')->get();
+       //  return $enfermos;
 }
+
+
+    //     public function edit($id_conejo)
+    // {
+    //     return view('Enfermo/edit');
+    // }
+
+    //     public function delete($id_conejo)
+    // {
+    //     return redirect()->back();
+    // }

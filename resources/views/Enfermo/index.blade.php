@@ -12,7 +12,7 @@
               <button type="submit" class="btn btn-outline-primary">Buscar</button>            
           </div>
       </form>
-      <button type="submit" class="btn btn-outline-success">Agregar</button>
+      <a href="{{url('/enfermo/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
       <table class="table table-sm table-responsive">
           <thead class="thead-default">
               <tr>
@@ -26,7 +26,7 @@
           </thead>
           <tbody>
               <tr>
-                  @foreach( $enfermos as $enfermo) <!-- <a href="/enfermo/{{$enfermo->id_conejo}}"> -->
+                  @foreach( $enfermos as $enfermo)
                     <td> {{$enfermo->Id_Conejo}} </a></td>
                     <td> {{$enfermo->Id_Enfermedad . $enfermo->Nombre_Enfermedad }} </td>
                     <td> {{$enfermo->Id_Medicamento}} </td>

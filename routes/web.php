@@ -25,6 +25,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Rutas de montas
+Route::get('monta/', 'MontaController@index');
 Route::get('/monta/create','MontaController@create');
 Route::post('/monta', 'MontaController@store');
 Route::get('/monta/{id_monta}', 'MontaController@edit');
@@ -50,8 +51,8 @@ Route::get('/destete/{id_destete}', 'DesteteController@edit');
 Route::delete('/destete/{id_destete}', 'DesteteController@delete');
 
 //Rutas de conejos enfermos
-Route::get('/enfermo/create', 'EnfermoController@create');
 Route::get('/enfermo', 'EnfermoController@index');
+Route::get('/enfermo/create', 'EnfermoController@create');
 Route::post('/enfermo', 'EnfermoController@store');
 Route::get('/enfermo/{id_conejo}/edit', 'EnfermoController@edit');
 Route::delete('/enfermo/{id_destete}', 'EnfermoController@delete');

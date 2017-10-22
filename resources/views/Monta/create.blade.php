@@ -32,5 +32,6 @@
           </div>
           <button type="submit" class="btn btn-out-line-primary">Enviar Registro</button>
         </form>
+  <a href="{{url('/monta/')}}">Regresar</a>        
 </div>
 @endsection

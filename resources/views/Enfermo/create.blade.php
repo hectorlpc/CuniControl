@@ -44,5 +44,6 @@
     </br>
       <button type="submit" class="btn btn-out-line-primary">Registrar</button>        
   </form>
+  <a href="{{url('/enfermo/')}}">Regresar</a>
 </div>
 @endsection

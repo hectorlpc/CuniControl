@@ -29,4 +29,16 @@ class MontaController extends Controller
         Monta::create($request->all());
         return redirect('/home');
     }
+
+    public function index(Request $request)
+    {
+        if($request->Fecha_Monta)
+        {
+            $montas = Monta::where('Fecha_Monta', $request->Fecha_Monta)->get();
+        } else {
+            $montas = Monta::all();
+        }
+        return view('Monta.index', ['montas' => $montas]);
+    }    
 }
+

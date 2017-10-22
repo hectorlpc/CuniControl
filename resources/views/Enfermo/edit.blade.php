@@ -1,52 +1,44 @@
 @extends('layouts.Principal')
 @section('content')
+
 <div class="container">
-  <h2>Actualizar Registro de Conejo Enfermo</h2>
-</br>
-</br>
-    <form>
-    <div class="form-group">
-      <label for="exampleInputPassword2">Tatuaje del conejo:</label>
-
-    <select class="form-control" name="Tatuajes">
-      <option>123436</option>
-      <option>9823</option>
-      <option>98373</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword2">Enfermedad diagnosticada:</label>
-
-    <select class="form-control" name="Tatuajes">
-      <option>Mastitis</option>
-      <option>Sarna</option>
-      <option>Diarrea</option>
-      </select>
-    </div>
-     <div class="form-group">
-      <label for="exampleInputPassword2">Medicamento suministrado:</label>
-
-    <select class="form-control" name="Medicamento">
-      <option>Paracetamol</option>
-      <option>Solucion salina</option>
-      <option>etc...</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1"> Fecha de inicio del tratamiento</label>
-
-      <input class="form-control" type="date" name="fecha" min="2000-01-01" max="2050-01-01" step="2">
-    </div>
-
-    <div class="form-group">
-      <label for="exampleInputEmail1"> Fecha de fin del tratamiento</label>
-
-      <input class="form-control" type="date" name="fecha" min="2000-01-01" max="2050-01-01" step="2">
-    </div>
-  </br>
-
-  </br>
-    <button type="submit" class="btn btn-outline-primary">Actualizar</button>
-  </form>
-</div>
+<h2>Inicio Conejo Enfermo</h2>
+      <form method="get" action="{{url('/enfermo')}}">
+          <div class="form-group">
+              <label for="">Tatuaje del conejo: </label>
+                  <div class="form-group">
+                    <input type="" class="form-control" name="Id_Conejo" id="" placeholder="Introduce tatuajes sin espacio">
+                  </div>        
+              <button type="submit" class="btn btn-outline-primary">Buscar</button>            
+          </div>
+      </form>
+      <button type="submit" class="btn btn-outline-success">Agregar</button>
+      <table class="table table-sm table-responsive">
+          <thead class="thead-default">
+              <tr>
+                  <th>Id Conejo Enfermo:</th>
+                  <th>Enfermedad:</th>
+                  <th>Medicamento :</th>
+                  <th>Inicio de tratamiento:</th>
+                  <th>Fin de tratamiento</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  @foreach( $enfermos as $enfermo) <!-- <a href="/enfermo/{{$enfermo->id_conejo}}"> -->
+                    <td> {{$enfermo->Id_Conejo}} </a></td>
+                    <td> {{$enfermo->Id_Enfermedad . $enfermo->Nombre_Enfermedad }} </td>
+                    <td> {{$enfermo->Id_Medicamento}} </td>
+                    <td> {{$enfermo->Fecha_Inicio}} </td>
+                    <td> {{$enfermo->Fecha_Fin}} </td>        
+                    <td>
+                    <div class="btn-group btn-group-sm" role="group" aria-label="">
+                        <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><a href="{{url('/enfermo/' . $enfermo->Id_Conejo . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+                    </div>
+                  </td>
+              </tr>
+              @endforeach
+          </tbody>
+      </table>
 @endsection

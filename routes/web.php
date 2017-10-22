@@ -53,8 +53,9 @@ Route::delete('/destete/{id_destete}', 'DesteteController@delete');
 Route::get('/enfermo/create', 'EnfermoController@create');
 Route::get('/enfermo', 'EnfermoController@index');
 Route::post('/enfermo', 'EnfermoController@store');
-Route::get('/enfermo/{id_destete}', 'EnfermoController@edit');
+Route::get('/enfermo/{id_conejo}/edit', 'EnfermoController@edit');
 Route::delete('/enfermo/{id_destete}', 'EnfermoController@delete');
+//Route::get('/enfermo/{id_conejo}', 'EnfermoController@show');
 
 //Rutas de horas
 Route::get('/horas/create', 'HorasController@create');

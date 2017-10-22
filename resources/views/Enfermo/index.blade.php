@@ -1,28 +1,18 @@
 @extends('layouts.Principal')
 @section('content')
 
-<!-- <div class="container">
-    <h1>Conejos Enfermos</h1>
-    <ul>
-      @foreach($enfermos as $enfermo)
-        <option value="{{$enfermo->Id_Conejo}}">{{$enfermo->Id_Conejo}}</option>
-        <option value="{{$enfermo->Id_Enfermedad}}">{{$enfermo->Id_Enfermedad}}</option>
-      @endforeach
-    </ul>  
-</div> -->
 <div class="container">
 <h2>Inicio Conejo Enfermo</h2>
-      <form>
+      <form method="get" action="{{url('/enfermo')}}">
           <div class="form-group">
               <label for="">Tatuaje del conejo: </label>
                   <div class="form-group">
-                    <input type="" class="form-control" name="Id_Conejo" id="" placeholder="Introduce tatuajes">
+                    <input type="" class="form-control" name="Id_Conejo" id="" placeholder="Introduce tatuajes sin espacio">
                   </div>        
-              <button type="submit" class="btn btn-outline-primary">Buscar</button>
-              <button type="submit" class="btn btn-outline-success">Agregar</button>
+              <button type="submit" class="btn btn-outline-primary">Buscar</button>            
           </div>
       </form>
-
+      <button type="submit" class="btn btn-outline-success">Agregar</button>
       <table class="table table-sm table-responsive">
           <thead class="thead-default">
               <tr>
@@ -36,15 +26,15 @@
           </thead>
           <tbody>
               <tr>
-                  @foreach( $enfermos as $enfermo)
-                  <td "{{$enfermo->Id_Conejo}}"> {{$enfermo->Id_Conejo}}</td>
-                  <td "{{$enfermo->Id_Enfermedad}}"> {{$enfermo->Id_Enfermedad}}</td>
-                  <td "{{$enfermo->Id_Medicamento}}"> {{$enfermo->Id_Medicamento}}</td>
-                  <td "{{$enfermo->Fecha_Inicio}}"> {{$enfermo->Fecha_Inicio}}</td>
-                  <td "{{$enfermo->Fecha_Fin}}"> {{$enfermo->Fecha_Fin}}</td>        
-                  <td>
+                  @foreach( $enfermos as $enfermo) <!-- <a href="/enfermo/{{$enfermo->id_conejo}}"> -->
+                    <td> {{$enfermo->Id_Conejo}} </a></td>
+                    <td> {{$enfermo->Id_Enfermedad . $enfermo->Nombre_Enfermedad }} </td>
+                    <td> {{$enfermo->Id_Medicamento}} </td>
+                    <td> {{$enfermo->Fecha_Inicio}} </td>
+                    <td> {{$enfermo->Fecha_Fin}} </td>        
+                    <td>
                     <div class="btn-group btn-group-sm" role="group" aria-label="">
-                        <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><button type="button" class="btn btn-secondary btn-outline-info">Modificar</button>
+                        <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><a href="{{url('/enfermo/' . $enfermo->Id_Conejo . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
                     </div>
                   </td>
               </tr>

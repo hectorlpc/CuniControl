@@ -45,6 +45,7 @@ Route::delete('/parto/{id_parto}', 'PartoController@delete');
 
 // Rutas de destetes
 Route::get('/destete/create', 'DesteteController@create');
+Route::post('/destete', 'DesteteController@store');
 Route::get('/destete/{id_destete}', 'DesteteController@edit');
 Route::delete('/destete/{id_destete}', 'DesteteController@delete');
 

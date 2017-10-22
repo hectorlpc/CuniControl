@@ -2,28 +2,29 @@
 @section('content')
 <label for="destete">REGISTRO DESTETE</label>
 <div class="container">
-  <form action="/my-handling-form-page" method="post">
-      <div>
-          <label for="parto">Numero de destete:</label>
-          <input class="form-control" name="parto" type="text" >
-      </div>
+  <form action="{{url('/destete')}}" method="post">
+    {{ csrf_field() }}
       <div>
           <label for="num:gest">Numero de parto:</label>
-          <input class="form-control" name="num_getsacion" type="text" >
+          <select class="form-control" name="Id_Parto" type="text" >
+              @foreach ($partos as $parto)
+              <option value="{{$parto->Id_Parto}}">{{$parto->Id_Parto}}</option>
+            @endforeach
+          </select>
       </div>
 
       <div>
           <label for="fecha">Fecha de destete:</label>
-          <input class="form-control" name="fecha_destete" type="date" >
+          <input class="form-control" name="Fecha_Destete" type="date" >
         </div>
       <div>
           <label for="cant_vivos">Cantidad de destetados:</label>
-          <input class="form-control" name="vivos" type="text" >
+          <input class="form-control" name="Numero_Destetados" type="text" >
       </div>
 
       <div>
           <label for="peso">Peso promedio de los destetados:</label>
-          <input class="form-control" name="peso_destete" type="text" >
+          <input class="form-control" name="Peso_Destete" type="text" >
 </div>
       <br>
       <button type="submit" class="btn btn-outline-primary">Agregar</button>

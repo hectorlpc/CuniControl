@@ -29,4 +29,15 @@ class DesteteController extends Controller{
         $destete->save();
         return redirect('/home');
     }
+
+    public function index(Request $request)
+    {
+        if($request->Id_Parto)
+        {   
+            $destetes = Destete::where('Id_Parto', $request->Id_Parto)->get();
+        } else {
+            $destetes = Destete::all();
+        }
+        return view ('Destete.index',['destetes'=> $destetes]);
+    }
 }

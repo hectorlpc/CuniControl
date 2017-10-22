@@ -38,15 +38,17 @@ Route::get('/gestacion/{id_gestacion}', 'GestacionController@edit');
 Route::delete('/gestacion/{id_gestacion}', 'GestacionController@delete');
 
 // Rutas de partos
-Route::get('/parto/create', 'PartoController@create');
+Route::get('parto/', 'PartoController@index');
+Route::get('/parto/create', 'PartoControllerp@create');
 Route::post('/parto', 'PartoController@store');
 Route::get('/parto/{id_parto}', 'PartoController@edit');
 Route::delete('/parto/{id_parto}', 'PartoController@delete');
 
 
 // Rutas de destetes
+Route::get('destete/', 'DesteteController@index');
 Route::get('/destete/create', 'DesteteController@create');
-Route::post('/destete', 'DesteteController@store');
+Route::post('destete/', 'DesteteController@store');
 Route::get('/destete/{id_destete}', 'DesteteController@edit');
 Route::delete('/destete/{id_destete}', 'DesteteController@delete');
 

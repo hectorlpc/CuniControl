@@ -3,15 +3,15 @@
 <label for="destete">INICIO DESTETE</label>
 
 <div class="container">
-              <form>
+            <form method="get" action="{{url('destete/')}}">
               <div class="form-group">
                 <label for="">Numero de destete</label>
-                <input type="date" class="form-control" id="" placeholder="Buscar">
+                <input type="" class="form-control" name="Id_Parto" placeholder="Buscar">
                 <br>
                 <button type="submit" class="btn btn-primary">Buscar</button>
-                <button type="submit" class="btn btn-outline-success">Agregar</button>
               </div>
             </form>
+      <a href="{{url('/destete/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>            
             <table class="table table-sm table-responsive">
       <thead class="thead-default">
         <tr>
@@ -25,17 +25,19 @@
       </thead>
       <tbody>
         <tr>
-          <td>destete 1</td>
-          <td>parto 1</td>
-          <td>25/10/2017</td>
-          <td>18</td>
-          <td>2.4 Kg</td>
+          @foreach($destetes as $destete)
+          <td>{{$destete->Id_Destete}}</td>
+          <td>{{$destete->Id_Parto}}</td>
+          <td>{{$destete->Fecha_Destete}}</td>
+          <td>{{$destete->Numero_Destetados}}</td>
+          <td>{{$destete->Peso_Destete}}</td>
+          <td></td>
           <td>
             <div class="btn-group btn-group-sm" role="group" aria-label="">
             <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><button type="button" class="btn btn-secondary btn-outline-info">Modificar</button></td>
             </div>
         </tr>
-
+        @endforeach
       </tbody>
     </table>
 

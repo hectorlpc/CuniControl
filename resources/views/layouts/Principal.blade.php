@@ -63,8 +63,8 @@
                     <li> <a href="{{url('/monta/')}}">Supervisión de la monta</a> </li>                    
                     <li> <a href="{{url('/monta/edit')}}">Realiza diagnostico de gestación</a> </li>
                     <!-- <li> <a href="">Supervisión de la gestación</a> </li> -->
-                    <li> <a href="{{url('/parto/create')}}">Supervisión del parto</a> </li>                    
-                    <li> <a href="{{url('/destete/create')}}">Registro de destete de gazapos</a> </li>
+                    <li> <a href="{{url('/parto/')}}">Supervisión del parto</a> </li>                    
+                    <li> <a href="{{url('/destete/')}}">Registro de destete de gazapos</a> </li>
                     <li> <a href="{{url('/tatuaje/create')}}">Registra tatuado de conejos </a> </li>                            
                     <li> <a href="{{url('/donacion/create')}}">Registro de donación de conejos</a> </li>
                     <li> <a href="{{url('enfermo')}}">Registro de conejo enfermo</a> </li>                    

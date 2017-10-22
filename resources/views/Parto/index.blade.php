@@ -2,21 +2,23 @@
 @section('content')
 <label for="destete">SUPERVISION DE PARTO</label>
 <div class="container">
-        <form>
+      <form method="get" action="{{url('/parto')}}">
         <div class="form-group">
           <label for="">Numero de parto</label>
-          <input type="date" class="form-control" id="" placeholder="Buscar">
+          <input type="" class="form-control" name="Id_Conejo_Hembra" placeholder="Buscar">
           <br>
-          <button type="submit" class="btn btn-outline-primary">Buscar</button>
-          <td><button type="button" class="btn btn-outline-success">Agregar</button></td>
+          <button type="submit" class="btn btn-outline-primary">Buscar</button>        
         </div>
       </form>
+    <td><a href="{{url('/parto/create')}}" type="button" class="btn btn-outline-success">Agregar</a></td>      
       <table class="table table-sm table-responsive">
 <thead class="thead-default">
   <tr>
     <th>No.Parto</th>
-    <th>No. Gestacion</th>
-    <th>Fecha de parto</th>
+<!--     <th>No. Gestacion</th> -->
+    <th>Fecha de Parto</th>
+    <th>Tatuaje Coneja</th>
+    <th>Fecha de Monta</th>
     <th>Cant.gazapos vivos</th>
     <th>Cant.de gazapos muertos</th>
     <th>Peso promedio al nacer(g)</th>
@@ -25,20 +27,20 @@
 </thead>
 <tbody>
   <tr>
-    <td>parto 1</td>
-    <td>gestacion 1</td>
-    <td>25/10/2017</td>
-    <td>8</td>
-    <td>2</td>
-    <td>300 g</td>
+    @foreach($partos as $parto)    
+    <td>{{$parto->Id_Parto}}</td>
+    <td>{{$parto->Fecha_Parto}}</td>
+    <td>{{$parto->Id_Conejo_Hembra}}</td>
+    <td>{{$parto->Fecha_Monta}}</td>
+    <td>{{$parto->Numero_Vivos}}</td>
+    <td>{{$parto->Numero_Muertos}}</td>
+    <td>{{$parto->Peso_Nacer}}</td>
     <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
         <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><button type="button" class="btn btn-secondary btn-outline-info">Modificar</button></td>
-
       </div>
-
   </tr>
-
+  @endforeach
 </tbody>
 </table>
 

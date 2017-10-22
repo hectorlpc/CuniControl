@@ -7,7 +7,7 @@
           <div class="form-group">
               <label for="">Tatuaje del conejo: </label>
                   <div class="form-group">
-                    <input type="" class="form-control" name="Id_Conejo" id="" placeholder="Introduce tatuajes sin espacio">
+                    <input type="" class="form-control" name="Id_Conejo" placeholder="Introduce tatuajes sin espacio">
                   </div>        
               <button type="submit" class="btn btn-outline-primary">Buscar</button>            
           </div>

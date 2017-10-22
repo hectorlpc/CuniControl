@@ -22,7 +22,7 @@ class CreatePartoTable extends Migration
             $table->foreign('Fecha_Monta')->references('Fecha_Monta')->on('Monta');
             $table->smallInteger('Numero_Vivos');
             $table->smallInteger('Numero_Muertos');
-            $table->float('Peso_Nacer',2,2);
+            $table->float('Peso_Nacer',2,2)->nullable();
             $table->timestamps();
         });
     }

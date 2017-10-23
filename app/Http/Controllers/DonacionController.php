@@ -14,13 +14,17 @@ class DonacionController extends Controller{
     	return view('Donacion.create',['partos' => $partos]);
     }
 
-    public function edit($id_destete){
-    	return view('Donacion.edit');
+    public function index(Request $request)
+    {
+        if ($request->Id_Parto_Donante) {
+            $donaciones = Donacion::where('Id_Parto_Donante', $request->Id_Parto_Donante)->get();
+        } else {
+            $donaciones = Donacion::all();
+        }
+
+        return view('Donacion.index', ['donaciones'=> $donaciones]);
     }
 
-    public function delete($id_destete){
-    	return redirect()->back();
-    }
     public function store(Request $request){
         $donacion = new Donacion;
         $donacion->Id_Parto_Donante = $request->input('Id_Parto_Donante');
@@ -31,4 +35,12 @@ class DonacionController extends Controller{
         
         return redirect('/home');
     }
+    
+    // public function edit($id_destete){
+    //     return view('Donacion.edit');
+    // }
+
+    // public function delete($id_destete){
+    //     return redirect()->back();
+    // }    
 }

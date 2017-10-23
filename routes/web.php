@@ -52,6 +52,20 @@ Route::post('destete/', 'DesteteController@store');
 Route::get('/destete/{id_destete}', 'DesteteController@edit');
 Route::delete('/destete/{id_destete}', 'DesteteController@delete');
 
+//Rutas de tatuajes
+Route::get('/tatuaje/','TatuajeController@index');
+Route::get('/tatuaje/create', 'TatuajeController@create');
+Route::post('/tatuaje', 'TatuajeController@store');
+Route::get('/tatuaje/{id_conejo}', 'TatuajeController@edit');
+Route::delete('/tatuaje/{id_conejo}', 'TatuajeController@delete');
+
+//Rutas de donación
+Route::get('/donacion', 'DonacionController@index');
+Route::get('/donacion/create', 'DonacionController@create');
+Route::post('/donacion', 'DonacionController@store');
+Route::get('/donacion/{id_conejo}', 'DonacionController@edit');
+Route::delete('/donacion/{id_conejo}', 'DonacionController@delete');
+
 //Rutas de conejos enfermos
 Route::get('/enfermo', 'EnfermoController@index');
 Route::get('/enfermo/create', 'EnfermoController@create');
@@ -64,17 +78,6 @@ Route::delete('/enfermo/{id_destete}', 'EnfermoController@delete');
 Route::get('/horas/create', 'HorasController@create');
 Route::get('/horas/{id_destete}', 'HorasController@edit');
 Route::delete('/horas/{id_destete}', 'HorasController@delete');
-//Rutas de tatuajes
-Route::get('/tatuaje/create', 'TatuajeController@create');
-Route::post('/tatuaje', 'TatuajeController@store');
-Route::get('/tatuaje/{id_conejo}', 'TatuajeController@edit');
-Route::delete('/tatuaje/{id_conejo}', 'TatuajeController@delete');
-
-//Rutas de donación
-Route::get('/donacion/create', 'DonacionController@create');
-Route::post('/donacion', 'DonacionController@store');
-Route::get('/donacion/{id_conejo}', 'DonacionController@edit');
-Route::delete('/donacion/{id_conejo}', 'DonacionController@delete');
 
 //Rutas de parto
 Route::get('/parto/create', 'PartoController@create');

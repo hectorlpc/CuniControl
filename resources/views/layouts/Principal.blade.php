@@ -65,9 +65,9 @@
                     <!-- <li> <a href="">Supervisión de la gestación</a> </li> -->
                     <li> <a href="{{url('/parto/')}}">Supervisión del parto</a> </li>                    
                     <li> <a href="{{url('/destete/')}}">Registro de destete de gazapos</a> </li>
-                    <li> <a href="{{url('/tatuaje/create')}}">Registra tatuado de conejos </a> </li>                            
-                    <li> <a href="{{url('/donacion/create')}}">Registro de donación de conejos</a> </li>
-                    <li> <a href="{{url('enfermo')}}">Registro de conejo enfermo</a> </li>                    
+                    <li> <a href="{{url('/tatuaje/')}}">Registra tatuado de conejos </a> </li>                            
+                    <li> <a href="{{url('/donacion/')}}">Registro de donación de conejos</a> </li>
+                    <li> <a href="{{url('/enfermo/')}}">Registro de conejo enfermo</a> </li>                    
                     <li> <a href="equipo_agr.php">Registrar baja de conejos por transferencia</a> </li>
                  </ul>
                 </li>

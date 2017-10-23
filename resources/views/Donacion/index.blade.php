@@ -2,22 +2,20 @@
 @section('content')
 <div class="container">
           <h2>DONACIÓN DE GAZAPOS:</h2>
-          <form>
+          <form method="get" action="{{url('/donacion/')}}">
           <div class="form-group">
             <label for="">Numero de la donación:</label>
-            <select class="form-control" name="Tatuajes">
-            <option>DO9721</option>
-            <option>DO6154</option>
-            <option>DO6243</option>
-            </select>
+            <input type="" class="form-control" name="Id_Parto_Donante" placeholder="Introduce tatuajes sin espacio">
             <br>
             <button type="submit" class="btn btn-outline-primary">Buscar</button>
-            <button type="submit" class="btn btn-outline-success">Agregar</button>
           </div>
         </form>
+        <a href="{{url('donacion/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
+
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
+      <th>Id Donacion</th>
       <th>Parto donante:</th>
       <th>Parto receptor:</th>
       <th>No. de gazapos donados:</th>
@@ -26,14 +24,17 @@
   </thead>
   <tbody>
     <tr>
-      <td>PA8716</td>
-      <td>PA0917</td>
-      <td>3<td>
+      @foreach($donaciones as $donacion)
+      <td> {{$donacion->Id_Donacion}} </td>
+      <td> {{$donacion->Id_Parto_Donante}} </td>
+      <td> {{$donacion->Id_Parto_Donatorio}} </td>
+      <td> {{$donacion->Cantidad_Gazapos}} </td>
+      <td></td>
       <td><div class="btn-group btn-group-sm" role="group" aria-label="">
       <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><button type="button" class="btn btn-secondary btn-outline-info">Modificar</button></td>
       </div></td>
     </tr>
-
+    @endforeach
   </tbody>
 </table>
 

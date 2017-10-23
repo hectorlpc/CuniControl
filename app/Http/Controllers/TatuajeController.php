@@ -10,21 +10,22 @@ use App\ConejaProductora;
 use Illuminate\Support\Facades\DB;
 class TatuajeController extends Controller
 {
+    public function index(Request $request)
+    {
+        if($request->Id_Conejo)
+        {
+            $conejos = Conejo::where('Id_Conejo', $request->Id_Conejo)->get();
+        } else {
+            $conejos = Conejo::all();
+        }
+        return view('/tatuaje.index',['conejos' => $conejos]);
+    }
+
     public function create()
     {
         $razas = Raza::all();
         $conejos = Conejo::all();
     	return view('Tatuaje.create',['conejos' => $conejos, 'razas' => $razas]);
-    }
-
-    public function edit($id_conejo)
-    {
-    	return view('Tatuaje.edit');
-    }
-
-    public function delete($id_conejo)
-    {
-    	return redirect()->back();
     }
 
     public function store(Request $request)
@@ -47,4 +48,15 @@ class TatuajeController extends Controller
 
         return 'Id_Conejo' . $conejo->Tatuaje_Derecho;
     }
+
+
+    // public function edit($id_conejo)
+    // {
+    //     return view('Tatuaje.edit');
+    // }
+
+    // public function delete($id_conejo)
+    // {
+    //     return redirect()->back();
+    // }    
 }

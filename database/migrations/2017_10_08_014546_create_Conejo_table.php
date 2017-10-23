@@ -20,7 +20,7 @@ class CreateConejoTable extends Migration
             $table->string('Id_Raza');
             $table->foreign('Id_Raza')->references('Id_Raza')->on('Raza');
             $table->enum('Genero',['Macho','Hembra']);
-            $table->integer('Peso_Conejo');
+//            $table->integer('Peso_Conejo');
             $table->enum('Status_Conejo',['Vivo','Muerto']);
             $table->timestamps();
 

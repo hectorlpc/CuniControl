@@ -43,10 +43,10 @@
             <label for="exampleInputEmail1"> Fecha de nacimiento:</label>
             <input class="form-control" type="date" name="fecha" min="2000-01-01" max="2050-01-01" step="2">
           </div>
-          <div class="form-group">
+<!--           <div class="form-group">
             <label for="exampleInputEmail1"> Peso al nacer (kg.):</label>
              <input type="string" name="Peso">
-          </div>
+          </div> -->
 
           <div class="form-group">
             <label for="exampleInputEmail1">Tatuaje Derecho:</label>

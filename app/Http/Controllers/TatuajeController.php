@@ -33,11 +33,12 @@ class TatuajeController extends Controller
 
 /*        Conejo::create($request->all()); //solicita todos los campos para guardar
 */
+		$productora = new ConejaProductora;
         // $conejo = new Conejo;
         // $parto = DB::table('Parto')->where('Id_Conejo_Hembra',$request->input('Tatuaje_Hembra'));*/
         // $parto = DB::table('Parto')->where ('Id_Conejo_Hembra','=',$request->input('Tatuaje_Hembra'))->get();
-        // $productora =DB::table('Coneja_Productora')->where ('Id_Conejo','=',($request->input('Tatuaje_Hembra')))->get();
-        // $conejoRaza =DB::table('Conejo')->where ('Id_Conejo','=',$request->input('Tatuaje_Hembra'))->get();*/
+        $productora =DB::table('Coneja_Productora')->where ('Id_Conejo','=',($request->input('Tatuaje_Hembra')))->get();
+
         // $conejo->Tatuaje_Derecho = $conejoRaza->Id_Raza . $productora->Numero_Conejo;
         // $conejo->Tatuaje_Izquierdo = $parto->Fecha_Parto;
         // $conejo->Id_Raza = $conejoRaza->Id_Raza;
@@ -50,7 +51,7 @@ class TatuajeController extends Controller
         // return 'Id_Conejo' . $conejo->Tatuaje_Derecho;
         
         $raza = $request->input('Tatuaje_Hembra')[0];
-        $numero_productora = '30'; // remplazar con valor de consulta
+        $numero_productora = $productora[0]->Numero_Conejo; // remplazar con valor de consulta
         $numero_hijo = '10'; // viene de quien sabe donde
         $tatuaje_derecho = $raza . $numero_productora . $numero_hijo;
 
@@ -59,7 +60,7 @@ class TatuajeController extends Controller
         $mes = substr($fecha, 5, 2);
         $anio = $fecha[3];
         $tatuaje_izquierdo = $dia . $mes . $anio;
-        dd($tatuaje_derecho, $tatuaje_izquierdo);        
+        dd($tatuaje_derecho, $tatuaje_izquierdo, $productora);        
     }
 
 

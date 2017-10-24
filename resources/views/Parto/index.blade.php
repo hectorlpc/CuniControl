@@ -15,7 +15,6 @@
 <thead class="thead-default">
   <tr>
     <th>No.Parto</th>
-<!--     <th>No. Gestacion</th> -->
     <th>Fecha de Parto</th>
     <th>Tatuaje Coneja</th>
     <th>Fecha de Monta</th>
@@ -37,7 +36,12 @@
     <td>{{$parto->Peso_Nacer}}</td>
     <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
-        <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><button type="button" class="btn btn-secondary btn-outline-info">Modificar</button></td>
+        <form method="POST" action="{{url('/parto/' . $parto->Id_Conejo_Hembra)}}">
+          {{csrf_field()}}
+          {{method_field('delete')}}
+          <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+        </form>
+        <button type="button" class="btn btn-secondary btn-outline-info">Modificar</button></td>
       </div>
   </tr>
   @endforeach

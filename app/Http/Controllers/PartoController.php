@@ -20,10 +20,13 @@ class PartoController extends Controller
     	return view('Parto/edit');
     }
 
-    public function delete($id_parto)
+    public function delete($tatuaje_coneja)
     {
+        $parto = Parto::where('Id_Conejo_Hembra', $tatuaje_coneja)->first();
+        $parto->delete();
     	return redirect()->back();
     }
+
     public function store(Request $request){
         $parto = new Parto;
         $parto->Fecha_Parto = $request->input('Fecha_Parto');

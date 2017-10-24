@@ -20,10 +20,15 @@ class MontaController extends Controller
         return view('Monta/edit');
     }
 
-    public function delete($id_monta)
-    {
-        return redirect()->back();
+    public function delete(Request $request, $fecha_monta)
+    {        
+        $monta = Monta::where('Fecha_Monta', $fecha_monta)->where('Id_Conejo_Hembra', $request->input('Id_Conejo_Hembra'))->first();
+        dd(\DB::getQueryLog());
+        //dd($monta);
+        //$monta->delete();
+        // return redirect()->back();
     }
+
     public function store (Request $request)
     {
         Monta::create($request->all());

@@ -28,8 +28,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('monta/', 'MontaController@index');
 Route::get('/monta/create','MontaController@create');
 Route::post('/monta', 'MontaController@store');
-Route::get('/monta/{id_monta}', 'MontaController@edit');
-Route::get('/monta/{id_monta}', 'MontaController@delete');
+Route::get('/monta/{fecha_monta}', 'MontaController@edit');
+Route::delete('/monta/{fecha_monta}', 'MontaController@delete');
 
 // Rutas de gestaciones
 Route::get('/gestacion/create', 'GestacionController@create');
@@ -41,8 +41,8 @@ Route::delete('/gestacion/{id_gestacion}', 'GestacionController@delete');
 Route::get('parto/', 'PartoController@index');
 Route::get('/parto/create', 'PartoControllerp@create');
 Route::post('/parto', 'PartoController@store');
-Route::get('/parto/{id_parto}', 'PartoController@edit');
-Route::delete('/parto/{id_parto}', 'PartoController@delete');
+Route::get('/parto/{id_parto}/edit', 'PartoController@edit');
+Route::delete('/parto/{tatuaje_coneja}', 'PartoController@delete');
 
 
 // Rutas de destetes
@@ -70,8 +70,8 @@ Route::delete('/donacion/{id_conejo}', 'DonacionController@delete');
 Route::get('/enfermo', 'EnfermoController@index');
 Route::get('/enfermo/create', 'EnfermoController@create');
 Route::post('/enfermo', 'EnfermoController@store');
-Route::get('/enfermo/{id_conejo}/edit', 'EnfermoController@edit');
-Route::delete('/enfermo/{id_destete}', 'EnfermoController@delete');
+Route::put('/enfermo/{id_conejo}/edit', 'EnfermoController@update');
+Route::delete('/enfermo/{id_conejo}', 'EnfermoController@delete');
 //Route::get('/enfermo/{id_conejo}', 'EnfermoController@show');
 
 //Rutas de horas

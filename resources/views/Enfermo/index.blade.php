@@ -34,7 +34,11 @@
                     <td> {{$enfermo->Fecha_Fin}} </td>        
                     <td>
                     <div class="btn-group btn-group-sm" role="group" aria-label="">
-                        <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><a href="{{url('/enfermo/' . $enfermo->Id_Conejo . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+                        <form method="POST" action="{{url('/enfermo/' . $enfermo->Id_Conejo)}}">
+                          {{csrf_field()}}
+                          {{method_field('delete')}}
+                          <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+                        </form> <a href="{{url('/enfermo/' . $enfermo->Id_Conejo . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
                     </div>
                   </td>
               </tr>

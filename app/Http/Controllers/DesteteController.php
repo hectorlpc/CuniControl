@@ -6,20 +6,28 @@ use Illuminate\Http\Request;
 use App\Destete;
 use App\Parto;
 
-class DesteteController extends Controller{    
-    public function create(){
+class DesteteController extends Controller{ 
+
+    public function create()
+    {
         $partos = Parto::all();
     	return view('Destete.create',['partos' => $partos]);
     }
 
-    public function edit($id_destete){
+    public function edit($id_destete)
+    {
     	return view('Destete.edit');
     }
 
-        public function delete($id_destete){
+    public function delete($id_destete)
+    {   
+        $destete = Destete::where('Id_Destete', $id_destete)->first();
+        $destete->delete();
     	return redirect()->back();
     }
-    public function store(Request $request){
+
+    public function store(Request $request)
+    {
         $destete = new Destete;
         $destete->Id_Parto = $request->input('Id_Parto');
         $destete->Fecha_Destete = $request->input('Fecha_Destete');

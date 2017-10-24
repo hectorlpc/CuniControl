@@ -49,19 +49,32 @@ class EnfermoController extends Controller
         return view('Enfermo.index', ['enfermos' => $enfermos]);
     }
 
-        public function edit($id_conejo)
+    public function edit($Id_Conejo_Enfermo)
     {
-        $medicamentos = Medicamento::all();
-        $enfermedades = Enfermedad::all();
-        $conejos = Conejo::all();
-
-        return view('Enfermo/create', [
-            'conejos' => $conejos,
-            'enfermedades' => $enfermedades,
-            'medicamentos' => $medicamentos
-        ]);           
-        return view('Enfermo/edit');
+        $enfermo = findOrFail($Id_Conejo_Enfermo);
+        return view('Enfermo.edit', ['enfermo' => $enfermo]);
     }
+
+    public function delete($id_conejo)
+    {
+        $enfermo = Enfermo::where('Id_Conejo', $id_conejo)->first();
+        $enfermo->delete();
+        return redirect()->back();
+    }
+
+    //     public function edit($id_conejo)
+    // {
+    //     $medicamentos = Medicamento::all();
+    //     $enfermedades = Enfermedad::all();
+    //     $conejos = Conejo::all();
+
+    //     return view('Enfermo/create', [
+    //         'conejos' => $conejos,
+    //         'enfermedades' => $enfermedades,
+    //         'medicamentos' => $medicamentos
+    //     ]);           
+    //     return view('Enfermo/edit');
+    // }
 }
 
 

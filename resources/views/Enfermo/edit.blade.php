@@ -3,7 +3,7 @@
 
 <div class="container">
 <h2>Inicio Conejo Enfermo</h2>
-      <form method="get" action="{{url('/enfermo')}}">
+      <form method="put" action="{{url('/enfermo')}}">
           <div class="form-group">
               <label for="">Tatuaje del conejo: </label>
                   <div class="form-group">
@@ -26,9 +26,9 @@
           </thead>
           <tbody>
               <tr>
-                  @foreach( $enfermos as $enfermo) <!-- <a href="/enfermo/{{$enfermo->id_conejo}}"> -->
+                  @foreach( $enfermos as $enfermo)
                     <td> {{$enfermo->Id_Conejo}} </a></td>
-                    <td> {{$enfermo->Id_Enfermedad . $enfermo->Nombre_Enfermedad }} </td>
+                    <td> {{$enfermo->Id_Enfermedad}} </td>
                     <td> {{$enfermo->Id_Medicamento}} </td>
                     <td> {{$enfermo->Fecha_Inicio}} </td>
                     <td> {{$enfermo->Fecha_Fin}} </td>        

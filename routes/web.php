@@ -70,9 +70,9 @@ Route::delete('/donacion/{id_donacion}', 'DonacionController@delete');
 Route::get('/enfermo', 'EnfermoController@index');
 Route::get('/enfermo/create', 'EnfermoController@create');
 Route::post('/enfermo', 'EnfermoController@store');
-Route::put('/enfermo/{id_conejo}/edit', 'EnfermoController@update');
+Route::get('/enfermo/{id_conejo}/edit', 'EnfermoController@edit');
+Route::patch('/enfermo/{id_conejo}', 'EnfermoController@update');
 Route::delete('/enfermo/{id_conejo}', 'EnfermoController@delete');
-//Route::get('/enfermo/{id_conejo}', 'EnfermoController@show');
 
 //Rutas de horas
 Route::get('/horas/create', 'HorasController@create');

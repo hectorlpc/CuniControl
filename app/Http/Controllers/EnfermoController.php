@@ -49,10 +49,20 @@ class EnfermoController extends Controller
         return view('Enfermo.index', ['enfermos' => $enfermos]);
     }
 
-    public function edit($Id_Conejo_Enfermo)
+    public function edit($id_conejo)
     {
-        $enfermo = findOrFail($Id_Conejo_Enfermo);
-        return view('Enfermo.edit', ['enfermo' => $enfermo]);
+        $medicamentos = Medicamento::all();
+        $enfermedades = Enfermedad::all();
+        $conejos = Conejo::all();
+
+        $enfermo = Enfermo::where('Id_Conejo', $id_conejo)->first();
+
+        return view('Enfermo/edit', [
+            'conejos' => $conejos,
+            'enfermedades' => $enfermedades,
+            'medicamentos' => $medicamentos,
+            'enfermo' => $enfermo
+        ]);        
     }
 
     public function delete($id_conejo)
@@ -62,36 +72,15 @@ class EnfermoController extends Controller
         return redirect()->back();
     }
 
-    //     public function edit($id_conejo)
-    // {
-    //     $medicamentos = Medicamento::all();
-    //     $enfermedades = Enfermedad::all();
-    //     $conejos = Conejo::all();
-
-    //     return view('Enfermo/create', [
-    //         'conejos' => $conejos,
-    //         'enfermedades' => $enfermedades,
-    //         'medicamentos' => $medicamentos
-    //     ]);           
-    //     return view('Enfermo/edit');
-    // }
-}
-
-
-
-/*    public function show($id_conejo)
+    public function update(Request $request, $id_conejo)
     {
-        //$enfermo = Enfermo::find($id_conejo);
         $enfermo = Enfermo::where('Id_Conejo', $id_conejo)->first();
+        $enfermo->Fecha_Fin = $request->input('Fecha_Fin');
+        $enfermo->Id_Enfermedad = $request->input('Id_Enfermedad');
+        $enfermo->Id_Medicamento = $request->input('Id_Medicamento');      
+        //dd($request->all());
+        $enfermo->save();
 
-        return view('Enfermo.show', [
-            'enfermo' => $enfermo
-        ]);
-    }*/
-
-
-
-    //     public function delete($id_conejo)
-    // {
-    //     return redirect()->back();
-    // }
+        return redirect('/enfermo');        
+    }
+}

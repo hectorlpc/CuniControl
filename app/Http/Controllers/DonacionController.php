@@ -35,12 +35,15 @@ class DonacionController extends Controller{
         
         return redirect('/home');
     }
+
+    public function delete($id_donacion)
+    {
+        $donacion = Donacion::where('Id_Donacion', $id_donacion)->first();
+        $donacion->delete();
+        return redirect()->back();
+    }
     
     // public function edit($id_destete){
     //     return view('Donacion.edit');
     // }
-
-    // public function delete($id_destete){
-    //     return redirect()->back();
-    // }    
 }

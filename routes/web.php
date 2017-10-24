@@ -64,7 +64,7 @@ Route::get('/donacion', 'DonacionController@index');
 Route::get('/donacion/create', 'DonacionController@create');
 Route::post('/donacion', 'DonacionController@store');
 Route::get('/donacion/{id_conejo}', 'DonacionController@edit');
-Route::delete('/donacion/{id_conejo}', 'DonacionController@delete');
+Route::delete('/donacion/{id_donacion}', 'DonacionController@delete');
 
 //Rutas de conejos enfermos
 Route::get('/enfermo', 'EnfermoController@index');

@@ -5,7 +5,7 @@
           <form method="get" action="{{url('/donacion/')}}">
           <div class="form-group">
             <label for="">Numero de la donación:</label>
-            <input type="" class="form-control" name="Id_Parto_Donante" placeholder="Introduce tatuajes sin espacio">
+            <input type="" class="form-control" name="Id_Donacion" placeholder="Introduce tatuajes sin espacio">
             <br>
             <button type="submit" class="btn btn-outline-primary">Buscar</button>
           </div>
@@ -31,7 +31,12 @@
       <td> {{$donacion->Cantidad_Gazapos}} </td>
       <td></td>
       <td><div class="btn-group btn-group-sm" role="group" aria-label="">
-      <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><button type="button" class="btn btn-secondary btn-outline-info">Modificar</button></td>
+        <form method="POST" action="{{url('/donacion/' . $donacion->Id_Donacion)}}">
+          {{csrf_field()}}
+          {{method_field('delete')}}
+          <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+        </form>
+        <button type="button" class="btn btn-secondary btn-outline-info">Modificar</button></td>
       </div></td>
     </tr>
     @endforeach

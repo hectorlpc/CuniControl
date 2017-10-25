@@ -32,7 +32,7 @@ class MontaController extends Controller
     public function store (Request $request)
     {
         Monta::create($request->all());
-        return redirect('/home');
+        return redirect('/monta');
     }
 
     public function index(Request $request)

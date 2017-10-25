@@ -37,7 +37,7 @@ class PartoController extends Controller
         $parto->Peso_Nacer = $request->input('Peso_Nacer');
         $parto->Id_Parto = $parto->Fecha_Parto . $parto->Id_Conejo_Hembra;
         $parto->save();
-        return redirect('/home');
+        return redirect('/parto');
     }
 
     public function index(Request $request)

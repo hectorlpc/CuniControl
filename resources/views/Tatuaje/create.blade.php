@@ -17,50 +17,40 @@
             </select>
           </div>
           <div class="form-group">
-          <label for="exampleInputPassword2">Numero de tatuaje del padre:</label>
-          <select class="form-control" name="Tatuaje_Macho">
-            @foreach($conejos as $conejo)
-              @if($conejo->Genero == 'Macho')
-              <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
-              @endif
-            @endforeach
-            </select>
-          </div>
-          <div class="form-group">
-          <label for="exampleInputPassword2">Raza:</label>
-          <select class="form-control" name="Raza">
-            @foreach($razas as $raza)
-                <option value="{{$raza->Id_Raza}}">{{$raza->Id_Raza . ' ' . $raza->Nombre_Raza}}</option>
-            @endforeach            
-            </select>
-          </div>
-          <div class="form-group">
             <label for="exampleInputPassword2">Genero:</label>
             <input type="radio" name="Genero" value="Macho" /> Macho
             <input type="radio" name="Genero" value="Hembra" /> Hembra
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1"> Fecha de nacimiento:</label>
-            <input class="form-control" type="date" name="fecha" min="2000-01-01" max="2050-01-01" step="2">
-          </div>
-<!--           <div class="form-group">
-            <label for="exampleInputEmail1"> Peso al nacer (kg.):</label>
-             <input type="string" name="Peso">
-          </div> -->
-
-          <div class="form-group">
-            <label for="exampleInputEmail1">Tatuaje Derecho:</label>
-             <input type="string" name="Tatuaje_Derecho"">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Tatuaje Izquierdo:</label>
-             <input type="string" name="Tatuaje_Izquierdo">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword2">Status:</label>
             <input type="radio" name="Status_Conejo" value="Vivo" /> Vivo
             <input type="radio" name="Status_Conejo" value="Muerto" /> Muerto
           </div>
+          <div class="form-group">
+            <label for="exampleInputPassword2">Consecutivo de conejo:</label>
+          <select class="form-control" name="Consecutivo_de_Conejo">
+              <option value="01">1</option>
+              <option value="02">2</option>
+              <option value="03">3</option>
+              <option value="04">4</option>
+              <option value="05">5</option>
+              <option value="06">6</option>
+              <option value="07">7</option>
+              <option value="08">8</option>
+              <option value="09">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+            </select>
+          </div>  
 
 
 

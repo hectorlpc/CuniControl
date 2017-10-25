@@ -35,7 +35,7 @@ class DesteteController extends Controller{
         $destete->Numero_Destetados = $request->input('Numero_Destetados');
         $destete->Peso_Destete = $request->input('Peso_Destete');
         $destete->save();
-        return redirect('/home');
+        return redirect('/destete');
     }
 
     public function index(Request $request)

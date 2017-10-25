@@ -33,7 +33,7 @@ class DonacionController extends Controller{
         $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
         $donacion->save();
         
-        return redirect('/home');
+        return redirect('/donacion');
     }
 
     public function delete($id_donacion)

@@ -34,33 +34,33 @@ class TatuajeController extends Controller
 /*        Conejo::create($request->all()); //solicita todos los campos para guardar
 */
 		$productora = new ConejaProductora;
-        // $conejo = new Conejo;
-        // $parto = DB::table('Parto')->where('Id_Conejo_Hembra',$request->input('Tatuaje_Hembra'));*/
-        // $parto = DB::table('Parto')->where ('Id_Conejo_Hembra','=',$request->input('Tatuaje_Hembra'))->get();
+
+        $conejo = new Conejo;
+        $parto = DB::table('Parto')->where ('Id_Conejo_Hembra','=',$request->input('Tatuaje_Hembra'))->get()->last();
         $productora =DB::table('Coneja_Productora')->where ('Id_Conejo','=',($request->input('Tatuaje_Hembra')))->get();
-
-        // $conejo->Tatuaje_Derecho = $conejoRaza->Id_Raza . $productora->Numero_Conejo;
-        // $conejo->Tatuaje_Izquierdo = $parto->Fecha_Parto;
-        // $conejo->Id_Raza = $conejoRaza->Id_Raza;
-        // $conejo->Genero = $request->input('Genero');
-        // $conejo->Peso_Conejo = $request->input('Peso');
-        // $conejo->Status_Conejo = $request->input('Status_Conejo');
-        // $conejo->Id_Conejo = $conejo->Tatuaje_Derecho . $conejo->Tatuaje_Izquierdo;
-        // $conejo->save();
-
-        // return 'Id_Conejo' . $conejo->Tatuaje_Derecho;
+        $conejoRaza=DB::table('Conejo')->where ('Id_Conejo','=',($request->input('Tatuaje_Hembra')))->get();
         
         $raza = $request->input('Tatuaje_Hembra')[0];
-        $numero_productora = $productora[0]->Numero_Conejo; // remplazar con valor de consulta
-        $numero_hijo = '10'; // viene de quien sabe donde
-        $tatuaje_derecho = $raza . $numero_productora . $numero_hijo;
-
-        $fecha = $request->input('fecha');
+        $numero_productora = $productora[0]->Numero_Conejo; 
+        $numero_hijo = $request->input('Consecutivo_de_Conejo'); 
+        $conejo->Tatuaje_Derecho = $raza . $numero_productora . $numero_hijo;
+        $fecha = $parto->Fecha_Parto;
         $dia = substr($fecha, -2, 2);
         $mes = substr($fecha, 5, 2);
         $anio = $fecha[3];
-        $tatuaje_izquierdo = $dia . $mes . $anio;
-        dd($tatuaje_derecho, $tatuaje_izquierdo, $productora);        
+        $conejo->Tatuaje_Izquierdo = $dia . $mes . $anio;
+        $conejo->Genero = $request->input('Genero');
+        $conejo->Id_Raza = $conejoRaza[0]->Id_Raza;
+        // $conejo->Peso_Conejo = $request->input('Peso');
+        $conejo->Status_Conejo = $request->input('Status_Conejo');
+        $conejo->Id_Conejo = $conejo->Tatuaje_Derecho . $conejo->Tatuaje_Izquierdo;
+        $conejo->save();
+
+        // return 'Id_Conejo' . $conejo->Tatuaje_Derecho;
+        
+        
+        //dd($conejo, $numero_hijo);  
+        return redirect('/tatuaje');      
     }
 
 

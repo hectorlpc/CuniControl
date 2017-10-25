@@ -35,7 +35,7 @@ class EnfermoController extends Controller
         //dd($request->all());
         $enfermo->save();
 
-        return redirect('/home');
+        return redirect('/enfermo');
     }
 
     public function index(Request $request)

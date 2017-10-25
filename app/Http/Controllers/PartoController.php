@@ -9,15 +9,22 @@ use App\Monta;
 
 class PartoController extends Controller
 {
-    public function create(){
+    public function create()
+    {
         $conejos = Conejo::all();
         $fecha_monta = Monta::all();
+
         return view('Parto/create',['conejos' => $conejos,'fecha_monta' =>$fecha_monta]);
     }
 
      public function edit($id_parto)
     {
-    	return view('Parto/edit');
+        $conejos = Conejo::all();
+        $fecha_monta = Monta::all();
+
+        $parto = Parto::where('Id_Parto', $id_parto)->first();        
+        
+        return view('Parto/create',['conejos' => $conejos,'fecha_monta' =>$fecha_monta]);
     }
 
     public function delete($tatuaje_coneja)

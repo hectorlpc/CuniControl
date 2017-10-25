@@ -2,47 +2,38 @@
 @section('content')
 <label for="destete">SUPERVISION DE PARTO</label>
 
-  <div class="container">
-  <form action="/my-handling-form-page" method="post">
-      <div>
-          <label for="parto">Numero de parto:</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-    <option>parto 1</option>
-    <option>parto 2</option>
-    <option>parto 3</option>
-    <option>parto 4</option>
-    <option>parto 5</option>
-  </select>
-      </div>
-      <div>
-          <label for="num:gest">Numero de gestacion:</label>
-          <input class="form-control" name="num_getsacion" type="text" >
-      </div>
+<div class="container">
+<form action="{{url('/parto/' . $parto->Id_Parto)}}" method="POST" role="form">
+    {{ csrf_field() }}
+    <div class="form-group">
+            <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
+                <input readonly class="form-control" type="text" name="Id_Parto" value="{{$parto->Id_Parto}}">
+    </div>
+    <div>
+        <label for="fecha">Fecha de monta:</label>
+            <input readonly value="{{$parto->Fecha_Monta}}" class="form-control" type="date" name="Fecha_Monta">
+    </div>
+    <div>
+        <label for="fecha">Fecha de parto:</label>
+            <input readonly value="{{$parto->Fecha_Parto}}" class="form-control" type="date" name="Fecha_Parto" min="2000-01-01" max="2050-01-01" step="1">
+    </div>
+    <div>
+        <label for="cant_vivos">Cantidad de gazapos vivos:</label>
+            <input value="{{$parto->Numero_Vivos}}" class="form-control" type="text" name="Numero_Vivos">
+    </div>
+    <div>
+        <label for="cant_muertos">Cantidad de gazapos muertos:</label>
+            <input value="{{$parto->Numero_Muertos}}" class="form-control" type="text" name="Numero_Muertos">
+    </div>
 
-      <div>
-          <label for="fecha">Fecha de parto:</label>
-          <input class="form-control" name="fecha_destete" type="date" >
+    <div>
+        <label for="peso">Peso promedio al nacer:</label>
+            <input value="{{$parto->Peso_Nacer}}" class="form-control" type="text" name="Peso_Nacer">
 </div>
+    <br>
+    <button type="submit" class="btn btn-outline-primary">Actualizar</button>
+    <button type="submit" class="btn btn-outline-secondary">Regresar</button>
 
-
-      <div>
-          <label for="cant_vivos">Cantidad de gazapos vivos:</label>
-          <input class="form-control" name="vivos" type="text" >
-      </div>
-
-      <div>
-          <label for="cant_muertos">Cantidad de gazapos muertos:</label>
-          <input class="form-control" name="muertos" type="text" >
-      </div>
-
-      <div>
-          <label for="peso">Peso promedio al nacer:</label>
-          <input class="form-control" name="peso_destete" type="text" >
-</div>
-
-      <button type="submit" class="btn btn-primary">Actualizar</button>
-      <button type="submit" class="btn btn-primary">Regresar</button>
-
-  </form>
+</form>
 </div>
 @endsection

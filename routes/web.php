@@ -42,6 +42,7 @@ Route::get('parto/', 'PartoController@index');
 Route::get('/parto/create', 'PartoControllerp@create');
 Route::post('/parto', 'PartoController@store');
 Route::get('/parto/{id_parto}/edit', 'PartoController@edit');
+Route::patch('/parto/{id_parto}', 'PartoController@update');
 Route::delete('/parto/{tatuaje_coneja}', 'PartoController@delete');
 
 

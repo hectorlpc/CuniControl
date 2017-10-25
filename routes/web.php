@@ -84,3 +84,11 @@ Route::delete('/horas/{id_destete}', 'HorasController@delete');
 Route::get('/parto/create', 'PartoController@create');
 Route::get('/parto/{id_parto}', 'PartoController@edit');
 Route::delete('/parto/{id_parto}', 'PartoController@delete');
+
+
+//Rutas de Coneja Productora
+Route::get('/productora', 'ProductoraController@index');
+Route::get('/productora/create', 'ProductoraController@create');
+Route::post('/productora', 'ProductoraController@store');
+Route::get('/productora/{id_productora}', 'ProductoraController@edit');
+Route::delete('/productora/{id_productora}', 'ProductoraController@delete');

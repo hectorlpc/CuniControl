@@ -21,6 +21,7 @@ class CreateConejaProductoraTable extends Migration
             $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
             $table->string('Numero_Conejo');
             $table->boolean('Status')->nullable();
+            $table->date('Fecha');
             $table->timestamps();    
         });
     }

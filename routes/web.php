@@ -28,8 +28,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('monta/', 'MontaController@index');
 Route::get('/monta/create','MontaController@create');
 Route::post('/monta', 'MontaController@store');
-Route::get('/monta/{fecha_monta}', 'MontaController@edit');
-Route::delete('/monta/{fecha_monta}', 'MontaController@delete');
+Route::get('/monta/{id_monta}', 'MontaController@edit');
+Route::delete('/monta/{id_monta}', 'MontaController@delete');
 
 // Rutas de gestaciones
 Route::get('/gestacion/create', 'GestacionController@create');

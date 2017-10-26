@@ -27,12 +27,12 @@
       <td>{{$monta->Id_Conejo_Macho}}</td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
-          <form method="POST" action="{{url('/monta/' . $monta->Fecha_Monta)}}">
+          <form method="POST" action="{{url('/monta/' . $monta->Id_Monta)}}">
           {{csrf_field()}}
           {{method_field('delete')}}
-          <input type="hidden" name="Id_Conejo_Hembra" value="{{$monta->Id_Conejo_Hembra}}">
+          <input type="hidden" name="Id_Monta" value="{{$monta->Id_Monta}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form> <a href="{{url('/monta/' . $monta->Fecha_Monta . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+           </form> <a href="{{url('/monta/' . $monta->Id_Monta . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
         </div>
       </td>
     </tr>

@@ -7,7 +7,7 @@
             
           <div class="form-group">
             <label for="">Fecha de Monta</label>
-            <input type="date" class="form-control" name="Fecha_Monta" id="" placeholder="Introduce la monta">
+            <input type="date" class="form-control" name="Fecha_Monta" placeholder="Introduce la monta">
 
           </div>
           <div class="form-group">

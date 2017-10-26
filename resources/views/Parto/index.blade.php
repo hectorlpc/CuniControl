@@ -8,9 +8,10 @@
           <input type="" class="form-control" name="Id_Conejo_Hembra" placeholder="Buscar">
           <br>
           <button type="submit" class="btn btn-outline-primary">Buscar</button>        
+          <td><a href="{{url('/parto/create')}}" type="button" class="btn btn-outline-success">Agregar</a></td>      
+    
         </div>
       </form>
-    <td><a href="{{url('/parto/create')}}" type="button" class="btn btn-outline-success">Agregar</a></td>      
       <table class="table table-sm table-responsive">
 <thead class="thead-default">
   <tr>

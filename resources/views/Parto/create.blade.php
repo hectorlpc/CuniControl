@@ -8,25 +8,13 @@
     {{ csrf_field() }}
     <div class="form-group">
             <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
-          <select class="" name="Id_Conejo_Hembra">
-            @foreach($conejos as $conejo)
-              @if($conejo->Genero == 'Hembra')              
-                <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
-              @endif
+          <select class="" name="Id_Monta">
+            @foreach($montas as $monta)              
+                <option value="{{$monta->Id_Monta}}">{{$monta->Id_Monta}}</option>
             @endforeach
             </select>
     </div>
-    <div>
-        <label for="fecha">Fecha de monta:</label>
-            
-            <select class="" name="Fecha_Monta">
-                @foreach($fecha_monta as $fecha)
-                    <option value="{{$fecha->Fecha_Monta}}">{{$fecha->Fecha_Monta}}</option>
-                @endforeach
-            </select>       
-                    
 <!--         <input class="form-control" name="Fecha_Monta" type="date" > -->
-    </div>
 
     <div>
         <label for="fecha">Fecha de parto:</label>

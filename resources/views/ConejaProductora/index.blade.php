@@ -12,10 +12,9 @@
             </select>
             <br>
             <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
-            <button type="submit" class="btn btn-outline-success">Agregar</button>
+            <a href="{{url('/productora/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
           </div>
         </form>
-        <a href="{{url('/productora/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
       
         <table class="table table-sm table-responsive">
   <thead class="thead-default">

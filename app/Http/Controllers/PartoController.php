@@ -11,10 +11,9 @@ class PartoController extends Controller
 {
     public function create()
     {
-        $conejos = Conejo::all();
-        $fecha_monta = Monta::all();
+        $montas = Monta::all();
 
-        return view('Parto/create',['conejos' => $conejos,'fecha_monta' =>$fecha_monta]);
+        return view('Parto/create',['montas' =>$montas]);
     }
 
      public function edit($id_parto)
@@ -37,12 +36,12 @@ class PartoController extends Controller
     public function store(Request $request){
         $parto = new Parto;
         $parto->Fecha_Parto = $request->input('Fecha_Parto');
-        $parto->Id_Conejo_Hembra = $request->input('Id_Conejo_Hembra');
-        $parto->Fecha_Monta = $request->input('Fecha_Monta');
+        $parto->Id_Monta = $request->input('Id_Monta');
         $parto->Numero_Vivos = $request->input('Numero_Vivos');
         $parto->Numero_Muertos = $request->input('Numero_Muertos');
         $parto->Peso_Nacer = $request->input('Peso_Nacer');
-        $parto->Id_Parto = $parto->Fecha_Parto . $parto->Id_Conejo_Hembra;
+        $parto->Id_Parto =  $parto->Id_Monta . $parto->Fecha_Parto ;
+        //dd($parto);
         $parto->save();
         return redirect('/parto');
     }

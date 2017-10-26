@@ -9,9 +9,9 @@
                 <input type="" class="form-control" name="Id_Destete" placeholder="Buscar">
                 <br>
                 <button type="submit" class="btn btn-primary">Buscar</button>
+                <a href="{{url('/destete/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>         
               </div>
-            </form>
-      <a href="{{url('/destete/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>            
+            </form>   
             <table class="table table-sm table-responsive">
       <thead class="thead-default">
         <tr>

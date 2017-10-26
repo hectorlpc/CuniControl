@@ -8,10 +8,10 @@
             <label for="">Tatuaje del conejo: </label>
             <input type="" class="form-control" name="Id_Conejo" placeholder="Introduce tatuajes sin espacio">
             <br>
-            <button type="submit" class="btn btn-outline-primary">Buscar</button>            
+            <button type="submit" class="btn btn-outline-primary">Buscar</button> 
+            <a href="{{url('/tatuaje/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>            
           </div>
-        </form>
-        <a href="{{url('/tatuaje/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>        
+        </form>       
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>

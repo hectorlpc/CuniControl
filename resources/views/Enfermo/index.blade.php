@@ -9,10 +9,10 @@
                   <div class="form-group">
                     <input type="" class="form-control" name="Id_Conejo" placeholder="Introduce tatuajes sin espacio">
                   </div>        
-              <button type="submit" class="btn btn-outline-primary">Buscar</button>            
+              <button type="submit" class="btn btn-outline-primary">Buscar</button>
+              <a href="{{url('/enfermo/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>            
           </div>
       </form>
-      <a href="{{url('/enfermo/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
       <table class="table table-sm table-responsive">
           <thead class="thead-default">
               <tr>

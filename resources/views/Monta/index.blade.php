@@ -7,9 +7,10 @@
             <label for="">Fecha de Monta:</label>
             <input type="date" class="form-control" name="Fecha_Monta" placeholder="Buscar">
             <button type="submit" class="btn btn-primary">Buscar</button>
+            <a href="{{url('/monta/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>             
+      
           </div>
         </form>
-      <a href="{{url('/monta/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>             
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>

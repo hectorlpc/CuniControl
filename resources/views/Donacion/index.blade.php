@@ -8,9 +8,9 @@
             <input type="" class="form-control" name="Id_Donacion" placeholder="Introduce tatuajes sin espacio">
             <br>
             <button type="submit" class="btn btn-outline-primary">Buscar</button>
+            <a href="{{url('donacion/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
           </div>
         </form>
-        <a href="{{url('donacion/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
 
         <table class="table table-sm table-responsive">
   <thead class="thead-default">

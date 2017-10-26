@@ -19,7 +19,7 @@ class CreateDesteteTable extends Migration
           $table->foreign('Id_Parto')->references('Id_Parto')->on('Parto');
           $table->date('Fecha_Destete');
           $table->smallInteger('Numero_Destetados');
-          $table->float('Peso_Destete',2,2)->nullable();
+          $table->float('Peso_Destete')->nullable();
           $table->timestamps();
         });
     }

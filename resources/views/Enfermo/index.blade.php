@@ -27,9 +27,8 @@
           <tbody>
               <tr>
                   @foreach( $enfermos as $enfermo)
+                  {{dd($enfermo->enfermedades)}}
                     <td> {{$enfermo->Id_Conejo}} </a></td>
-                    <td> {{$enfermo->Id_Enfermedad . $enfermo->Nombre_Enfermedad }} </td>
-                    <td> {{$enfermo->Id_Medicamento}} </td>
                     <td> {{$enfermo->Fecha_Inicio}} </td>
                     <td> {{$enfermo->Fecha_Fin}} </td>        
                     <td>

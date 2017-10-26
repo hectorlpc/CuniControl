@@ -32,12 +32,6 @@ Route::get('/monta/{id_monta}/edit', 'MontaController@edit');
 Route::patch('/monta/{id_monta}', 'MontaController@update');
 Route::delete('/monta/{id_monta}', 'MontaController@delete');
 
-// Rutas de gestaciones
-Route::get('/gestacion/create', 'GestacionController@create');
-Route::post('/gestacion', 'GestacionController@store');
-Route::get('/gestacion/{id_gestacion}', 'GestacionController@edit');
-Route::delete('/gestacion/{id_gestacion}', 'GestacionController@delete');
-
 // Rutas de partos
 Route::get('parto/', 'PartoController@index');
 Route::get('/parto/create', 'PartoControllerp@create');

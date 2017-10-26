@@ -8,6 +8,8 @@ use App\Enfermedad;
 use App\Medicamento;
 use App\Enfermo;
 
+use Illuminate\Support\Facades\DB;
+
 class EnfermoController extends Controller
 
 {    
@@ -26,14 +28,15 @@ class EnfermoController extends Controller
     public function store(Request $request) 
     {
         $enfermo = new Enfermo;
+
         $enfermo->Id_Conejo = $request->input('Id_Conejo');
         $enfermo->Fecha_Inicio = $request->input('Fecha_Inicio');
-        $enfermo->Fecha_Fin = $request->input('Fecha_Fin');
-        $enfermo->Id_Enfermedad = $request->input('Id_Enfermedad');
-        $enfermo->Id_Medicamento = $request->input('Id_Medicamento');      
+        $enfermo->Fecha_Fin = $request->input('Fecha_Fin');    
         $enfermo->Id_Conejo_Enfermo = $enfermo->Id_Conejo . $enfermo->Fecha_Inicio;
-        //dd($request->all());
         $enfermo->save();
+
+        $enfermo->enfermedades()->attach($request->input('Id_Enfermedad'), 
+            ['Id_Medicamento' => $request->input('Id_Medicamento')]);
 
         return redirect('/enfermo');
     }
@@ -42,10 +45,11 @@ class EnfermoController extends Controller
     {
         if($request->Id_Conejo)
         {
-            $enfermos = Enfermo::where('Id_Conejo', $request->Id_Conejo)->get();
+            $enfermos = Enfermo::where('Id_Conejo', $request->Id_Conejo)->with('enfermedades')->get();
         } else {
-            $enfermos = Enfermo::all();
+            $enfermos = Enfermo::with('enfermedades')->get();
         }
+
         return view('Enfermo.index', ['enfermos' => $enfermos]);
     }
 

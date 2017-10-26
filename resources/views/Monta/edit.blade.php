@@ -24,9 +24,9 @@
           <div class="form-group">
             <label for="">Resultado Diagnostico: </label>
               <div class="input-group radio">
-                <input type="radio" name="Resultado_Diagnostico" value="Positivo">
+                <input type="radio" name="Resultado_Diagnostico" value="Positivo" {{$monta->Resultado_Diagnostico == 'Positivo' ? 'checked' : ''}}>
                 <label> Positivo </label>
-                <input type="radio" name="Resultado_Diagnostico" value="Negativo">
+                <input type="radio" name="Resultado_Diagnostico" value="Negativo" {{$monta->Resultado_Diagnostico == 'Negativo' ? 'checked' : ''}} >
                 <label> Negativo </label>
             </div>
           <div class="form-group">

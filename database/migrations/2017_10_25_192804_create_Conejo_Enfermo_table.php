@@ -19,10 +19,6 @@ class CreateConejoEnfermoTable extends Migration
             $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
             $table->date('Fecha_Inicio');
             $table->date('Fecha_Fin');
-            $table->string('Id_Enfermedad');
-            $table->foreign('Id_Enfermedad')->references('Id_Enfermedad')->on('Enfermedad');
-            $table->string('Id_Medicamento');
-            $table->foreign('Id_Medicamento')->references('Id_Medicamento')->on('Medicamento');            
             $table->timestamps();            
         });
     }

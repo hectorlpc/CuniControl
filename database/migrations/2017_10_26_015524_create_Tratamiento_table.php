@@ -14,11 +14,12 @@ class CreateTratamientoTable extends Migration
     public function up()
     {
         Schema::create('Tratamiento', function (Blueprint $table) {
-            $table->string('Id_Tratamiento',6)->primary('Id_Tratamiento');
-            $table->string('Id_Enfermedad',6);
-            $table->foreign('Id_Enfermedad')->references('Id_Enfermedad')->on('Enfermedad');
+            $table->string('Id_Conejo_Enfermo');
+            $table->foreign('Id_Conejo_Enfermo')->references('Id_Conejo_Enfermo')->on('Conejo_Enfermo');
             $table->string('Id_Medicamento',6);
             $table->foreign('Id_Medicamento')->references('Id_Medicamento')->on('Medicamento');
+            $table->string('Id_Enfermedad',6);
+            $table->foreign('Id_Enfermedad')->references('Id_Enfermedad')->on('Enfermedad');
             $table->timestamps();
         });
     }

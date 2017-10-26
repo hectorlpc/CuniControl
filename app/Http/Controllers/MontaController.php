@@ -11,13 +11,33 @@ class MontaController extends Controller
     public function create()    
     {
         $conejos = Conejo::all();
-        return view('Monta/create',['conejos' => $conejos]);
-        
+     
+        return view('Monta/create',['conejos' => $conejos]);   
     }
 
     public function edit($id_monta)
     {
-        return view('Monta/edit');
+        $montas = Monta::all();
+        $conejos = Conejo::all();
+
+        $monta = Monta::where('Id_Monta', $id_monta)->first();
+
+        return view('Monta/edit', [
+            'monta' => $montas,
+            'conejos' => $conejos,
+            'monta' => $monta
+        ]);
+    }
+
+    public function update(Request $request, $id_monta)
+    {
+        $monta = Monta::where('Id_Monta', $id_monta)->first();
+        $monta->Fecha_Diagnostico = $request->input('Fecha_Diagnostico');
+        $monta->Resultado_Diagnostico = $request->input('Resultado_Diagnostico');
+        $monta->Fecha_Parto = $request->input('Fecha_Parto');
+        $monta->save();
+
+        return redirect('/monta');         
     }
 
     public function delete($id_monta)

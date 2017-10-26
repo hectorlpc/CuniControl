@@ -13,18 +13,24 @@
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
-      <th>Fecha de Monta (Año - Mes - Día)</th>
+      <th>Fecha de Monta (Año-Mes-Día)</th>
       <th>Tatuaje Coneja</th>
       <th>Tatuaje Conejo</th>
+      <th>Fecha Diagnostico</th>
+      <th>Resultado Diagnostico</th>
+      <th>Fecha_Parto</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       @foreach($montas as $monta)
-      <td>{{$monta->Fecha_Monta}}</td>
-      <td>{{$monta->Id_Conejo_Hembra}}</td>
-      <td>{{$monta->Id_Conejo_Macho}}</td>
+      <td> {{$monta->Fecha_Monta}} </td>
+      <td> {{$monta->Id_Conejo_Hembra}} </td>
+      <td> {{$monta->Id_Conejo_Macho}} </td>
+      <td> {{$monta->Fecha_Diagnostico}} </td>
+      <td> {{$monta->Resultado_Diagnostico}} </td>
+      <td> {{$monta->Fecha_Parto}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
           <form method="POST" action="{{url('/monta/' . $monta->Id_Monta)}}">

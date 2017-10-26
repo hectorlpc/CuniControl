@@ -14,10 +14,10 @@ class CreateGestacionTable extends Migration
     public function up()
     {
         Schema::create('Gestacion', function (Blueprint $table) {
-            $table->date('Fecha_Monta');
-            $table->foreign('Fecha_Monta')->references('Fecha_Monta')->on('Monta');
-            $table->string('Id_Conejo_Hembra');
-            $table->foreign('Id_Conejo_Hembra')->references('Id_Conejo_Hembra')->on('Monta');
+            $table->string('Id_Monta');
+            $table->foreign('Id_Monta')->references('Id_Monta')->on('Monta');
+            // $table->string('Id_Conejo_Hembra');
+            // $table->foreign('Id_Conejo_Hembra')->references('Id_Conejo_Hembra')->on('Monta');
             $table->date('Fecha_Parto');
             $table->timestamps();
         });

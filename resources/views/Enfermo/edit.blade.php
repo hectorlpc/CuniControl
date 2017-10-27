@@ -16,7 +16,7 @@
         <select name="Id_Enfermedad" id="input" class="form-control">
             <option> -- Seleccione la enfermedad -- </option>        
             @foreach ($enfermedades as $enfermedad)
-            @if($enfermedad->Id_Enfermedad == $enfermo->Id_Enfermedad)
+            @if($enfermedad->Id_Enfermedad == $tratamiento->Id_Enfermedad)
                 <option value="{{$enfermedad->Id_Enfermedad}}" selected>{{$enfermedad->Nombre_Enfermedad}}</option>
             @else
                 <option value="{{$enfermedad->Id_Enfermedad}}">{{$enfermedad->Nombre_Enfermedad}}</option>
@@ -29,7 +29,7 @@
         <select name="Id_Medicamento" id="input" class="form-control">
             <option> -- Seleccione el medicamento -- </option>
             @foreach ($medicamentos as $medicamento)
-            @if($medicamento->Id_Medicamento == $enfermo->Id_Medicamento)
+            @if($medicamento->Id_Medicamento == $tratamiento->Id_Medicamento)
                 <option value="{{$medicamento->Id_Medicamento}}" selected>{{$medicamento->Nombre_Medicamento}}</option>
             @else
                 <option value="{{$medicamento->Id_Medicamento}}">{{$medicamento->Nombre_Medicamento}}</option>

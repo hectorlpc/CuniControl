@@ -26,9 +26,11 @@
           </thead>
           <tbody>
               <tr>
-                  @foreach( $enfermos as $enfermo)
-                  {{dd($enfermo->enfermedades)}}
+                @foreach($enfermos as $enfermo)
+                  @foreach($enfermo->tratamientos() as $tratamiento)
                     <td> {{$enfermo->Id_Conejo}} </a></td>
+                    <td> {{$tratamiento->Nombre_Enfermedad}} </td>
+                    <td> {{$tratamiento->Nombre_Medicamento}} </td>
                     <td> {{$enfermo->Fecha_Inicio}} </td>
                     <td> {{$enfermo->Fecha_Fin}} </td>        
                     <td>
@@ -42,6 +44,7 @@
                   </td>
               </tr>
               @endforeach
+            @endforeach
           </tbody>
       </table>
 @endsection

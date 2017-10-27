@@ -81,7 +81,7 @@ class EnfermoController extends Controller
         $enfermo = Enfermo::where('Id_Conejo', $id_conejo)->first();
         $enfermo->Fecha_Fin = $request->input('Fecha_Fin');
         $enfermo->Id_Enfermedad = $request->input('Id_Enfermedad');
-        $enfermo->Id_Medicamento = $request->input('Id_Medicamento');      
+        $enfermo->Id_Medicamento = $request->input('Id_Medicamento');
         //dd($request->all());
         $enfermo->save();
 

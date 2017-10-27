@@ -16,32 +16,31 @@ class PartoController extends Controller
         return view('Parto/create',['montas' =>$montas]);
     }
 
-     public function edit($id_parto)
+    public function edit($id_parto)
     {
-        $conejos = Conejo::all();
-        $fecha_monta = Monta::all();
-
+        $parto = Parto::all();
         $parto = Parto::where('Id_Parto', $id_parto)->first();        
         
-        return view('Parto/create',['conejos' => $conejos,'fecha_monta' =>$fecha_monta]);
+        return view('Parto/edit',['parto' => $parto]);
     }
 
-    public function delete($tatuaje_coneja)
+    public function delete($id_parto)
     {
-        $parto = Parto::where('Id_Conejo_Hembra', $tatuaje_coneja)->first();
+        $parto = Parto::where('Id_Parto', $id_parto)->first();
         $parto->delete();
     	return redirect()->back();
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $parto = new Parto;
+
         $parto->Fecha_Parto = $request->input('Fecha_Parto');
         $parto->Id_Monta = $request->input('Id_Monta');
         $parto->Numero_Vivos = $request->input('Numero_Vivos');
         $parto->Numero_Muertos = $request->input('Numero_Muertos');
         $parto->Peso_Nacer = $request->input('Peso_Nacer');
         $parto->Id_Parto =  $parto->Id_Monta . $parto->Fecha_Parto ;
-        //dd($parto);
         $parto->save();
         return redirect('/parto');
     }
@@ -50,10 +49,24 @@ class PartoController extends Controller
     {
         if($request->Id_Conejo_Hembra)
         {
-            $partos = Parto::where('Id_Conejo_Hembra', $request->Id_Conejo_Hembra)->get();
+            $partos = Parto::with(['monta' => function($q) use($request){
+                $q->where('Monta.Id_Conejo_Hembra', $request->Id_Conejo_Hembra);
+            }])->toSql();
+            dd($partos);
         } else {
-            $partos = Parto::all();
+            $partos = Parto::with('monta')->get();
         }
         return view('Parto.index', ['partos' => $partos]);
+    }
+
+    public function update(Request $request, $id_parto)
+    {
+        $parto = Parto::where('Id_Parto', $id_parto)->first();
+        $parto->Numero_Vivos = $request->input('Numero_Vivos');
+        $parto->Numero_Muertos = $request->input('Numero_Muertos');
+        $parto->Peso_Nacer = $request->input('Peso_Nacer');
+        $parto->save();
+
+        return redirect('/parto');
     }
 }

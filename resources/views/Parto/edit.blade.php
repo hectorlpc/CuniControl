@@ -4,10 +4,11 @@
 
 <div class="container">
 <form action="{{url('/parto/' . $parto->Id_Parto)}}" method="POST" role="form">
-    {{ csrf_field() }}
+      {{method_field('patch')}}
+      {{ csrf_field() }}
     <div class="form-group">
             <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
-                <input readonly class="form-control" type="text" name="Id_Parto" value="{{$parto->Id_Parto}}">
+                <input readonly class="form-control" type="text" name="Id_Parto" value="{{$parto->Id_Monta}}">
     </div>
     <div>
         <label for="fecha">Fecha de monta:</label>

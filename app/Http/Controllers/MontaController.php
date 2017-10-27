@@ -43,8 +43,7 @@ class MontaController extends Controller
     public function delete($id_monta)
     {
         $monta = Monta::where('Id_Monta', $id_monta)->first();
-        //dd(\DB::getQueryLog());
-        //dd($monta);
+
         $monta->delete();
         return redirect()->back();
     }
@@ -63,9 +62,9 @@ class MontaController extends Controller
 
     public function index(Request $request)
     {
-        if($request->Fecha_Monta)
+        if($request->Id_Conejo_Hembra)
         {
-            $montas = Monta::where('Fecha_Monta', $request->Fecha_Monta)->get();
+            $montas = Monta::where('Id_Conejo_Hembra', $request->Id_Conejo_Hembra)->get();
         } else {
             $montas = Monta::all();
         }

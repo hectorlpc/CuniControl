@@ -53,16 +53,12 @@
               </li>
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Alumno<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
-                    <li> <a href="{{url('/horas/create')}}">Solicitar horas practicas </a> </li>       
-<!--                     <li> <a   href="">Registrar practica</a> </li>
-                  
- -->                  </ul>
+                    <li> <a href="{{url('/horas/create')}}">Solicitar horas practicas </a> </li>                         
+ -->                </ul>
                 </li>
                  <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Producción<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>               
-                    <li> <a href="{{url('/monta/')}}">Supervisión de la monta</a> </li>                    
-                    <li> <a href="{{url('/monta/edit')}}">Realiza diagnostico de gestación</a> </li>
-                    <!-- <li> <a href="">Supervisión de la gestación</a> </li> -->
+                    <li> <a href="{{url('/monta/')}}">Supervisión de la monta</a> </li>                   
                     <li> <a href="{{url('/parto/')}}">Supervisión del parto</a> </li>                    
                     <li> <a href="{{url('/destete/')}}">Registro de destete de gazapos</a> </li>
                     <li> <a href="{{url('/tatuaje/')}}">Registra tatuado de conejos </a> </li> 
@@ -81,15 +77,15 @@
                     <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Encargado Modulo<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                         <ul>
                           <li> <a href="">Validar practica</a> </li>
-                          <li> <a href="">Abrir cursos</a> </li>
+<!--                           <li> <a href="">Abrir cursos</a> </li>
                           <li> <a href="">Calendarizar Actividades</a> </li>
-                          <li> <a href="">Realizar solicitud de transferencia al taller de carnes</a> </li>
+                          <li> <a href="">Realizar solicitud de transferencia al taller de carnes</a> </li> -->
                           <li> <a href="">Realizar solicitud de incineracion</a> </li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Profesor Encargado<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                         <ul>
-                          <li> <a href="">Programa montas</a> </li>
+<!--                           <li> <a href="">Programa montas</a> </li> -->
                           <li> <a href="">Censo de engorda</a> </li>
                           <li> <a href="">Censo de muerte</a> </li>
                           <li> <a href="">Autorizar horas practicas</a> </li>

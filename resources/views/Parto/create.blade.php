@@ -8,7 +8,7 @@
     {{ csrf_field() }}
     <div class="form-group">
             <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
-          <select class="" name="Id_Monta">
+          <select class="form-control" name="Id_Monta">
             @foreach($montas as $monta)              
                 <option value="{{$monta->Id_Monta}}">{{$monta->Id_Conejo_Hembra}}</option>
             @endforeach

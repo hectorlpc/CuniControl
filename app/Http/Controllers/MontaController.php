@@ -5,14 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Conejo;
 use App\Monta;
+use App\Productora;
+use App\Cemental;
 
 class MontaController extends Controller
 {
     public function create()    
-    {
-        $conejos = Conejo::all();
+    {   
+        $cementales = Cemental::all();
+        $productoras = Productora::all();
      
-        return view('Monta/create',['conejos' => $conejos]);   
+        return view('Monta/create',[
+            'cementales' => $cementales,
+            'productoras' => $productoras
+        ]);   
     }
 
     public function edit($id_monta)

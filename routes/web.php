@@ -81,12 +81,20 @@ Route::get('/parto/create', 'PartoController@create');
 Route::get('/parto/{id_parto}', 'PartoController@edit');
 Route::delete('/parto/{id_parto}', 'PartoController@delete');
 
+//Rutas de Conejo Cemental
+Route::get('/cemental', 'CementalController@index');
+Route::get('/cemental/create', 'CementalController@create');
+Route::post('/cemental', 'CementalController@store');
+Route::get('/cemental/{id_cemental}/edit', 'CementalController@edit');
+Route::patch('/cemental/{id_cemental}', 'CementalController@update');
+Route::delete('/cemental/{id_cemental}', 'CementalController@delete');
 
 //Rutas de Coneja Productora
 Route::get('/productora', 'ProductoraController@index');
 Route::get('/productora/create', 'ProductoraController@create');
 Route::post('/productora', 'ProductoraController@store');
-Route::get('/productora/{id_productora}', 'ProductoraController@edit');
+Route::get('/productora/{id_productora}/edit', 'ProductoraController@edit');
+Route::patch('/productora/{id_productora}', 'ProductoraController@update');
 Route::delete('/productora/{id_productora}', 'ProductoraController@delete');
 
 //Rutas de Conejo Adquirido

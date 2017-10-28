@@ -11,22 +11,18 @@
 
           </div>
           <div class="form-group">
-            <label for="">Tatuaje Macho</label>
-            <select class="" name="Id_Conejo_Macho">
-              @foreach($conejos as $conejo)
-                @if($conejo->Genero == 'Macho') 
-                  <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
-                @endif
+            <label for="">Tatuaje Cemental:</label>
+            <select class="form-control" name="Id_Conejo_Macho">
+              @foreach($cementales as $cemental)
+                  <option value="{{$cemental->Id_Conejo_Macho}}">{{$cemental->Id_Conejo_Macho}}</option>
               @endforeach
             </select>
           </div>
           <div class="form-group">
-            <label for="">Tatuaje Hembra</label>
-            <select class="" name="Id_Conejo_Hembra">
-              @foreach($conejos as $conejo)
-                @if($conejo->Genero == 'Hembra')
-                  <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
-                @endif
+            <label for="">Tatuaje Hembra Productora:</label>
+            <select class="form-control" name="Id_Conejo_Hembra">
+              @foreach($productoras as $productora)
+                  <option value="{{$productora->Id_Conejo_Hembra}}">{{$productora->Id_Conejo_Hembra}}</option>
               @endforeach
             </select>
           </div>

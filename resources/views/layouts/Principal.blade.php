@@ -58,11 +58,14 @@
                 </li>
                  <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Producción<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>               
-                    <li> <a href="{{url('/monta/')}}">Supervisión de la monta</a> </li>                   
+                    <li> <a href="{{url('/cemental/')}}">Registro de conejos Cementales</a> </li>                     
+
+                    <li> <a href="{{url('/productora/')}}">Registro de conejas Productoras</a> </li>                     
+
+                    <li> <a href="{{url('/monta/')}}">Supervisión de la monta</a> </li>                  
                     <li> <a href="{{url('/parto/')}}">Supervisión del parto</a> </li>                    
                     <li> <a href="{{url('/destete/')}}">Registro de destete de gazapos</a> </li>
-                    <li> <a href="{{url('/tatuaje/')}}">Registra tatuado de conejos </a> </li> 
-                    <li> <a href="{{url('/productora/')}}">Registro de conejas Productoras</a> </li>                            
+                    <li> <a href="{{url('/tatuaje/')}}">Registra tatuado de conejos </a> </li>                            
                     <li> <a href="{{url('/donacion/')}}">Registro de donación de conejos</a> </li>
                     <li> <a href="{{url('/enfermo/')}}">Registro de conejo enfermo</a> </li>                    
                     <li> <a href="equipo_agr.php">Registrar baja de conejos por transferencia</a> </li>

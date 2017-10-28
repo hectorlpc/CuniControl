@@ -12,10 +12,12 @@
             {{ csrf_field() }}
           <div class="form-group" >
             <label for="Coneja_Productora">Número de tatuaje de la coneja:</label>
-           <select class="form-control" name="Id_Conejo">
+           <select class="form-control" name="Id_Conejo_Hembra">
               <option> -- Seleccione los tatuajes del conejo -- </option>          
               @foreach ($conejos as $conejo)
+                @if( $conejo->Genero == 'Hembra')
                   <option value="{{$conejo->Id_Conejo}}">{{$conejo->Tatuaje_Derecho . " - " . $conejo->Tatuaje_Izquierdo}}</option>
+                @endif
               @endforeach
             </select>
           </div>

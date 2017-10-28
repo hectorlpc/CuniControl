@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConejaProductoraTable extends Migration
+class CreateConejoCementalTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateConejaProductoraTable extends Migration
      */
     public function up()
     {
-        Schema::create('Coneja_Productora', function (Blueprint $table) {
-            $table->increments('Id_Productora');
+        Schema::create('Conejo_Cemental', function (Blueprint $table) {
+            $table->increments('Id_Cemental');
             $table->string('Id_Raza',10);
             $table->foreign('Id_Raza')->references('Id_Raza')->on('Raza');
-            $table->string('Id_Conejo_Hembra');
-            $table->foreign('Id_Conejo_Hembra')->references('Id_Conejo')->on('Conejo');
-            $table->string('Numero_Conejo');
+            $table->string('Id_Conejo_Macho');
+            $table->foreign('Id_Conejo_Macho')->references('Id_Conejo')->on('Conejo');
             $table->boolean('Status')->nullable();
             //$table->date('Fecha');
-            $table->timestamps();    
+            $table->timestamps();  
         });
     }
 
@@ -33,6 +32,6 @@ class CreateConejaProductoraTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Coneja_Productora');    
+        Schema::dropIfExists('Conejo_Cemental');
     }
 }

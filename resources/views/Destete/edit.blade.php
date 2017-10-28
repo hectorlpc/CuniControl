@@ -1,43 +1,30 @@
 @extends('layouts.Principal')
 @section('content')
-<label for="destete">ACTUALIZACION DESTETE</label>
-
+<label for="destete">REGISTRO DESTETE</label>
 <div class="container">
-  <form action="/my-handling-form-page" method="post">
+  <form action="{{url('/destete/' . $destete->Id_Destete)}}" method="POST" role="form">
+      {{method_field('patch')}}
+      {{ csrf_field() }}
       <div>
-          <label for="parto">Numero de destete:</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-    <option>destete 1</option>
-    <option>destete 2</option>
-    <option>destete 3</option>
-    <option>destete 4</option>
-    <option>destete 5</option>
-  </select>
-      </div>
-      <div>
-          <label for="num:gest">Numero de parto:</label>
-          <input class="form-control" name="num_getsacion" type="text" >
+          <label for="num:gest">Tatuaje de coneja:</label>
+              <input readonly value="{{$destete->parto->monta->Id_Conejo_Hembra}}" class="form-control">
       </div>
 
       <div>
           <label for="fecha">Fecha de destete:</label>
-          <input class="form-control" name="fecha_destete" type="date" >
-</div>
-
-
+          <input readonly value="{{$destete->Fecha_Destete}}" class="form-control" name="Fecha_Destete" type="date" >
+        </div>
       <div>
           <label for="cant_vivos">Cantidad de destetados:</label>
-          <input class="form-control" name="vivos" type="text" >
+          <input value="{{$destete->Numero_Destetados}}" class="form-control" name="Numero_Destetados" type="" >
       </div>
 
       <div>
           <label for="peso">Peso promedio de los destetados:</label>
-          <input class="form-control" name="peso_destete" type="text" >
+          <input value="{{$destete->Peso_Destete}}" class="form-control" name="Peso_Destete" type="" >
 </div>
-<br>
-<button type="submit" class="btn btn-outline-primary" href="{{url('destete/edit')}}">Actualizar</button>
-<button type="submit" class="btn btn-outline-secondary">Regresar</button>
-
+      <br>
+      <button type="submit" class="btn btn-outline-primary">Actualizar</button>
   </form>
 </div>
 @endsection

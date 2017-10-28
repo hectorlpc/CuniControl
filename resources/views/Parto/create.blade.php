@@ -16,7 +16,7 @@
     </div>
     <div>
         <label for="fecha">Fecha de parto:</label>
-        <input class="form-control" name="Fecha_Parto" type="date" >
+        <input class="form-control" name="Fecha_Parto" type="date" value="{{$monta->Fecha_Parto}}" >
     </div>
 
     <div>

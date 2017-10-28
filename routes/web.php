@@ -45,7 +45,8 @@ Route::delete('/parto/{id_parto}', 'PartoController@delete');
 Route::get('destete/', 'DesteteController@index');
 Route::get('/destete/create', 'DesteteController@create');
 Route::post('destete/', 'DesteteController@store');
-Route::get('/destete/{id_destete}', 'DesteteController@edit');
+Route::get('/destete/{id_destete}/edit', 'DesteteController@edit');
+Route::patch('/destete/{id_destete}', 'DesteteController@update');
 Route::delete('/destete/{id_destete}', 'DesteteController@delete');
 
 //Rutas de tatuajes

@@ -12,4 +12,8 @@ class Destete extends Model
     protected $table='Destete';
     protected $primaryKey='Id_Destete';
  	
+ 	public function parto()
+ 	{
+ 		return $this->belongsTo(Parto::class,'Id_Parto','Id_Parto');
+ 	}
 }

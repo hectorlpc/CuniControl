@@ -53,14 +53,16 @@ Route::delete('/destete/{id_destete}', 'DesteteController@delete');
 Route::get('/tatuaje/','TatuajeController@index');
 Route::get('/tatuaje/create', 'TatuajeController@create');
 Route::post('/tatuaje', 'TatuajeController@store');
-Route::get('/tatuaje/{id_conejo}', 'TatuajeController@edit');
+Route::get('/tatuaje/{id_conejo}/edit', 'TatuajeController@edit');
+Route::delete('/tatuaje/{id_conejo}', 'TatuajeController@update');
 Route::delete('/tatuaje/{id_conejo}', 'TatuajeController@delete');
 
 //Rutas de donación
 Route::get('/donacion', 'DonacionController@index');
 Route::get('/donacion/create', 'DonacionController@create');
 Route::post('/donacion', 'DonacionController@store');
-Route::get('/donacion/{id_conejo}', 'DonacionController@edit');
+Route::get('/donacion/{id_conejo}/edit', 'DonacionController@edit');
+Route::patch('/donacion/{id_donacion}', 'DonacionController@update');
 Route::delete('/donacion/{id_donacion}', 'DonacionController@delete');
 
 //Rutas de conejos enfermos

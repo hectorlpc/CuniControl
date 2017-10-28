@@ -9,7 +9,8 @@ use App\Parto;
 
 class DonacionController extends Controller{
     //
-     public function create(){
+    public function create()
+    {
         $partos = Parto::all();
     	return view('Donacion.create',['partos' => $partos]);
     }
@@ -42,8 +43,21 @@ class DonacionController extends Controller{
         $donacion->delete();
         return redirect()->back();
     }
-    
-    // public function edit($id_destete){
-    //     return view('Donacion.edit');
-    // }
+
+    public function edit($id_donacion)
+    {
+        $donaciones = Donacion::all();
+        $donacion = Donacion::where('Id_Donacion', $id_donacion)->first();
+
+        return view('donacion/edit', ['donacion' => $donacion]);
+    }
+
+    public function update(Request $request, $id_donacion)
+    {
+        $donacion = Donacion::where('Id_Donacion', $id_donacion)->first();
+        $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
+        $donacion->save();
+
+        return redirect('/donacion');
+    }
 }

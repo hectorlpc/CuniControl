@@ -15,9 +15,8 @@
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
-      <th>Id Donacion</th>
-      <th>Parto donante:</th>
-      <th>Parto receptor:</th>
+      <th>Coneja donante:</th>
+      <th>Coneja receptora</th>      
       <th>No. de gazapos donados:</th>
       <th></th>
     </tr>
@@ -25,18 +24,16 @@
   <tbody>
     <tr>
       @foreach($donaciones as $donacion)
-      <td> {{$donacion->Id_Donacion}} </td>
-      <td> {{$donacion->Id_Parto_Donante}} </td>
-      <td> {{$donacion->Id_Parto_Donatorio}} </td>
+      <td> {{$donacion->parto->monta->Id_Conejo_Hembra}} </td>
+      <td> {{$donacion->parto->monta->Id_Conejo_Hembra}} </td>
       <td> {{$donacion->Cantidad_Gazapos}} </td>
       <td></td>
       <td><div class="btn-group btn-group-sm" role="group" aria-label="">
-        <form method="POST" action="{{url('/donacion/' . $donacion->Id_Donacion)}}">
-          {{csrf_field()}}
-          {{method_field('delete')}}
-          <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-        </form>
-        <button type="button" class="btn btn-secondary btn-outline-info">Modificar</button></td>
+      <form method="POST" action="{{url('/donacion/' . $donacion->Id_Donacion)}}">
+        {{csrf_field()}}
+        {{method_field('delete')}}
+        <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+      </form> <a href="{{url('/donacion/' . $donacion->Id_Donacion . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
       </div></td>
     </tr>
     @endforeach

@@ -11,4 +11,11 @@ class Monta extends Model
     public $fillable=['Id_Monta','Fecha_Monta','Id_Conejo_Hembra','Id_Conejo_Macho','Fecha_Diagnostico','Resultado_Diagnostico','Fecha_Parto'];
     protected $table='Monta';
     protected $primaryKey='Id_Monta';
+
+	public function conejo()
+    {
+    	return $this->belongsTo('App\Conejo','Id_Conejo_Hembra','Id_Conejo_Hembra');
+    }
+
+
 }

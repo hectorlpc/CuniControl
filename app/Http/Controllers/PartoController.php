@@ -49,10 +49,16 @@ class PartoController extends Controller
     {
         if($request->Id_Conejo_Hembra)
         {
-            $partos = Parto::with(['monta' => function($q) use($request){
-                $q->where('Monta.Id_Conejo_Hembra', $request->Id_Conejo_Hembra);
-            }])->toSql();
-            dd($partos);
+           $partos = Parto::with('monta')->get();
+           $i=0;
+           foreach ($partos as $parto) {
+
+               if($parto->monta->Id_Conejo_Hembra == $request->Id_Conejo_Hembra){
+                    $partoSelect[$i] = $parto;
+                    $i++;
+               }
+           }
+           $partos=$partoSelect;
         } else {
             $partos = Parto::with('monta')->get();
         }

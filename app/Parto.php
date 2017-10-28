@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Parto extends Model
 {
@@ -14,8 +15,7 @@ class Parto extends Model
 
     public function monta()
     {
-    	return $this->belongsTo(Monta::class,'Id_Monta','Id_Monta');
+    	return $this->belongsTo('App\Monta','Id_Monta','Id_Monta');
     }
-
 }
 

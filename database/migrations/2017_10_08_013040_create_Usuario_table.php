@@ -21,7 +21,7 @@ class CreateUsuarioTable extends Migration
             $table->string('Correo',75);
             $table->string('Genero',1);
             $table->date('Fecha_Nacimiento');
-            $table->string('Telefono',15);
+            $table->string('Telefono',15)->nullable();
             $table->string('Celular',15);
             $table->string('password',255);
             $table->rememberToken();

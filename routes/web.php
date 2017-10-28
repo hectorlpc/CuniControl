@@ -88,3 +88,10 @@ Route::get('/productora/create', 'ProductoraController@create');
 Route::post('/productora', 'ProductoraController@store');
 Route::get('/productora/{id_productora}', 'ProductoraController@edit');
 Route::delete('/productora/{id_productora}', 'ProductoraController@delete');
+
+//Rutas de Conejo Adquirido
+Route::get('/adquirido', 'AdquiridoController@index');
+Route::get('/adquirido/create', 'AdquiridoController@create');
+Route::post('/adquirido', 'AdquiridoController@store');
+Route::get('/adquirido/{id_productora}', 'AdquiridoController@edit');
+Route::delete('/adquirido/{id_productora}', 'AdquiridoController@delete');

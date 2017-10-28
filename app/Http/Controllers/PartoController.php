@@ -59,6 +59,7 @@ class PartoController extends Controller
                }
            }
            $partos=$partoSelect;
+           //:)
         } else {
             $partos = Parto::with('monta')->get();
         }

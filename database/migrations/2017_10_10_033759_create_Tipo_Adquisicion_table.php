@@ -16,6 +16,7 @@ class CreateTipoAdquisicionTable extends Migration
         Schema::create('Tipo_Adquisicion', function (Blueprint $table) {
           $table->string('Id_Adquisicion',6)->primary('Id_Adquisicion');
           $table->string('Nombre_Adquisicion',50);
+          $table->string('Descripcion_Adquisicion',200);
           $table->timestamps();
         });
     }

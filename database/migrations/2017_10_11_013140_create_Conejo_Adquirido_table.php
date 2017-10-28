@@ -14,6 +14,7 @@ class CreateConejoAdquiridoTable extends Migration
     public function up()
     {
         Schema::create('Conejo_Adquirido', function (Blueprint $table) {
+            $table->string('Id_Adquirido')->primary('Id_Adquirido');
             $table->string('Id_Conejo',10);
             $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
             $table->string('Id_Adquisicion',6);

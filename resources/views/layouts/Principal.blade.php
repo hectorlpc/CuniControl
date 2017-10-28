@@ -80,7 +80,8 @@
                     <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Encargado Modulo<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                         <ul>
                           <li> <a href="">Validar practica</a> </li>
-<!--                           <li> <a href="">Abrir cursos</a> </li>
+                          <li> <a href="{{url('/adquisicion/')}}">Registro de Tipo de Adquisicion</a> </li>
+                          <!-- 
                           <li> <a href="">Calendarizar Actividades</a> </li>
                           <li> <a href="">Realizar solicitud de transferencia al taller de carnes</a> </li> -->
                           <li> <a href="">Realizar solicitud de incineracion</a> </li>

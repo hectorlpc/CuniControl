@@ -7,80 +7,75 @@ use App\Conejo;
 use App\Raza;
 use App\Parto;
 use App\Productora;
+
 use Illuminate\Support\Facades\DB;
 class TatuajeController extends Controller
 {
-    public function index(Request $request)
+    public function create() 
     {
-        if($request->Id_Conejo)
-        {
-            $conejos = Conejo::where('Id_Conejo', $request->Id_Conejo)->get();
-        } else {
-            $conejos = Conejo::all();
-        }
-        return view('/tatuaje.index',['conejos' => $conejos]);
-    }
-
-    public function create()
-    {
-        $razas = Raza::all();
-        $conejos = Conejo::all();
-    	return view('Tatuaje.create',['conejos' => $conejos, 'razas' => $razas]);
+        $productoras = Productora::all();
+        return view('/tatuaje/create', ['productoras' => $productoras]);
     }
 
     public function store(Request $request)
-    {
+    {   
 
-/*        Conejo::create($request->all()); //solicita todos los campos para guardar
-*/
-		$productora = new Productora;
         $conejo = new Conejo;
-        $partos = Parto::with('monta')->where('Monta.Id_Conejo_Hembra',$request->Id_Conejo_Hembra)->get();
-
-        /*$i=0;
-        foreach ($partos as $parto) {
-            if($parto->monta->Id_Conejo_Hembra == $request->Id_Conejo_Hembra){
-                    $partoSelect[$i] = $parto;
-                    $i++;
-                    dd($i);
-           }
-       
-       }*/
-       dd($partos);
-        $productora =DB::table('Coneja_Productora')->where ('Id_Conejo','=',($request->input('Tatuaje_Hembra')))->get();
-        $conejoRaza=DB::table('Conejo')->where ('Id_Conejo','=',($request->input('Tatuaje_Hembra')))->get();
-        
-        $raza = $request->input('Tatuaje_Hembra')[0];
-        $numero_productora = $productora[0]->Numero_Conejo; 
-        $numero_hijo = $request->input('Consecutivo_de_Conejo'); 
-        $conejo->Tatuaje_Derecho = $raza . $numero_productora . $numero_hijo;
-        $fecha = $parto->Fecha_Parto;
-        $dia = substr($fecha, -2, 2);
-        $mes = substr($fecha, 5, 2);
-        $anio = $fecha[3];
-        $conejo->Tatuaje_Izquierdo = $dia . $mes . $anio;
-        $conejo->Genero = $request->input('Genero');
-        $conejo->Id_Raza = $conejoRaza[0]->Id_Raza;
-        // $conejo->Peso_Conejo = $request->input('Peso');
-        $conejo->Status_Conejo = $request->input('Status_Conejo');
+// Generar tatuaje derecho
+        $madre = $request->input('Id_Conejo_Hembra');
+        $raza = substr($madre, 0, 1);
+        $numero = $request->input('Numero_Conejo');
+        $consecutivo = $request->input('Consecutivo');
+        $conejo->Tatuaje_Derecho = $raza . $numero . $consecutivo;        
+// Generar tatuaje izquierdo
+        $fecha = $request->input('Fecha_Nacimiento');
+        $d = substr($fecha, -2, 2);
+        $m = substr($fecha, 5, 2);
+        $a = $fecha[3];
+        $conejo->Tatuaje_Izquierdo = $d . $m . $a;
+// Generar Id conejo
         $conejo->Id_Conejo = $conejo->Tatuaje_Derecho . $conejo->Tatuaje_Izquierdo;
+// Insertar los demás campos
+        $conejo->Id_Raza = $raza;
+        $conejo->Fecha_Nacimiento = $fecha;
+        $conejo->Genero = $request->input('Genero');
+        $conejo->Status = $request->input('Status');
+//Guardar conejo
         $conejo->save();
-
-        // return 'Id_Conejo' . $conejo->Tatuaje_Derecho;
-        
-        
-        //dd($conejo, $numero_hijo);  
-        return redirect('/tatuaje');      
+        return redirect ('/tatuaje');
     }
 
+    public function index(Request $request)
+    {
+        if($request->Id_Conejo) {
+            $conejos = Conejo::where('Id_Conejo'. $Id_Conejo)->get();
+        } else {
+            $conejos = Conejo::all(); 
+        }
+        return view('tatuaje/index',['conejos' => $conejos]);
+    }
 
-    // public function edit($id_conejo)
-    // {
-    //     return view('Tatuaje.edit');
-    // }
+    public function edit($id_conejo)
+    {
+        $conejo = Conejo::where('Id_Conejo', $id_conejo)->first();
+        return view('/tatuaje/edit', ['conejo' => $conejo]);
+    }
 
-    // public function delete($id_conejo)
-    // {
-    //     return redirect()->back();
-    // }    
-}
+    public function update(Request $request, $id_conejo)
+    {
+        $conejo = Conejo::where('Id_Conejo', $id_conejo)->first();
+        $conejo->Genero = $request->input('Genero');
+        $conejo->Status = $request->input('Status');
+        $conejo->save();
+
+        return redirect('/tatuaje');
+    }
+
+    public function delete($id_conejo)
+    {        
+        $conejo = Conejo::where('Id_Conejo', $id_conejo)->first();
+        $conejo->delete();
+        return redirect()->back();
+    }
+
+}    

@@ -8,14 +8,18 @@
             {{csrf_field()}}
           <div class="form-group">
             <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
-          <select class="form-control" name="Tatuaje_Hembra">
-            @foreach($conejos as $conejo)
-              @if($conejo->Genero == 'Hembra')              
-                <option value="{{$conejo->Id_Conejo}}">{{$conejo->Id_Conejo}}</option>
-              @endif
+            <select class="form-control" name="Id_Conejo_Hembra">
+            @foreach($productoras as $productora)            
+                <option value="{{$productora->Id_Conejo_Hembra}}">{{$productora->Id_Conejo_Hembra}}</option>
             @endforeach
             </select>
+          <input hidden type="text" name="Numero_Conejo" value="{{$productora->Numero_Conejo}}">
           </div>
+          <div>
+            <label for="exampleInputPassword2">Fecha Nacimiento</label>
+            <input class="form-control" type="date" name="Fecha_Nacimiento">
+          </div>
+          <br>          
           <div class="form-group">
             <label for="exampleInputPassword2">Genero:</label>
             <input type="radio" name="Genero" value="Macho" /> Macho
@@ -23,12 +27,12 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword2">Status:</label>
-            <input type="radio" name="Status_Conejo" value="Vivo" /> Vivo
-            <input type="radio" name="Status_Conejo" value="Muerto" /> Muerto
+            <input type="radio" name="Status" value="Vivo" /> Vivo
+            <input type="radio" name="Status" value="Muerto" /> Muerto
           </div>
           <div class="form-group">
             <label for="exampleInputPassword2">Consecutivo de conejo:</label>
-          <select class="form-control" name="Consecutivo_de_Conejo">
+          <select class="form-control" name="Consecutivo">
               <option value="01">1</option>
               <option value="02">2</option>
               <option value="03">3</option>

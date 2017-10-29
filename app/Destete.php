@@ -16,4 +16,8 @@ class Destete extends Model
  	{
  		return $this->belongsTo(Parto::class,'Id_Parto','Id_Parto');
  	}
+ 	public function conejo(){
+    	return $this->hasMany('Conejo');
+    }	
+    
 }

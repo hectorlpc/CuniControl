@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Conejo;
 use App\Raza;
 use App\Parto;
-use App\ConejaProductora;
+use App\Productora;
 use Illuminate\Support\Facades\DB;
 class TatuajeController extends Controller
 {
@@ -33,10 +33,20 @@ class TatuajeController extends Controller
 
 /*        Conejo::create($request->all()); //solicita todos los campos para guardar
 */
-		$productora = new ConejaProductora;
-
+		$productora = new Productora;
         $conejo = new Conejo;
-        $parto = DB::table('Parto')->where ('Id_Conejo_Hembra','=',$request->input('Tatuaje_Hembra'))->get()->last();
+        $partos = Parto::with('monta')->where('Monta.Id_Conejo_Hembra',$request->Id_Conejo_Hembra)->get();
+
+        /*$i=0;
+        foreach ($partos as $parto) {
+            if($parto->monta->Id_Conejo_Hembra == $request->Id_Conejo_Hembra){
+                    $partoSelect[$i] = $parto;
+                    $i++;
+                    dd($i);
+           }
+       
+       }*/
+       dd($partos);
         $productora =DB::table('Coneja_Productora')->where ('Id_Conejo','=',($request->input('Tatuaje_Hembra')))->get();
         $conejoRaza=DB::table('Conejo')->where ('Id_Conejo','=',($request->input('Tatuaje_Hembra')))->get();
         

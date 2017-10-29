@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class AdquiridoController extends Controller{
     //
-     public function create()
+    public function create()
     {
         $adquirido = Adquirido::all();
     	return view('Adquirido.create');

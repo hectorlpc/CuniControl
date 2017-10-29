@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(JaulaTableSeeder::class);
         $this->call(ActividadTableSeeder::class);
         $this->call(MedicamentoTableSeeder::class);
-        $this->call(ConejaProductoraTableSeeder::class);
+        $this->call(AreaTableSeeder::class);
 
 
 

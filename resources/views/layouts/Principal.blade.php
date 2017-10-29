@@ -54,7 +54,7 @@
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Alumno<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="{{url('/horas/create')}}">Solicitar horas practicas </a> </li>                         
- -->                </ul>
+                </ul>
                 </li>
                  <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Producción<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>               
@@ -68,7 +68,7 @@
                     <li> <a href="{{url('/tatuaje/')}}">Registra tatuado de conejos </a> </li>                            
                     <li> <a href="{{url('/donacion/')}}">Registro de donación de conejos</a> </li>
                     <li> <a href="{{url('/enfermo/')}}">Registro de conejo enfermo</a> </li>                    
-                    <li> <a href="equipo_agr.php">Registrar baja de conejos por transferencia</a> </li>
+                    <li> <a href="{{url('/transferencia/')}}">Registrar baja de conejos por transferencia</a> </li>
                  </ul>
                 </li>
              

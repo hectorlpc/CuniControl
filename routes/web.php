@@ -113,3 +113,11 @@ Route::post('/adquisicion', 'AdquisicionController@store');
 Route::get('/adquisicion/edit/{id_adquisicion}', 'AdquisicionController@edit');
 Route::patch('/adquisicion/{id_adquisicion}', 'AdquisicionController@update');
 Route::delete('/adquisicion/{id_adquisicion}','AdquisicionController@delete');
+
+//Rutas de Baja por transferencias
+Route::get('/transferencia', 'TransferenciaController@index');
+Route::get('/transferencia/create', 'TransferenciaController@create');
+Route::post('/transferencia', 'TransferenciaController@store');
+Route::get('/transferencia/{id_baja}/edit', 'TransferenciaController@edit');
+Route::patch('/transferencia/{id_baja}', 'TransferenciaController@update');
+Route::delete('/transferencia/{id_baja}','TransferenciaController@delete');

@@ -14,10 +14,12 @@ class CreateBajaConejoTable extends Migration
     public function up()
     {
         Schema::create('Baja_Conejo', function (Blueprint $table) {
-            $table->string('Id_Baja');
-            $table->foreign('Id_Baja')->references('Id_Baja')->on('Baja');
-            $table->string('Id_Conejo',10);
+            $table->increments('Id_Baja');
+            $table->string('Id_Conejo');
             $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
+            $table->string('Id_Area');
+            $table->foreign('Id_Area')->references('Id_Area')->on('Area_Destino');
+            $table->date('Fecha_Baja');
             $table->timestamps();
         });
     }

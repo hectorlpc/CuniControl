@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
           <center><h2>Baja por transferencias</h2></center>
-  <form method="get" action="{{url('/monta')}}">
+  <form method="get" action="{{url('/transferencia')}}">
     {{ csrf_field() }}
     <div class="form-group">
       <label for="">Número de tatuaje del conejo:</label>
@@ -31,12 +31,12 @@
       <td> {{$transferencia->area->Descripcion_Area}} </td>
       <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
-        <form method="POST" action="{{url('/transferencia/' . $transferencia->Id_Baja)}}">
+        <form method="POST" action="{{url('/transferencia/' . $transferencia->Id_Transferencia)}}">
         {{csrf_field()}}
         {{method_field('delete')}}
-        <input type="hidden" name="Id_Baja" value="{{$transferencia->Id_Baja}}">
+        <input type="hidden" name="Id_Transferencia" value="{{$transferencia->Id_Transferencia}}">
         <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-        </form> <a href="{{url('/transferencia/' . $transferencia->Id_Baja . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+        </form> <a href="{{url('/transferencia/' . $transferencia->Id_Transferencia . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
         </div>
     </td>
       @endforeach

@@ -43,11 +43,11 @@ class TransferenciaController extends Controller
         return view('transferencia/index', ['transferencias' => $transferencias]);
 	}
 
-	public function edit($id_baja)
+	public function edit($id_transferencia)
 	{
 		$areas = Area::all();
 		$conejos = Conejo::all();
-		$transferencia = Transferencia::where('Id_Baja', $id_baja)->first();
+		$transferencia = Transferencia::where('Id_Transferencia', $id_transferencia)->first();
 
 		return view('transferencia/edit', [
 			'conejos' => $conejos,
@@ -56,18 +56,18 @@ class TransferenciaController extends Controller
 		]);
 	}
 
-	public function update(Request $request, $id_baja)
+	public function update(Request $request, $id_transferencia)
 	{
-		$transferencia = Transferencia::where('Id_Baja', $id_baja)->first();
+		$transferencia = Transferencia::where('Id_Transferencia', $id_transferencia)->first();
 		$transferencia->Id_Area = $request->input('Id_Area');
 		$transferencia->save();
 
 		return redirect('/transferencia');
 	}
 
-	public function delete($id_baja)
+	public function delete($id_transferencia)
 	{
-		$transferencia = Transferencia::where('Id_Baja',$id_baja)->first();
+		$transferencia = Transferencia::where('Id_Transferencia',$id_transferencia)->first();
 		$transferencia->delete();
 
 		return redirect()->back();

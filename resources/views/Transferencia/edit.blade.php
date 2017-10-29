@@ -4,7 +4,7 @@
       <div class="container">
         <center><h2>Registro De Baja por transferencias:</h2></center>
     </br>
-  <form action="{{url('/transferencia/' . $transferencia->Id_Baja)}}" method="post">
+  <form action="{{url('/transferencia/' . $transferencia->Id_Transferencia)}}" method="post">
       {{method_field('patch')}}
       {{ csrf_field() }}
     <div class="form-group">

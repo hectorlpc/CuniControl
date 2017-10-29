@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Transferencia extends Model
 {
     public $incrementing=true;
-    public $fillable=['Id_Baja','Id_Conejo','Id_Area', 'Fecha_Area'];
-    protected $table='Baja_Conejo';
-    protected $primaryKey='Id_Baja';
+    public $fillable=['Id_Transferencia','Id_Conejo','Id_Area', 'Fecha_Area'];
+    protected $table='Transferencia_Conejo';
+    protected $primaryKey='Id_Transferencia';
 
     public function area()
     {

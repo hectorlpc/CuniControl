@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBajaConejoTable extends Migration
+class CreateTransferenciaConejoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateBajaConejoTable extends Migration
      */
     public function up()
     {
-        Schema::create('Baja_Conejo', function (Blueprint $table) {
-            $table->increments('Id_Baja');
+        Schema::create('Transferencia_Conejo', function (Blueprint $table) {
+            $table->increments('Id_Transferencia');
             $table->string('Id_Conejo');
             $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
             $table->string('Id_Area');
@@ -31,6 +31,6 @@ class CreateBajaConejoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Baja_Conejo');
+        Schema::dropIfExists('Transferencia_Conejo');
     }
 }

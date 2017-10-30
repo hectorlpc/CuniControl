@@ -110,7 +110,7 @@ Route::delete('/adquirido/{id_productora}', 'AdquiridoController@delete');
 Route::get('/adquisicion', 'AdquisicionController@index');
 Route::get('/adquisicion/create', 'AdquisicionController@create');
 Route::post('/adquisicion', 'AdquisicionController@store');
-Route::get('/adquisicion/edit/{id_adquisicion}', 'AdquisicionController@edit');
+Route::get('/adquisicion/{id_adquisicion}/edit', 'AdquisicionController@edit');
 Route::patch('/adquisicion/{id_adquisicion}', 'AdquisicionController@update');
 Route::delete('/adquisicion/{id_adquisicion}','AdquisicionController@delete');
 

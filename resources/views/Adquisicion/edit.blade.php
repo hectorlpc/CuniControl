@@ -2,7 +2,10 @@
 @section('content')
   
     <div class="container">
+<form action="{{url('/adquisicion/' . $adquisicion->Id_Adquisicion)}}" method="POST" role="form">
       <form action="/my-handling-form-page" method="post">
+      {{method_field('patch')}}
+      {{ csrf_field() }}
       <center><h2><label for="Adquisicion">Modificar Tipo de Adquisición</label></h2></center>
 
           <div>

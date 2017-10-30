@@ -5,20 +5,19 @@
 <div class="container">
 
 <form action="{{url('/parto')}}" method="post">
-    {{ csrf_field() }}
+    {{ csrf_field() }}    
     <div class="form-group">
-            <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
-          <select class="form-control" name="Id_Monta">
-            @foreach($montas as $monta)              
-                <option value="{{$monta->Id_Monta}}">{{$monta->Id_Conejo_Hembra}}</option>
-            @endforeach
-            </select>
+@foreach($montas as $monta)
+@if($monta->Resultado_Diagnostico == 'Positivo')      
+        <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
+        <select class="form-control" name="Id_Monta">              
+            <option value="{{$monta->Id_Monta}}">{{$monta->Id_Conejo_Hembra}}</option>
+        </select>
     </div>
     <div>
-        <label for="fecha">Fecha de parto:</label>
-        <input class="form-control" name="Fecha_Parto" type="date" value="{{$monta->Fecha_Parto}}" >
+    <label for="fecha">Fecha de parto:</label>
+    <input class="form-control" name="Fecha_Parto" type="date" value="{{$monta->Fecha_Parto}}" >
     </div>
-
     <div>
         <label for="cant_vivos">Cantidad de gazapos vivos:</label>
             <select class="form-control" name="Numero_Vivos">
@@ -91,7 +90,8 @@
     <br>
     <button type="submit" class="btn btn-outline-primary">Agregar</button>
     <button type="submit" class="btn btn-outline-secondary">Regresar</button>
-
+@endif
+@endforeach
 </form>
 </div>
 @endsection

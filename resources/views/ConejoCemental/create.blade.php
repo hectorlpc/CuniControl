@@ -5,7 +5,7 @@
 
 
       <div class="container">
-        <center><h2>Registro De Conejo Cemental:</h2></center>
+        <center><h2>Registro De Conejo Semental:</h2></center>
 
     </br>
           <form action="{{url('/cemental')}}" method="post">

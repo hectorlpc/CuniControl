@@ -10,5 +10,4 @@ class Raza extends Model
     public $fillable=['Id_Raza','Nombre_Raza','Descripcion_Raza'];
     protected $table='Raza';
     protected $primaryKey='Id_Raza';
-    //
 }

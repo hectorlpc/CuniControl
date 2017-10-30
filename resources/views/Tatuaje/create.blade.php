@@ -7,17 +7,16 @@
           <form method="POST" action="{{url('/tatuaje')}}">
             {{csrf_field()}}
           <div class="form-group">
+@foreach($productoras as $productora)
             <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
             <select class="form-control" name="Id_Conejo_Hembra">
-            @foreach($productoras as $productora)            
-                <option value="{{$productora->Id_Conejo_Hembra}}">{{$productora->Id_Conejo_Hembra}}</option>
-            @endforeach
+              <option value="{{$productora->Id_Conejo_Hembra}}">{{$productora->Id_Conejo_Hembra}}</option>
             </select>
           <input hidden type="text" name="Numero_Conejo" value="{{$productora->Numero_Conejo}}">
           </div>
           <div>
             <label for="exampleInputPassword2">Fecha Nacimiento</label>
-            <input class="form-control" type="date" name="Fecha_Nacimiento">
+            <input value="" class="form-control" type="date" name="Fecha_Nacimiento">
           </div>
           <br>          
           <div class="form-group">
@@ -55,27 +54,11 @@
               <option value="20">20</option>
             </select>
           </div>  
-
-
-
-
-
-<!--           string substr ( string $string , int $start [, int $length ] ) -->
-
-<!--           <div class="form-group">
-        <label class="col-lg-2 control-label">Tatuaje derecho:</label>
-        <div class="col-lg-10">
-         <p class="form-control-static">folio d</p>
-        </div>
-        <label class="col-lg-2 control-label">Tatuaje izquierdo:</label>
-        <div class="col-lg-10">
-         <p class="form-control-static">folio i</p>
-        </div>
-      </div> -->
-         
         </br>
-
           <button type="submit" class="btn btn-outline-primary">Registrar</button>
-        </form>
+@endforeach
+      </form>
       </div>
 @endsection
+
+

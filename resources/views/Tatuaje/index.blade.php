@@ -30,7 +30,7 @@
       <td> {{$conejo->Tatuaje_Derecho}} </td>
       <td> {{$conejo->Tatuaje_Izquierdo}} </td>
       <td> {{$conejo->Fecha_Nacimiento}} </td>
-      <td> {{$conejo->Id_Raza}} </td>
+      <td> {{$conejo->raza->Nombre_Raza}} </td>
       <td> {{$conejo->Genero}} </td>
       <td> {{$conejo->Status}} </td>
       <td></td>

@@ -18,7 +18,7 @@ class AdquisicionController extends Controller
     {
         $adquisicion = Adquisicion::where('Id_Adquisicion', $id_adquisicion)->first();
 
-        return view('Adquisicion/edit',['Id_Adquisicion' => $id_adquisicion]);        
+        return view('Adquisicion/edit',['adquisicion' => $adquisicion]);        
     }
 
     public function update(Request $request, $id_adquisicion)

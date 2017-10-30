@@ -25,7 +25,7 @@
     <tr>
       @foreach($productoras as $productora)
       <td> {{$productora->Id_Conejo_Hembra}} </td>
-      <td> {{$productora->Id_Raza}} </td>
+      <td> {{$productora->raza->Nombre_Raza}} </td>
       <td> {{$productora->Numero_Conejo}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">

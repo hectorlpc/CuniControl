@@ -11,4 +11,9 @@ class Conejo extends Model
     public $fillable=['Id_Conejo','Tatuaje_Derecho','Tatuaje_Izquierdo','Fecha_Nacimiento','Id_Raza','Genero','Status_Conejo'];
     protected $table='Conejo';
     protected $primaryKey='Id_Conejo';
+
+    public function raza()
+    {
+    	return $this->belongsTo(Raza::class,'Id_Raza','Id_Raza');
     }
+}

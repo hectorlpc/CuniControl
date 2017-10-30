@@ -2,13 +2,13 @@
 @section('content')
     <section class="contenedorPrincipal">
       <div class="container">
-        <center><h2>Actualizar cemental:</h2></center>
+        <center><h2>Actualizar Semental:</h2></center>
     </br>
 <form action="{{url('/cemental/' . $cemental->Id_Cemental)}}" method="POST" role="form">
       {{method_field('patch')}}
       {{ csrf_field() }}
           <div class="form-group" >
-            <label>Número de tatuaje del cemental:</label>
+            <label>Tatuaje del Semental:</label>
             <input readonly class="form-control" type="text" name="Id_Conejo_Macho" value="{{$cemental->Id_Conejo_Macho}}">
           </div>
         <br>

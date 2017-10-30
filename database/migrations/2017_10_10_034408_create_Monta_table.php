@@ -16,12 +16,12 @@ class CreateMontaTable extends Migration
         Schema::create('Monta', function (Blueprint $table) {
             $table->string('Id_Monta')->primary('Id_Monta');
             $table->date('Fecha_Monta'); 
-            $table->string('Id_Conejo_Hembra',10);
+            $table->string('Id_Conejo_Hembra');
             $table->foreign('Id_Conejo_Hembra')->references('Id_Conejo')->on('Conejo');
             $table->string('Id_Conejo_Macho',10);
             $table->foreign('Id_Conejo_Macho')->references('Id_Conejo')->on('Conejo');
             $table->date('Fecha_Diagnostico')->nullable();
-            $table->string('Resultado_Diagnostico',200)->nullable();
+            $table->enum('Resultado_Diagnostico',['Positivo','Negativo'])->nullable();
             $table->date('Fecha_Parto')->nullable();
             $table->timestamps();
         });

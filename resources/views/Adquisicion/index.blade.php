@@ -39,7 +39,7 @@
               <input type="hidden" name="Id_Adquisicion" value="{{$adquisicion->Id_Adquisicion}}">
 
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-          </form> <a href="{{url('/adquisicion/' . $adquisicion->adquisicion . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+          </form> <a href="{{url('/adquisicion/' . $adquisicion->Id_Adquisicion . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
             </div>
           </td>
         </tr>

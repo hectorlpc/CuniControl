@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Conejo;
 use App\Raza;
+use App\Monta;
 use App\Parto;
 use App\Productora;
 
@@ -14,7 +15,12 @@ class TatuajeController extends Controller
     public function create() 
     {
         $productoras = Productora::all();
-        return view('/tatuaje/create', ['productoras' => $productoras]);
+        $partos = Parto::all();
+        
+        return view('/tatuaje/create', [
+            'productoras' => $productoras,
+            'partos' => $partos
+        ]);
     }
 
     public function store(Request $request)

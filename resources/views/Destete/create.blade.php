@@ -5,11 +5,11 @@
   <form action="{{url('/destete')}}" method="post">
     {{ csrf_field() }}
       <div>
+@foreach ($partos as $parto)
+@if($parto->Numero_Vivos > 0)
           <label for="num:gest">Tatuaje de coneja:</label>
           <select class="form-control" name="Id_Parto" type="text" >
-              @foreach ($partos as $parto)
               <option value="{{$parto->Id_Parto}}">{{$parto->monta->Id_Conejo_Hembra}}</option>
-            @endforeach
           </select>
       </div>
 
@@ -24,12 +24,13 @@
 
       <div>
           <label for="peso">Peso promedio de los destetados:</label>
-          <input value="{{$parto->Peso_Nacer}}" class="form-control" name="Peso_Destete" type="text" >
+          <input value="{{$parto->Peso_Nacer}}" class="form-control" name="Peso_Destete" type="text" >          
 </div>
       <br>
       <button type="submit" class="btn btn-outline-primary">Agregar</button>
       <button type="submit" class="btn btn-outline-secondary">Regresar</button>
-
+@endif          
+@endforeach
   </form>
 </div>
 @endsection

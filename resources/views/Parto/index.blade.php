@@ -27,7 +27,6 @@
 <tbody>
   <tr>
     @foreach($partos as $parto)
-    
     <td>{{$parto->Fecha_Parto}}</td>
     <td>{{$parto->monta->Id_Conejo_Hembra}}</td>
     <td>{{$parto->monta->Fecha_Monta}}</td>

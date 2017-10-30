@@ -14,7 +14,8 @@ class Monta extends Model
 
 	public function conejo()
     {
-    	return $this->belongsTo('App\Conejo','Id_Conejo_Hembra','Id_Conejo_Hembra');
+    	return $this->belongsTo(Conejo::class,'Id_Conejo_Hembra','Id_Conejo');
+    	//return $this->belongsTo('App\Conejo','Id_Conejo_Hembra','Id_Conejo_Hembra');
     }
 
 

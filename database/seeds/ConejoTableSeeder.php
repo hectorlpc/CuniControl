@@ -15,8 +15,8 @@ class ConejoTableSeeder extends Seeder
     {
     	$raza = Raza::first();
 
-    	Conejo::create(['Id_Conejo' => '1401019107', 'Tatuaje_Derecho' => '14010', 'Tatuaje_Izquierdo' => '19107','Fecha_Nacimiento' => '2016-04-01', 'Id_Raza' => $raza->Id_Raza, 'Genero' =>'Hembra', 'Status' => 'Vivo' ]);
-    	Conejo::create(['Id_Conejo' => '2100118107', 'Tatuaje_Derecho' => '21001', 'Tatuaje_Izquierdo' => '18107','Fecha_Nacimiento' => '2016-12-21', 'Id_Raza' => $raza->Id_Raza, 'Genero' =>'Macho', 'Status' => 'Vivo' ]);    	
-    	Conejo::create(['Id_Conejo' => '4120809107', 'Tatuaje_Derecho' => '41208', 'Tatuaje_Izquierdo' => '09107','Fecha_Nacimiento' => '2016-05-01', 'Id_Raza' => $raza->Id_Raza, 'Genero' =>'Hembra', 'Status' => 'Muerto' ]);    	     
+    	Conejo::create(['Id_Conejo' => '1401001046', 'Tatuaje_Derecho' => '14010', 'Tatuaje_Izquierdo' => '01046','Fecha_Nacimiento' => '2016-04-01', 'Id_Raza' => '1', 'Genero' =>'Hembra', 'Status' => 'Vivo' ]);
+    	Conejo::create(['Id_Conejo' => '2100121126', 'Tatuaje_Derecho' => '21001', 'Tatuaje_Izquierdo' => '21126','Fecha_Nacimiento' => '2016-12-21', 'Id_Raza' => '2' , 'Genero' =>'Macho', 'Status' => 'Vivo' ]);    	
+    	Conejo::create(['Id_Conejo' => '3120801056', 'Tatuaje_Derecho' => '31208', 'Tatuaje_Izquierdo' => '01056','Fecha_Nacimiento' => '2016-05-01', 'Id_Raza' => '3', 'Genero' =>'Hembra', 'Status' => 'Vivo' ]);    	     
     }
 }

@@ -74,6 +74,13 @@ class MontaController extends Controller
             $montas = Monta::all();
         }
         return view('Monta.index', ['montas' => $montas]);
-    }    
+    }  
+
+    public function obtener_semental(Request $request) {
+        $opciones = Cemental::where('Id_Raza', $request->raza);
+        $respuesta = ['opciones' => ['1345345345','2345354355', '3345345345', '77666666', '234234234']];
+        return response()->json($respuesta);
+
+    }  
 }
 

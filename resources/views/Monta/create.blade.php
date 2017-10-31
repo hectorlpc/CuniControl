@@ -12,7 +12,8 @@
           </div>
           <div class="form-group">
             <label for="">Tatuaje Hembra Productora:</label>
-            <select class="form-control" name="Id_Conejo_Hembra">
+            <select class="form-control" name="Id_Conejo_Hembra" id="coneja">
+              <option> -- Seleccione los tatuajes del conejo -- </option>  
               @foreach($productoras as $productora)
                   <option value="{{$productora->Id_Conejo_Hembra}}">{{$productora->Id_Conejo_Hembra}}</option>
               @endforeach
@@ -20,12 +21,7 @@
           </div>          
           <div class="form-group">
             <label for="">Tatuaje Semental:</label>
-            <select class="form-control" name="Id_Conejo_Macho">
-              @foreach($cementales as $cemental)
-              @if($cemental->Id_Raza == $productora->Id_Raza )
-                  <option value="{{$cemental->Id_Conejo_Macho}}">{{$cemental->Id_Conejo_Macho}}</option>
-              @endif
-              @endforeach
+            <select class="form-control" name="Id_Conejo_Macho" id="sementales">
             </select>
           </div>
           <button type="submit" class="btn btn-out-line-primary">Enviar Registro</button>

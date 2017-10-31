@@ -121,3 +121,5 @@ Route::post('/transferencia', 'TransferenciaController@store');
 Route::get('/transferencia/{id_transferencia}/edit', 'TransferenciaController@edit');
 Route::patch('/transferencia/{id_transferencia}', 'TransferenciaController@update');
 Route::delete('/transferencia/{id_transferencia}','TransferenciaController@delete');
+
+Route::post('/montas/obtener-sementales', 'MontaController@obtener_semental');

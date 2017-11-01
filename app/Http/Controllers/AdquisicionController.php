@@ -25,6 +25,7 @@ class AdquisicionController extends Controller
     {
         $adquisicion = Adquisicion::where('Id_Adquisicion', $id_adquisicion)->first();
         $adquisicion->Nombre_Adquisicion = $request->input('Nombre_Adquisicion');
+        $adquisicion->Descripcion_Adquisicion = $request->input('Descripcion_Adquisicion');
         $adquisicion->save();
 
         return redirect('/adquisicion');

@@ -6,19 +6,17 @@
             {{ csrf_field() }}
           <div class="form-group">
             <label for="">Número de tatuaje del conejo:</label>
-            <select class="form-control" name="Id_Conejo">
-            <option>9826152</option>
-            <option>9761521</option>
-            <option>3751836</option>
-            </select>
+            <input class="form-control" name="Id_Conejo" type="text" >
             <br>
             <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
-            <button type="submit" class="btn btn-outline-success">Agregar</button>
+            <a href="{{url('/adquirido/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>             
+      
           </div>
         </form>
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
+      <th>Tatuajes del conejo</th>
       <th>Tipo de adquisición:</th>
       <th>fecha de adquisición:</th>
       <th></th>
@@ -26,12 +24,23 @@
   </thead>
   <tbody>
     <tr>
-      <td>Donación</td>
-      <td>22/10/2017</td>
-      <td><div align="right"><div class="btn-group btn-group-sm" role="group" aria-label="">
-      <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><button type="button" class="btn btn-secondary btn-outline-info">Modificar</button></td>
-      </div></td>
-    </tr>
+      @foreach($adquiridos as $adquirido)
+          <td>{{$adquirido->Id_Conejo}}</td>
+          <td>{{$adquirido->Id_Adquisicion}}</td>
+          <td>{{$adquirido->Fecha_Adquisicion}}</td>
+          <td>
+            <div class="btn-group btn-group-sm" role="group" aria-label="">
+              <form method="POST" action="{{url('/adquirido/' . $adquirido->Id_Adquirido)}}">
+                {{csrf_field()}}
+                {{method_field('delete')}}
+              <input type="hidden" name="Id_Adquirido" value="{{$adquirido->Id_Adquirido}}">
+
+            <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+          </form> <a href="{{url('/adquirido/' . $adquirido->Id_Adquirido . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+            </div>
+          </td>
+        </tr>
+      @endforeach>
 
   </tbody>
 </table>

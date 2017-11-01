@@ -3,13 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Adquirido;
+use App\Adquisicion;
+use App\Raza;
+use App\Conejo;
 
 class AdquiridoController extends Controller{
     //
     public function create()
     {
-        $adquirido = Adquirido::all();
-    	return view('Adquirido.create');
+        $adquiridos = Adquirido::all();
+        $adquisiciones = Adquisicion::all();
+        $razas = Raza::all();
+
+    	return view('ConejoAdquirido.create',[
+            'adquisiciones' => $adquisiciones,
+            'adquiridos' => $adquiridos,
+            'razas' => $razas
+            ]);
     }
 
     public function edit($id_destete)
@@ -31,34 +42,42 @@ class AdquiridoController extends Controller{
         return redirect('/destete');
     }
 
-    public function delete($id_destete)
+    public function delete($id_adquirido)
     {   
-        $destete = Destete::where('Id_Destete', $id_destete)->first();
-        $destete->delete();
+        $conejoAdquirido = Adquirido::where('Id_Adquirido', $id_adquirido)->first();
+        $conejoAdquirido->delete();
     	return redirect()->back();
     }
 
     public function store(Request $request)
     {
-        $destete = new Destete;
-        $destete->Id_Parto = $request->input('Id_Parto');
-        $destete->Fecha_Destete = $request->input('Fecha_Destete');
-        $destete->Id_Destete = $destete->Id_Parto .  $destete->Fecha_Destete; 
-        $destete->Numero_Destetados = $request->input('Numero_Destetados');
-        $destete->Peso_Destete = $request->input('Peso_Destete');
-        $destete->save();
-        return redirect('/destete');
+        $conejoAdquirido = new Adquirido;
+        $conejo = new Conejo;
+        $conejo->Tatuaje_Derecho = $request->input('Tatuaje_Derecho');
+        $conejo->Tatuaje_Izquierdo = $request->input('Tatuaje_Izquierdo');
+        $conejo->Id_Conejo = $conejo->Tatuaje_Derecho . $conejo->Tatuaje_Izquierdo;
+        $conejo->Id_Raza = $request->input('Id_Raza');
+        $conejo->Fecha_Nacimiento = $request->input('Fecha_Adquisicion');
+        $conejo->Genero = $request->input('Genero');
+        $conejo->Status = $request->input('Status');
+        $conejo->save();
+        $conejoAdquirido->Id_Conejo = $conejo->Id_Conejo;
+        $conejoAdquirido->Id_Adquisicion = $request->input('Id_Adquisicion');
+        $conejoAdquirido->Fecha_Adquisicion = $conejo->Fecha_Nacimiento;
+        $conejoAdquirido->Id_Adquirido = $conejoAdquirido->Id_Conejo . $conejoAdquirido->Id_Adquisicion;
+        $conejoAdquirido->save();
+        return redirect('/adquirido');
     }
 
     public function index(Request $request)
     {
-        if($request->Id_Parto)
+        if($request->Id_Conejo)
         {   
-            $destetes = Destete::where('Id_Parto', $request->Id_Parto)->get();
+            $adquiridos = Adquirido::where('Id_Conejo', $request->Id_Conejo)->get();
         } else {
-            $destetes = Destete::all();
+            $adquiridos = Adquirido::all();
         }
-        return view ('Destete.index',['destetes'=> $destetes]);
+        return view ('ConejoAdquirido.index',['adquiridos'=> $adquiridos]);
     }
 
 }

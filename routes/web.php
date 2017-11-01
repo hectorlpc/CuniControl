@@ -103,8 +103,9 @@ Route::delete('/productora/{id_productora}', 'ProductoraController@delete');
 Route::get('/adquirido', 'AdquiridoController@index');
 Route::get('/adquirido/create', 'AdquiridoController@create');
 Route::post('/adquirido', 'AdquiridoController@store');
-Route::get('/adquirido/{id_productora}', 'AdquiridoController@edit');
-Route::delete('/adquirido/{id_productora}', 'AdquiridoController@delete');
+Route::get('/adquirido/{id_adquirido}/edit', 'AdquiridoController@edit');
+Route::patch('/adquisicion/{id_adquirido}', 'AdquiridoController@update');
+Route::delete('/adquirido/{id_adquirido}', 'AdquiridoController@delete');
 
 //Rutas de Adquisicion
 Route::get('/adquisicion', 'AdquisicionController@index');

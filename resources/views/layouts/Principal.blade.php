@@ -81,6 +81,7 @@
                         <ul>
                           <li> <a href="">Validar practica</a> </li>
                           <li> <a href="{{url('/adquisicion/')}}">Registro de Tipo de Adquisicion</a> </li>
+                          <li> <a href="{{url('/adquirido/')}}">Registro de Conejo Adquirido</a> </li>                          
                           <!-- 
                           <li> <a href="">Calendarizar Actividades</a> </li>
                           <li> <a href="">Realizar solicitud de transferencia al taller de carnes</a> </li> -->

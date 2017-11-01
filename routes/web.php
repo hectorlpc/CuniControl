@@ -104,7 +104,7 @@ Route::get('/adquirido', 'AdquiridoController@index');
 Route::get('/adquirido/create', 'AdquiridoController@create');
 Route::post('/adquirido', 'AdquiridoController@store');
 Route::get('/adquirido/{id_adquirido}/edit', 'AdquiridoController@edit');
-Route::patch('/adquisicion/{id_adquirido}', 'AdquiridoController@update');
+Route::patch('/adquirido/{id_adquirido}', 'AdquiridoController@update');
 Route::delete('/adquirido/{id_adquirido}', 'AdquiridoController@delete');
 
 //Rutas de Adquisicion

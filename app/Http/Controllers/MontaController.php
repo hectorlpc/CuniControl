@@ -77,8 +77,13 @@ class MontaController extends Controller
     }  
 
     public function obtener_semental(Request $request) {
-        $opciones = Cemental::where('Id_Raza', $request->raza);
-        $respuesta = ['opciones' => ['1345345345','2345354355', '3345345345', '77666666', '234234234']];
+        $opciones = Cemental::where('Id_Raza', $request->raza)->get();
+        $i = 0;
+        foreach ($opciones as $opcion) {
+            $arrayOpcionesId[$i] = $opcion->Id_Conejo_Macho;
+            $i++;
+        }
+        $respuesta = ['opciones' =>$arrayOpcionesId];
         return response()->json($respuesta);
 
     }  

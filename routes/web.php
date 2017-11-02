@@ -165,3 +165,6 @@ Route::post('/medicamento', 'MedicamentoController@store');
 Route::get('/medicamento/{id_medicamento}/edit', 'MedicamentoController@edit');
 Route::patch('/medicamento/{id_medicamento}', 'MedicamentoController@update');
 Route::delete('/medicamento/{id_medicamento}','MedicamentoController@delete');
+
+//Rutas De Bajas
+Route::get('/baja', 'BajaController@index');

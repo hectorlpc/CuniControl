@@ -15,9 +15,9 @@
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
+      <th>Fecha Nacimiento:</th>      
       <th>Tatuaje Derecho:</th>
       <th>Tatuaje Izquierdo:</th>
-      <th>Fecha Nacimiento:</th>
       <th>Raza:</th>
       <th>Genero:</th>
       <th>Status:</th>
@@ -26,10 +26,11 @@
   </thead>
   <tbody>
     <tr> 
-      @foreach($conejos as $conejo)
+    @foreach($conejos as $conejo)
+    @if($conejo->Status == 'Vivo')
+      <td> {{$conejo->Fecha_Nacimiento}} </td>    
       <td> {{$conejo->Tatuaje_Derecho}} </td>
       <td> {{$conejo->Tatuaje_Izquierdo}} </td>
-      <td> {{$conejo->Fecha_Nacimiento}} </td>
       <td> {{$conejo->raza->Nombre_Raza}} </td>
       <td> {{$conejo->Genero}} </td>
       <td> {{$conejo->Status}} </td>
@@ -46,6 +47,7 @@
       </div>
     </td>
     </tr>
+    @endif
     @endforeach
   </tbody>
 </table>

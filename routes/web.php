@@ -168,3 +168,16 @@ Route::delete('/medicamento/{id_medicamento}','MedicamentoController@delete');
 
 //Rutas De Bajas
 Route::get('/baja', 'BajaController@index');
+
+// Route::get('pdf', function() {
+// 	$conejos = App\Conejo::all();
+// 	$pdf = App::make('dompdf.wrapper');
+// 	$pdf = loadHTML('conejos', ['conejos' => $conejos]);
+// 	return $pdf->stream();
+// });
+
+// Route::get('pdf', function() {
+// 	$conejos = App\Conejo::all();
+// 	$pdf = PDF::loadView('conejos', ['conejos' => $conejos]);
+// 	return $pdf->download('archivo.pdf');
+// });

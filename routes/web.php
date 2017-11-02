@@ -147,6 +147,8 @@ Route::post('/materia', 'MateriaController@store');
 Route::get('/materia/{id_materia}/edit', 'MateriaController@edit');
 Route::patch('/materia/{id_materia}', 'MateriaController@update');
 Route::delete('/materia/{id_materia}','MateriaController@delete');
+Route::post('/grupos/obtener-grupos', 'MateriaController@obtener_grupo');
+
 
 //Rutas De Enfermedad
 Route::get('/enfermedad', 'EnfermedadController@index');

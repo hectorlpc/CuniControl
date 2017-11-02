@@ -7,17 +7,20 @@ use App\Conejo;
 use App\Monta;
 use App\Productora;
 use App\Cemental;
+use App\Raza;
 
 class MontaController extends Controller
 {
     public function create()    
     {   
+        $razas = Raza::all();
         $cementales = Cemental::all();
         $productoras = Productora::all();
      
         return view('Monta/create',[
             'cementales' => $cementales,
-            'productoras' => $productoras
+            'productoras' => $productoras,
+            'razas' => $razas
         ]);   
     }
 
@@ -79,11 +82,13 @@ class MontaController extends Controller
     public function obtener_semental(Request $request) {
         $opciones = Cemental::where('Id_Raza', $request->raza)->get();
         $i = 0;
+        $arrayOpcionesId = [];
         foreach ($opciones as $opcion) {
             $arrayOpcionesId[$i] = $opcion->Id_Conejo_Macho;
             $i++;
         }
         $respuesta = ['opciones' =>$arrayOpcionesId];
+
         return response()->json($respuesta);
 
     }  

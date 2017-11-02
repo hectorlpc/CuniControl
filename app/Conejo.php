@@ -16,4 +16,9 @@ class Conejo extends Model
     {
     	return $this->belongsTo(Raza::class,'Id_Raza','Id_Raza');
     }
+
+    public function productora()
+    {
+    	return $this->belongsTo(productora::class,'Id_Conejo','Id_Conejo_Hembra');
+    }
 }

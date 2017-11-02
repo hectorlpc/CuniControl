@@ -16,7 +16,7 @@
   <thead class="thead-default">
     <tr>
       <th>Clave carrera:</th>
-      <th>Nombre carera:</th>
+      <th>Nombre carrera:</th>
       <th></th>
     </tr>
   </thead>

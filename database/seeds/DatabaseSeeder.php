@@ -15,10 +15,10 @@ class DatabaseSeeder extends Seeder
         $this->call(RolesTableSeeder::class);
         $this->call(RazaTableSeeder::class);
         $this->call(ConejoTableSeeder::class);
-        $this->call(CarreraTableSeeder::class);
+        //$this->call(CarreraTableSeeder::class);
         $this->call(EnfermedadTableSeeder::class);
-        $this->call(MateriaTableSeeder::class);
-        $this->call(GrupoTableSeeder::class);
+        //$this->call(MateriaTableSeeder::class);
+        //$this->call(GrupoTableSeeder::class);
         $this->call(JaulaTableSeeder::class);
         $this->call(ActividadTableSeeder::class);
         $this->call(MedicamentoTableSeeder::class);

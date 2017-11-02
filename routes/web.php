@@ -31,6 +31,7 @@ Route::post('/monta', 'MontaController@store');
 Route::get('/monta/{id_monta}/edit', 'MontaController@edit');
 Route::patch('/monta/{id_monta}', 'MontaController@update');
 Route::delete('/monta/{id_monta}', 'MontaController@delete');
+Route::post('/montas/obtener-sementales', 'MontaController@obtener_semental');
 
 // Rutas de partos
 Route::get('parto/', 'PartoController@index');
@@ -123,4 +124,26 @@ Route::get('/transferencia/{id_transferencia}/edit', 'TransferenciaController@ed
 Route::patch('/transferencia/{id_transferencia}', 'TransferenciaController@update');
 Route::delete('/transferencia/{id_transferencia}','TransferenciaController@delete');
 
-Route::post('/montas/obtener-sementales', 'MontaController@obtener_semental');
+//Rutas de carreras
+Route::get('/carrera', 'CarreraController@index');
+Route::get('/carrera/create', 'CarreraController@create');
+Route::post('/carrera', 'CarreraController@store');
+Route::get('/carrera/{id_carrera}/edit', 'CarreraController@edit');
+Route::patch('/carrera/{id_carrera}', 'CarreraController@update');
+Route::delete('/carrera/{id_carrera}','CarreraController@delete');
+
+//Rutas de grupos
+Route::get('/grupo', 'GrupoController@index');
+Route::get('/grupo/create', 'GrupoController@create');
+Route::post('/grupo', 'GrupoController@store');
+Route::get('/grupo/{id_grupo}/edit', 'GrupoController@edit');
+Route::patch('/grupo/{id_grupo}', 'GrupoController@update');
+Route::delete('/grupo/{id_grupo}','GrupoController@delete');
+
+//Rutas de materias
+Route::get('/materia', 'MateriaController@index');
+Route::get('/materia/create', 'MateriaController@create');
+Route::post('/materia', 'MateriaController@store');
+Route::get('/materia/{id_materia}/edit', 'MateriaController@edit');
+Route::patch('/materia/{id_materia}', 'MateriaController@update');
+Route::delete('/materia/{id_materia}','MateriaController@delete');

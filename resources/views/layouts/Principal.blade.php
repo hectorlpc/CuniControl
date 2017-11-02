@@ -91,6 +91,9 @@
                     <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Profesor Encargado<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                         <ul>
 <!--                           <li> <a href="">Programa montas</a> </li> -->
+                          <li> <a href="{{url('/carrera/')}}">Carreras</a> </li>
+                          <li> <a href="{{url('/grupo/')}}">Grupos</a> </li>
+                          <li> <a href="{{url('/materia/')}}">Materias</a> </li> 
                           <li> <a href="">Censo de engorda</a> </li>
                           <li> <a href="">Censo de muerte</a> </li>
                           <li> <a href="">Autorizar horas practicas</a> </li>

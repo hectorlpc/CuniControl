@@ -5,19 +5,24 @@
 
 
       <div class="container">
-        <center><h2>Registro De Carreras:</h2></center>
+        <center><h2>Registro De Grupos:</h2></center>
 
     </br>
-          <form action="{{url('/carrera')}}" method="post">
+          <form action="{{url('/grupo')}}" method="post">
             {{ csrf_field() }}
           <div class="form-group" >
-            <label>Clave de la Carrera:</label>
-            <input class="form-control" name="Id_Carrera">
+            <label>Clave del grupo:</label>
+            <input class="form-control" name="Id_Grupo">
           </div>
           <div class="form-group" >
-            <label>Nombre de la Carrera:</label>
-            <input class="form-control" name="Nombre_Carrera">
-          </div>          
+            <label for="">Carrera:</label>
+           <select class="form-control" name="Id_Carrera">
+              <option> -- Seleccione la carrera -- </option>          
+              @foreach ($carreras as $carrera)
+                  <option value="{{$carrera->Id_Carrera}}">{{$carrera->Nombre_Carrera}}</option>
+              @endforeach
+            </select>
+          </div>     
         <br>
           <div align="right"><button type="submit" class="btn btn-outline-primary">Registrar</button>
 

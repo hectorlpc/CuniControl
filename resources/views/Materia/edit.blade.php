@@ -5,27 +5,31 @@
 
 
       <div class="container">
-        <center><h2>Actualizar Carreras:</h2></center>
+        <center><h2>Registro De Materias:</h2></center>
 
     </br>
-<form action="{{url('/carrera/' . $carrera->Id_Carrera)}}" method="POST" role="form">
-  {{method_field('patch')}}
-  {{csrf_field()}}
+    <form action="{{url('/materia/' . $materia->Id_Materia)}}" method="POST" role="form">
+            {{ csrf_field() }}
+            {{method_field('patch')}}
           <div class="form-group" >
-            <label>Clave de la Carrera:</label>
-            <input readonly class="form-control" name="Id_Carrera" value="{{$carrera->Id_Carrera}}">
+            <label>Clave de materia:</label>
+            <input class="form-control" name="Id_Materia" value="{{$materia->Id_Materia}}">
           </div>
           <div class="form-group" >
-            <label>Nombre de la Carrera:</label>
-            <input value="{{$carrera->Nombre_Carrera}}" class="form-control" name="Nombre_Carrera">
-          </div>          
+            <label>Nombre de la materia:</label>
+            <input class="form-control" name="Nombre_Materia" value="{{$materia->Nombre_Materia}}">
+          </div>
+          <div class="form-group">
+            <label for="">Carrera a la que pertenece:</label>
+            <input class="form-control" readonly value="{{$materia->grupo->carrera->Nombre_Carrera}}">
+          <div class="form-group">
+            <label for="">Grupo:</label>
+            <input class="form-control" readonly value="{{$materia->Id_Grupo}}">
+          </div>            
+          </div>                     
         <br>
           <div align="right"><button type="submit" class="btn btn-outline-primary">Registrar</button>
-
-
         </form>
       </div>
-
     </section>
-
 @endsection

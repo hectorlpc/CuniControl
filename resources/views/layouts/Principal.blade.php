@@ -57,11 +57,7 @@
                 </ul>
                 </li>
                  <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Producción<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
-                  <ul>               
-                    <li> <a href="{{url('/cemental/')}}">Registro de conejos sementales</a> </li>                     
-
-                    <li> <a href="{{url('/productora/')}}">Registro de conejas productoras</a> </li>                     
-
+                  <ul>              
                     <li> <a href="{{url('/monta/')}}">Supervisión de la monta</a> </li>                  
                     <li> <a href="{{url('/parto/')}}">Supervisión del parto</a> </li>                    
                     <li> <a href="{{url('/destete/')}}">Registro de destete de gazapos</a> </li>
@@ -79,6 +75,12 @@
                     </li>
                     <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Encargado Modulo<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                         <ul>
+                          <li> <a href="{{url('/cemental/')}}">Registro de conejos sementales</a> </li>                     
+
+                          <li> <a href="{{url('/productora/')}}">Registro de conejas productoras</a> </li>                                               
+                          <li> <a href="{{url('/carrera/')}}">Carreras</a> </li>
+                          <li> <a href="{{url('/grupo/')}}">Grupos</a> </li>
+                          <li> <a href="{{url('/materia/')}}">Materias</a> </li>                          
                           <li> <a href="">Validar practica</a> </li>
                           <li> <a href="{{url('/adquisicion/')}}">Registro de Tipo de Adquisicion</a> </li>
                           <li> <a href="{{url('/adquirido/')}}">Registro de Conejo Adquirido</a> </li>                          
@@ -90,10 +92,7 @@
                     </li>
                     <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Profesor Encargado<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                         <ul>
-<!--                           <li> <a href="">Programa montas</a> </li> -->
-                          <li> <a href="{{url('/carrera/')}}">Carreras</a> </li>
-                          <li> <a href="{{url('/grupo/')}}">Grupos</a> </li>
-                          <li> <a href="{{url('/materia/')}}">Materias</a> </li> 
+<!--                           <li> <a href="">Programa montas</a> </li> --> 
                           <li> <a href="">Censo de engorda</a> </li>
                           <li> <a href="">Censo de muerte</a> </li>
                           <li> <a href="">Autorizar horas practicas</a> </li>
@@ -118,5 +117,6 @@
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/sementales.js') }}"></script>
+    <script src="{{ asset('js/grupos.js') }}"></script>
   </body>
 </html>

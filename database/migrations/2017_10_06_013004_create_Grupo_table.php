@@ -15,8 +15,8 @@ class CreateGrupoTable extends Migration
     {
         Schema::create('Grupo', function (Blueprint $table) {
             $table->string('Id_Grupo')->primary('Id_Grupo');
-            $table->string('Id_Carera');
-            $table->foreign('Id_Carera')->references('Id_Carrera')->on('Carrera'); 
+            $table->string('Id_Carrera');
+            $table->foreign('Id_Carrera')->references('Id_Carrera')->on('Carrera'); 
             $table->timestamps();
         });
     }

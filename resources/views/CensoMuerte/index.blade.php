@@ -41,6 +41,6 @@
     @endforeach
   </tbody>
 </table>
-
+<a href="{{url('/baja/pdf')}}" type="submit" class="btn btn-outline-success">Imprimir</a>
 </div>
 @endsection

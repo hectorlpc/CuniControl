@@ -33,7 +33,7 @@ class GrupoController extends Controller
         } else {
             $grupos = Grupo::all();
         }
-        return view('grupo/index', ['grupos' => $grupos]);		
+        return view('Grupo/index', ['grupos' => $grupos]);		
 	}
 
 	public function edit ($id_grupo)

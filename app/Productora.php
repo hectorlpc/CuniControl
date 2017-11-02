@@ -14,6 +14,10 @@ class Productora extends Model
     public function raza()
     {
     	return $this->belongsTo(Raza::class,'Id_Raza','Id_Raza');
-    } 
+    }
 
-}
+    // public function numero()
+    // {
+    // 	return $this->belongsTo(Conejo::class,'Id_Conejo','Id_Conejo');
+    // }
+}    

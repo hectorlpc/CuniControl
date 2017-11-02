@@ -14,13 +14,9 @@ class TatuajeController extends Controller
 {
     public function create() 
     {
-        $productoras = Productora::all();
         $partos = Parto::all();
         
-        return view('/tatuaje/create', [
-            'productoras' => $productoras,
-            'partos' => $partos
-        ]);
+        return view('/tatuaje/create', ['partos' => $partos]);
     }
 
     public function store(Request $request)
@@ -28,11 +24,10 @@ class TatuajeController extends Controller
 
         $conejo = new Conejo;
 // Generar tatuaje derecho
-        $madre = $request->input('Id_Conejo_Hembra');
-        $raza = substr($madre, 0, 1);
+        $conejo->Id_Raza = $request->input('Id_Raza');        
         $numero = $request->input('Numero_Conejo');
         $consecutivo = $request->input('Consecutivo');
-        $conejo->Tatuaje_Derecho = $raza . $numero . $consecutivo;        
+        $conejo->Tatuaje_Derecho = $conejo->Id_Raza . $numero . $consecutivo;        
 // Generar tatuaje izquierdo
         $fecha = $request->input('Fecha_Nacimiento');
         $d = substr($fecha, -2, 2);
@@ -42,7 +37,6 @@ class TatuajeController extends Controller
 // Generar Id conejo
         $conejo->Id_Conejo = $conejo->Tatuaje_Derecho . $conejo->Tatuaje_Izquierdo;
 // Insertar los demás campos
-        $conejo->Id_Raza = $raza;
         $conejo->Fecha_Nacimiento = $fecha;
         $conejo->Genero = $request->input('Genero');
         $conejo->Status = $request->input('Status');

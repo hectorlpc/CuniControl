@@ -168,7 +168,6 @@ Route::delete('/medicamento/{id_medicamento}','MedicamentoController@delete');
 
 //Rutas De Bajas
 Route::get('/baja', 'BajaController@index');
-
 Route::get('/baja/pdf', function() {
 	$conejos = App\Conejo::all();
 	$pdf = PDF::loadView('CensoMuerte/pdf', ['conejos' => $conejos]);

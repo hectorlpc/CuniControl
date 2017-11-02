@@ -147,3 +147,19 @@ Route::post('/materia', 'MateriaController@store');
 Route::get('/materia/{id_materia}/edit', 'MateriaController@edit');
 Route::patch('/materia/{id_materia}', 'MateriaController@update');
 Route::delete('/materia/{id_materia}','MateriaController@delete');
+
+//Rutas De Enfermedad
+Route::get('/enfermedad', 'EnfermedadController@index');
+Route::get('/enfermedad/create', 'EnfermedadController@create');
+Route::post('/enfermedad', 'EnfermedadController@store');
+Route::get('/enfermedad/{id_enfermedad}/edit', 'EnfermedadController@edit');
+Route::patch('/enfermedad/{id_enfermedad}', 'EnfermedadController@update');
+Route::delete('/enfermedad/{id_enfermedad}','EnfermedadController@delete');
+
+//Rutas De Medicamento
+Route::get('/medicamento', 'MedicamentoController@index');
+Route::get('/medicamento/create', 'MedicamentoController@create');
+Route::post('/medicamento', 'MedicamentoController@store');
+Route::get('/medicamento/{id_medicamento}/edit', 'MedicamentoController@edit');
+Route::patch('/medicamento/{id_medicamento}', 'MedicamentoController@update');
+Route::delete('/medicamento/{id_medicamento}','MedicamentoController@delete');

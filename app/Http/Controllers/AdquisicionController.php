@@ -43,7 +43,7 @@ class AdquisicionController extends Controller
         $adquisicion = new Adquisicion;
         $adquisicion->Nombre_Adquisicion = $request->input('Nombre_Adquisicion');
         $adquisicion->Id_Adquisicion = strtoupper(substr($request->input('Nombre_Adquisicion'),0,3) . substr($request->input('Nombre_Adquisicion'),-3));
-        $adquisicion->Descripcion_Adquisicion = $request->input('Descripcion_Adquisicion');;
+        $adquisicion->Descripcion_Adquisicion = $request->input('Descripcion_Adquisicion');
         $adquisicion->save();
         return redirect('/adquisicion');
     }

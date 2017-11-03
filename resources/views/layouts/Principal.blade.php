@@ -70,7 +70,7 @@
              
                     <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Administrador<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                         <ul>
-                          <li> <a href="equipo_agr.php">Gestionar roles</a> </li>
+                          <li> <a href="{{url('/cuentas/')}}">Gestionar roles</a> </li>
                         </ul>
                     </li>
                     <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Encargado Modulo<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>

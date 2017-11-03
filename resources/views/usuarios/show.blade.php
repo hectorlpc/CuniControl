@@ -1,3 +1,5 @@
+@extends('layouts.Principal')
+@section('content')
 <h1>Usuario: {{$usuario->Nombre_Usuario}}</h1>
 <hr>
 <h2>Roles:</h2>
@@ -20,3 +22,4 @@
 	{{csrf_field()}}
 	<button>Enviar</button>
 </form>
+@endsection

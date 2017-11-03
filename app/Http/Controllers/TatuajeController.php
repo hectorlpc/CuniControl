@@ -48,7 +48,7 @@ class TatuajeController extends Controller
     public function index(Request $request)
     {
         if($request->Id_Conejo) {
-            $conejos = Conejo::where('Id_Conejo'. $Id_Conejo)->get();
+            $conejos = Conejo::where('Id_Conejo', $Id_Conejo)->get();
         } else {
             $conejos = Conejo::all(); 
         }

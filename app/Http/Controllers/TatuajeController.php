@@ -66,6 +66,7 @@ class TatuajeController extends Controller
         $conejo = Conejo::where('Id_Conejo', $id_conejo)->first();
         $conejo->Genero = $request->input('Genero');
         $conejo->Status = $request->input('Status');
+        $conejo->Engorda = $request->input('Engorda');
         $conejo->save();
 
         return redirect('/tatuaje');

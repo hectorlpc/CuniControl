@@ -23,6 +23,7 @@ class CreateConejoTable extends Migration
             $table->enum('Genero',['Macho','Hembra']);
 //            $table->integer('Peso_Conejo');
             $table->enum('Status',['Vivo','Muerto']);
+            $table->enum('Engorda',['Si', 'No'])->nullable();
             $table->timestamps();
 
         });

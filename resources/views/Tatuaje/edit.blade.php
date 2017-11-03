@@ -27,7 +27,11 @@
           <div class="form-group">
             <label for="exampleInputPassword2">Status:</label>
             <input class="form-control" name="Status" value="{{$conejo->Status}}">
-          </div>       
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword2">Engorda (Si - No):</label>
+            <input class="form-control" name="Engorda" value="{{$conejo->Engorda}}">
+          </div>            
         </br>
 
           <button type="submit" class="btn btn-outline-primary">Actualizar</button>

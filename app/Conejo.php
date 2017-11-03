@@ -8,7 +8,7 @@ class Conejo extends Model
 {
 
     public $incrementing=false;
-    public $fillable=['Id_Conejo','Tatuaje_Derecho','Tatuaje_Izquierdo','Fecha_Nacimiento','Id_Raza','Genero','Status'];
+    public $fillable=['Id_Conejo','Tatuaje_Derecho','Tatuaje_Izquierdo','Fecha_Nacimiento','Id_Raza','Genero','Status', 'Engorda'];
     protected $table='Conejo';
     protected $primaryKey='Id_Conejo';
 

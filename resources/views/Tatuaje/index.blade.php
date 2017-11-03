@@ -21,6 +21,7 @@
       <th>Raza:</th>
       <th>Genero:</th>
       <th>Status:</th>
+      <th>Engorda:</th>
       <th></th>
     </tr>
   </thead>
@@ -34,6 +35,7 @@
       <td> {{$conejo->raza->Nombre_Raza}} </td>
       <td> {{$conejo->Genero}} </td>
       <td> {{$conejo->Status}} </td>
+      <td> {{$conejo->Engorda}} </td>      
       <td></td>
       <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">

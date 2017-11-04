@@ -1,6 +1,6 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
-
 <div class="container">
 <h2>Inicio Conejo Enfermo</h2>
       <form method="get" action="{{url('/enfermo')}}">
@@ -8,9 +8,9 @@
               <label for="">Tatuaje del conejo: </label>
                   <div class="form-group">
                     <input type="" class="form-control" name="Id_Conejo" placeholder="Introduce tatuajes sin espacio">
-                  </div>        
+                  </div>
               <button type="submit" class="btn btn-outline-primary">Buscar</button>
-              <a href="{{url('/enfermo/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>            
+              <a href="{{url('/enfermo/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
           </div>
       </form>
       <table class="table table-sm table-responsive">
@@ -32,7 +32,7 @@
                     <td> {{$tratamiento->Nombre_Enfermedad}} </td>
                     <td> {{$tratamiento->Nombre_Medicamento}} </td>
                     <td> {{$enfermo->Fecha_Inicio}} </td>
-                    <td> {{$enfermo->Fecha_Fin}} </td>        
+                    <td> {{$enfermo->Fecha_Fin}} </td>
                     <td>
                     <div class="btn-group btn-group-sm" role="group" aria-label="">
                         <form method="POST" action="{{url('/enfermo/' . $enfermo->Id_Conejo)}}">

@@ -1,4 +1,5 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
 <div class="container">
       <form method="get" action="{{url('/monta')}}">
@@ -7,8 +8,8 @@
             <label for="">Fecha de Monta:</label>
             <input type="" class="form-control" name="Id_Conejo_Hembra" placeholder="Buscar Coneja">
             <button type="submit" class="btn btn-primary">Buscar</button>
-            <a href="{{url('/monta/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>             
-      
+            <a href="{{url('/monta/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
+
           </div>
         </form>
         <table class="table table-sm table-responsive">

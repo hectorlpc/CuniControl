@@ -1,4 +1,5 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
 <div class="container">
   <h2>Editar de Conejo Enfermo</h2>
@@ -14,7 +15,7 @@
       <div class="form-group">
         <label for="exampleInputPassword">Enfermedad diagnosticada:</label>
         <select name="Id_Enfermedad" id="input" class="form-control">
-            <option> -- Seleccione la enfermedad -- </option>        
+            <option> -- Seleccione la enfermedad -- </option>
             @foreach ($enfermedades as $enfermedad)
             @if($enfermedad->Id_Enfermedad == $tratamiento->Id_Enfermedad)
                 <option value="{{$enfermedad->Id_Enfermedad}}" selected>{{$enfermedad->Nombre_Enfermedad}}</option>
@@ -22,7 +23,7 @@
                 <option value="{{$enfermedad->Id_Enfermedad}}">{{$enfermedad->Nombre_Enfermedad}}</option>
             @endif
             @endforeach
-        </select>      
+        </select>
       </div>
        <div class="form-group">
         <label for="exampleInputPassword">Medicamento suministrado:</label>
@@ -46,7 +47,7 @@
         <input value="{{$enfermo->Fecha_Fin}}" class="form-control" type="date" name="Fecha_Fin" min="2000-01-01" max="2050-01-01" step="1">
       </div>
     </br>
-      <button type="submit" class="btn btn-out-line-primary">Actualizar</button>        
+      <button type="submit" class="btn btn-out-line-primary">Actualizar</button>
   </form>
   <a href="{{url('/enfermo/')}}">Regresar</a>
 </div>

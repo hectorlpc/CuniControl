@@ -1,4 +1,5 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
       <div class="container">
         <center><h2>Actualizar Registro De Medicamentos:</h2></center>
@@ -6,7 +7,7 @@
           <form action="{{url('/medicamento/' . $medicamento->Id_Medicamento)}}" method="POST" role="form">
                {{method_field('patch')}}
             {{ csrf_field() }}
-      
+
           <div class="form-group">
             <label for="Medicamento">Código del medicamento:</label>
            <input readonly class="form-control" type="text" name="Id_Medicamento" value= "{{$medicamento->Id_Medicamento}}">

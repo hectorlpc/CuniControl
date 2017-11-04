@@ -1,9 +1,6 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
-
-    <section class="contenedorPrincipal">
-
-
       <div class="container">
         <center><h2>Registro De Carreras:</h2></center>
 
@@ -17,14 +14,11 @@
           <div class="form-group" >
             <label>Nombre de la Carrera:</label>
             <input class="form-control" name="Nombre_Carrera">
-          </div>          
+          </div>
         <br>
           <div align="right"><button type="submit" class="btn btn-outline-primary">Registrar</button>
 
 
         </form>
       </div>
-
-    </section>
-
 @endsection

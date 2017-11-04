@@ -1,4 +1,5 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
 <div class="container">
   <h2>Actualizar Registro de Horas- Actividades</h2>

@@ -1,4 +1,5 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
 <label for="destete">REGISTRO DESTETE</label>
 <div class="container">
@@ -7,12 +8,12 @@
       <div>
           <label for="num:gest">Tatuaje de coneja:</label>
           <select class="form-control" name="Id_Parto" type="text" id="conejaParto">
-            <option> -- Seleccione coneja -- </option>            
+            <option> -- Seleccione coneja -- </option>
           @foreach ($partos as $parto)
           @if($parto->Numero_Vivos > 0)
             <option value="{{$parto->Id_Parto}}">{{$parto->monta->Id_Conejo_Hembra}}</option>
-          @endif          
-          @endforeach            
+          @endif
+          @endforeach
           </select>
       </div>
 
@@ -29,7 +30,7 @@
             <label for="">Peso promedio de los destetados:</label>
             <select class="form-control" name="Peso_Nacer" id="pesoDestete">
             </select>
-          </div>          
+          </div>
       <br>
       <button type="submit" class="btn btn-outline-primary">Agregar</button>
       <button type="submit" class="btn btn-outline-secondary">Regresar</button>

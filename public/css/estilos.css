@@ -14,13 +14,14 @@ body{
 
 a{
   text-decoration: none;
-  color: #fff;
+  color: #000;
 }
 .btn-menu{
-  background: #0d2c44;
+  background: #2E9AFE;
   color: #fff;
   display: none;
   padding: 30px;
+
 }
 .btn-menu .icono{
   float: right;
@@ -81,6 +82,7 @@ a{
   background-color:white;
   border: 2px solid black;
   border-radius: 10px;
+
 }
 .container form{
 
@@ -98,25 +100,18 @@ a{
    padding-right: 5%;
   }
   .contenedor-menu {
-    margin:0;
-    width: 100%;
     position: fixed;
     top: 0;
+    left: 0;
     z-index: 1000;
   }
   .btn-menu {
     display: block;
     width: 100%;
-    margin-left: 90px;
   }
   .menu{
-    margin-left: 90px;
     height: 100px;
   }
-  /*ul .scroll{
-    height: 200px;
-    overflow-y: scroll;
-  }*/
   .contenedor-menu .menu{
     display:none;
     height: 400px;

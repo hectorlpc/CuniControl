@@ -1,9 +1,6 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
-
-    <section class="contenedorPrincipal">
-
-
       <div class="container">
         <center><h2>Registro De Materias:</h2></center>
 
@@ -25,11 +22,10 @@
           <div class="form-group">
             <label for="">Grupo:</label>
             <input class="form-control" readonly value="{{$materia->Id_Grupo}}">
-          </div>            
-          </div>                     
+          </div>
+          </div>
         <br>
           <div align="right"><button type="submit" class="btn btn-outline-primary">Registrar</button>
         </form>
       </div>
-    </section>
 @endsection

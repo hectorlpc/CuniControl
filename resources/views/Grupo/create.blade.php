@@ -1,9 +1,6 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
-
-    <section class="contenedorPrincipal">
-
-
       <div class="container">
         <center><h2>Registro De Grupos:</h2></center>
 
@@ -17,19 +14,16 @@
           <div class="form-group" >
             <label for="">Carrera:</label>
            <select class="form-control" name="Id_Carrera">
-              <option> -- Seleccione la carrera -- </option>          
+              <option> -- Seleccione la carrera -- </option>
               @foreach ($carreras as $carrera)
                   <option value="{{$carrera->Id_Carrera}}">{{$carrera->Nombre_Carrera}}</option>
               @endforeach
             </select>
-          </div>     
+          </div>
         <br>
           <div align="right"><button type="submit" class="btn btn-outline-primary">Registrar</button>
 
 
         </form>
       </div>
-
-    </section>
-
 @endsection

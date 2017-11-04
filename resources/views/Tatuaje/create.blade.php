@@ -1,7 +1,6 @@
-
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
-
       <div class="container">
         <h2>TATUADO DE CONEJOS:</h2>
           <form method="POST" action="{{url('/tatuaje')}}">
@@ -11,9 +10,9 @@
             <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
             <select class="form-control" name="Id_Conejo_Hembra" id="conejaDestete">
               <option> -- Seleccione coneja -- </option>
-            @foreach($destetes as $destete)              
+            @foreach($destetes as $destete)
               <option value="{{$destete->parto->monta->Id_Conejo_Hembra}}">{{$destete->parto->monta->Id_Conejo_Hembra}}</option>
-            @endforeach              
+            @endforeach
             </select>
           <input hidden type="text" name="Numero_Conejo" value="{{$destete->parto->monta->conejo->productora->Numero_Conejo}}">
           <input hidden value="{{$destete->parto->monta->conejo->Id_Raza}}" name="Id_Raza">
@@ -22,7 +21,7 @@
             <label for="exampleInputPassword2">Fecha de Parto:</label>
             <input value="{{$destete->parto->Fecha_Parto}}" class="form-control" type="date" name="Fecha_Nacimiento">
           </div>
-          <br>          
+          <br>
           <div class="form-group">
             <label for="exampleInputPassword2">Genero:</label>
             <input type="radio" name="Genero" value="Macho" /> Macho
@@ -57,7 +56,7 @@
               <option value="19">19</option>
               <option value="20">20</option>
             </select>
-          </div>  
+          </div>
         </br>
           <button type="submit" class="btn btn-outline-primary">Registrar</button>
       </form>
@@ -67,7 +66,7 @@
 <!--           <div class="form-group">
             <select class="form-control" name="Numero_Conejo" id="numeroConejo">
             </select>
-          </div>          
+          </div>
           <div class="form-group">
             <label for="">Fecha del Parto:</label>
             <select class="form-control" type="date" name="Fecha_Parto" id="fechadeparto"></select>
@@ -75,5 +74,3 @@
 
 
 @endsection
-
-

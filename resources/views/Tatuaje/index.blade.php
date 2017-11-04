@@ -1,4 +1,5 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
 <div class="container">
           <h2>Inicio Tatuado de Conejos</h2>
@@ -7,14 +8,14 @@
             <label for="">Tatuaje del conejo: </label>
             <input type="" class="form-control" name="Id_Conejo" placeholder="Introduce tatuajes sin espacio">
             <br>
-            <button type="submit" class="btn btn-outline-primary">Buscar</button> 
-            <a href="{{url('/tatuaje/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>            
+            <button type="submit" class="btn btn-outline-primary">Buscar</button>
+            <a href="{{url('/tatuaje/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
           </div>
-        </form>       
+        </form>
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
-      <th>Fecha Nacimiento:</th>      
+      <th>Fecha Nacimiento:</th>
       <th>Tatuaje Derecho:</th>
       <th>Tatuaje Izquierdo:</th>
       <th>Raza:</th>
@@ -25,16 +26,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr> 
+    <tr>
     @foreach($conejos as $conejo)
     @if($conejo->Status == 'Vivo')
-      <td> {{$conejo->Fecha_Nacimiento}} </td>    
+      <td> {{$conejo->Fecha_Nacimiento}} </td>
       <td> {{$conejo->Tatuaje_Derecho}} </td>
       <td> {{$conejo->Tatuaje_Izquierdo}} </td>
       <td> {{$conejo->raza->Nombre_Raza}} </td>
       <td> {{$conejo->Genero}} </td>
       <td> {{$conejo->Status}} </td>
-      <td> {{$conejo->Engorda}} </td>      
+      <td> {{$conejo->Engorda}} </td>
       <td></td>
       <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">

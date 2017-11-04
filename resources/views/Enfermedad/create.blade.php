@@ -1,5 +1,5 @@
-
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
       <div class="container">
         <center><h2>Registro De Enfermedades:</h2></center>

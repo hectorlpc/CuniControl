@@ -1,4 +1,5 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
 <label for="destete">SUPERVISION DE PARTO</label>
 <div class="container">
@@ -7,9 +8,9 @@
           <label for="">Numero de coneja: </label>
           <input type="" class="form-control" name="Id_Conejo_Hembra" placeholder="Buscar por tatuaje">
           <br>
-          <button type="submit" class="btn btn-outline-primary">Buscar</button>        
-          <td><a href="{{url('/parto/create')}}" type="button" class="btn btn-outline-success">Agregar</a></td>      
-    
+          <button type="submit" class="btn btn-outline-primary">Buscar</button>
+          <td><a href="{{url('/parto/create')}}" type="button" class="btn btn-outline-success">Agregar</a></td>
+
         </div>
       </form>
       <table class="table table-sm table-responsive">

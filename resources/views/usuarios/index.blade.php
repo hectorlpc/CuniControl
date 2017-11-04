@@ -1,7 +1,9 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
-<table>
-	<thead>
+<div class="container">
+<table class="table table-sm table-responsive">
+<thead class="thead-default">
 		<tr>
 			<th>CURP</th>
 			<th>Nombre</th>
@@ -18,10 +20,11 @@
 			<td>{{ $usuario->Apellido_Paterno}}</td>
 			<td>{{ $usuario->Apellido_Materno}}</td>
 			<td>
-				<a href="{{ url('/cuentas/' . $usuario->CURP) }}">Administrar</a>
+				<a class="btn btn-outline-info" href="{{ url('/cuentas/' . $usuario->CURP) }}">Administrar</a>
 			</td>
 		</tr>
 		@endforeach
 	</tbody>
 </table>
+</div>
 @endsection

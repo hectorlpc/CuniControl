@@ -1,4 +1,5 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
 <label for="destete">SUPERVISION DE PARTO</label>
 

@@ -1,6 +1,6 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
-
       <div class="container">
         <center><h2>Actualizar Registro De Conejo Adquirido:</h2></center>
     </br>
@@ -19,7 +19,7 @@
               @endforeach
             </select>
           </div>
-          
+
           <div class="form-group">
             <label for="Conejo_Adquirido">Fecha de adquisición:</label>
             <input value="{{$conejoAdquirido->Fecha_Adquisicion}}" class="form-control" type="date" name="Fecha_Adquisicion" min="2016-01-01" max="2050-01-01" step="1">

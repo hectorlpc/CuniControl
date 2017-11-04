@@ -1,6 +1,6 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
-    <section class="contenedorPrincipal">
       <div class="container">
         <center><h2>Registro De Coneja Productora:</h2></center>
     </br>
@@ -19,7 +19,4 @@
           <div align="right"><button type="submit" class="btn btn-outline-primary">Registrar</button>
 </form>
       </div>
-
-    </section>
-
 @endsection

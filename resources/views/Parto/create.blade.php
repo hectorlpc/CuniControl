@@ -1,17 +1,18 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
 <label for="destete">SUPERVISION DE PARTO</label>
 
 <div class="container">
 
 <form action="{{url('/parto')}}" method="post">
-    {{ csrf_field() }}    
-    <div class="form-group">     
+    {{ csrf_field() }}
+    <div class="form-group">
         <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
         <select class="form-control" name="Id_Monta" id="parto">
             <option> -- Seleccione la coneja -- </option>
           @foreach($montas as $monta)
-          @if($monta->Resultado_Diagnostico == 'Positivo')         
+          @if($monta->Resultado_Diagnostico == 'Positivo')
             <option value="{{$monta->Id_Monta}}">{{$monta->Id_Conejo_Hembra}}</option>
           @endif
           @endforeach
@@ -78,7 +79,7 @@
 
     <div>
         <label for="peso">Peso promedio al nacer:</label>
-        <select class="form-control" name="Peso_Nacer">        
+        <select class="form-control" name="Peso_Nacer">
            <option value="0.010">0.010</option>
            <option value="0.020">0.020</option>
            <option value="0.030">0.030</option>
@@ -88,7 +89,7 @@
            <option value="0.070">0.070</option>
            <option value="0.080">0.080</option>
            <option value="0.090">0.090</option>
-           <option value="0.100">0.100</option>       
+           <option value="0.100">0.100</option>
         </select>
     </div>
     <br>

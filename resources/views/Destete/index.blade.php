@@ -1,4 +1,5 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
 <label for="destete">INICIO DESTETE</label>
 
@@ -9,9 +10,9 @@
                 <input type="" class="form-control" name="Id_Destete" placeholder="Buscar">
                 <br>
                 <button type="submit" class="btn btn-primary">Buscar</button>
-                <a href="{{url('/destete/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>         
+                <a href="{{url('/destete/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
               </div>
-            </form>   
+            </form>
             <table class="table table-sm table-responsive">
       <thead class="thead-default">
         <tr>

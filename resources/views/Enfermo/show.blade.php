@@ -1,6 +1,6 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
-
 <div class="container">
 <h2>Inicio Conejo Enfermo</h2>
       <form>
@@ -8,7 +8,7 @@
               <label for="">Tatuaje del conejo: </label>
                   <div class="form-group">
                     <input type="" class="form-control" name="Id_Conejo" id="" placeholder="Introduce tatuajes">
-                  </div>        
+                  </div>
               <button type="submit" class="btn btn-outline-primary">Buscar</button>
               <button type="submit" class="btn btn-outline-success">Agregar</button>
           </div>
@@ -31,7 +31,7 @@
                   <td "{{$enfermo->Id_Enfermedad}}"> {{$enfermo->Id_Enfermedad}}</td>
                   <td "{{$enfermo->Id_Medicamento}}"> {{$enfermo->Id_Medicamento}}</td>
                   <td "{{$enfermo->Fecha_Inicio}}"> {{$enfermo->Fecha_Inicio}}</td>
-                  <td "{{$enfermo->Fecha_Fin}}"> {{$enfermo->Fecha_Fin}}</td>        
+                  <td "{{$enfermo->Fecha_Fin}}"> {{$enfermo->Fecha_Fin}}</td>
                   <td>
                     <div class="btn-group btn-group-sm" role="group" aria-label="">
                         <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><button type="button" class="btn btn-secondary btn-outline-info">Modificar</button>

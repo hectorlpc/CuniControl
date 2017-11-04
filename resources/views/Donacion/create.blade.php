@@ -1,4 +1,5 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
       <div class="container">
         <h2>REGISTRO DE DONACIÓN DE GAZAPOS:</h2>
@@ -30,7 +31,7 @@
               <option value="05">05</option>
             </select>
       </div>
-         
+
         </br>
 
           <button type="submit" class="btn btn-outline-primary">Registrar</button>

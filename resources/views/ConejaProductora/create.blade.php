@@ -1,9 +1,6 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
-
-    <section class="contenedorPrincipal">
-
-
       <div class="container">
         <center><h2>Registro De Coneja Productora:</h2></center>
 
@@ -13,7 +10,7 @@
           <div class="form-group" >
             <label for="Coneja_Productora">Número de tatuaje de la coneja:</label>
            <select class="form-control" name="Id_Conejo_Hembra">
-              <option> -- Seleccione los tatuajes del conejo -- </option>          
+              <option> -- Seleccione los tatuajes del conejo -- </option>
               @foreach ($conejos as $conejo)
                 @if( $conejo->Genero == 'Hembra')
                   <option value="{{$conejo->Id_Conejo}}">{{$conejo->Tatuaje_Derecho . " - " . $conejo->Tatuaje_Izquierdo}}</option>
@@ -74,7 +71,7 @@
             <option value="48">48</option>
             <option value="49">49</option>
             <option value="50">50</option>
-            
+
             </select>
           </div>
         <br>
@@ -83,7 +80,4 @@
 
         </form>
       </div>
-
-    </section>
-
 @endsection

@@ -1,4 +1,5 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
 <div class="container">
           <h2>DONACIÓN DE GAZAPOS:</h2>
@@ -16,7 +17,7 @@
   <thead class="thead-default">
     <tr>
       <th>Coneja donante:</th>
-      <th>Coneja receptora</th>      
+      <th>Coneja receptora</th>
       <th>No. de gazapos donados:</th>
       <th></th>
     </tr>

@@ -1,13 +1,12 @@
 @font-face
 {
-    font-family: "ios";
-    src: url("ios.ttf");
+  font-family: "sans-serif";
 }
-html, body
+html,body
 {
   margin: 0;
-  /*background: #f5f5f5;*/
-  font-family: ios;
+     /*background: #f5f5f5;*/
+  font-family: sans-serif ;
   width: 100%;
 }
 .menuHorizontal
@@ -47,6 +46,7 @@ html, body
   width: 110%;
   height: 100%;
 }
+
 .menuNavegacion
 {
   position: fixed;
@@ -56,10 +56,9 @@ html, body
   left: -22%;
   overflow-y: scroll;
   background: white;
-  background-image:url("images/fondo-negro-2218.jpg");
+  background-image:url('images/fondo-negro-2218.jpg');
   box-shadow: 2px 2px 7px 0px rgba(0, 0, 0, 0.2);
 }
-
 .contenedorPrincipal
 {
   width: 100%;
@@ -71,7 +70,18 @@ html, body
   padding-top: 100px;
   padding-left: 15%;
   padding-right: 15%;
-
+}
+.contenedorPrincipal2
+{
+  width: 100%;
+  height: 800px;
+  background-image:url("../images/fondo_conejo.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  margin-top: auto;
+  padding-top: 100px;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 .pieDePagina
 {

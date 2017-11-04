@@ -1,5 +1,5 @@
-
-@extends('layouts.Principal')
+@extends('layouts.Bienvenida')
+@extends('layouts.menu')
 @section('content')
 <div class="container">
     <div class="row">

@@ -115,5 +115,10 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/sementales.js') }}"></script>
     <script src="{{ asset('js/grupos.js') }}"></script>
+    <script src="{{ asset('js/destetes.js') }}"></script>
+    <script src="{{ asset('js/destetes-peso.js') }}"></script>
+    <script src="{{ asset('js/partos.js') }}"></script>
+    <script src="{{ asset('js/tatuaje-numeros.js') }}"></script>
+    <script src="{{ asset('js/tatuaje-fechas.js') }}"></script>    
   </body>
 </html>

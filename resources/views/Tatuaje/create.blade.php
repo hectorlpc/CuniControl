@@ -9,17 +9,18 @@
           <div class="form-group">
 
             <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
-            <select class="form-control" name="Id_Conejo_Hembra">
-            @foreach($partos as $parto)              
-              <option value="{{$parto->monta->Id_Conejo_Hembra}}">{{$parto->monta->Id_Conejo_Hembra}}</option>
+            <select class="form-control" name="Id_Conejo_Hembra" id="conejaDestete">
+              <option> -- Seleccione coneja -- </option>
+            @foreach($destetes as $destete)              
+              <option value="{{$destete->parto->monta->Id_Conejo_Hembra}}">{{$destete->parto->monta->Id_Conejo_Hembra}}</option>
             @endforeach              
             </select>
-          <input hidden type="text" name="Numero_Conejo" value="{{$parto->monta->conejo->productora->Numero_Conejo}}">
-          <input hidden value="{{$parto->monta->conejo->Id_Raza}}" name="Id_Raza">
+          <input hidden type="text" name="Numero_Conejo" value="{{$destete->parto->monta->conejo->productora->Numero_Conejo}}">
+          <input hidden value="{{$destete->parto->monta->conejo->Id_Raza}}" name="Id_Raza">
           </div>
           <div>
             <label for="exampleInputPassword2">Fecha de Parto:</label>
-            <input value="{{$parto->Fecha_Parto}}" class="form-control" type="date" name="Fecha_Nacimiento">
+            <input value="{{$destete->parto->Fecha_Parto}}" class="form-control" type="date" name="Fecha_Nacimiento">
           </div>
           <br>          
           <div class="form-group">
@@ -59,9 +60,20 @@
           </div>  
         </br>
           <button type="submit" class="btn btn-outline-primary">Registrar</button>
-
       </form>
       </div>
+
+<!-- NO BORRAR CODIGO COMENTADO -->
+<!--           <div class="form-group">
+            <select class="form-control" name="Numero_Conejo" id="numeroConejo">
+            </select>
+          </div>          
+          <div class="form-group">
+            <label for="">Fecha del Parto:</label>
+            <select class="form-control" type="date" name="Fecha_Parto" id="fechadeparto"></select>
+          </div> -->
+
+
 @endsection
 
 

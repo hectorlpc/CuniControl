@@ -76,4 +76,17 @@ class PartoController extends Controller
 
         return redirect('/parto');
     }
+
+    public function obtener_fecha (Request $request) {
+        $opciones = Monta::where('Id_Monta', $request->fecha)->get();
+        $i = 0;
+        $arrayOpcionesId = [];
+        foreach ($opciones as $opcion) {
+            $arrayOpcionesId[$i] = $opcion->Fecha_Parto;
+            $i++;
+        }
+        $respuesta = ['opciones' =>$arrayOpcionesId];
+
+        return response()->json($respuesta);
+    }        
 }

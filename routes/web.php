@@ -40,7 +40,7 @@ Route::post('/parto', 'PartoController@store');
 Route::get('/parto/{id_parto}/edit', 'PartoController@edit');
 Route::patch('/parto/{id_parto}', 'PartoController@update');
 Route::delete('/parto/{id_parto}', 'PartoController@delete');
-
+Route::post('/parto/obtener-fecha', 'PartoController@obtener_fecha');
 
 // Rutas de destetes
 Route::get('destete/', 'DesteteController@index');
@@ -49,6 +49,8 @@ Route::post('destete/', 'DesteteController@store');
 Route::get('/destete/{id_destete}/edit', 'DesteteController@edit');
 Route::patch('/destete/{id_destete}', 'DesteteController@update');
 Route::delete('/destete/{id_destete}', 'DesteteController@delete');
+Route::post('/destete/obtener-vivos', 'DesteteController@obtener_vivos');
+Route::post('/destete/obtener-peso', 'DesteteController@obtener_peso');
 
 //Rutas de tatuajes
 Route::get('/tatuaje/','TatuajeController@index');
@@ -57,6 +59,8 @@ Route::post('/tatuaje', 'TatuajeController@store');
 Route::get('/tatuaje/{id_conejo}/edit', 'TatuajeController@edit');
 Route::patch('/tatuaje/{id_conejo}', 'TatuajeController@update');
 Route::delete('/tatuaje/{id_conejo}', 'TatuajeController@delete');
+Route::post('/tatuaje/obtener-numero', 'TatuajeController@obtener_numero');
+Route::post('/tatuaje/obtener-fecha', 'TatuajeController@obtener_fecha');
 
 //Rutas de donación
 Route::get('/donacion', 'DonacionController@index');

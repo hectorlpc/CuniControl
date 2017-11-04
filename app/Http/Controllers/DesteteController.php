@@ -62,4 +62,30 @@ class DesteteController extends Controller{
         }
         return view ('Destete.index',['destetes'=> $destetes]);
     }
+
+    public function obtener_vivos (Request $request) {
+        $opciones = Parto::where('Id_Parto', $request->numero)->get();
+        $i = 0;
+        $arrayOpcionesId = [];
+        foreach ($opciones as $opcion) {
+            $arrayOpcionesId[$i] = $opcion->Numero_Vivos;
+            $i++;
+        }
+        $respuesta = ['opciones' =>$arrayOpcionesId];
+
+        return response()->json($respuesta);
+    }
+
+    public function obtener_peso (Request $request) {
+        $opciones = Parto::where('Id_Parto', $request->peso)->get();
+        $i = 0;
+        $arrayOpcionesId = [];
+        foreach ($opciones as $opcion) {
+            $arrayOpcionesId[$i] = $opcion->Peso_Nacer;
+            $i++;
+        }
+        $respuesta = ['opciones' =>$arrayOpcionesId];
+
+        return response()->json($respuesta);
+    }          
 }

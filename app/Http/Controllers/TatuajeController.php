@@ -8,15 +8,16 @@ use App\Raza;
 use App\Monta;
 use App\Parto;
 use App\Productora;
+use App\Destete;
 
 use Illuminate\Support\Facades\DB;
 class TatuajeController extends Controller
 {
     public function create() 
     {
-        $partos = Parto::all();
+        $destetes = Destete::all();
         
-        return view('/tatuaje/create', ['partos' => $partos]);
+        return view('/tatuaje/create', ['destetes' => $destetes]);
     }
 
     public function store(Request $request)
@@ -79,4 +80,29 @@ class TatuajeController extends Controller
         return redirect()->back();
     }
 
+    public function obtener_fecha (Request $request) {
+        $opciones = Parto::where('Id_Parto', $request->fecha)->get();
+        $i = 0;
+        $arrayOpcionesId = [];
+        foreach ($opciones as $opcion) {
+            $arrayOpcionesId[$i] = $opcion->Fecha_Parto;
+            $i++;
+        }
+        $respuesta = ['opciones' =>$arrayOpcionesId];
+
+        return response()->json($respuesta);
+    }
+
+    public function obtener_numero (Request $request) {
+        $opciones = Destete::where('Id_Destete', $request->numero)->get();
+        $i = 0;
+        $arrayOpcionesId = [];
+        foreach ($opciones as $opcion) {
+            $arrayOpcionesId[$i] = $opcion->destete->parto->monta->conejo->productora->Numero_Conejo;
+            $i++;
+        }
+        $respuesta = ['opciones' =>$arrayOpcionesId];
+
+        return response()->json($respuesta);
+    }
 }    

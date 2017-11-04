@@ -1,6 +1,5 @@
 @extends('layouts.Principal')
 @section('content')
-
 <div class="container">
           <h2>Inicio Tatuado de Conejos</h2>
           <form method="get" action="{{url('tatuaje/')}}">

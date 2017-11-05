@@ -6,7 +6,8 @@ use App\Usuario;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use Illuminate\Http\Request;
+use Mail;
 class RegisterController extends Controller
 {
     /*
@@ -69,7 +70,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return Usuario::create([
+        $data['confirmacioncode']=str_random(25);
+        $user = Usuario::create([
             'CURP' => $data['CURP'],
             'Nombre_Usuario' => $data['Nombre_Usuario'],
             'Apellido_Paterno' => $data['Apellido_Paterno'],
@@ -80,6 +82,29 @@ class RegisterController extends Controller
             'Telefono' => $data['Telefono'],
             'Celular' => $data['Celular'],
             'password' => bcrypt($data['password']),
+            'confirmacion_code'=>$data['confirmacioncode'],
         ]);
+        Mail::send('Correo.Plantillacorreo',$data,function($message) use ($data)
+        {
+            $message->from('cunicontrol@gmail.com','Modulo de Cunicultura');
+            $message->to($data['Correo'])->subject('Confirmacion Cuni_Control');
+        });
+        return $user;
+    }
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $this->create($request->all());
+        return redirect('/login')->with('status', 'Te hemos enviado un enlace de activación. Revisa tu correo.');
+    }
+    public function activarcode($code)
+    {
+      $user=Usuario::where('confirmacion_code',$code)->first();
+      if (!$user) {
+        return redirect('/');
+      }
+      $user->activated=true;
+      $user->save();
+      return redirect('/login')->with('status','Correo confirmado. Puedes Iniciar Sesion.');
     }
 }

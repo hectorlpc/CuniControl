@@ -24,6 +24,8 @@ class CreateUsuarioTable extends Migration
             $table->string('Telefono',15)->nullable();
             $table->string('Celular',15);
             $table->string('password',255);
+            $table->boolean('activated')->default(0);
+            $table->string('confirmacion_code')->index();
             $table->rememberToken();
             $table->timestamps();
         });

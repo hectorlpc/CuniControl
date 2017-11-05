@@ -185,3 +185,5 @@ Route::get('/engorda/pdf', function() {
 	$pdf = PDF::loadView('CensoEngorda/pdf', ['conejos' => $conejos]);
 	return $pdf->download('Censo_de_engorda.pdf');
 });
+//Confirmacion de Correo
+Route::get('/Usuario/activacion/{code}','Auth\RegisterController@activarcode');

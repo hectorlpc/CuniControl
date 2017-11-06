@@ -178,6 +178,15 @@ Route::get('/raza/{id_raza}/edit', 'RazaController@edit');
 Route::patch('/raza/{id_raza}', 'RazaController@update');
 Route::delete('/raza/{id_raza}','RazaController@delete');
 
+
+//Rutas De Área
+Route::get('/area', 'AreaController@index');
+Route::get('/area/create', 'AreaController@create');
+Route::post('/area', 'AreaController@store');
+Route::get('/area/{id_area}/edit', 'AreaController@edit');
+Route::patch('/area/{id_area}', 'AreaController@update');
+Route::delete('/area/{id_area}','AreaController@delete');
+
 //Rutas De Bajas
 Route::get('/baja', 'BajaController@index');
 Route::get('/baja/pdf', function() {

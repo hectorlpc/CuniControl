@@ -47,6 +47,7 @@
                     <li> <a href="{{url('/cemental/')}}">Registro de conejos sementales</a> </li>
 
                     <li> <a href="{{url('/productora/')}}">Registro de conejas productoras</a> </li>
+                    <li> <a href="{{url('/area/')}}">Registro Areas De Destino</a> </li>
                     <li> <a href="{{url('/carrera/')}}">Registro de Carreras</a> </li>
                     <li> <a href="{{url('/grupo/')}}">Registro de Grupos</a> </li>
                     <li> <a href="{{url('/materia/')}}">Registro de Materias</a> </li>

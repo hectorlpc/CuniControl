@@ -51,9 +51,11 @@
                     <li> <a href="{{url('/grupo/')}}">Registro de Grupos</a> </li>
                     <li> <a href="{{url('/materia/')}}">Registro de Materias</a> </li>
                     <li> <a href="{{url('/adquisicion/')}}">Registro de Tipo de Adquisicion</a> </li>
+                    <li> <a href="{{url('/raza/')}}">Registro de Raza</a> </li>
                     <li> <a href="{{url('/adquirido/')}}">Registro de Conejo Adquirido</a> </li>
                     <li> <a href="{{url('/enfermedad/')}}">Registro de Enfermedad</a> </li>
-                    <li> <a href="{{url('/medicamento/')}}">Registro de Medicamentos</a> </li>
+                    <li> <a href="{{url('/medicamento/')}}">Registro de Medicamentos</a>
+                   </li>
                   </ul>
               </li>
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Profesor Encargado<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>

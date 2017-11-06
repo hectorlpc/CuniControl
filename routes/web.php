@@ -170,6 +170,14 @@ Route::get('/medicamento/{id_medicamento}/edit', 'MedicamentoController@edit');
 Route::patch('/medicamento/{id_medicamento}', 'MedicamentoController@update');
 Route::delete('/medicamento/{id_medicamento}','MedicamentoController@delete');
 
+//Rutas De Raza
+Route::get('/raza', 'RazaController@index');
+Route::get('/raza/create', 'RazaController@create');
+Route::post('/raza', 'RazaController@store');
+Route::get('/raza/{id_raza}/edit', 'RazaController@edit');
+Route::patch('/raza/{id_raza}', 'RazaController@update');
+Route::delete('/raza/{id_raza}','RazaController@delete');
+
 //Rutas De Bajas
 Route::get('/baja', 'BajaController@index');
 Route::get('/baja/pdf', function() {

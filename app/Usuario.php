@@ -23,4 +23,7 @@ class Usuario extends Authenticatable
     public function roles(){
     	return $this->belongsToMany(Rol::class,'Usuario_Roles','CURP','Id_Rol');
     }
+    public function tieneRol($id_rol){
+      return $this->roles->pluck("Id_Rol")->contains($id_rol);
+    }
 }

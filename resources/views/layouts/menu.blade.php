@@ -11,18 +11,22 @@
                              document.getElementById('logout-form').submit();">
                     Salir
                 </a>
-
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
               </li>
             </ul>
         </li>
-        <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Alumno<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+@if(Auth::user()->tieneRol('ROLALU'))
+        <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>
+          Alumno<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
             <ul>
               <li> <a href="{{url('/horas/create')}}">Solicitar horas practicas </a> </li>
           </ul>
           </li>
+@endif
+@if(Auth::user()->tieneRol('ROLPRO'))
+
            <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Producción<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
             <ul>
               <li> <a href="{{url('/monta/')}}">Supervisión de la monta</a> </li>
@@ -34,12 +38,16 @@
               <li> <a href="{{url('/transferencia/')}}">Registrar baja de conejos por transferencia</a> </li>
            </ul>
           </li>
+@endif
+@if(Auth::user()->tieneRol('ROLADM'))
 
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Administrador<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="{{url('/cuentas/')}}">Gestionar roles</a> </li>
                   </ul>
               </li>
+@endif
+@if(Auth::user()->tieneRol('ROLEMO'))
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Encargado Modulo<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="">Validar practica</a> </li>
@@ -49,8 +57,6 @@
                     <li> <a href="{{url('/productora/')}}">Registro de conejas productoras</a> </li>
                     <li> <a href="{{url('/area/')}}">Registro Areas De Destino</a> </li>
                     <li> <a href="{{url('/carrera/')}}">Registro de Carreras</a> </li>
-                    <li> <a href="{{url('/grupo/')}}">Registro de Grupos</a> </li>
-                    <li> <a href="{{url('/materia/')}}">Registro de Materias</a> </li>
                     <li> <a href="{{url('/adquisicion/')}}">Registro de Tipo de Adquisicion</a> </li>
                     <li> <a href="{{url('/raza/')}}">Registro de Raza</a> </li>
                     <li> <a href="{{url('/adquirido/')}}">Registro de Conejo Adquirido</a> </li>
@@ -59,6 +65,8 @@
                    </li>
                   </ul>
               </li>
+@endif
+@if(Auth::user()->tieneRol('ROLPEN'))
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Profesor Encargado<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="{{url('/engorda/')}}">Censo de engorda</a> </li>
@@ -66,7 +74,16 @@
                     <li> <a href="">Autorizar horas practicas</a> </li>
                   </ul>
               </li>
+@endif
 
+@if(Auth::user()->tieneRol('ROLPRF'))
+              <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Profesor Encargado<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+                  <ul>
+                    <li> <a href="{{url('/grupo/')}}">Registro de Grupos</a> </li>
+                    <li> <a href="{{url('/materia/')}}">Registro de Materias</a> </li>
+                  </ul>
+              </li>
+@endif
             </ul>
 </div>
 @endsection

@@ -87,7 +87,7 @@ class RegisterController extends Controller
         Mail::send('Correo.Plantillacorreo',$data,function($message) use ($data)
         {
             $message->from('cunicontrol@gmail.com','Modulo de Cunicultura');
-            $message->to($data['Correo'])->subject('Confirmacion Cuni_Control');
+            $message->to($data['Correo'])->subject('Confirmacion CuniControl');
         });
         return $user;
     }
@@ -104,6 +104,7 @@ class RegisterController extends Controller
         return redirect('/');
       }
       $user->activated=true;
+      $user->roles()->attach('ROLADM');
       $user->save();
       return redirect('/login')->with('status','Correo confirmado. Puedes Iniciar Sesion.');
     }

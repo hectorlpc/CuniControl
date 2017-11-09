@@ -5,14 +5,26 @@
 <h3>Usuario: {{$usuario->Nombre_Usuario}}</h3>
 <hr>
 <h4>Roles:</h4>
+<table class="table table-sm table-responsive">
+  <thead class="thead-default">
+  	<tr>
+  		<th>Rol</th>
+  		<th></th>
+  	</tr>
+  </thead>
+  <tbody>
 @foreach($rolesUsuario as $rol)
-<p>{{$rol->Nombre_Rol}} </p>
-<form action="{{url('/cuentas/'.$usuario->CURP.'/roles/'.$rol->Id_Rol)}}" method="post">
+<tr>
+<td>{{$rol->Nombre_Rol}} </td>
+<td><form action="{{url('/cuentas/'.$usuario->CURP.'/roles/'.$rol->Id_Rol)}}" method="post">
 	{{method_field('delete')}}
 	{{csrf_field()}}
-	<button>Eliminar</button>
-</form>
+	<button class="btn btn-outline-danger">Eliminar</button>
+</form></td>
+</tr>
 @endforeach
+</tbody>
+</table>
 <hr>
 <form action="{{url('/cuentas/'.$usuario->CURP.'/roles') }}" method="post">
 <div class="form-group">

@@ -18,8 +18,8 @@ Route::get('/', function () {
 
 Route::get('/cuentas', 'UsuarioController@index');
 Route::get('/cuentas/{curp}', 'UsuarioController@show');
-Route::post('/cuentas/{curp}/rol', 'UsuarioController@store_rol');
-Route::delete('/cuentas/{curp}/rol/{idrol}', 'UsuarioController@destroy_rol');
+Route::post('/cuentas/{curp}/roles', 'UsuarioController@store_rol');
+Route::delete('/cuentas/{curp}/roles/{idrol}', 'UsuarioController@destroy_rol');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

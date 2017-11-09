@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
-  <h2>Registro de Horas - Actividades</h2>
+  <center><h2>Registro de Horas - Actividades</h2></center>
 </br>
     <form>
     <div class="form-group">
@@ -39,8 +39,9 @@
       </select>
     </div>
   <br>
+  <div align="right">
     <button type="submit" class="btn btn-outline-primary">Registrar Actividades</button>
-
+    </div>
 
   </form>
 </div>

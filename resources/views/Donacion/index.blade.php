@@ -2,14 +2,14 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
-          <h2>DONACIÓN DE GAZAPOS:</h2>
+          <center><h2>Donacion de Gazapos</h2></center>
           <form method="get" action="{{url('/donacion/')}}">
           <div class="form-group">
             <label for="">Numero de la donación:</label>
             <input type="" class="form-control" name="Id_Donacion" placeholder="Introduce tatuajes sin espacio">
             <br>
-            <button type="submit" class="btn btn-outline-primary">Buscar</button>
-            <a href="{{url('donacion/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
+            <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
+            <a href="{{url('donacion/create')}}" type="submit" class="btn btn-outline-success">Agregar</a></div>
           </div>
         </form>
 

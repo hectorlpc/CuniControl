@@ -8,8 +8,9 @@
             <label for="">Fecha de las actividades: </label>
             <input type="date" class="form-control" id="" placeholder="Buscar">
             <br>
-            <button type="submit" class="btn btn-outline-primary">Buscar</button>
+            <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
             <button type="submit" class="btn btn-outline-success">Agregar</button>
+            </div>
           </div>
         </form>
         <table class="table table-sm table-responsive">

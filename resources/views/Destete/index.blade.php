@@ -1,16 +1,16 @@
 @extends('layouts.Principal')
 @extends('layouts.menu')
 @section('content')
-<label for="destete">INICIO DESTETE</label>
 
 <div class="container">
+  <center><h2>Inicio de Destete</h2></center>
             <form method="get" action="{{url('destete/')}}">
               <div class="form-group">
                 <label for="">Tatuaje Coneja</label>
                 <input type="" class="form-control" name="Id_Destete" placeholder="Buscar">
                 <br>
-                <button type="submit" class="btn btn-primary">Buscar</button>
-                <a href="{{url('/destete/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
+                <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
+                <a href="{{url('/destete/create')}}" type="submit" class="btn btn-outline-success">Agregar</a></div>
               </div>
             </form>
             <table class="table table-sm table-responsive">

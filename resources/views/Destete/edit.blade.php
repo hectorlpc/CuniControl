@@ -1,8 +1,9 @@
 @extends('layouts.Principal')
 @extends('layouts.menu')
 @section('content')
-<label for="destete">REGISTRO DESTETE</label>
+
 <div class="container">
+  <center><h2>Registro de Destete</h2></center>
   <form action="{{url('/destete/' . $destete->Id_Destete)}}" method="POST" role="form">
       {{method_field('patch')}}
       {{ csrf_field() }}
@@ -25,7 +26,9 @@
           <input value="{{$destete->Peso_Destete}}" class="form-control" name="Peso_Destete" type="" >
 </div>
       <br>
+      <div align="right">
       <button type="submit" class="btn btn-outline-primary">Actualizar</button>
+      </div>
   </form>
 </div>
 @endsection

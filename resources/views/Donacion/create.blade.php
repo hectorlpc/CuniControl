@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
       <div class="container">
-        <h2>REGISTRO DE DONACIÓN DE GAZAPOS:</h2>
+        <center><h2>Registro de Donacion de Gazapos</h2></center>
           <form form action="{{url('/donacion')}}" method="POST">
             {{ csrf_field() }}
           <div class="form-group">
@@ -33,8 +33,9 @@
       </div>
 
         </br>
-
+        <div align="right">
           <button type="submit" class="btn btn-outline-primary">Registrar</button>
+          </div>
         </form>
       </div>
 @endsection

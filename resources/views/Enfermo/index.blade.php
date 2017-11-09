@@ -2,15 +2,15 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
-<h2>Inicio Conejo Enfermo</h2>
+<center><h2>Inicio Conejo Enfermo</h2></center>
       <form method="get" action="{{url('/enfermo')}}">
           <div class="form-group">
               <label for="">Tatuaje del conejo: </label>
                   <div class="form-group">
                     <input type="" class="form-control" name="Id_Conejo" placeholder="Introduce tatuajes sin espacio">
                   </div>
-              <button type="submit" class="btn btn-outline-primary">Buscar</button>
-              <a href="{{url('/enfermo/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
+              <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
+              <a href="{{url('/enfermo/create')}}" type="submit" class="btn btn-outline-success">Agregar</a></div>
           </div>
       </form>
       <table class="table table-sm table-responsive">

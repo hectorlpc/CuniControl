@@ -2,8 +2,7 @@
 @extends('layouts.menu')
 @section('content')
       <div class="container">
-        <center><h2>Actualizar Carreras:</h2></center>
-
+        <center><h2>Actualizar Grupo:</h2></center>
     </br>
 <form action="{{url('/grupo/' . $grupo->Id_Grupo)}}" method="POST" role="form">
   {{method_field('patch')}}

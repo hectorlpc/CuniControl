@@ -1,16 +1,16 @@
 @extends('layouts.Principal')
 @extends('layouts.menu')
 @section('content')
-<label for="destete">SUPERVISION DE PARTO</label>
 <div class="container">
+  <center><h2>Supervision de parto</h2></center>
       <form method="get" action="{{url('/parto')}}">
         <div class="form-group">
           <label for="">Numero de coneja: </label>
           <input type="" class="form-control" name="Id_Conejo_Hembra" placeholder="Buscar por tatuaje">
           <br>
-          <button type="submit" class="btn btn-outline-primary">Buscar</button>
-          <td><a href="{{url('/parto/create')}}" type="button" class="btn btn-outline-success">Agregar</a></td>
-
+          <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
+          <a href="{{url('/parto/create')}}" type="button" class="btn btn-outline-success">Agregar</a>
+          </div>
         </div>
       </form>
       <table class="table table-sm table-responsive">

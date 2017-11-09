@@ -27,7 +27,7 @@
                 <input type="Password" name="password" placeholder="••••••">
                 <input type="submit" name="" value="Iniciar">
                 <a href="{{url('/register')}}">¿Aún no tienes cuenta? Registrate aquí</a>
-                <center><a href="#">¿Olvidaste tu contraseña?</a>
+                <center><a href="{{url('/password/reset')}}">¿Olvidaste tu contraseña?</a>
 
             </form>
         </div>

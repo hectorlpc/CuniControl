@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
-  <h2>Registro de Conejo Enfermo</h2>
+  <center><h2>Registro de Conejo Enfermo</h2></center>
 </br>
 </br>
   <form action="{{url('/enfermo')}}" method="POST" role="form">
@@ -43,8 +43,10 @@
         <input class="form-control" type="date" name="Fecha_Fin" min="2000-01-01" max="2050-01-01" step="2">
       </div>
     </br>
-      <button type="submit" class="btn btn-out-line-primary">Registrar</button>
+    <div align="right">
+      <button class="btn btn-outline-primary" type="submit" >Registrar</button>
+      <a class="btn btn-outline-secondary" href="{{url('/enfermo/')}}">Regresar</a>
+      </div>
   </form>
-  <a href="{{url('/enfermo/')}}">Regresar</a>
 </div>
 @endsection

@@ -1,7 +1,6 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
-
-<section class="contenedorPrincipal">
 <div class="container">
               <form method="get" action="{{url('adquisicion/')}}">
 
@@ -11,8 +10,8 @@
                 <input type="" class="form-control" name="Id_Adquisicion" placeholder="Buscar">
                 <br>
                 <button type="submit" class="btn btn-primary">Buscar</button>
-                <a href="{{url('/adquisicion/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>             
-      
+                <a href="{{url('/adquisicion/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
+
               </div>
             </form>
             <table class="table table-sm table-responsive">

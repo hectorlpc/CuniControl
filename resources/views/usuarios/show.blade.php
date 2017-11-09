@@ -1,4 +1,5 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
 <div class="container">
 <h3>Usuario: {{$usuario->Nombre_Usuario}}</h3>

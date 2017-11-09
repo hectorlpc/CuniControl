@@ -25,8 +25,10 @@
             <select class="form-control" name="Id_Conejo_Macho" id="sementales">
             </select>
           </div>
-          <button type="submit" class="btn btn-out-line-primary">Enviar Registro</button>
+          <div align="right">
+            <button type="submit" class="btn btn-outline-primary">Enviar Registro</button>
+            <a class="btn btn-outline-secondary" href="{{url('/monta/')}}">Regresar</a>
+          </div>
         </form>
-  <a href="{{url('/monta/')}}">Regresar</a>
 </div>
 @endsection

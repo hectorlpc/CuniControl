@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
       <div class="container">
-        <h2>ACTUALIZACIÓN DE DONACIÓN DE GAZAPOS:</h2>
+        <center><h2>Actualizacion de Donacion de Gazapos</h2></center>
 <form action="{{url('/donacion/' . $donacion->Id_Donacion)}}" method="POST" role="form">
       {{method_field('patch')}}
       {{ csrf_field() }}

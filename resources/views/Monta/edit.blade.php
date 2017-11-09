@@ -35,8 +35,10 @@
             <input value="{{$monta->Fecha_Parto}}" class="form-control" type="date" name="Fecha_Parto">
           </div>
           </div>
+          <div align="right">
           <button type="submit" class="btn btn-out-line-primary">Enviar Registro</button>
+          <a class="btn btn-outline-secondary" href="{{url('/monta/')}}">Regresar</a>
+          </div>
         </form>
-  <a href="{{url('/monta/')}}">Regresar</a>
 </div>
 @endsection

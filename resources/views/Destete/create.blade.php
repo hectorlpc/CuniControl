@@ -1,8 +1,9 @@
 @extends('layouts.Principal')
 @extends('layouts.menu')
 @section('content')
-<label for="destete">REGISTRO DESTETE</label>
+
 <div class="container">
+  <center><h2>Registro de Destete</h2></center>
   <form action="{{url('/destete')}}" method="post">
     {{ csrf_field() }}
       <div>
@@ -32,8 +33,9 @@
             </select>
           </div>
       <br>
+      <div align="right">
       <button type="submit" class="btn btn-outline-primary">Agregar</button>
-      <button type="submit" class="btn btn-outline-secondary">Regresar</button>
+      <button type="submit" class="btn btn-outline-secondary">Regresar</button></div>
   </form>
 </div>
 @endsection

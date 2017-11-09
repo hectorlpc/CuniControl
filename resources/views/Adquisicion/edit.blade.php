@@ -1,6 +1,6 @@
 @extends('layouts.Principal')
+@extends('layouts.menu')
 @section('content')
-  
     <div class="container">
 <form action="{{url('/adquisicion/' . $adquisicion->Id_Adquisicion)}}" method="POST" role="form">
       {{method_field('patch')}}

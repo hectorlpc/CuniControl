@@ -1,9 +1,9 @@
 @extends('layouts.Principal')
 @extends('layouts.menu')
 @section('content')
-<label for="destete">SUPERVISION DE PARTO</label>
 
 <div class="container">
+  <center><h2>Supervision de Parto</h2></center>
 <form action="{{url('/parto/' . $parto->Id_Parto)}}" method="POST" role="form">
       {{method_field('patch')}}
       {{ csrf_field() }}
@@ -33,9 +33,10 @@
             <input value="{{$parto->Peso_Nacer}}" class="form-control" type="text" name="Peso_Nacer">
 </div>
     <br>
+    <div align="right">
     <button type="submit" class="btn btn-outline-primary">Actualizar</button>
     <button type="submit" class="btn btn-outline-secondary">Regresar</button>
-
+    </div>
 </form>
 </div>
 @endsection

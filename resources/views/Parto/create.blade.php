@@ -1,10 +1,9 @@
 @extends('layouts.Principal')
 @extends('layouts.menu')
 @section('content')
-<label for="destete">SUPERVISION DE PARTO</label>
 
 <div class="container">
-
+  <center><h2>Supervision de Parto</h2></center>
 <form action="{{url('/parto')}}" method="post">
     {{ csrf_field() }}
     <div class="form-group">
@@ -93,8 +92,10 @@
         </select>
     </div>
     <br>
+    <div align="right">
     <button type="submit" class="btn btn-outline-primary">Agregar</button>
     <button type="submit" class="btn btn-outline-secondary">Regresar</button>
+    </div>
 </form>
 </div>
 @endsection

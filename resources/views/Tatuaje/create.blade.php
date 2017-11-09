@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
       <div class="container">
-        <h2>TATUADO DE CONEJOS:</h2>
+        <center><h2>Tatuado de Conejos:</h2></center>
           <form method="POST" action="{{url('/tatuaje')}}">
             {{csrf_field()}}
           <div class="form-group">

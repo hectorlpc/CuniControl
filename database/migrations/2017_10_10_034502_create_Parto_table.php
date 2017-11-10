@@ -14,12 +14,12 @@ class CreatePartoTable extends Migration
     public function up()
     {
         Schema::create('Parto', function (Blueprint $table) {
-            $table->string('Id_Parto')->primary('Id_Parto');
-            $table->date('Fecha_Parto');
-            $table->string('Id_Monta');
+            $table->string('Id_Parto',50)->primary('Id_Parto');
+            $table->date('Fecha_Parto')->index();
+            $table->string('Id_Monta',40);
             $table->foreign('Id_Monta')->references('Id_Monta')->on('Monta');
-            $table->smallInteger('Numero_Vivos');
-            $table->smallInteger('Numero_Muertos');
+            $table->smallInteger('Numero_Vivos')->index();
+            $table->smallInteger('Numero_Muertos')->index();
             $table->float('Peso_Nacer')->nullable();
             $table->timestamps();
         });

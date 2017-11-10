@@ -15,10 +15,10 @@ class CreateUsuarioTable extends Migration
     {
         Schema::create('Usuario', function (Blueprint $table) {
             $table->string('CURP',18)->primary('CURP');
-            $table->string('Nombre_Usuario',150);
+            $table->string('Nombre_Usuario',75);
             $table->string('Apellido_Paterno',75);
             $table->string('Apellido_Materno',75);
-            $table->string('Correo',75);
+            $table->string('Correo',75)->unique();
             $table->string('Genero',1);
             $table->date('Fecha_Nacimiento');
             $table->string('Telefono',15)->nullable();

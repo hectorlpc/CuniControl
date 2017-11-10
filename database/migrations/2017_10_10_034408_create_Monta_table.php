@@ -14,14 +14,14 @@ class CreateMontaTable extends Migration
     public function up()
     {
         Schema::create('Monta', function (Blueprint $table) {
-            $table->string('Id_Monta')->primary('Id_Monta');
-            $table->date('Fecha_Monta'); 
-            $table->string('Id_Conejo_Hembra');
+            $table->string('Id_Monta',40)->primary('Id_Monta');
+            $table->date('Fecha_Monta')->index(); 
+            $table->string('Id_Conejo_Hembra',11);
             $table->foreign('Id_Conejo_Hembra')->references('Id_Conejo')->on('Conejo');
-            $table->string('Id_Conejo_Macho',10);
+            $table->string('Id_Conejo_Macho',11);
             $table->foreign('Id_Conejo_Macho')->references('Id_Conejo')->on('Conejo');
             $table->date('Fecha_Diagnostico')->nullable();
-            $table->enum('Resultado_Diagnostico',['Positivo','Negativo'])->nullable();
+            $table->enum('Resultado_Diagnostico',['Positivo','Negativo'])->nullable()->index();
             $table->date('Fecha_Parto')->nullable();
             $table->timestamps();
         });

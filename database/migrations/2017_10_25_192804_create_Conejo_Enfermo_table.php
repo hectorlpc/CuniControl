@@ -15,10 +15,10 @@ class CreateConejoEnfermoTable extends Migration
     {
         Schema::create('Conejo_Enfermo', function (Blueprint $table) {
             $table->string('Id_Conejo_Enfermo')->primary('Id_Conejo_Enfermo');
-            $table->string('Id_Conejo',10);
+            $table->string('Id_Conejo',11);
             $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
-            $table->date('Fecha_Inicio');
-            $table->date('Fecha_Fin');
+            $table->date('Fecha_Inicio')->index();
+            $table->date('Fecha_Fin')->index();
             $table->timestamps();            
         });
     }

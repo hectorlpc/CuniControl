@@ -12,11 +12,11 @@ class JaulaTableSeeder extends Seeder
      */
     public function run()
     {
-        Jaula::create(['Id_Jaula' => 'A1', 'Status' => true]);
-        Jaula::create(['Id_Jaula' => 'A2', 'Status' => false]);
-        Jaula::create(['Id_Jaula' => 'A3', 'Status' => true]);
-        Jaula::create(['Id_Jaula' => 'B1', 'Status' => false]);
-        Jaula::create(['Id_Jaula' => 'B4', 'Status' => true]);      
-        Jaula::create(['Id_Jaula' => 'G11', 'Status' => false]);
+        Jaula::create(['Id_Jaula' => 'A1']);
+        Jaula::create(['Id_Jaula' => 'A2']);
+        Jaula::create(['Id_Jaula' => 'A3']);
+        Jaula::create(['Id_Jaula' => 'B1']);
+        Jaula::create(['Id_Jaula' => 'B4']);      
+        Jaula::create(['Id_Jaula' => 'G11']);
     }
 }

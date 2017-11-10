@@ -26,9 +26,15 @@ class PartoController extends Controller
 
     public function delete($id_parto)
     {
-        $parto = Parto::where('Id_Parto', $id_parto)->first();
-        $parto->delete();
-    	return redirect()->back();
+        try{
+            $parto = Parto::where('Id_Parto', $id_parto)->first();
+            $parto->delete();
+            session()->flash("Exito","Parto eliminado");
+            return redirect()->back();
+        }catch (\Illuminate\Database\QueryException $e){ 
+            session()->flash("Error","No es posible eliminar ese parto");
+            return redirect()->back();
+        }
     }
 
     public function store(Request $request)

@@ -51,9 +51,17 @@ class MontaController extends Controller
 
     public function delete($id_monta)
     {
-        $monta = Monta::where('Id_Monta', $id_monta)->first();
-        $monta->delete();
-        return redirect()->back();
+        try{
+
+            $monta = Monta::where('Id_Monta', $id_monta)->first();
+            $monta->delete();
+            session()->flash("Exito","Monta eliminada");
+            return redirect()->back();   
+        }catch (\Illuminate\Database\QueryException $e){
+        
+            session()->flash("Error","No es posible eliminar esa Monta");
+            return redirect()->back();
+        }
     }
 
     public function store (Request $request)

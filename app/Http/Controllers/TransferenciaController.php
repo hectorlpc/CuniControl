@@ -67,9 +67,14 @@ class TransferenciaController extends Controller
 
 	public function delete($id_transferencia)
 	{
-		$transferencia = Transferencia::where('Id_Transferencia',$id_transferencia)->first();
-		$transferencia->delete();
-
-		return redirect()->back();
+		try{
+			$transferencia = Transferencia::where('Id_Transferencia',$id_transferencia)->first();
+			$transferencia->delete();
+	        session()->flash("Exito","Transferencia eliminada");
+			return redirect()->back();	
+		}catch (\Illuminate\Database\QueryException $e){ 
+	        session()->flash("Error","No es posible eliminar esa Transferencia");
+	        return redirect()->back();
+    }
 	}
 }

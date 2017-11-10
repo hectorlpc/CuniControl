@@ -31,10 +31,16 @@ class MedicamentoController extends Controller
     }
 
     public function delete($id_medicamento)
-    {   
+    {   try{
         $medicamento = Medicamento::where('Id_Medicamento', $id_medicamento)->first();
         $medicamento->delete();
-    	return redirect()->back();
+        session()->flash("Exito","Medicamento eliminado");
+        return redirect()->back();
+        }catch (\Illuminate\Database\QueryException $e){
+        session()->flash("Error","No es posible eliminar ese Medicamento");
+        return redirect()->back();
+    }
+        
     }
 
     public function store(Request $request)

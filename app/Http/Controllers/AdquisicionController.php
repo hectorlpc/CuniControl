@@ -33,9 +33,16 @@ class AdquisicionController extends Controller
 
     public function delete($id_adquisicion)
     {   
+        try{
         $adquisicion = Adquisicion::where('Id_Adquisicion', $id_adquisicion)->first();
         $adquisicion->delete();
-    	return redirect()->back();
+        session()->flash("Exito","Tipo de adquisicion eliminada");
+        return redirect()->back();   
+        }catch (\Illuminate\Database\QueryException $e){
+        
+        session()->flash("Error","No es posible eliminar este tipo de adquisición");
+        return redirect()->back();
+    }
     }
 
     public function store(Request $request)

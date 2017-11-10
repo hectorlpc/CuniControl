@@ -32,9 +32,17 @@ class AreaController extends Controller
 
     public function delete($id_area)
     {   
+        try{
+
         $area = Area::where('Id_Area', $id_area)->first();
         $area->delete();
-    	return redirect()->back();
+        session()->flash("Exito","Área eliminada");
+        return redirect()->back();
+        }catch(\Illuminate\Database\QueryException $e){
+        
+        session()->flash("Error","No es posible eliminar esta Área");
+        return redirect()->back();
+     }
     }
 
     public function store(Request $request)

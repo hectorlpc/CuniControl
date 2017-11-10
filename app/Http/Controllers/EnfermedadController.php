@@ -32,9 +32,16 @@ class EnfermedadController extends Controller
 
     public function delete($id_enfermedad)
     {   
-        $enfermedad = Enfermedad::where('Id_Enfermedad', $id_enfermedad)->first();
+        try{
+            $enfermedad = Enfermedad::where('Id_Enfermedad', $id_enfermedad)->first();
         $enfermedad->delete();
-    	return redirect()->back();
+        session()->flash("Exito","Enfermedad eliminada");
+        return redirect()->back();
+        }catch (\Illuminate\Database\QueryException $e){
+        session()->flash("Error","No es posible eliminar esa enfermedad");
+        return redirect()->back();
+    }
+        
     }
 
     public function store(Request $request)

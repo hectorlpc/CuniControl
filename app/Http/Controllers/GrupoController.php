@@ -55,9 +55,15 @@ class GrupoController extends Controller
 
 	public function delete ($id_grupo)
 	{
+		try{
 		$grupo = Grupo::where('Id_Grupo', $id_grupo)->first();
 		$grupo->delete();
-
-		return redirect()->back();
+		session()->flash("Exito","Grupo eliminado");
+		return redirect()->back();	
+		}catch (\Illuminate\Database\QueryException $e){
+        
+        session()->flash("Error","No es posible eliminar ese grupo");
+        return redirect()->back();
+    	}
 	}
 }

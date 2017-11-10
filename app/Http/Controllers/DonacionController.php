@@ -39,10 +39,17 @@ class DonacionController extends Controller{
 
     public function delete($id_donacion)
     {
+        try{
+
         $donacion = Donacion::where('Id_Donacion', $id_donacion)->first();
         $donacion->delete();
+        session()->flash("Exito","Donación eliminada");
+        return redirect()->back();
+        }catch (\Illuminate\Database\QueryException $e){
+        session()->flash("Error","No es posible eliminar esa Donación");
         return redirect()->back();
     }
+}
 
     public function edit($id_donacion)
     {

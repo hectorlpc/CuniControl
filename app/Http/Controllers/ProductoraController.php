@@ -33,10 +33,15 @@ class ProductoraController extends Controller{
 
     public function delete($id_productora)
     {   
-        $productora = Productora::where('id_Productora', $id_productora)->first();
-        $productora->delete();
-
-    	return redirect()->back();
+        try{
+            $productora = Productora::where('id_Productora', $id_productora)->first();
+            $productora->delete();
+            session()->flash("Exito","Coneja Productora eliminada");
+            return redirect()->back();
+        }catch (\Illuminate\Database\QueryException $e){ 
+            session()->flash("Error","No es posible eliminar esa Coneja Productora");
+            return redirect()->back();
+        }
     }
 
     public function store(Request $request)

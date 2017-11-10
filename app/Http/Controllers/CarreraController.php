@@ -54,9 +54,16 @@ class CarreraController extends Controller
 
 	public function delete ($id_carrera)
 	{
-		$carrera = Carrera::where('Id_Carrera', $id_carrera)->first();
+		try{
+			$carrera = Carrera::where('Id_Carrera', $id_carrera)->first();
 		$carrera->delete();
-
+		session()->flash("Exito","Carrera Eliminada");
 		return redirect()->back();
+		}catch (\Illuminate\Database\QueryException $e){
+        
+        session()->flash("Error","No es posible eliminar esa carrera");
+        return redirect()->back();
+    }
+		
 	}
 }

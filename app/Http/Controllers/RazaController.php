@@ -35,11 +35,10 @@ class RazaController extends Controller
     try{
         $raza = Raza::where('Id_Raza', $id_raza)->first();
         $raza->delete();
-        session()->flash("Exito","Registro eliminado");
+        session()->flash("Exito","Raza eliminada");
         return redirect()->back();   
         
-    }catch (\Illuminate\Database\QueryException $e){
-        
+    }catch (\Illuminate\Database\QueryException $e){ 
         session()->flash("Error","No es posible eliminar esa raza");
         return redirect()->back();
     }

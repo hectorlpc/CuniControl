@@ -73,9 +73,16 @@ class EnfermoController extends Controller
 
     public function delete($id_conejo)
     {
-        $enfermo = Enfermo::where('Id_Conejo', $id_conejo)->first();
-        $enfermo->delete();
-        return redirect()->back();
+        try{
+            $enfermo = Enfermo::where('Id_Conejo', $id_conejo)->first();
+            $enfermo->delete();
+            session()->flash("Exito","Conejo enfermo eliminado");
+            return redirect()->back();
+        }catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible eliminar este conejo enfermo");
+            return redirect()->back();
+        }
+        
     }
 
     public function update(Request $request, $id_conejo)

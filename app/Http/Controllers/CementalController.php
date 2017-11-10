@@ -32,10 +32,17 @@ class CementalController extends Controller
 
     public function delete($id_cemental)
     {   
+        try{
+
         $cemental = Cemental::where('Id_Cemental', $id_cemental)->first();
         $cemental->delete();
-
-    	return redirect()->back();
+        session()->flash("Exito","Semental eliminado");
+        return redirect()->back();
+        }catch (\Illuminate\Database\QueryException $e){
+        
+        session()->flash("Error","No es posible eliminar este Semental");
+        return redirect()->back();
+        }
     }
 
     public function store(Request $request)

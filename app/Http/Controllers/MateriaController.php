@@ -65,10 +65,17 @@ class MateriaController extends Controller
 
 	public function delete ($id_materia)
 	{
+		try{
+
 		$materia = Materia::where('Id_Materia', $id_materia)->first();
 		$materia->delete();
-
-		return redirect()->back();
+        session()->flash("Exito","Materia eliminada");
+		return redirect()->back();	
+		}catch (\Illuminate\Database\QueryException $e){
+        
+        session()->flash("Error","No es posible eliminar esa Materia");
+        return redirect()->back();
+  		}
 	}
 
     public function obtener_grupo(Request $request) {

@@ -52,9 +52,16 @@ class AdquiridoController extends Controller{
 
     public function delete($id_adquirido)
     {   
+        try{
         $conejoAdquirido = Adquirido::where('Id_Adquirido', $id_adquirido)->first();
         $conejoAdquirido->delete();
-    	return redirect()->back();
+        session()->flash("Exito","Conejo eliminado");
+        return redirect()->back();   
+        }catch (\Illuminate\Database\QueryException $e){
+        
+        session()->flash("Error","No es posible eliminar este conejo");
+        return redirect()->back();
+    }
     }
 
     public function store(Request $request)

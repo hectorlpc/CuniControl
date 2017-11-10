@@ -35,9 +35,16 @@ class DesteteController extends Controller{
 
     public function delete($id_destete)
     {   
+        try{
+
         $destete = Destete::where('Id_Destete', $id_destete)->first();
         $destete->delete();
-    	return redirect()->back();
+        session()->flash("Exito","Destete eliminado");
+        return redirect()->back();   
+        }catch (\Illuminate\Database\QueryException $e){
+        session()->flash("Error","No es posible eliminar ese destete");
+        return redirect()->back();
+        }
     }
 
     public function store(Request $request)

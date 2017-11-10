@@ -50,8 +50,6 @@
 @if(Auth::user()->tieneRol('ROLEMO'))
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Encargado Modulo<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
-                    <li> <a href="">Validar practica</a> </li>
-                    <li> <a href="">Realizar solicitud de incineracion</a> </li>
                     <li> <a href="{{url('/cemental/')}}">Registro de conejos sementales</a> </li>
 
                     <li> <a href="{{url('/productora/')}}">Registro de conejas productoras</a> </li>
@@ -71,6 +69,8 @@
 @if(Auth::user()->tieneRol('ROLPEN'))
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Profesor Encargado<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
+                    <li> <a href="">Validar practica</a> </li>
+                    <li> <a href="">Realizar solicitud de incineracion</a> </li>
                     <li> <a href="{{url('/engorda/')}}">Censo de engorda</a> </li>
                     <li> <a href="{{url('/baja/')}}">Censo de muerte</a> </li>
                     <li> <a href="">Autorizar horas practicas</a> </li>

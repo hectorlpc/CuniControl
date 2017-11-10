@@ -7,7 +7,7 @@
           <center><h2>Materias Registradas</h2></center>
           <form>
             <div class="form-group">
-              <label for="">Clave Materia:</label>
+              <label for="">Nombre de la Materia:</label>
               <input type="" name="Nombre_Materia" class="form-control">
               <br>
               <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>

@@ -104,6 +104,19 @@ Route::get('/productora/{id_productora}/edit', 'ProductoraController@edit');
 Route::patch('/productora/{id_productora}', 'ProductoraController@update');
 Route::delete('/productora/{id_productora}', 'ProductoraController@delete');
 
+//Rutas de conejos de desecho
+Route::get('/desecho', 'DesechoController@index');
+Route::get('/desecho/create', 'DesechoController@create');
+Route::post('/desecho', 'DesechoController@store');
+
+//Rutas de jaulas
+Route::get('/jaula', 'JaulaController@index');
+Route::get('/jaula/create', 'JaulaController@create');
+Route::post('/jaula', 'JaulaController@store');
+Route::get('/jaula/{id_jaula}/edit', 'JaulaController@edit');
+Route::patch('/jaula/{id_jaula}', 'JaulaController@update');
+Route::delete('/jaula/{id_jaula}', 'JaulaController@delete');
+
 //Rutas de Conejo Adquirido
 Route::get('/adquirido', 'AdquiridoController@index');
 Route::get('/adquirido/create', 'AdquiridoController@create');

@@ -18,8 +18,9 @@ class GrupoController extends Controller
 	public function store (Request $request)
 	{
 		$grupo = new Grupo;
-		$grupo->Id_Grupo = $request->input('Id_Grupo');
+		$grupo->Clave_Grupo = $request->input('Clave_Grupo');
 		$grupo->Id_Carrera = $request->input('Id_Carrera');
+		$grupo->Id_Grupo = $grupo->Clave_Grupo. '-' . $grupo->Id_Carrera; 
 		$grupo->save();
 
 		return redirect('/grupo');
@@ -27,9 +28,9 @@ class GrupoController extends Controller
 
 	public function index (Request $request)
 	{
-        if($request->Id_Grupo)
+        if($request->Clave_Grupo)
         {
-            $grupos = Grupo::where('Id_Grupo', $request->Id_Grupo)->get();
+            $grupos = Grupo::where('Clave_Grupo', $request->Clave_Grupo)->get();
         } else {
             $grupos = Grupo::all();
         }

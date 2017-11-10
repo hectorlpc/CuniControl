@@ -17,8 +17,9 @@ class CarreraController extends Controller
 	public function store (Request $request)
 	{
 		$carrera = new Carrera;
-		$carrera->Id_Carrera = $request->input('Id_Carrera');
+		$carrera->Clave_Carrera = $request->input('Clave_Carrera');
 		$carrera->Nombre_Carrera = $request->input('Nombre_Carrera');
+		$carrera->Id_Carrera = strtoupper(substr($request->input('Nombre_Carrera'),0,3) . substr($request->input('Nombre_Carrera'),-3));		
 		$carrera->save();
 
 		return redirect('/carrera');
@@ -26,9 +27,9 @@ class CarreraController extends Controller
 
 	public function index (Request $request)
 	{
-        if($request->Id_Carrera)
+        if($request->Nombre_Carrera)
         {
-            $carreras = Carrera::where('Id_Carrera', $request->Id_Carrera)->get();
+            $carreras = Carrera::where('Nombre_Carrera', $request->Nombre_Carrera)->get();
         } else {
             $carreras = Carrera::all();
         }

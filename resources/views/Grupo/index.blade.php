@@ -8,7 +8,7 @@
           <form>
             <div class="form-group">
               <label for="">Grupo:</label>
-              <input type="" name="Id_Grupo" class="form-control">
+              <input type="" name="Clave_Grupo" class="form-control">
               <br>
               <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
           </form>
@@ -18,6 +18,7 @@
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
+      <th>Id grupo:</th>
       <th>Clave grupo:</th>
       <th>Nombre carera:</th>
       <th></th>
@@ -27,6 +28,7 @@
     <tr>
       @foreach($grupos as $grupo)
       <td> {{$grupo->Id_Grupo}} </td>
+      <td> {{$grupo->Clave_Grupo}} </td>
       <td> {{$grupo->carrera->Nombre_Carrera}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">

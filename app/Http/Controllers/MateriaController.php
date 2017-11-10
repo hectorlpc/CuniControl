@@ -32,9 +32,9 @@ class MateriaController extends Controller
 
 	public function index (Request $request)
 	{
-        if($request->Id_Materia)
+        if($request->Nombre_Materia)
         {
-            $materias = Materia::where('Id_Materia', $request->Id_Materia)->get();
+            $materias = Materia::where('Nombre_Materia', $request->Nombre_Materia)->get();
         } else {
             $materias = Materia::all();
         }

@@ -7,7 +7,7 @@
           <form>
             <div class="form-group">
               <label for="">Clave Carrera:</label>
-              <input type="" name="Id_Carrera" class="form-control">
+              <input type="" name="Nombre_Carrera" class="form-control">
               <br>
               <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
           </form>
@@ -17,6 +17,7 @@
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
+      <th>Id carrera:</th>
       <th>Clave carrera:</th>
       <th>Nombre carrera:</th>
       <th></th>
@@ -26,7 +27,8 @@
     <tr>
       @foreach($carreras as $carrera)
       <td> {{$carrera->Id_Carrera}} </td>
-      <td> {{$carrera->Nombre_Carrera}} </td>
+      <td> {{$carrera->Clave_Carrera}} </td>
+      <td> {{$carrera->Nombre_Carrera}} </td> 
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
           <form method="POST" action="{{url('/carrera/' . $carrera->Id_Carrera)}}">

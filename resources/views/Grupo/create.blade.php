@@ -9,7 +9,7 @@
             {{ csrf_field() }}
           <div class="form-group" >
             <label>Clave del grupo:</label>
-            <input class="form-control" name="Id_Grupo">
+            <input class="form-control" name="Clave_Grupo">
           </div>
           <div class="form-group" >
             <label for="">Carrera:</label>

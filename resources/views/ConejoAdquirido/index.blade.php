@@ -2,6 +2,7 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
+    @include("compartidas.alertas")
           <center><h2>Conejo Adquirido</h2></center>
           <form>
             {{ csrf_field() }}

@@ -2,6 +2,8 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
+    @include("compartidas.alertas")
+
           <center><h2>Grupos Registrados</h2></center>
           <form>
             <div class="form-group">

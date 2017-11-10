@@ -2,8 +2,8 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
+    @include(compartidas.alertas)
               <form method="get" action="{{url('adquisicion/')}}">
-
               <center><h2><label for="Adquisicion">Tipos de Adquisición</label></h2></center>
               <div class="form-group">
                 <label for="id_adquisicion">Nombre de adquisición</label>

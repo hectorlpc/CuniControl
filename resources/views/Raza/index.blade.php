@@ -2,6 +2,7 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
+  @include("compartidas.alertas")
           <center><h2>Razas</h2></center>
           <form method="get" action="{{url('raza/')}}">
           <div class="form-group">

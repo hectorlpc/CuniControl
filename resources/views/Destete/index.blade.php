@@ -3,6 +3,8 @@
 @section('content')
 
 <div class="container">
+    @include("compartidas.alertas")
+
   <center><h2>Inicio de Destete</h2></center>
             <form method="get" action="{{url('destete/')}}">
               <div class="form-group">

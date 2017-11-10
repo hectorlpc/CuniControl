@@ -2,6 +2,8 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
+    @include("compartidas.alertas")
+
           <center><h2>Áreas de Destino</h2></center>
           <form method="get" action="{{url('area/')}}">
           <div class="form-group">

@@ -2,6 +2,7 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
+    @include("compartidas.alertas")
           <center><h2>Donacion de Gazapos</h2></center>
           <form method="get" action="{{url('/donacion/')}}">
           <div class="form-group">

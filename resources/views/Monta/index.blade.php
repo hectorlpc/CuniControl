@@ -2,6 +2,8 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
+    @include("compartidas.alertas")
+
       <form method="get" action="{{url('/monta')}}">
             <h2>Inicio Registro Montas</h2>
           <div class="form-group">

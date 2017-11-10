@@ -2,6 +2,8 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
+    @include("compartidas.alertas")
+
           <h2>Inicio Registro de Horas</h2>
           <form>
           <div class="form-group">

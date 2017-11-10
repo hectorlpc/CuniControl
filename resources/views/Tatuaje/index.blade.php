@@ -2,6 +2,8 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
+    @include("compartidas.alertas")
+
           <h2>Inicio Tatuado de Conejos</h2>
           <form method="get" action="{{url('tatuaje/')}}">
           <div class="form-group">

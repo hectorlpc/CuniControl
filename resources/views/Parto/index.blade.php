@@ -2,6 +2,8 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
+    @include("compartidas.alertas")
+
   <center><h2>Supervision de parto</h2></center>
       <form method="get" action="{{url('/parto')}}">
         <div class="form-group">

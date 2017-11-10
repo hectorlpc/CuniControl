@@ -2,6 +2,8 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
+    @include("compartidas.alertas")
+
           <center><h2>Baja por transferencias</h2></center>
   <form method="get" action="{{url('/transferencia')}}">
     {{ csrf_field() }}

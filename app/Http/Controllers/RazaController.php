@@ -32,19 +32,35 @@ class RazaController extends Controller
 
     public function delete($id_raza)
     {   
+    try{
         $raza = Raza::where('Id_Raza', $id_raza)->first();
         $raza->delete();
-    	return redirect()->back();
+        session()->flash("Exito","Registro eliminado");
+        return redirect()->back();   
+        
+    }catch (\Illuminate\Database\QueryException $e){
+        
+        session()->flash("Error","No es posible eliminar esa raza");
+        return redirect()->back();
+    }
+        
     }
 
     public function store(Request $request)
     {
+        try{
         $raza = new Raza;
         $raza->Nombre_Raza = $request->input('Nombre_Raza');
         $raza->Id_Raza = strtoupper(substr($request->input('Nombre_Raza'),0,3) . substr($request->input('Nombre_Raza'),-2));
         $raza->Descripcion_Raza = $request->input('Descripcion_Raza');
         $raza->save();
+        session()->flash("Exito","Raza creada");
         return redirect('/raza');
+         }catch (\Illuminate\Database\QueryException $e){
+        
+        session()->flash("Error","No es posible crear, raza existente");
+        return redirect('/raza');
+    }
     }
 
     public function index(Request $request)

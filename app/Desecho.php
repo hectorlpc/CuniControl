@@ -7,9 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Desecho extends Model
 {
     public $incrementing=true;
-    public $fillable=['Id_Desecho','Id_Raza','Id_Conejo_Desecho'];
+    public $fillable=['Id_Conejo_Desecho','Id_Raza','Procedencia'];
     protected $table='Conejo_Desecho';
-    protected $primaryKey='Id_Desecho';
+    protected $primaryKey='Id_Conejo_Desecho';
 
     public function raza()
     {

@@ -26,19 +26,21 @@
   <tbody>
     <tr>
       @foreach($cementales as $cemental)
+      @if($cemental->Status == 'Activo')
       <td> {{$cemental->Id_Conejo_Macho}} </td>
       <td> {{$cemental->raza->Nombre_Raza}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
-          <form method="POST" action="{{url('/cemental/' . $cemental->Id_Cemental)}}">
+          <form method="POST" action="{{url('/cemental/' . $cemental->Id_Conejo_Macho)}}">
           {{csrf_field()}}
           {{method_field('delete')}}
-          <input type="hidden" name="Id_Cemental" value="{{$cemental->Id_Cemental}}">
+          <input type="hidden" name="Id_Conejo_Macho" value="{{$cemental->Id_Conejo_Macho}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form> <a href="{{url('/cemental/' . $cemental->Id_Cemental . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+           </form> <a href="{{url('/cemental/' . $cemental->Id_Conejo_Macho . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
         </div>
       </td>
     </tr>
+      @endif
       @endforeach
   </tbody>
 </table>

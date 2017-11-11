@@ -108,6 +108,11 @@ Route::delete('/productora/{id_productora}', 'ProductoraController@delete');
 Route::get('/desecho', 'DesechoController@index');
 Route::get('/desecho/create', 'DesechoController@create');
 Route::post('/desecho', 'DesechoController@store');
+Route::get('/desecho/pdf', function() {
+	$desechos = App\Desecho::all();
+	$pdf = PDF::loadView('ConejoDesecho/pdf', ['desechos' => $desechos]);
+	return $pdf->download('Censo_de_desecho.pdf');
+});
 
 //Rutas de jaulas
 Route::get('/jaula', 'JaulaController@index');

@@ -24,8 +24,6 @@
           </div>
         <br>
           <div align="right"><button type="submit" class="btn btn-outline-primary">Registrar</button>
-
-
         </form>
       </div>
 @endsection

@@ -3,6 +3,14 @@
     <a href="#" class="btn-menu">Menu<i class="icono fa fa-bars" aria-hidden="true"></i></a>
     <ul class="menu">
         <li><a href="{{url('/home')}}"><i class="icono izquierda fa fa-home" aria-hidden="true"></i>Inicio</a></li>
+@if(Auth::user()->tieneRol('ROLADM'))
+
+              <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Administrador<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+                  <ul>
+                    <li> <a href="{{url('/cuentas/')}}">Gestionar roles</a> </li>
+                  </ul>
+              </li>
+@endif        
         <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Perfil<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
             <ul>
               <li>
@@ -39,21 +47,12 @@
            </ul>
           </li>
 @endif
-@if(Auth::user()->tieneRol('ROLADM'))
-
-              <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Administrador<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
-                  <ul>
-                    <li> <a href="{{url('/cuentas/')}}">Gestionar roles</a> </li>
-                  </ul>
-              </li>
-@endif
 @if(Auth::user()->tieneRol('ROLEMO'))
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Encargado Modulo<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="{{url('/cemental/')}}">Registro de conejos sementales</a> </li>
 
                     <li> <a href="{{url('/productora/')}}">Registro de conejas productoras</a> </li>
-                    <li> <a href="{{url('/desecho/')}}">Registro de Conejo de Desecho</a> </li>
                     <li> <a href="{{url('/jaula/')}}">Registro de Jaulas</a> </li>
                     <li> <a href="{{url('/area/')}}">Registro Areas De Destino</a> </li>
                     <li> <a href="{{url('/carrera/')}}">Registro de Carreras</a> </li>
@@ -73,6 +72,7 @@
                     <li> <a href="">Realizar solicitud de incineracion</a> </li>
                     <li> <a href="{{url('/engorda/')}}">Censo de engorda</a> </li>
                     <li> <a href="{{url('/baja/')}}">Censo de muerte</a> </li>
+                    <li> <a href="{{url('/desecho/')}}">Censo de desecho</a> </li>
                     <li> <a href="">Autorizar horas practicas</a> </li>
                   </ul>
               </li>

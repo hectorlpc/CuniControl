@@ -14,13 +14,14 @@ class CreateConejaProductoraTable extends Migration
     public function up()
     {
         Schema::create('Coneja_Productora', function (Blueprint $table) {
-            $table->increments('Id_Productora');
-            $table->string('Id_Raza',2);
-            $table->foreign('Id_Raza')->references('Id_Raza')->on('Raza');
+            //$table->increments('Id_Productora');
             $table->string('Id_Conejo_Hembra',11);
             $table->foreign('Id_Conejo_Hembra')->references('Id_Conejo')->on('Conejo');
+            $table->string('Id_Raza',2);
+            $table->foreign('Id_Raza')->references('Id_Raza')->on('Raza');
             $table->string('Numero_Conejo',2);
-            //$table->boolean('Status')->nullable();
+            $table->enum('Status',['Activo', 'Inactivo'])->nullable()->index();
+            $table->primary('Id_Conejo_Hembra');
             //$table->date('Fecha');
             $table->timestamps();    
         });

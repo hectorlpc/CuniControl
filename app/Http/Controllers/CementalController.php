@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cemental;
 use App\Conejo;
+use App\Desecho;
 
 class CementalController extends Controller
 {
@@ -17,15 +18,27 @@ class CementalController extends Controller
     public function edit($id_cemental)
     {
         $cemental = Cemental::all();
-        $cemental = Cemental::where('Id_Cemental', $id_cemental)->first();
+        $cemental = Cemental::where('Id_Conejo_Macho', $id_cemental)->first();
 
     	return view('/ConejoCemental/edit',['cemental' => $cemental]);
     }
 
     public function update(Request $request, $id_cemental)
     {
-        $cemental = Cemental::where('Id_Cemental', $id_cemental)->first();
+        $cemental = Cemental::where('Id_Conejo_Macho', $id_cemental)->first();
+        $cemental->Status = 'Inactivo';
         $cemental->save();
+
+        $conejo = Conejo::where('Id_Conejo', $id_cemental)->first();
+        $conejo->Desecho = 'Si';
+        $conejo->save();
+
+        $desecho = new Desecho;
+        $desecho->Id_Conejo_Desecho = $request->input('Id_Conejo_Macho');
+        $desecho->Id_Raza = $request->input('Id_Conejo_Macho')[0];
+        $desecho->Procedencia = 'Semental';
+        $desecho->save();
+
         return redirect('/cemental');
     }
 
@@ -51,6 +64,7 @@ class CementalController extends Controller
             $cemental = new Cemental;
             $cemental->Id_Raza = $request->input('Id_Conejo_Macho')[0];
             $cemental->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');
+            $cemental->Status = 'Activo';
             $cemental->save();
 
             $conejo = Conejo::where('Id_Conejo', $request->input('Id_Conejo_Macho'))->first();

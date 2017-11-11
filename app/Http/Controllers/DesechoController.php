@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 use App\Conejo;
 use App\Cemental;
@@ -13,11 +14,11 @@ class DesechoController extends Controller
     {
         if($request->Id_Conejo_Desecho)
         {   
-            $conejos = Desecho::where('Id_Conejo_Desecho', $request->Id_Conejo_Desecho)->get();
+            $desechos = Desecho::where('Id_Conejo_Desecho', $request->Id_Conejo_Desecho)->get();
         } else {
-            $conejos = Desecho::all();
+            $desechos = Desecho::all();
         }
-        return view ('ConejoDesecho/index',['conejos'=> $conejos]);
+        return view ('ConejoDesecho/index',['desechos'=> $desechos]);
     }	
 
 	public function create ()
@@ -30,18 +31,18 @@ class DesechoController extends Controller
     public function store(Request $request)
     {
         try{
-            $conejo = new Desecho;
-            $conejo->Id_Raza = $request->input('Id_Conejo_Desecho')[0];
-            $conejo->Id_Conejo_Desecho = $request->input('Id_Conejo_Desecho');
-            $conejo->save();
+            $desecho = new Desecho;
+            $desecho->Id_Raza = $request->input('Id_Conejo_Desecho')[0];
+            $desecho->Id_Conejo_Desecho = $request->input('Id_Conejo_Desecho');
+            $desecho->save();
 
-            $conejo_desecho = Conejo::where('Id_Conejo',$request->input('Id_Conejo_Desecho'))->first();
-            $conejo_desecho->Status = 'Muerto';
-            $conejo_desecho->Desecho = 'Si';
-            $conejo_desecho->Engorda = 'No';
-            $conejo_desecho->Productora = 'No';
-            $conejo_desecho->Semental = 'No';
-            $conejo_desecho->save();
+            $conejo = Conejo::where('Id_Conejo',$request->input('Id_Conejo_Desecho'))->first();
+            $conejo->Status = 'Muerto';
+            $conejo->Desecho = 'Si';
+            $conejo->Engorda = 'No';
+            $conejo->Productora = 'No';
+            $conejo->Semental = 'No';
+            $conejo->save();
 
             session()->flash("Exito","Conejo de desecho registrado");
             

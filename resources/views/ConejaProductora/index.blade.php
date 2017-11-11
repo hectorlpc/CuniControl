@@ -8,7 +8,7 @@
           <form>
             <div class="form-group">
               <label for="Coneja_Productora">Número de tatuaje de la coneja:</label>
-              <input type="" name="Id_conejo_Hembra" class="form-control">
+              <input type="" name="Id_Conejo_Hembra" class="form-control">
               <br>
               <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
           </form>
@@ -27,20 +27,22 @@
   <tbody>
     <tr>
       @foreach($productoras as $productora)
+      @if($productora->Status == 'Activo')
       <td> {{$productora->Id_Conejo_Hembra}} </td>
       <td> {{$productora->raza->Nombre_Raza}} </td>
       <td> {{$productora->Numero_Conejo}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
-          <form method="POST" action="{{url('/productora/' . $productora->Id_Productora)}}">
+          <form method="POST" action="{{url('/productora/' . $productora->Id_Conejo_Hembra)}}">
           {{csrf_field()}}
           {{method_field('delete')}}
-          <input type="hidden" name="Id_Productora" value="{{$productora->Id_Productora}}">
+          <input type="hidden" name="Id_Conejo_Hembra" value="{{$productora->Id_Conejo_Hembra}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form> <a href="{{url('/productora/' . $productora->Id_Productora . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+           </form> <a href="{{url('/productora/' . $productora->Id_Conejo_Hembra . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
         </div>
       </td>
     </tr>
+      @endif
       @endforeach
   </tbody>
 </table>

@@ -43,7 +43,7 @@
           {{method_field('delete')}}
           <input type="hidden" name="Id_Monta" value="{{$monta->Id_Monta}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form> <a href="{{url('/monta/' . $monta->Id_Monta . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+           </form> <a href="{{url('/monta/' . $monta->Id_Monta . '/edit')}}" class="btn btn-secondary btn-outline-info">Diagnosticar</a>
         </div>
       </td>
     </tr>

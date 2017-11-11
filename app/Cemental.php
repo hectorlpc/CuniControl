@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cemental extends Model
 {
-    public $incrementing=true;
+    public $incrementing=false;
     public $fillable=['Id_Conejo_Macho','Id_Raza','Status'];
     protected $table='Conejo_Cemental';
     protected $primaryKey='Id_Conejo_Macho';

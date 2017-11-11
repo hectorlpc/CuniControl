@@ -11,20 +11,6 @@
                   </ul>
               </li>
 @endif        
-        <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Perfil<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
-            <ul>
-              <li>
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
-                    Salir
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-              </li>
-            </ul>
-        </li>
 @if(Auth::user()->tieneRol('ROLALU'))
         <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>
           Alumno<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
@@ -86,6 +72,21 @@
                   </ul>
               </li>
 @endif
+        <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Perfil<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+            <ul>
+              <li>
+                <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                    Salir
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+              </li>
             </ul>
+        </li>
+            </ul>
+
 </div>
 @endsection

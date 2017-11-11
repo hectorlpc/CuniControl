@@ -52,7 +52,16 @@ class CementalController extends Controller
             $cemental->Id_Raza = $request->input('Id_Conejo_Macho')[0];
             $cemental->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');
             $cemental->save();
+
+            $conejo = Conejo::where('Id_Conejo', $request->input('Id_Conejo_Macho'))->first();
+            $conejo->Desecho = 'No';
+            $conejo->Engorda = 'No';
+            $conejo->Productora = 'No';
+            $conejo->Semental = 'Si';
+            $conejo->save();
+
             session()->flash("Exito","Semental registrado");
+            
             return redirect('/cemental');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, Semental existente");

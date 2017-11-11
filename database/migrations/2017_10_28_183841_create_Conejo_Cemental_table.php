@@ -15,11 +15,11 @@ class CreateConejoCementalTable extends Migration
     {
         Schema::create('Conejo_Cemental', function (Blueprint $table) {
             $table->increments('Id_Cemental');
-            $table->string('Id_Raza',11);
+            $table->string('Id_Raza',2);
             $table->foreign('Id_Raza')->references('Id_Raza')->on('Raza');
-            $table->string('Id_Conejo_Macho');
+            $table->string('Id_Conejo_Macho',11);
             $table->foreign('Id_Conejo_Macho')->references('Id_Conejo')->on('Conejo');
-            $table->boolean('Status')->nullable();
+            $table->enum('Status',['Si', 'No'])->nullable()->index();
             //$table->date('Fecha');
             $table->timestamps();  
         });

@@ -22,8 +22,6 @@
       <th>Tatuaje Izquierdo:</th>
       <th>Raza:</th>
       <th>Genero:</th>
-      <th>Status:</th>
-      <th>Engorda:</th>
       <th></th>
     </tr>
   </thead>
@@ -31,13 +29,13 @@
     <tr>
     @foreach($conejos as $conejo)
     @if($conejo->Status == 'Vivo')
+    @if($conejo->Desecho != 'Si')
+    @if($conejo->Engorda != 'No')
       <td> {{$conejo->Fecha_Nacimiento}} </td>
       <td> {{$conejo->Tatuaje_Derecho}} </td>
       <td> {{$conejo->Tatuaje_Izquierdo}} </td>
       <td> {{$conejo->raza->Nombre_Raza}} </td>
       <td> {{$conejo->Genero}} </td>
-      <td> {{$conejo->Status}} </td>
-      <td> {{$conejo->Engorda}} </td>
       <td></td>
       <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
@@ -51,6 +49,8 @@
       </div>
     </td>
     </tr>
+    @endif
+    @endif
     @endif
     @endforeach
   </tbody>

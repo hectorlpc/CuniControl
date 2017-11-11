@@ -45,7 +45,16 @@ class ProductoraController extends Controller{
             $productora->Id_Conejo_Hembra = $request->input('Id_Conejo_Hembra');
             $productora->Numero_Conejo = $request->input('Numero_Conejo');
             $productora->save();
+
+            $conejo = Conejo::where('Id_Conejo', $request->input('Id_Conejo_Hembra'))->first();
+            $conejo->Desecho = 'No';
+            $conejo->Engorda = 'No';
+            $conejo->Semental = 'No';
+            $conejo->Productora = 'Si';
+            $conejo->save();
+            
             session()->flash("Exito","Coneja Productora Registrada");
+            
             return redirect('/productora');            
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, Coneja productora existente");

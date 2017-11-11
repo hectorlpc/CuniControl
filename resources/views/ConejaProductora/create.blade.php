@@ -13,7 +13,11 @@
               <option> -- Seleccione los tatuajes del conejo -- </option>
               @foreach ($conejos as $conejo)
                 @if( $conejo->Genero == 'Hembra')
+                @if( $conejo->Status == 'Vivo')
+                @if( $conejo->Productora != 'Si')
                   <option value="{{$conejo->Id_Conejo}}">{{$conejo->Tatuaje_Derecho . " - " . $conejo->Tatuaje_Izquierdo}}</option>
+                @endif
+                @endif
                 @endif
               @endforeach
             </select>

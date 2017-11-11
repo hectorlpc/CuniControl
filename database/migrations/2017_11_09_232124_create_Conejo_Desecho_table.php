@@ -19,7 +19,6 @@ class CreateConejoDesechoTable extends Migration
             $table->foreign('Id_Raza')->references('Id_Raza')->on('Raza');
             $table->string('Id_Conejo_Desecho');
             $table->foreign('Id_Conejo_Desecho')->references('Id_Conejo')->on('Conejo');
-            $table->boolean('Status')->nullable();
             //$table->date('Fecha');
             $table->timestamps();  
         });

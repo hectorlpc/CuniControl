@@ -59,8 +59,7 @@ Route::post('/tatuaje', 'TatuajeController@store');
 Route::get('/tatuaje/{id_conejo}/edit', 'TatuajeController@edit');
 Route::patch('/tatuaje/{id_conejo}', 'TatuajeController@update');
 Route::delete('/tatuaje/{id_conejo}', 'TatuajeController@delete');
-Route::post('/tatuaje/obtener-numero', 'TatuajeController@obtener_numero');
-Route::post('/tatuaje/obtener-fecha', 'TatuajeController@obtener_fecha');
+Route::post('/tatuaje/obtener-datos', 'TatuajeController@obtener_datos');
 
 //Rutas de donación
 Route::get('/donacion', 'DonacionController@index');

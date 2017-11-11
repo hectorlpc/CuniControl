@@ -11,15 +11,15 @@
             <select class="form-control" name="Id_Conejo_Hembra" id="conejaDestete">
               <option> -- Seleccione coneja -- </option>
             @foreach($destetes as $destete)
-              <option value="{{$destete->parto->monta->Id_Conejo_Hembra}}">{{$destete->parto->monta->Id_Conejo_Hembra}}</option>
+              <option value="{{$destete->Id_Destete}}">{{$destete->parto->monta->Id_Conejo_Hembra}}</option>
             @endforeach
             </select>
-          <input hidden type="text" id="numeroConejo" name="Numero_Conejo" value="{{$destete->parto->monta->conejo->productora->Numero_Conejo}}">
-          <input hidden value="{{$destete->parto->monta->conejo->Id_Raza}}" name="Id_Raza">
+          <input type="hidden" id="numeroConeja" name="Numero_Conejo" value="{{$destete->parto->monta->conejo->productora->Numero_Conejo}}" >
+          <input type="hidden" value="{{$destete->parto->monta->conejo->Id_Raza}}" id="razaTatuaje" name="Id_Raza">
           </div>
           <div>
             <label for="exampleInputPassword2">Fecha de Parto:</label>
-            <input readonly value="{{$destete->parto->Fecha_Parto}}" class="form-control" type="date" name="Fecha_Nacimiento">
+            <input readonly value="{{$destete->parto->Fecha_Parto}}" id="fechaParto" class="form-control" type="date" name="Fecha_Nacimiento">
           </div>
           <br>
           <div class="form-group">

@@ -85,28 +85,17 @@ class TatuajeController extends Controller
         return redirect()->back();
     }
 
-    public function obtener_fecha (Request $request) {
-        $opciones = Parto::where('Id_Parto', $request->fecha)->get();
-        $i = 0;
-        $arrayOpcionesId = [];
-        foreach ($opciones as $opcion) {
-            $arrayOpcionesId[$i] = $opcion->Fecha_Parto;
-            $i++;
-        }
-        $respuesta = ['opciones' =>$arrayOpcionesId];
-
-        return response()->json($respuesta);
-    }
-
-    public function obtener_numero (Request $request) {
-        $opciones = Destete::where('Id_Destete', $request->numero)->get();
-        $i = 0;
-        $arrayOpcionesId = [];
-        foreach ($opciones as $opcion) {
-            $arrayOpcionesId[$i] = $opcion->destete->parto->monta->conejo->productora->Numero_Conejo;
-            $i++;
-        }
-        $respuesta = ['opciones' =>$arrayOpcionesId];
+    public function obtener_datos (Request $request) {
+        $opcion = Destete::find($request->numero);
+        $numero_conejo = $opcion->parto->monta->conejo->productora->Numero_Conejo;
+        $fecha_parto = $opcion->parto->Fecha_Parto;
+        $raza = $opcion->parto->monta->conejo->Id_Raza;
+        
+        $respuesta = [
+            'numero_conejo' => $numero_conejo,
+            'fecha_parto' => $fecha_parto,
+            'raza' => $raza
+        ];
 
         return response()->json($respuesta);
     }

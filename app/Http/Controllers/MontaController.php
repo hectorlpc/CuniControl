@@ -9,14 +9,11 @@ use App\Productora;
 use App\Cemental;
 use App\Raza;
 
-class MontaController extends Controller
-{
-    public function create()    
-    {   
+class MontaController extends Controller{
+    public function create(){   
         $razas = Raza::all();
         $cementales = Cemental::all();
         $productoras = Productora::all();
-     
         return view('Monta/create',[
             'cementales' => $cementales,
             'productoras' => $productoras,
@@ -24,13 +21,10 @@ class MontaController extends Controller
         ]);   
     }
 
-    public function edit($id_monta)
-    {
+    public function edit($id_monta){
         $montas = Monta::all();
         $conejos = Conejo::all();
-
         $monta = Monta::where('Id_Monta', $id_monta)->first();
-
         return view('Monta/edit', [
             'monta' => $montas,
             'conejos' => $conejos,
@@ -38,8 +32,7 @@ class MontaController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id_monta)
-    {
+    public function update(Request $request, $id_monta){
         $monta = Monta::where('Id_Monta', $id_monta)->first();
         $monta->Fecha_Diagnostico = $request->input('Fecha_Diagnostico');
         $monta->Resultado_Diagnostico = $request->input('Resultado_Diagnostico');
@@ -49,31 +42,33 @@ class MontaController extends Controller
         return redirect('/monta');         
     }
 
-    public function delete($id_monta)
-    {
+    public function delete($id_monta){
         try{
-
             $monta = Monta::where('Id_Monta', $id_monta)->first();
             $monta->delete();
             session()->flash("Exito","Monta eliminada");
             return redirect()->back();   
         }catch (\Illuminate\Database\QueryException $e){
-        
             session()->flash("Error","No es posible eliminar esa Monta");
             return redirect()->back();
         }
     }
 
-    public function store (Request $request)
-    {
-        $monta = new Monta;
-        $monta->Fecha_Monta = $request->input('Fecha_Monta');
-        $monta->Id_Conejo_Hembra = $request->input('Id_Conejo_Hembra');
-        $monta->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');    
-        $monta->Fecha_Monta = $request->input('Fecha_Monta');
-        $monta->Id_Monta = $monta->Id_Conejo_Hembra . $monta->Fecha_Monta;
-        $monta->save();
-        return redirect('/monta');
+    public function store (Request $request){
+        try{ 
+            $monta = new Monta;
+            $monta->Fecha_Monta = $request->input('Fecha_Monta');
+            $monta->Id_Conejo_Hembra = $request->input('Id_Conejo_Hembra');
+            $monta->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');    
+            $monta->Fecha_Monta = $request->input('Fecha_Monta');
+            $monta->Id_Monta = $monta->Id_Conejo_Hembra . $monta->Fecha_Monta;
+            $monta->save();
+            session()->flash("Exito","Monta registrada");
+            return redirect('/monta');   
+        }catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible registrar, monta existente");
+            return redirect('/monta');
+        }
     }
 
     public function index(Request $request)

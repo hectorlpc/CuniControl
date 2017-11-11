@@ -66,22 +66,29 @@ class AdquiridoController extends Controller{
 
     public function store(Request $request)
     {
-        $conejoAdquirido = new Adquirido;
-        $conejo = new Conejo;
-        $conejo->Tatuaje_Derecho = $request->input('Tatuaje_Derecho');
-        $conejo->Tatuaje_Izquierdo = $request->input('Tatuaje_Izquierdo');
-        $conejo->Id_Conejo = $conejo->Tatuaje_Derecho . $conejo->Tatuaje_Izquierdo;
-        $conejo->Id_Raza = $request->input('Id_Raza');
-        $conejo->Fecha_Nacimiento = $request->input('Fecha_Adquisicion');
-        $conejo->Genero = $request->input('Genero');
-        $conejo->Status = $request->input('Status');
-        $conejo->save();
-        $conejoAdquirido->Id_Conejo = $conejo->Id_Conejo;
-        $conejoAdquirido->Id_Adquisicion = $request->input('Id_Adquisicion');
-        $conejoAdquirido->Fecha_Adquisicion = $conejo->Fecha_Nacimiento;
-        $conejoAdquirido->Id_Adquirido = $conejoAdquirido->Id_Conejo . $conejoAdquirido->Id_Adquisicion;
-        $conejoAdquirido->save();
-        return redirect('/adquirido');
+        try{
+
+            $conejoAdquirido = new Adquirido;
+            $conejo = new Conejo;
+            $conejo->Tatuaje_Derecho = $request->input('Tatuaje_Derecho');
+            $conejo->Tatuaje_Izquierdo = $request->input('Tatuaje_Izquierdo');
+            $conejo->Id_Conejo = $conejo->Tatuaje_Derecho . $conejo->Tatuaje_Izquierdo;
+            $conejo->Id_Raza = $request->input('Id_Raza');
+            $conejo->Fecha_Nacimiento = $request->input('Fecha_Adquisicion');
+            $conejo->Genero = $request->input('Genero');
+            $conejo->Status = $request->input('Status');
+            $conejo->save();
+            $conejoAdquirido->Id_Conejo = $conejo->Id_Conejo;
+            $conejoAdquirido->Id_Adquisicion = $request->input('Id_Adquisicion');
+            $conejoAdquirido->Fecha_Adquisicion = $conejo->Fecha_Nacimiento;
+            $conejoAdquirido->Id_Adquirido = $conejoAdquirido->Id_Conejo . $conejoAdquirido->Id_Adquisicion;
+            $conejoAdquirido->save();
+            session()->flash("Exito","Conejo Adquirido creado");
+            return redirect('/adquirido');   
+        }catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible crear, conejo con tatuajes iguales existente");
+            return redirect('/adquirido');
+        }   
     }
 
     public function index(Request $request)

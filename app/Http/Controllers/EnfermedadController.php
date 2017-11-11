@@ -34,24 +34,31 @@ class EnfermedadController extends Controller
     {   
         try{
             $enfermedad = Enfermedad::where('Id_Enfermedad', $id_enfermedad)->first();
-        $enfermedad->delete();
-        session()->flash("Exito","Enfermedad eliminada");
-        return redirect()->back();
+            $enfermedad->delete();
+            session()->flash("Exito","Enfermedad eliminada");
+            return redirect()->back();
         }catch (\Illuminate\Database\QueryException $e){
-        session()->flash("Error","No es posible eliminar esa enfermedad");
-        return redirect()->back();
-    }
+            session()->flash("Error","No es posible eliminar esa enfermedad");
+            return redirect()->back();
+        }
         
     }
 
     public function store(Request $request)
     {
-        $enfermedad = new Enfermedad;
-        $enfermedad->Nombre_Enfermedad = $request->input('Nombre_Enfermedad');
-        $enfermedad->Id_Enfermedad = strtoupper(substr($request->input('Nombre_Enfermedad'),0,3) . substr($request->input('Nombre_Enfermedad'),-3));
-        $enfermedad->Descripcion_Enfermedad = $request->input('Descripcion_Enfermedad');
-        $enfermedad->save();
-        return redirect('/enfermedad');
+        try{
+            $enfermedad = new Enfermedad;
+            $enfermedad->Nombre_Enfermedad = $request->input('Nombre_Enfermedad');
+            $enfermedad->Id_Enfermedad = strtoupper(substr($request->input('Nombre_Enfermedad'),0,3) . substr($request->input('Nombre_Enfermedad'),-3));
+            $enfermedad->Descripcion_Enfermedad = $request->input('Descripcion_Enfermedad');
+            $enfermedad->save();
+            session()->flash("Exito","Enfermedad registrada");            
+            return redirect('/enfermedad');
+        }catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible registrar, enfermedad existente");
+            return redirect('/enfermedad');
+        }
+        
     }
 
     public function index(Request $request)

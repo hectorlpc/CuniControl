@@ -47,11 +47,17 @@ class CementalController extends Controller
 
     public function store(Request $request)
     {
-    	$cemental = new Cemental;
-        $cemental->Id_Raza = $request->input('Id_Conejo_Macho')[0];
-        $cemental->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');
-    	$cemental->save();
-        return redirect('/cemental');
+        try{
+            $cemental = new Cemental;
+            $cemental->Id_Raza = $request->input('Id_Conejo_Macho')[0];
+            $cemental->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');
+            $cemental->save();
+            session()->flash("Exito","Semental registrado");
+            return redirect('/cemental');
+        }catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible crear, Semental existente");
+            return redirect('/cemental');
+        }
     }
 
     public function index(Request $request)

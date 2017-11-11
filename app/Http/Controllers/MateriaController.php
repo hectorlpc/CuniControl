@@ -19,15 +19,19 @@ class MateriaController extends Controller
 			'grupos' => $grupos]);
 	}
 
-	public function store (Request $request)
-	{
-		$materia = new Materia;
-		$materia->Id_Materia = $request->input('Id_Materia');
-		$materia->Nombre_Materia = $request->input('Nombre_Materia');
-		$materia->Id_Grupo = $request->input('Id_Grupo');
-		$materia->save();
-
-		return redirect('/materia/');
+	public function store (Request $request){
+		try{
+			$materia = new Materia;
+			$materia->Id_Materia = $request->input('Id_Materia');
+			$materia->Nombre_Materia = $request->input('Nombre_Materia');
+			$materia->Id_Grupo = $request->input('Id_Grupo');
+			$materia->save();
+      		session()->flash("Exito","Materia Registrada");
+			return redirect('/materia');
+		}catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible crear, materia existente");
+            return redirect('/materia');
+        }
 	}
 
 	public function index (Request $request)
@@ -63,18 +67,15 @@ class MateriaController extends Controller
 		return redirect('/materia');
 	}
 
-	public function delete ($id_materia)
-	{
+	public function delete ($id_materia){
 		try{
-
-		$materia = Materia::where('Id_Materia', $id_materia)->first();
-		$materia->delete();
-        session()->flash("Exito","Materia eliminada");
-		return redirect()->back();	
+			$materia = Materia::where('Id_Materia', $id_materia)->first();
+			$materia->delete();
+	        session()->flash("Exito","Materia eliminada");
+			return redirect()->back();	
 		}catch (\Illuminate\Database\QueryException $e){
-        
-        session()->flash("Error","No es posible eliminar esa Materia");
-        return redirect()->back();
+	        session()->flash("Error","No es posible eliminar esa Materia");
+	        return redirect()->back();
   		}
 	}
 

@@ -24,12 +24,12 @@
         </div>
           <div class="form-group">
             <label for="">Cantidad de destetados:</label>
-            <select class="form-control" name="Numero_Vivos" id="vivos">
+            <select class="form-control" name="Numero_Destetados" id="vivos">
             </select>
           </div>
           <div class="form-group">
             <label for="">Peso promedio de los destetados:</label>
-            <select class="form-control" name="Peso_Nacer" id="pesoDestete">
+            <select class="form-control" name="Peso_Destete" id="pesoDestete">
             </select>
           </div>
       <br>

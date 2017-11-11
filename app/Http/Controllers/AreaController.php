@@ -47,12 +47,19 @@ class AreaController extends Controller
 
     public function store(Request $request)
     {
-        $area = new Area;
-        $area->Nombre_Area = $request->input('Nombre_Area');
-        $area->Id_Area = strtoupper(substr($request->input('Nombre_Area'),0,3) . substr($request->input('Nombre_Area'),-2));
-        $area->Descripcion_Area = $request->input('Descripcion_Area');
-        $area->save();
-        return redirect('/area');
+        try{
+            $area = new Area;
+            $area->Nombre_Area = $request->input('Nombre_Area');
+            $area->Id_Area = strtoupper(substr($request->input('Nombre_Area'),0,3) . substr($request->input('Nombre_Area'),-2));
+            $area->Descripcion_Area = $request->input('Descripcion_Area');
+            $area->save();
+            session()->flash("Exito","Area de destino creada");
+            return redirect('/area');
+        }catch (\Illuminate\Database\QueryException $e){
+        
+            session()->flash("Error","No es posible crear,área de destino existente");
+            return redirect('/area');
+        }
     }
 
     public function index(Request $request)

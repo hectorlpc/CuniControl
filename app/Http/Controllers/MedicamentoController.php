@@ -30,27 +30,32 @@ class MedicamentoController extends Controller
         return redirect('/medicamento');
     }
 
-    public function delete($id_medicamento)
-    {   try{
-        $medicamento = Medicamento::where('Id_Medicamento', $id_medicamento)->first();
-        $medicamento->delete();
-        session()->flash("Exito","Medicamento eliminado");
-        return redirect()->back();
+    public function delete($id_medicamento){
+       try{
+            $medicamento = Medicamento::where('Id_Medicamento', $id_medicamento)->first();
+            $medicamento->delete();
+            session()->flash("Exito","Medicamento eliminado");
+            return redirect()->back();
         }catch (\Illuminate\Database\QueryException $e){
-        session()->flash("Error","No es posible eliminar ese Medicamento");
-        return redirect()->back();
-    }
-        
+            session()->flash("Error","No es posible eliminar ese Medicamento");
+            return redirect()->back();
+        } 
     }
 
-    public function store(Request $request)
-    {
-        $medicamento = new Medicamento;
-        $medicamento->Nombre_Medicamento = $request->input('Nombre_Medicamento');
-        $medicamento->Id_Medicamento = strtoupper(substr($request->input('Nombre_Medicamento'),0,3) . substr($request->input('Nombre_Medicamento'),-3));
-        $medicamento->Cantidad = $request->input('Cantidad');
-        $medicamento->save();
-        return redirect('/medicamento');
+    public function store(Request $request){
+        try{
+            $medicamento = new Medicamento;
+            $medicamento->Nombre_Medicamento = $request->input('Nombre_Medicamento');
+            $medicamento->Id_Medicamento = strtoupper(substr($request->input('Nombre_Medicamento'),0,3) . substr($request->input('Nombre_Medicamento'),-3));
+            $medicamento->Cantidad = $request->input('Cantidad');
+            $medicamento->save();
+            session()-flash("Exito","Medicamento Registrado")
+            return redirect('/medicamento');    
+        }catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible crear, Medicamento existente");
+            return redirect('/medicamento');
+        }
+        
     }
 
     public function index(Request $request)

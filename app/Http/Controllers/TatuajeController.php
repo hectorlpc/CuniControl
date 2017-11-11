@@ -20,9 +20,8 @@ class TatuajeController extends Controller
         return view('/tatuaje/create', ['destetes' => $destetes]);
     }
 
-    public function store(Request $request)
-    {   
-
+    public function store(Request $request){
+        try{
         $conejo = new Conejo;
 // Generar tatuaje derecho
         $conejo->Id_Raza = $request->input('Id_Raza');        
@@ -43,7 +42,13 @@ class TatuajeController extends Controller
         $conejo->Status = $request->input('Status');
 //Guardar conejo
         $conejo->save();
-        return redirect ('/tatuaje');
+        session()->flash("Exito","Conejo Registrado con tatuajes: Derecho: " . $conejo->Tatuaje_Derecho . " Izquierdo: ". $conejo->Tatuaje_Izquierdo);
+        return redirect ('/tatuaje');    
+        }catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible registrar, Datos incompletos o duplicados");
+            return redirect('/tatuaje');
+        }
+        
     }
 
     public function index(Request $request)

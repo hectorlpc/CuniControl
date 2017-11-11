@@ -27,27 +27,33 @@ class DonacionController extends Controller{
     }
 
     public function store(Request $request){
-        $donacion = new Donacion;
-        $donacion->Id_Parto_Donante = $request->input('Id_Parto_Donante');
-        $donacion->Id_Parto_Donatorio = $request->input('Id_Parto_Donatorio');
-        $donacion->Id_Donacion = $donacion->Id_Parto_Donante . $donacion->Id_Parto_Donatorio;
-        $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
-        $donacion->save();
+        try{
+            $donacion = new Donacion;
+            $donacion->Id_Parto_Donante = $request->input('Id_Parto_Donante');
+            $donacion->Id_Parto_Donatorio = $request->input('Id_Parto_Donatorio');
+            $donacion->Id_Donacion = $donacion->Id_Parto_Donante . $donacion->Id_Parto_Donatorio;
+            $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
+            $donacion->save();
+            session()->flash("Exito","Donación registrada");
+            return redirect('/donacion');    
+        }catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible registrar, donación existente");
+            return redirect('/donacion');
+        }
         
-        return redirect('/donacion');
     }
 
     public function delete($id_donacion)
     {
         try{
 
-        $donacion = Donacion::where('Id_Donacion', $id_donacion)->first();
-        $donacion->delete();
-        session()->flash("Exito","Donación eliminada");
-        return redirect()->back();
+            $donacion = Donacion::where('Id_Donacion', $id_donacion)->first();
+            $donacion->delete();
+            session()->flash("Exito","Donación eliminada");
+            return redirect()->back();
         }catch (\Illuminate\Database\QueryException $e){
-        session()->flash("Error","No es posible eliminar esa Donación");
-        return redirect()->back();
+            session()->flash("Error","No es posible eliminar esa Donación");
+            return redirect()->back();
     }
 }
 

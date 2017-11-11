@@ -36,27 +36,32 @@ class DesteteController extends Controller{
     public function delete($id_destete)
     {   
         try{
-
-        $destete = Destete::where('Id_Destete', $id_destete)->first();
-        $destete->delete();
-        session()->flash("Exito","Destete eliminado");
-        return redirect()->back();   
+            $destete = Destete::where('Id_Destete', $id_destete)->first();
+            $destete->delete();
+            session()->flash("Exito","Destete eliminado");
+            return redirect()->back();   
         }catch (\Illuminate\Database\QueryException $e){
-        session()->flash("Error","No es posible eliminar ese destete");
-        return redirect()->back();
+            session()->flash("Error","No es posible eliminar ese destete");
+            return redirect()->back();
         }
     }
 
     public function store(Request $request)
     {
-        $destete = new Destete;
-        $destete->Id_Parto = $request->input('Id_Parto');
-        $destete->Fecha_Destete = $request->input('Fecha_Destete');
-        $destete->Id_Destete = $destete->Id_Parto .  $destete->Fecha_Destete; 
-        $destete->Numero_Destetados = $request->input('Numero_Destetados');
-        $destete->Peso_Destete = $request->input('Peso_Destete');
-        $destete->save();
-        return redirect('/destete');
+        try{
+            $destete = new Destete;
+            $destete->Id_Parto = $request->input('Id_Parto');
+            $destete->Fecha_Destete = $request->input('Fecha_Destete');
+            $destete->Id_Destete = $destete->Id_Parto .  $destete->Fecha_Destete; 
+            $destete->Numero_Destetados = $request->input('Numero_Destetados');
+            $destete->Peso_Destete = $request->input('Peso_Destete');
+            $destete->save();
+            session()->flash("Exito","Destete creado");
+            return redirect('/destete');            
+        }catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible crear, destete existente");
+            return redirect('/destete');
+        }
     }
 
     public function index(Request $request)

@@ -28,10 +28,17 @@ class DesechoController extends Controller
 
     public function store(Request $request)
     {
-        $conejo = new Desecho;
-        $conejo->Id_Raza = $request->input('Id_Conejo_Desecho')[0];
-        $conejo->Id_Conejo_Desecho = $request->input('Id_Conejo_Desecho');
-        $conejo->save();
-        return redirect('/desecho');
+        try{
+            $conejo = new Desecho;
+            $conejo->Id_Raza = $request->input('Id_Conejo_Desecho')[0];
+            $conejo->Id_Conejo_Desecho = $request->input('Id_Conejo_Desecho');
+            $conejo->save();
+            session()->flash("Exito","Conejo de desecho registrado");
+            return redirect('/desecho');    
+        }catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible crear, conejo de desecho existente");
+            return redirect('/desecho');
+        }
+        
     }
 }

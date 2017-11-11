@@ -14,12 +14,12 @@
               <option value="{{$destete->parto->monta->Id_Conejo_Hembra}}">{{$destete->parto->monta->Id_Conejo_Hembra}}</option>
             @endforeach
             </select>
-          <input hidden type="text" name="Numero_Conejo" value="{{$destete->parto->monta->conejo->productora->Numero_Conejo}}">
+          <input hidden type="text" id="numeroConejo" name="Numero_Conejo" value="{{$destete->parto->monta->conejo->productora->Numero_Conejo}}">
           <input hidden value="{{$destete->parto->monta->conejo->Id_Raza}}" name="Id_Raza">
           </div>
           <div>
             <label for="exampleInputPassword2">Fecha de Parto:</label>
-            <input value="{{$destete->parto->Fecha_Parto}}" class="form-control" type="date" name="Fecha_Nacimiento">
+            <input readonly value="{{$destete->parto->Fecha_Parto}}" class="form-control" type="date" name="Fecha_Nacimiento">
           </div>
           <br>
           <div class="form-group">

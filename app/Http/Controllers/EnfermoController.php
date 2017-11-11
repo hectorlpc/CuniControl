@@ -25,20 +25,23 @@ class EnfermoController extends Controller
             'medicamentos' => $medicamentos
         ]);
     }
-    public function store(Request $request) 
-    {
-        $enfermo = new Enfermo;
-
-        $enfermo->Id_Conejo = $request->input('Id_Conejo');
-        $enfermo->Fecha_Inicio = $request->input('Fecha_Inicio');
-        $enfermo->Fecha_Fin = $request->input('Fecha_Fin');    
-        $enfermo->Id_Conejo_Enfermo = $enfermo->Id_Conejo . $enfermo->Fecha_Inicio;
-        $enfermo->save();
-
-        $enfermo->enfermedades()->attach($request->input('Id_Enfermedad'), 
-            ['Id_Medicamento' => $request->input('Id_Medicamento')]);
-
-        return redirect('/enfermo');
+    public function store(Request $request){
+        try{
+            $enfermo = new Enfermo;
+            $enfermo->Id_Conejo = $request->input('Id_Conejo');
+            $enfermo->Fecha_Inicio = $request->input('Fecha_Inicio');
+            $enfermo->Fecha_Fin = $request->input('Fecha_Fin');    
+            $enfermo->Id_Conejo_Enfermo = $enfermo->Id_Conejo . $enfermo->Fecha_Inicio;
+            $enfermo->save();
+            session()->flash("Exito","Conejo Enfermo registrado");
+            $enfermo->enfermedades()->attach($request->input('Id_Enfermedad'), 
+                ['Id_Medicamento' => $request->input('Id_Medicamento')]);
+            return redirect('/enfermo');    
+        }catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible registrar este enfermo");
+            return redirect('/enfermo');
+        }
+        
     }
 
     public function index(Request $request)

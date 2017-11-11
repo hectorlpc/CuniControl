@@ -15,15 +15,20 @@ class GrupoController extends Controller
 		return view('grupo/create', ['carreras' => $carreras]);
 	}
 
-	public function store (Request $request)
-	{
-		$grupo = new Grupo;
-		$grupo->Clave_Grupo = $request->input('Clave_Grupo');
-		$grupo->Id_Carrera = $request->input('Id_Carrera');
-		$grupo->Id_Grupo = $grupo->Clave_Grupo. '-' . $grupo->Id_Carrera; 
-		$grupo->save();
-
-		return redirect('/grupo');
+	public function store (Request $request){
+		try{
+			$grupo = new Grupo;
+			$grupo->Clave_Grupo = $request->input('Clave_Grupo');
+			$grupo->Id_Carrera = $request->input('Id_Carrera');
+			$grupo->Id_Grupo = $grupo->Clave_Grupo. '-' . $grupo->Id_Carrera; 
+			$grupo->save();
+            session()->flash("Exito","Grupo creado");
+			return redirect('/grupo');
+		}catch(\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible crear, grupo existente");
+            return redirect('/grupo');
+        }
+		
 	}
 
 	public function index (Request $request)

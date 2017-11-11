@@ -47,12 +47,20 @@ class AdquisicionController extends Controller
 
     public function store(Request $request)
     {
-        $adquisicion = new Adquisicion;
-        $adquisicion->Nombre_Adquisicion = $request->input('Nombre_Adquisicion');
-        $adquisicion->Id_Adquisicion = strtoupper(substr($request->input('Nombre_Adquisicion'),0,3) . substr($request->input('Nombre_Adquisicion'),-3));
-        $adquisicion->Descripcion_Adquisicion = $request->input('Descripcion_Adquisicion');
-        $adquisicion->save();
-        return redirect('/adquisicion');
+        try{
+
+            $adquisicion = new Adquisicion;
+            $adquisicion->Nombre_Adquisicion = $request->input('Nombre_Adquisicion');
+            $adquisicion->Id_Adquisicion = strtoupper(substr($request->input('Nombre_Adquisicion'),0,3) . substr($request->input('Nombre_Adquisicion'),-3));
+            $adquisicion->Descripcion_Adquisicion = $request->input('Descripcion_Adquisicion');
+            $adquisicion->save();
+            session()->flash("Exito","Tipo de adquisición creado");
+            return redirect('/adquisicion');   
+        }catch (\Illuminate\Database\QueryException $e){
+            
+            session()->flash("Error","No es posible crear, tipo de adquisición existente");
+            return redirect('/adquisicion');
+        }
     }
 
     public function index(Request $request)

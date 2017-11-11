@@ -16,13 +16,19 @@ class CarreraController extends Controller
 
 	public function store (Request $request)
 	{
-		$carrera = new Carrera;
-		$carrera->Clave_Carrera = $request->input('Clave_Carrera');
-		$carrera->Nombre_Carrera = $request->input('Nombre_Carrera');
-		$carrera->Id_Carrera = strtoupper(substr($request->input('Nombre_Carrera'),0,3) . substr($request->input('Nombre_Carrera'),-3));		
-		$carrera->save();
-
-		return redirect('/carrera');
+		try{
+			$carrera = new Carrera;
+			$carrera->Clave_Carrera = $request->input('Clave_Carrera');
+			$carrera->Nombre_Carrera = $request->input('Nombre_Carrera');
+			$carrera->Id_Carrera = strtoupper(substr($request->input('Nombre_Carrera'),0,3) . substr($request->input('Nombre_Carrera'),-3));		
+			$carrera->save();
+            session()->flash("Exito","Carrera creada");
+			return redirect('/carrera');	
+		}catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible crear, Carrera existente");
+            return redirect('/carrera');
+        }
+		
 	}
 
 	public function index (Request $request)

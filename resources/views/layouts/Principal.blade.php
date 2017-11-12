@@ -48,5 +48,6 @@
     <script src="{{ asset('js/destetes-datos.js') }}"></script>
     <script src="{{ asset('js/partos.js') }}"></script>
     <script src="{{ asset('js/tatuaje-datos.js') }}"></script>
+    {{-- <script src="{{ asset('js/monta-fechas.js') }}"></script> --}}
   </body>
 </html>

@@ -25,6 +25,7 @@ class MontaController extends Controller{
         $montas = Monta::all();
         $conejos = Conejo::all();
         $monta = Monta::where('Id_Monta', $id_monta)->first();
+
         return view('Monta/edit', [
             'monta' => $montas,
             'conejos' => $conejos,
@@ -34,6 +35,8 @@ class MontaController extends Controller{
 
     public function update(Request $request, $id_monta){
         $monta = Monta::where('Id_Monta', $id_monta)->first();
+        //$intervalo = date_diff($fecha_monta, $fecha_parto);
+        //dd($intervalo);
         $monta->Fecha_Diagnostico = $request->input('Fecha_Diagnostico');
         $monta->Resultado_Diagnostico = $request->input('Resultado_Diagnostico');
         $monta->Fecha_Parto = $request->input('Fecha_Parto');
@@ -62,6 +65,15 @@ class MontaController extends Controller{
             $monta->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');    
             $monta->Fecha_Monta = $request->input('Fecha_Monta');
             $monta->Id_Monta = $monta->Id_Conejo_Hembra . $monta->Fecha_Monta;
+
+            $fecha_diagnostico = date_create($monta->Fecha_Monta);
+            date_add($fecha_diagnostico, date_interval_create_from_date_string('15 days'));
+            $monta->Fecha_Diagnostico = date_format($fecha_diagnostico, 'Y-m-d');   
+            
+            $fecha_parto = date_create($monta->Fecha_Diagnostico);
+            date_add($fecha_parto, date_interval_create_from_date_string('15 days'));
+            $monta->Fecha_Parto = date_format($fecha_parto, 'Y-m-d');            
+
             $monta->save();
             session()->flash("Exito","Monta registrada");
             return redirect('/monta');   
@@ -93,7 +105,16 @@ class MontaController extends Controller{
         $respuesta = ['opciones' =>$arrayOpcionesId];
 
         return response()->json($respuesta);
-
     }  
+
+    public function obtener_fechas(Request $request) {
+        $opcion = Monta::find($request->datosMonta);
+        $fecha_diagnostico = $opcion->Fecha_Parto;
+        
+
+        $respuesta = ['fecha_diagnostico' => $fecha_diagnostico];
+
+        return response()->json($respuesta);        
+    }
 }
 

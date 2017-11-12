@@ -8,7 +8,7 @@
 
           <div class="form-group">
             <label for="">Fecha de Monta</label>
-            <input type="date" class="form-control" name="Fecha_Monta" placeholder="Introduce la monta">
+            <input value="{{$fecha_actual = date('Y-m-d')}}" type="date" class="form-control" name="Fecha_Monta" placeholder="Introduce la monta">
 
           </div>
           <div class="form-group">

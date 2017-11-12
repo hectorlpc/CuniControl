@@ -32,6 +32,7 @@ Route::get('/monta/{id_monta}/edit', 'MontaController@edit');
 Route::patch('/monta/{id_monta}', 'MontaController@update');
 Route::delete('/monta/{id_monta}', 'MontaController@delete');
 Route::post('/montas/obtener-sementales', 'MontaController@obtener_semental');
+Route::post('/monta/obtener-fechas', 'MontaController@obtener_fechas');
 
 // Rutas de partos
 Route::get('parto/', 'PartoController@index');
@@ -52,7 +53,7 @@ Route::delete('/destete/{id_destete}', 'DesteteController@delete');
 Route::post('/destete/obtener-datos', 'DesteteController@obtener_datos');
 
 //Rutas de tatuajes
-Route::get('/tatuaje/','TatuajeController@index');
+Route::get('tatuaje/','TatuajeController@index');
 Route::get('/tatuaje/create', 'TatuajeController@create');
 Route::post('/tatuaje', 'TatuajeController@store');
 Route::get('/tatuaje/{id_conejo}/edit', 'TatuajeController@edit');

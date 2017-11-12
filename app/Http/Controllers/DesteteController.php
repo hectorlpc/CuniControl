@@ -11,6 +11,7 @@ class DesteteController extends Controller{
     public function create()
     {
         $partos = Parto::all();
+
     	return view('Destete.create',['partos' => $partos]);
     }
 
@@ -54,6 +55,7 @@ class DesteteController extends Controller{
             $destete->Fecha_Destete = $request->input('Fecha_Destete');
             $destete->Id_Destete = $destete->Id_Parto .  $destete->Fecha_Destete; 
             $destete->Numero_Destetados = $request->input('Numero_Destetados');
+            $destete->No_Destetados = $request->input('No_Destetados');
             $destete->Peso_Destete = $request->input('Peso_Destete');
             $destete->save();
 
@@ -83,11 +85,19 @@ class DesteteController extends Controller{
     public function obtener_datos (Request $request) {
         $opcion = Parto::find($request->datos);
         $cantidad = $opcion->Numero_Vivos;
+        $no_destetados = $opcion->Numero_Muertos;
         $peso = $opcion->Peso_Nacer;
+        $fechaDeParto = $opcion->Fecha_Parto;
+        
+        $fecha_destete = date_create($fechaDeParto);
+        date_add($fecha_destete, date_interval_create_from_date_string('35 days'));
+        $fechaDeParto = date_format($fecha_destete, 'Y-m-d');   
 
         $respuesta = [
             'cantidad' => $cantidad,
-            'peso' => $peso
+            'no_destetados' => $no_destetados,
+            'peso' => $peso,
+            'fechaDeParto' => $fechaDeParto
         ];
 
         return response()->json($respuesta);

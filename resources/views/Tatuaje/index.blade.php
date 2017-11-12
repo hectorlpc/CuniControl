@@ -3,9 +3,8 @@
 @section('content')
 <div class="container">
     @include("compartidas.alertas")
-
           <h2>Inicio Tatuado de Conejos</h2>
-          <form method="get" action="{{url('tatuaje/')}}">
+          <form method="get" action="{{url('/tatuaje')}}">
           <div class="form-group">
             <label for="">Tatuaje del conejo: </label>
             <input type="" class="form-control" name="Id_Conejo" placeholder="Introduce tatuajes sin espacio">

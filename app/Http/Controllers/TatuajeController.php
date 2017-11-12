@@ -9,8 +9,8 @@ use App\Monta;
 use App\Parto;
 use App\Productora;
 use App\Destete;
-
 use Illuminate\Support\Facades\DB;
+
 class TatuajeController extends Controller
 {
     public function create() 
@@ -40,9 +40,9 @@ class TatuajeController extends Controller
 // Generar Id conejo
         $conejo->Id_Conejo = $conejo->Tatuaje_Derecho . $conejo->Tatuaje_Izquierdo;
 // Insertar los demás campos
+        $conejo->Status = 'Vivo';
         $conejo->Fecha_Nacimiento = $fecha;
         $conejo->Genero = $request->input('Genero');
-        $conejo->Status = $request->input('Status');
         $destete = Destete::where('Id_Destete', $request->input('Id_Destete'))->first();
         $destete->Tatuados += 1;
 //Guardar conejo
@@ -52,7 +52,7 @@ class TatuajeController extends Controller
         session()->flash("Exito","Conejo Registrado con tatuajes: Derecho: " . $conejo->Tatuaje_Derecho . " Izquierdo: ". $conejo->Tatuaje_Izquierdo);
         	return redirect ('/tatuaje');    
         }catch (\Illuminate\Database\QueryException $e){
-           session()->flash("Error","No es posible registrar, Datos incompletos o duplicados");
+            session()->flash("Error","No es posible registrar, Datos incompletos o duplicados");
         	return redirect('/tatuaje');
         }
     }
@@ -60,7 +60,7 @@ class TatuajeController extends Controller
     public function index(Request $request)
     {
         if($request->Id_Conejo) {
-            $conejos = Conejo::where('Id_Conejo', $Id_Conejo)->get();
+            $conejos = Conejo::where('Id_Conejo', $request->Id_Conejo)->get();
         } else {
             $conejos = Conejo::all(); 
         }

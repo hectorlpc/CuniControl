@@ -20,7 +20,8 @@
         <tr>
           <th>Numero de Coneja</th>
           <th>Fecha de destete</th>
-          <th>Cantidad de destetados</th>
+          <th>Destetados</th>
+          <th>Muertos</th>
           <th>Peso promedio de los destetados (Kilos)</th>
           <th></th>
         </tr>
@@ -31,6 +32,7 @@
           <td>{{$destete->parto->monta->Id_Conejo_Hembra}}</td>
           <td>{{$destete->Fecha_Destete}}</td>
           <td>{{$destete->Numero_Destetados}}</td>
+          <td>{{$destete->No_Destetados}}</td>
           <td>{{$destete->Peso_Destete}}</td>
           <td></td>
           <td>

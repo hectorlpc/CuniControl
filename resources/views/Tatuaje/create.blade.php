@@ -28,12 +28,12 @@
             <input type="radio" name="Genero" value="Macho" /> Macho
             <input type="radio" name="Genero" value="Hembra" /> Hembra
           </div>
-          <div class="form-group">
+{{--           <div class="form-group">
             <label for="">Status:</label>
             <input type="radio" name="Status" value="Vivo" /> Vivo
             <input type="radio" name="Status" value="Muerto" /> Muerto
           </div>
-          <div class="form-group">
+          <div class="form-group"> --}}
             <label for="">Consecutivo de conejo:</label>
             <input readonly class="form-control" name="Consecutivo" id="numeroConsecutivo" >
         </br>

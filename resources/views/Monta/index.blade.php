@@ -3,7 +3,6 @@
 @section('content')
 <div class="container">
     @include("compartidas.alertas")
-
       <form method="get" action="{{url('/monta')}}">
             <h2>Inicio Registro Montas</h2>
           <div class="form-group">
@@ -18,12 +17,12 @@
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
-      <th>Fecha de Monta (Año-Mes-Día)</th>
+      <th>Fecha de Monta</th>
       <th>Tatuaje Coneja</th>
       <th>Tatuaje Conejo</th>
       <th>Fecha Diagnostico</th>
       <th>Resultado Diagnostico</th>
-      <th>Fecha_Parto</th>
+      <th>Fecha Parto Aprox</th>
       <th></th>
     </tr>
   </thead>

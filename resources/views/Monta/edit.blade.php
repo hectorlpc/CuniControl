@@ -1,14 +1,14 @@
 @extends('layouts.Principal')
 @extends('layouts.menu')
 @section('content')
-<div class="container">"
+<div class="container">
 <form action="{{url('/monta/' . $monta->Id_Monta)}}" method="POST" role="form">
       {{method_field('patch')}}
       {{ csrf_field() }}
             <h2>Actualizar Monta</h2>
           <div class="form-group">
             <label for="">Fecha de Monta</label>
-            <input readonly value="{{$monta->Fecha_Monta}}" class="form-control" type="date" name="Fecha_Monta" min="2000-01-01" max="2050-01-01" step="1">
+            <input readonly value="{{$monta->Fecha_Monta}}" class="form-control" type="date" name="Fecha_Monta">
           </div>
           <div class="form-group">
             <label for="">Tatuaje Macho</label>
@@ -20,7 +20,7 @@
           </div>
           <div class="form-group">
             <label for="">Fecha de Diagnostico: </label>
-            <input value="{{$monta->Fecha_Diagnostico}}" class="form-control" type="date" name="Fecha_Diagnostico" min="2000-01-01" max="2050-01-01" step="1">
+            <input value="{{$monta->Fecha_Diagnostico}}" class="form-control" type="date" name="Fecha_Diagnostico">
           </div>
           <div class="form-group">
             <label for="">Resultado Diagnostico: </label>

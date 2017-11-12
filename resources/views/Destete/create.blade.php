@@ -22,12 +22,16 @@
 
       <div>
           <label for="fecha">Fecha de destete:</label>
-          <input class="form-control" name="Fecha_Destete" type="date" >
+          <input class="form-control" name="Fecha_Destete" type="date" id=fechaDestete>
         </div>
           <div class="form-group">
             <label for="">Cantidad de destetados:</label>
             <input class="form-control" name="Numero_Destetados" id="vivos">
           </div>
+          <div class="form-group">
+            <label for="">Cantidad de no destetados:</label>
+            <input class="form-control" name="No_Destetados" id="noDestetados">
+          </div>          
           <div class="form-group">
             <label for="">Peso promedio de los destetados:</label>
             <input class="form-control" name="Peso_Destete" id="pesoDestete">

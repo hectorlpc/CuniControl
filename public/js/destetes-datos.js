@@ -1,21 +1,23 @@
 // Seleccionar elemento
-var opcionesConeja = $('#parto');
+var opcionesConeja = $('#conejaParto');
 
 if(opcionesConeja[0]) {
-	var fechaDeParto = $('#fechaDeParto');
+	var vivos = $('#vivos');
+	var pesoDestete = $('#pesoDestete');
 	// Manejo de evento change
 	opcionesConeja.change(function() {
-		var fecha = this.value;
+		var datos = this.value;
 
 		$.ajax({
-			url: '/parto/obtener-fecha',
+			url: '/destete/obtener-datos',
 			data: {
-				fecha: fecha
+				datos: datos
 			},
 			dataType: 'json',
 			method: 'POST',
 			success: function(respuesta) {
-				fechaDeParto.val(respuesta.fecha_parto);
+				vivos.val(respuesta.cantidad);
+				pesoDestete.val(respuesta.peso);
 			},
 			error: function() {
 

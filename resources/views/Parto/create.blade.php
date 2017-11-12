@@ -12,15 +12,16 @@
             <option> -- Seleccione la coneja -- </option>
           @foreach($montas as $monta)
           @if($monta->Resultado_Diagnostico == 'Positivo')
+          @if($monta->Activado == 0)
             <option value="{{$monta->Id_Monta}}">{{$monta->Id_Conejo_Hembra}}</option>
+          @endif
           @endif
           @endforeach
         </select>
     </div>
-    <div class="form-group">
-      <label for="">Fecha del Parto:</label>
-        <select class="form-control" type="date" name="Fecha_Parto" id="fechadeparto">
-       </select>
+    <div>
+      <label for="exampleInputPassword2">Fecha de Parto:</label>
+      <input id="fechaDeParto" class="form-control" type="date" name="Fecha_Parto">
     </div>
     <div>
         <label for="cant_vivos">Cantidad de gazapos vivos:</label>

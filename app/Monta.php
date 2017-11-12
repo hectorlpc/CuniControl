@@ -8,7 +8,7 @@ class Monta extends Model
 {
     //
     public $incrementing=false;
-    public $fillable=['Id_Monta','Fecha_Monta','Id_Conejo_Hembra','Id_Conejo_Macho','Fecha_Diagnostico','Resultado_Diagnostico','Fecha_Parto'];
+    public $fillable=['Id_Monta','Fecha_Monta','Id_Conejo_Hembra','Id_Conejo_Macho','Fecha_Diagnostico','Resultado_Diagnostico','Fecha_Parto','Activado'];
     protected $table='Monta';
     protected $primaryKey='Id_Monta';
 

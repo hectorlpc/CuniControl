@@ -42,7 +42,6 @@ class CementalController extends Controller
         return redirect('/cemental');
     }
 
-
     public function delete($id_cemental)
     {   
         try{

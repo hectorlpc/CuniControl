@@ -20,6 +20,7 @@ class CreateDesteteTable extends Migration
           $table->date('Fecha_Destete')->index();
           $table->smallInteger('Numero_Destetados')->index();
           $table->float('Peso_Destete')->nullable();
+          $table->smallInteger('Tatuados')->default(0);
           $table->timestamps();
         });
     }

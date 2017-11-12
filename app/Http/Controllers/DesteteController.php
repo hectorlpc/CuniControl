@@ -56,6 +56,11 @@ class DesteteController extends Controller{
             $destete->Numero_Destetados = $request->input('Numero_Destetados');
             $destete->Peso_Destete = $request->input('Peso_Destete');
             $destete->save();
+
+            $parto = Parto::where('Id_Parto', $request->input('Id_Parto'))->first();
+            $parto->Activado = 1;
+            $parto->save();
+            
             session()->flash("Exito","Destete creado");
             return redirect('/destete');            
         }catch (\Illuminate\Database\QueryException $e){
@@ -75,28 +80,15 @@ class DesteteController extends Controller{
         return view ('Destete.index',['destetes'=> $destetes]);
     }
 
-    public function obtener_vivos (Request $request) {
-        $opciones = Parto::where('Id_Parto', $request->numero)->get();
-        $i = 0;
-        $arrayOpcionesId = [];
-        foreach ($opciones as $opcion) {
-            $arrayOpcionesId[$i] = $opcion->Numero_Vivos;
-            $i++;
-        }
-        $respuesta = ['opciones' =>$arrayOpcionesId];
+    public function obtener_datos (Request $request) {
+        $opcion = Parto::find($request->datos);
+        $cantidad = $opcion->Numero_Vivos;
+        $peso = $opcion->Peso_Nacer;
 
-        return response()->json($respuesta);
-    }
-
-    public function obtener_peso (Request $request) {
-        $opciones = Parto::where('Id_Parto', $request->peso)->get();
-        $i = 0;
-        $arrayOpcionesId = [];
-        foreach ($opciones as $opcion) {
-            $arrayOpcionesId[$i] = $opcion->Peso_Nacer;
-            $i++;
-        }
-        $respuesta = ['opciones' =>$arrayOpcionesId];
+        $respuesta = [
+            'cantidad' => $cantidad,
+            'peso' => $peso
+        ];
 
         return response()->json($respuesta);
     }          

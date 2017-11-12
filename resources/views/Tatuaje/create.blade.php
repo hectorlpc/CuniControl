@@ -6,35 +6,43 @@
           <form method="POST" action="{{url('/tatuaje')}}">
             {{csrf_field()}}
           <div class="form-group">
-
-            <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
-            <select class="form-control" name="Id_Conejo_Hembra" id="conejaDestete">
+            <label for="">Numero de tatuaje de la madre:</label>
+            <select class="form-control" name="Id_Destete" id="conejaDestete">
               <option> -- Seleccione coneja -- </option>
             @foreach($destetes as $destete)
+            @if($destete->Tatuados < $destete->Numero_Destetados)
               <option value="{{$destete->Id_Destete}}">{{$destete->parto->monta->Id_Conejo_Hembra}}</option>
+            @endif
             @endforeach
             </select>
           <input type="hidden" id="numeroConeja" name="Numero_Conejo" value="{{$destete->parto->monta->conejo->productora->Numero_Conejo}}" >
           <input type="hidden" value="{{$destete->parto->monta->conejo->Id_Raza}}" id="razaTatuaje" name="Id_Raza">
           </div>
           <div>
-            <label for="exampleInputPassword2">Fecha de Parto:</label>
-            <input readonly value="{{$destete->parto->Fecha_Parto}}" id="fechaParto" class="form-control" type="date" name="Fecha_Nacimiento">
+            <label for="">Fecha de Parto:</label>
+            <input readonly id="fechaParto" class="form-control" type="date" name="Fecha_Nacimiento">
           </div>
           <br>
           <div class="form-group">
-            <label for="exampleInputPassword2">Genero:</label>
+            <label for="">Genero:</label>
             <input type="radio" name="Genero" value="Macho" /> Macho
             <input type="radio" name="Genero" value="Hembra" /> Hembra
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword2">Status:</label>
+            <label for="">Status:</label>
             <input type="radio" name="Status" value="Vivo" /> Vivo
             <input type="radio" name="Status" value="Muerto" /> Muerto
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword2">Consecutivo de conejo:</label>
-          <select class="form-control" name="Consecutivo">
+            <label for="">Consecutivo de conejo:</label>
+            <input readonly class="form-control" name="Consecutivo" id="numeroConsecutivo" >
+        </br>
+          <button type="submit" class="btn btn-outline-primary">Registrar</button>
+      </form>
+      </div>
+
+<!-- NO BORRAR CODIGO COMENTADO -->
+{{--           <select class="form-control" name="Consecutivo">
               <option value="01">1</option>
               <option value="02">2</option>
               <option value="03">3</option>
@@ -56,21 +64,5 @@
               <option value="19">19</option>
               <option value="20">20</option>
             </select>
-          </div>
-        </br>
-          <button type="submit" class="btn btn-outline-primary">Registrar</button>
-      </form>
-      </div>
-
-<!-- NO BORRAR CODIGO COMENTADO -->
-<!--           <div class="form-group">
-            <select class="form-control" name="Numero_Conejo" id="numeroConejo">
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="">Fecha del Parto:</label>
-            <select class="form-control" type="date" name="Fecha_Parto" id="fechadeparto"></select>
-          </div> -->
-
-
+          </div> --}}
 @endsection

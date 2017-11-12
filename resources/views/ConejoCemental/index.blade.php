@@ -5,16 +5,16 @@
     @include("compartidas.alertas")
 
           <center><h2>Conejos Sementales</h2></center>
-          <form>
-            <div class="form-group">
-              <label for="Conejo_Cemental">Tatuaje del Semental:</label>
-              <input type="" name="Id_conejo_Macho" class="form-control">
-              <br>
-              <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
-          </form>
+      <form method="get" action="{{url('/cemental')}}">
+          <div class="form-group">
+            <label for="">Tatuaje semental:</label>
+            <input type="" class="form-control" name="Id_Conejo_Macho" placeholder="Buscar">
+            <br>
+          <div align="right">  <button type="submit" class="btn btn-outline-primary">Buscar</button>
             <a href="{{url('/cemental/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
+            </div>
           </div>
-
+        </form>
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>

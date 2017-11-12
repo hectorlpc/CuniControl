@@ -42,6 +42,11 @@ class PartoController extends Controller{
             $parto->Peso_Nacer = $request->input('Peso_Nacer');
             $parto->Id_Parto =  $parto->Id_Monta . $parto->Fecha_Parto ;
             $parto->save();
+
+            $monta = Monta::where('Id_Monta', $request->input('Id_Monta'))->first();
+            $monta->Activado = 1;
+            $monta->save();
+
             session()->flash("Exito","Parto Registrado");
             return redirect('/parto');
         }catch (\Illuminate\Database\QueryException $e){
@@ -83,14 +88,10 @@ class PartoController extends Controller{
     }
 
     public function obtener_fecha (Request $request) {
-        $opciones = Monta::where('Id_Monta', $request->fecha)->get();
-        $i = 0;
-        $arrayOpcionesId = [];
-        foreach ($opciones as $opcion) {
-            $arrayOpcionesId[$i] = $opcion->Fecha_Parto;
-            $i++;
-        }
-        $respuesta = ['opciones' =>$arrayOpcionesId];
+        $opcion = Monta::find($request->fecha);
+        $fecha_parto = $opcion->Fecha_Parto;
+
+        $respuesta = ['fecha_parto' => $fecha_parto];
 
         return response()->json($respuesta);
     }        

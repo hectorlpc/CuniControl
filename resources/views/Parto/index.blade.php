@@ -23,7 +23,7 @@
     <th>Fecha de Monta</th>
     <th>Cant.gazapos vivos</th>
     <th>Cant.de gazapos muertos</th>
-    <th>Peso promedio al nacer(g)</th>
+    <th>Peso promedio (g)</th>
     <th></th>
   </tr>
 </thead>

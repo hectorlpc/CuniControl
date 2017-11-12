@@ -12,7 +12,9 @@
             <option> -- Seleccione coneja -- </option>
           @foreach ($partos as $parto)
           @if($parto->Numero_Vivos > 0)
+          @if($parto->Activado == 0)
             <option value="{{$parto->Id_Parto}}">{{$parto->monta->Id_Conejo_Hembra}}</option>
+          @endif
           @endif
           @endforeach
           </select>
@@ -24,13 +26,11 @@
         </div>
           <div class="form-group">
             <label for="">Cantidad de destetados:</label>
-            <select class="form-control" name="Numero_Destetados" id="vivos">
-            </select>
+            <input class="form-control" name="Numero_Destetados" id="vivos">
           </div>
           <div class="form-group">
             <label for="">Peso promedio de los destetados:</label>
-            <select class="form-control" name="Peso_Destete" id="pesoDestete">
-            </select>
+            <input class="form-control" name="Peso_Destete" id="pesoDestete">
           </div>
       <br>
       <div align="right">

@@ -21,6 +21,7 @@ class CreatePartoTable extends Migration
             $table->smallInteger('Numero_Vivos')->index();
             $table->smallInteger('Numero_Muertos')->index();
             $table->float('Peso_Nacer')->nullable();
+            $table->boolean('Activado')->default(0);
             $table->timestamps();
         });
     }

@@ -49,8 +49,7 @@ Route::post('destete/', 'DesteteController@store');
 Route::get('/destete/{id_destete}/edit', 'DesteteController@edit');
 Route::patch('/destete/{id_destete}', 'DesteteController@update');
 Route::delete('/destete/{id_destete}', 'DesteteController@delete');
-Route::post('/destete/obtener-vivos', 'DesteteController@obtener_vivos');
-Route::post('/destete/obtener-peso', 'DesteteController@obtener_peso');
+Route::post('/destete/obtener-datos', 'DesteteController@obtener_datos');
 
 //Rutas de tatuajes
 Route::get('/tatuaje/','TatuajeController@index');

@@ -23,6 +23,7 @@ class CreateMontaTable extends Migration
             $table->date('Fecha_Diagnostico')->nullable();
             $table->enum('Resultado_Diagnostico',['Positivo','Negativo'])->nullable()->index();
             $table->date('Fecha_Parto')->nullable();
+            $table->boolean('Activado')->default(0);
             $table->timestamps();
         });
     }

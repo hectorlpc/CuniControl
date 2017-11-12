@@ -8,7 +8,7 @@ class Destete extends Model
 {
     //
     public $incrementing=false;
-    public $fillable=['Id_Destete','Id_Parto','Fecha_Destete','Numero_Destetados','Peso_Destete'];
+    public $fillable=['Id_Destete','Id_Parto','Fecha_Destete','Numero_Destetados','Peso_Destete','Tatuados'];
     protected $table='Destete';
     protected $primaryKey='Id_Destete';
  	

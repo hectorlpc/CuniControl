@@ -26,7 +26,10 @@ class TatuajeController extends Controller
 // Generar tatuaje derecho
         $conejo->Id_Raza = $request->input('Id_Raza');        
         $numero = $request->input('Numero_Conejo');
-        $consecutivo = $request->input('Consecutivo');
+        $consecutivo = (int)$request->input('Consecutivo');
+        if($consecutivo < 10) {            
+            $consecutivo = 0 . $consecutivo;
+        }
         $conejo->Tatuaje_Derecho = $conejo->Id_Raza . $numero . $consecutivo;        
 // Generar tatuaje izquierdo
         $fecha = $request->input('Fecha_Nacimiento');
@@ -40,15 +43,18 @@ class TatuajeController extends Controller
         $conejo->Fecha_Nacimiento = $fecha;
         $conejo->Genero = $request->input('Genero');
         $conejo->Status = $request->input('Status');
+        $destete = Destete::where('Id_Destete', $request->input('Id_Destete'))->first();
+        $destete->Tatuados += 1;
 //Guardar conejo
-        $conejo->save();
+        $conejo->save();        
+        $destete->save();
+
         session()->flash("Exito","Conejo Registrado con tatuajes: Derecho: " . $conejo->Tatuaje_Derecho . " Izquierdo: ". $conejo->Tatuaje_Izquierdo);
-        return redirect ('/tatuaje');    
+        	return redirect ('/tatuaje');    
         }catch (\Illuminate\Database\QueryException $e){
-            session()->flash("Error","No es posible registrar, Datos incompletos o duplicados");
-            return redirect('/tatuaje');
+           session()->flash("Error","No es posible registrar, Datos incompletos o duplicados");
+        	return redirect('/tatuaje');
         }
-        
     }
 
     public function index(Request $request)
@@ -87,11 +93,13 @@ class TatuajeController extends Controller
 
     public function obtener_datos (Request $request) {
         $opcion = Destete::find($request->numero);
+        $numero_consecutivo = $opcion->Tatuados += 1;
         $numero_conejo = $opcion->parto->monta->conejo->productora->Numero_Conejo;
         $fecha_parto = $opcion->parto->Fecha_Parto;
         $raza = $opcion->parto->monta->conejo->Id_Raza;
         
         $respuesta = [
+            'numero_consecutivo' => $numero_consecutivo,
             'numero_conejo' => $numero_conejo,
             'fecha_parto' => $fecha_parto,
             'raza' => $raza

@@ -15,8 +15,8 @@ class PartoController extends Controller{
 
     public function edit($id_parto){
         $parto = Parto::all();
-        $parto = Parto::where('Id_Parto', $id_parto)->first();        
-        
+        $parto = Parto::where('Id_Parto', $id_parto)->first();
+
         return view('Parto/edit',['parto' => $parto]);
     }
 
@@ -26,7 +26,7 @@ class PartoController extends Controller{
             $parto->delete();
             session()->flash("Exito","Parto eliminado");
             return redirect()->back();
-        }catch (\Illuminate\Database\QueryException $e){ 
+        }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible eliminar ese parto");
             return redirect()->back();
         }
@@ -67,13 +67,17 @@ class PartoController extends Controller{
 
     public function update(Request $request, $id_parto)
     {
+      try{
         $parto = Parto::where('Id_Parto', $id_parto)->first();
         $parto->Numero_Vivos = $request->input('Numero_Vivos');
         $parto->Numero_Muertos = $request->input('Numero_Muertos');
         $parto->Peso_Nacer = $request->input('Peso_Nacer');
         $parto->save();
-
         return redirect('/parto');
+      }catch (\Illuminate\Database\QueryException $e){
+          session()->flash("Error","No es posible Modificar Parto");
+          return redirect('/parto');
+      }
     }
 
     public function obtener_fecha (Request $request) {
@@ -83,5 +87,5 @@ class PartoController extends Controller{
         $respuesta = ['fecha_parto' => $fecha_parto];
 
         return response()->json($respuesta);
-    }        
+    }
 }

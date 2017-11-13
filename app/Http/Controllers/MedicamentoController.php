@@ -17,17 +17,21 @@ class MedicamentoController extends Controller
     {
         $medicamento = Medicamento::where('Id_Medicamento', $id_medicamento)->first();
 
-        return view('Medicamento/edit',['medicamento' => $medicamento]);        
+        return view('Medicamento/edit',['medicamento' => $medicamento]);
     }
 
     public function update(Request $request, $id_medicamento)
     {
+      try{
         $medicamento = Medicamento::where('Id_Medicamento', $id_medicamento)->first();
         $medicamento->Nombre_Medicamento = $request->input('Nombre_Medicamento');
         $medicamento->Cantidad = $request->input('Cantidad');
         $medicamento->save();
-
         return redirect('/medicamento');
+      }catch (\Illuminate\Database\QueryException $e){
+          session()->flash("Error","No es posible Modificar este Medicamento");
+          return redirect('/medicamento');
+      }
     }
 
     public function delete($id_medicamento){
@@ -39,7 +43,7 @@ class MedicamentoController extends Controller
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible eliminar ese Medicamento");
             return redirect()->back();
-        } 
+        }
     }
 
     public function store(Request $request){
@@ -50,18 +54,18 @@ class MedicamentoController extends Controller
             $medicamento->Cantidad = $request->input('Cantidad');
             $medicamento->save();
             session()-flash("Exito","Medicamento Registrado")
-            return redirect('/medicamento');    
+            return redirect('/medicamento');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, Medicamento existente");
             return redirect('/medicamento');
         }
-        
+
     }
 
     public function index(Request $request)
     {
         if($request->Id_Medicamento)
-        {   
+        {
             $medicamentos = Medicamento::where('Nombre_Medicamento', $request->Id_Medicamento)->get();
         } else {
             $medicamentos = Medicamento::all();

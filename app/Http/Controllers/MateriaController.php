@@ -31,7 +31,7 @@ class MateriaController extends Controller
 		}catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, materia existente");
             return redirect('/materia');
-        }
+    }
 	}
 
 	public function index (Request $request)
@@ -42,7 +42,7 @@ class MateriaController extends Controller
         } else {
             $materias = Materia::all();
         }
-        return view('materia/index', ['materias' => $materias]);		
+        return view('materia/index', ['materias' => $materias]);
 	}
 
 	public function edit ($id_materia)
@@ -59,12 +59,16 @@ class MateriaController extends Controller
 
 	public function update (Request $request, $id_materia)
 	{
-		$materia = Materia::where('Id_Materia', $id_materia)->first();
-		$materia->Id_Materia = $request->input('Id_Materia');
-		$materia->Nombre_Materia = $request->input('Nombre_Materia');
-		$materia->save();
-
+		try{
+			$materia = Materia::where('Id_Materia', $id_materia)->first();
+			$materia->Id_Materia = $request->input('Id_Materia');
+			$materia->Nombre_Materia = $request->input('Nombre_Materia');
+			$materia->save();
 		return redirect('/materia');
+		}catch (\Illuminate\Database\QueryException $e){
+					session()->flash("Error","No es posible Modificar");
+					return redirect('/materia');
+		}
 	}
 
 	public function delete ($id_materia){
@@ -72,7 +76,7 @@ class MateriaController extends Controller
 			$materia = Materia::where('Id_Materia', $id_materia)->first();
 			$materia->delete();
 	        session()->flash("Exito","Materia eliminada");
-			return redirect()->back();	
+			return redirect()->back();
 		}catch (\Illuminate\Database\QueryException $e){
 	        session()->flash("Error","No es posible eliminar esa Materia");
 	        return redirect()->back();
@@ -88,6 +92,6 @@ class MateriaController extends Controller
             $i++;
         }
         $respuesta = ['opciones' =>$arrayOpcionesId];
-        return response()->json($respuesta);	
+        return response()->json($respuesta);
     }
 }

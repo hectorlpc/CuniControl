@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class EnfermoController extends Controller
 
-{    
+{
     public function create()
     {
         $medicamentos = Medicamento::all();
@@ -30,18 +30,18 @@ class EnfermoController extends Controller
             $enfermo = new Enfermo;
             $enfermo->Id_Conejo = $request->input('Id_Conejo');
             $enfermo->Fecha_Inicio = $request->input('Fecha_Inicio');
-            $enfermo->Fecha_Fin = $request->input('Fecha_Fin');    
+            $enfermo->Fecha_Fin = $request->input('Fecha_Fin');
             $enfermo->Id_Conejo_Enfermo = $enfermo->Id_Conejo . $enfermo->Fecha_Inicio;
             $enfermo->save();
             session()->flash("Exito","Conejo Enfermo registrado");
-            $enfermo->enfermedades()->attach($request->input('Id_Enfermedad'), 
+            $enfermo->enfermedades()->attach($request->input('Id_Enfermedad'),
                 ['Id_Medicamento' => $request->input('Id_Medicamento')]);
-            return redirect('/enfermo');    
+            return redirect('/enfermo');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible registrar este enfermo");
             return redirect('/enfermo');
         }
-        
+
     }
 
     public function index(Request $request)
@@ -71,7 +71,7 @@ class EnfermoController extends Controller
             'medicamentos' => $medicamentos,
             'enfermo' => $enfermo,
             'tratamiento' => $tratamiento
-        ]);        
+        ]);
     }
 
     public function delete($id_conejo)
@@ -85,11 +85,12 @@ class EnfermoController extends Controller
             session()->flash("Error","No es posible eliminar este conejo enfermo");
             return redirect()->back();
         }
-        
+
     }
 
     public function update(Request $request, $id_conejo)
     {
+      try{
         $enfermo = Enfermo::where('Id_Conejo', $id_conejo)->first();
         $enfermo->Fecha_Fin = $request->input('Fecha_Fin');
         $enfermo->Id_Enfermedad = $request->input('Id_Enfermedad');
@@ -97,6 +98,10 @@ class EnfermoController extends Controller
         //dd($request->all());
         $enfermo->save();
 
-        return redirect('/enfermo');        
+        return redirect('/enfermo');
+      }catch (\Illuminate\Database\QueryException $e){
+          session()->flash("Error","No es posible Modificar este conejo enfermo");
+          return redirect('/enfermo');
+      }
     }
 }

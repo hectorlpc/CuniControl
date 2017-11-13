@@ -36,12 +36,12 @@ class DonacionController extends Controller{
             $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
             $donacion->save();
             session()->flash("Exito","Donación registrada");
-            return redirect('/donacion');    
+            return redirect('/donacion');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible registrar, donación existente");
             return redirect('/donacion');
         }
-        
+
     }
 
     public function delete($id_donacion)
@@ -68,10 +68,14 @@ class DonacionController extends Controller{
 
     public function update(Request $request, $id_donacion)
     {
-        $donacion = Donacion::where('Id_Donacion', $id_donacion)->first();
-        $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
-        $donacion->save();
-
-        return redirect('/donacion');
+        try{
+          $donacion = Donacion::where('Id_Donacion', $id_donacion)->first();
+          $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
+          $donacion->save();
+          return redirect('/donacion');
+        }catch (\Illuminate\Database\QueryException $e){
+          session()->flash("Error","No es posible Modificar esa Donación");
+          return redirect('/donacion');
+        }
     }
 }

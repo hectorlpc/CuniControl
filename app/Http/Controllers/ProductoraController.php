@@ -22,6 +22,7 @@ class ProductoraController extends Controller{
 
     public function update(Request $request, $id_productora)
     {
+      try{
         $productora = Productora::where('Id_Conejo_Hembra', $id_productora)->first();
         $productora->Status = 'Inactivo';
         $productora->save();
@@ -37,15 +38,19 @@ class ProductoraController extends Controller{
         $desecho->save();
 
         return redirect('/productora');
+      }catch (\Illuminate\Database\QueryException $e){
+          session()->flash("Error","No es posible Modificar Coneja productora");
+          return redirect('/productora');
+      }
     }
 
-    public function delete($id_productora){   
+    public function delete($id_productora){
         try{
             $productora = Productora::where('id_Productora', $id_productora)->first();
             $productora->delete();
             session()->flash("Exito","Coneja Productora eliminada");
             return redirect()->back();
-        }catch (\Illuminate\Database\QueryException $e){ 
+        }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible eliminar esa Coneja Productora");
             return redirect()->back();
         }
@@ -66,10 +71,10 @@ class ProductoraController extends Controller{
             $conejo->Productora = 'Si';
             $conejo->Semental = 'No';
             $conejo->save();
-            
+
             session()->flash("Exito","Coneja Productora Registrada");
-            
-            return redirect('/productora');            
+
+            return redirect('/productora');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, Coneja productora existente");
             return redirect('/productora');
@@ -77,7 +82,7 @@ class ProductoraController extends Controller{
     }
 
     public function index(Request $request){
-        if($request->Id_Conejo_Hembra){   
+        if($request->Id_Conejo_Hembra){
             $productoras = Productora::where('Id_Conejo_Hembra', $request->Id_Conejo_Hembra)->get();
         } else {
             $productoras = Productora::all();

@@ -34,11 +34,6 @@
       @yield('menu')
     </nav>
 
-    <footer class="pieDePagina">
-      <p>Copyleft @ 2017 UNAM</p>
-      <p>Desarrollado por BitBox Systems</p>
-
-    </footer>
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/script.js') }}"></script>
     <script src="{{ asset('js/jquery.js') }}"></script>

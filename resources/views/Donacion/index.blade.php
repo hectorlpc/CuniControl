@@ -7,7 +7,7 @@
           <form method="get" action="{{url('/donacion/')}}">
           <div class="form-group">
             <label for="">Numero de la donación:</label>
-            <input type="" class="form-control" name="Id_Donacion" placeholder="Introduce tatuajes sin espacio">
+            <input type="" class="form-control" name="Id_Conejo_Hembra" placeholder="Introduce tatuajes sin espacio">
             <br>
             <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
             <a href="{{url('donacion/create')}}" type="submit" class="btn btn-outline-success">Agregar</a></div>
@@ -26,8 +26,8 @@
   <tbody>
     <tr>
       @foreach($donaciones as $donacion)
-      <td> {{$donacion->parto->monta->Id_Conejo_Hembra}} </td>
-      <td> {{$donacion->parto->monta->Id_Conejo_Hembra}} </td>
+      <td> {{substr($donacion->Id_Parto_Donante, 0, 10)}} </td>
+      <td> {{substr($donacion->Id_Parto_Donatorio, 0, 10)}} </td>
       <td> {{$donacion->Cantidad_Gazapos}} </td>
       <td></td>
       <td><div class="btn-group btn-group-sm" role="group" aria-label="">

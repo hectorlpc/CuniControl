@@ -57,21 +57,10 @@ class PartoController extends Controller{
 
     public function index(Request $request)
     {
-        if($request->Id_Conejo_Hembra)
-        {
-           $partos = Parto::with('monta')->get();
-           $i=0;
-           foreach ($partos as $parto) {
-
-               if($parto->monta->Id_Conejo_Hembra == $request->Id_Conejo_Hembra){
-                    $partoSelect[$i] = $parto;
-                    $i++;
-               }
-           }
-           $partos=$partoSelect;
-           //:)
+        if ($request->input('Id_Conejo_Hembra')) {
+            $partos = Parto::where('Id_Parto', 'LIKE', $request->input('Id_Conejo_Hembra') . '%')->get();
         } else {
-            $partos = Parto::with('monta')->get();
+            $partos = Parto::all();
         }
         return view('Parto.index', ['partos' => $partos]);
     }

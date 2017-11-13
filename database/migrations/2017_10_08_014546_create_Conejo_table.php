@@ -22,7 +22,7 @@ class CreateConejoTable extends Migration
             $table->foreign('Id_Raza')->references('Id_Raza')->on('Raza');
             $table->enum('Genero',['Macho','Hembra'])->index();
 //            $table->integer('Peso_Conejo');
-            $table->enum('Status',['Vivo','Muerto'])->index();
+            $table->enum('Status',['Vivo','Muerto','Transferido'])->index();
             $table->enum('Desecho',['Si','No'])->nullable()->index();
             $table->enum('Engorda',['Si', 'No'])->nullable()->index();
             $table->enum('Productora',['Si', 'No'])->nullable()->index();

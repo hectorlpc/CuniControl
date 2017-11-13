@@ -14,11 +14,13 @@ class CreateDonacionGazapoTable extends Migration
     public function up()
     {
         Schema::create('Donacion_Gazapo', function (Blueprint $table) {
-            $table->string('Id_Donacion')->primary('Id_Donacion');
-            $table->string('Id_Parto_Donante');
+            $table->string('Id_Donacion', 80)->primary('Id_Donacion');
+            $table->string('Id_Parto_Donante',50);
             $table->foreign('Id_Parto_Donante')->references('Id_Parto')->on('Parto');
-            $table->string('Id_Parto_Donatorio');
+            $table->string('Id_Parto_Donatorio', 50);
+            $table->foreign('Id_Parto_Donatorio')->references('Id_Parto')->on('Parto');
             $table->smallInteger('Cantidad_Gazapos');
+            $table->date('Fecha');
             $table->timestamps();
         });
     }

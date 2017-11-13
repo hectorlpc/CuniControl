@@ -17,8 +17,8 @@ class DonacionController extends Controller{
 
     public function index(Request $request)
     {
-        if ($request->Id_Parto_Donante) {
-            $donaciones = Donacion::where('Id_Parto_Donante', $request->Id_Parto_Donante)->get();
+        if ($request->input('Id_Conejo_Hembra')) {
+            $donaciones = Donacion::where('Id_Donacion', 'LIKE', $request->input('Id_Conejo_Hembra') . '%')->get();
         } else {
             $donaciones = Donacion::all();
         }
@@ -29,6 +29,7 @@ class DonacionController extends Controller{
     public function store(Request $request){
         try{
             $donacion = new Donacion;
+            $donacion->Fecha = $request->input('Fecha');
             $donacion->Id_Parto_Donante = $request->input('Id_Parto_Donante');
             $donacion->Id_Parto_Donatorio = $request->input('Id_Parto_Donatorio');
             $donacion->Id_Donacion = $donacion->Id_Parto_Donante . $donacion->Id_Parto_Donatorio;

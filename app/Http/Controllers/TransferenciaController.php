@@ -23,7 +23,13 @@ class TransferenciaController extends Controller{
 			$transferencia->Id_Conejo = $request->input('Id_Conejo');
 			$transferencia->Id_Area = $request->input('Id_Area');
 			$transferencia->Fecha_Baja = $request->input('Fecha_Baja');
+
+			$conejo = Conejo::where('Id_Conejo', $request->input('Id_Conejo'))->first();
+			$conejo->Status = 'Transferido';
+
+			$conejo->save();
 			$transferencia->save();
+			
 			session()->flash("Exito","Transferencia creada");
 			return redirect('/transferencia');	
 		}catch (\Illuminate\Database\QueryException $e){

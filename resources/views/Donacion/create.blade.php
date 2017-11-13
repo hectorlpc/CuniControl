@@ -5,11 +5,17 @@
         <center><h2>Registro de Donacion de Gazapos</h2></center>
           <form form action="{{url('/donacion')}}" method="POST">
             {{ csrf_field() }}
+          <div>
+            <label>Fecha de donación</label>
+            <input class="form-control" name="Fecha" type="date" value="{{$fecha_actual = date('Y-m-d')}}">
+          </div>  
           <div class="form-group">
           <label for="exampleInputPassword2">Coneja Productora donante:</label>
           <select class="form-control" name="Id_Parto_Donante">
             @foreach ($partos as $parto)
+            @if($parto->Activado == 0)
               <option value="{{$parto->Id_Parto}}">{{$parto->monta->Id_Conejo_Hembra}}</option>
+            @endif
             @endforeach
           </select>
           </div>
@@ -17,7 +23,9 @@
           <label for="exampleInputPassword2">Coneja Productora receptora:</label>
           <select class="form-control" name="Id_Parto_Donatorio">
             @foreach ($partos as $parto)
+            @if($parto->Activado == 0)
               <option value="{{$parto->Id_Parto}}">{{$parto->monta->Id_Conejo_Hembra}}</option>
+            @endif    
             @endforeach
             </select>
           </div>

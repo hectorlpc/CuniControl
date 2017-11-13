@@ -9,7 +9,7 @@
             <form method="get" action="{{url('destete/')}}">
               <div class="form-group">
                 <label for="">Tatuaje Coneja</label>
-                <input type="" class="form-control" name="Id_Destete" placeholder="Buscar">
+                <input type="" class="form-control" name="Id_Conejo_Hembra" placeholder="Buscar">
                 <br>
                 <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
                 <a href="{{url('/destete/create')}}" type="submit" class="btn btn-outline-success">Agregar</a></div>

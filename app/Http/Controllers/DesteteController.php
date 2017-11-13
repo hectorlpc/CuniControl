@@ -73,9 +73,8 @@ class DesteteController extends Controller{
 
     public function index(Request $request)
     {
-        if($request->Id_Parto)
-        {   
-            $destetes = Destete::where('Id_Parto', $request->Id_Parto)->get();
+        if ($request->input('Id_Conejo_Hembra')) {
+            $destetes = Destete::where('Id_Destete', 'LIKE', $request->input('Id_Conejo_Hembra') . '%')->get();
         } else {
             $destetes = Destete::all();
         }

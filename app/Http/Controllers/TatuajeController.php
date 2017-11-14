@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Conejo;
 use App\Raza;
@@ -46,6 +47,7 @@ class TatuajeController extends Controller
         $destete = Destete::where('Id_Destete', $request->input('Id_Destete'))->first();
         $destete->Tatuados += 1;
 //Guardar conejo
+        $conejo->Creador = Auth::user()->CURP;
         $conejo->save();
         $destete->save();
 
@@ -80,6 +82,7 @@ class TatuajeController extends Controller
         $conejo->Genero = $request->input('Genero');
         $conejo->Status = $request->input('Status');
         $conejo->Engorda = $request->input('Engorda');
+        $conejo->Modificador = Auth::user()->CURP;
         $conejo->save();
 
         return redirect('/tatuaje');

@@ -21,6 +21,8 @@
       <th>Tatuaje Izquierdo:</th>
       <th>Raza:</th>
       <th>Genero:</th>
+      <th>Registró</th>
+      <th>Actualizó</th>
       <th></th>
     </tr>
   </thead>
@@ -35,6 +37,8 @@
       <td> {{$conejo->Tatuaje_Izquierdo}} </td>
       <td> {{$conejo->raza->Nombre_Raza}} </td>
       <td> {{$conejo->Genero}} </td>
+      <td> {{$conejo->Creador}} </td>
+      <td> {{$conejo->Modificador}} </td>      
       <td></td>
       <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">

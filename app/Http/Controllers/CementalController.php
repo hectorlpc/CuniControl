@@ -68,6 +68,7 @@ class CementalController extends Controller
             $cemental = new Cemental;
             $cemental->Id_Raza = $request->input('Id_Conejo_Macho')[0];
             $cemental->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');
+            $cemental->Fecha_Activo = $request->input('Fecha_Activo');
             $cemental->Status = 'Activo';
             $cemental->save();
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Conejo;
 use App\Parto;
@@ -41,6 +42,7 @@ class PartoController extends Controller{
             $parto->Numero_Muertos = $request->input('Numero_Muertos');
             $parto->Peso_Nacer = $request->input('Peso_Nacer');
             $parto->Id_Parto =  $parto->Id_Monta . $parto->Fecha_Parto ;
+            $parto->Creador = Auth::user()->CURP;
             $parto->save();
 
             $monta = Monta::where('Id_Monta', $request->input('Id_Monta'))->first();
@@ -72,6 +74,7 @@ class PartoController extends Controller{
         $parto->Numero_Vivos = $request->input('Numero_Vivos');
         $parto->Numero_Muertos = $request->input('Numero_Muertos');
         $parto->Peso_Nacer = $request->input('Peso_Nacer');
+        $parto->Modificador = Auth::user()->CURP;
         $parto->save();
         return redirect('/parto');
       }catch (\Illuminate\Database\QueryException $e){

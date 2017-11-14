@@ -23,6 +23,8 @@
                   <th>Medicamento :</th>
                   <th>Inicio de tratamiento:</th>
                   <th>Fin de tratamiento</th>
+                  <th>Registró</th>
+                  <th>Actualizó</th>                  
                   <th></th>
               </tr>
           </thead>
@@ -35,6 +37,8 @@
                     <td> {{$tratamiento->Nombre_Medicamento}} </td>
                     <td> {{$enfermo->Fecha_Inicio}} </td>
                     <td> {{$enfermo->Fecha_Fin}} </td>
+                    <td> {{$enfermo->Creador}} </td>
+                    <td> {{$enfermo->Modificador}} </td>
                     <td>
                     <div class="btn-group btn-group-sm" role="group" aria-label="">
                         <form method="POST" action="{{url('/enfermo/' . $enfermo->Id_Conejo)}}">

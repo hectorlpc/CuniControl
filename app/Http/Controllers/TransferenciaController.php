@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Conejo;
 use App\Area;
@@ -23,6 +24,7 @@ class TransferenciaController extends Controller{
 			$transferencia->Id_Conejo = $request->input('Id_Conejo');
 			$transferencia->Id_Area = $request->input('Id_Area');
 			$transferencia->Fecha_Baja = $request->input('Fecha_Baja');
+			$transferencia->Creador = Auth::user()->CURP;
 
 			$conejo = Conejo::where('Id_Conejo', $request->input('Id_Conejo'))->first();
 			$conejo->Status = 'Transferido';
@@ -64,6 +66,7 @@ class TransferenciaController extends Controller{
 		try{
 		$transferencia = Transferencia::where('Id_Transferencia', $id_transferencia)->first();
 		$transferencia->Id_Area = $request->input('Id_Area');
+		$transferencia->Modificador = Auth::user()->CURP;
 		$transferencia->save();
 
 		return redirect('/transferencia');

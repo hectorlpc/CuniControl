@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Conejo;
 use App\Monta;
@@ -41,6 +42,17 @@ class MontaController extends Controller{
         $monta->Fecha_Diagnostico = $request->input('Fecha_Diagnostico');
         $monta->Resultado_Diagnostico = $request->input('Resultado_Diagnostico');
         $monta->Fecha_Parto = $request->input('Fecha_Parto');
+        //dd($monta->Resultado_Diagnostico);
+        if($monta->Resultado_Diagnostico == 'Positivo') {
+            $semental = Cemental::where('Id_Conejo_Macho', $request->input('Id_Conejo_Macho'))->first();
+            $semental->Monta_Positiva += 1;
+
+            $productora = Productora::where('Id_Conejo_Hembra', $request->input('Id_Conejo_Hembra'))->first();
+            $productora->Monta_Positiva += 1;
+            $semental->save();
+            $productora->save();
+        }
+        $monta->Modificador = Auth::user()->CURP;
         $monta->save();
         return redirect('/monta');
       }catch (\Illuminate\Database\QueryException $e){
@@ -69,6 +81,7 @@ class MontaController extends Controller{
             $monta->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');
             $monta->Fecha_Monta = $request->input('Fecha_Monta');
             $monta->Id_Monta = $monta->Id_Conejo_Hembra . $monta->Fecha_Monta;
+            $monta->Creador = Auth::user()->CURP;
 
             $fecha_diagnostico = date_create($monta->Fecha_Monta);
             date_add($fecha_diagnostico, date_interval_create_from_date_string('15 days'));
@@ -78,7 +91,18 @@ class MontaController extends Controller{
             date_add($fecha_parto, date_interval_create_from_date_string('15 days'));
             $monta->Fecha_Parto = date_format($fecha_parto, 'Y-m-d');
 
+            $semental = Cemental::where('Id_Conejo_Macho', $request->input('Id_Conejo_Macho'))->first();
+            $semental->Fecha_Ultima_Monta = $monta->Fecha_Monta;
+            $semental->Numero_Monta += 1;
+
+            $productora = Productora::where('Id_Conejo_Hembra', $request->input('Id_Conejo_Hembra'))->first();
+            $productora->Fecha_Ultima_Monta = $monta->Fecha_Monta;
+            $productora->Numero_Monta += 1;
+
+            $semental->save();
+            $productora->save();
             $monta->save();
+
             session()->flash("Exito","Monta registrada");
             return redirect('/monta');
         }catch (\Illuminate\Database\QueryException $e){

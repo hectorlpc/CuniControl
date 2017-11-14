@@ -23,6 +23,8 @@
       <th>Fecha Diagnostico</th>
       <th>Resultado Diagnostico</th>
       <th>Fecha Parto Aprox</th>
+      <th>Registró</th>
+      <th>Actualizó</th>
       <th></th>
     </tr>
   </thead>
@@ -35,6 +37,8 @@
       <td> {{$monta->Fecha_Diagnostico}} </td>
       <td> {{$monta->Resultado_Diagnostico}} </td>
       <td> {{$monta->Fecha_Parto}} </td>
+      <td> {{$monta->Creador}} </td>
+      <td> {{$monta->Modificador}} </td>  
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
           <form method="POST" action="{{url('/monta/' . $monta->Id_Monta)}}">

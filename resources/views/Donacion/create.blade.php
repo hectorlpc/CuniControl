@@ -9,9 +9,11 @@
             <label>Fecha de donación</label>
             <input class="form-control" name="Fecha" type="date" value="{{$fecha_actual = date('Y-m-d')}}">
           </div>  
+          <br>
           <div class="form-group">
-          <label for="exampleInputPassword2">Coneja Productora donante:</label>
-          <select class="form-control" name="Id_Parto_Donante">
+          <label >Coneja Productora donante:</label>
+          <select class="form-control" name="Id_Parto_Donante" id="donador">
+            <option> -- Seleccione parto -- </option>
             @foreach ($partos as $parto)
             @if($parto->Activado == 0)
               <option value="{{$parto->Id_Parto}}">{{$parto->monta->Id_Conejo_Hembra}}</option>
@@ -20,15 +22,10 @@
           </select>
           </div>
           <div class="form-group">
-          <label for="exampleInputPassword2">Coneja Productora receptora:</label>
-          <select class="form-control" name="Id_Parto_Donatorio">
-            @foreach ($partos as $parto)
-            @if($parto->Activado == 0)
-              <option value="{{$parto->Id_Parto}}">{{$parto->monta->Id_Conejo_Hembra}}</option>
-            @endif    
-            @endforeach
+            <label for="">Coneja Productora Receptora:</label>
+            <select class="form-control" name="Id_Parto_Donatorio" id="receptor">
             </select>
-          </div>
+          </div>          
           <div class="form-group">
             <label for="exampleInputPassword2">Cantidad de gazapos donados:</label>
             <select class="form-control" name="Cantidad_Gazapos">

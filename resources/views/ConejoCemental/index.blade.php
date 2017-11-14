@@ -18,8 +18,12 @@
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
-      <th>Conejo Semental:</th>
-      <th>Raza Conejo:</th>
+      <th>Conejo:</th>
+      <th>Raza:</th>
+      <th>Fecha Alta:</th>
+      <th>Montas:</th>
+      <th>Exitosas:</th>
+      <th>Ultima monta:</th>
       <th></th>
     </tr>
   </thead>
@@ -29,6 +33,10 @@
       @if($cemental->Status == 'Activo')
       <td> {{$cemental->Id_Conejo_Macho}} </td>
       <td> {{$cemental->raza->Nombre_Raza}} </td>
+      <td> {{$cemental->Fecha_Activo}} </td>
+      <td> {{$cemental->Numero_Monta}} </td>
+      <td> {{$cemental->Monta_Positiva}} </td>
+      <td> {{$cemental->Fecha_Ultima_Monta}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
           <form method="POST" action="{{url('/cemental/' . $cemental->Id_Conejo_Macho)}}">

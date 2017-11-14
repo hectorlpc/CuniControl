@@ -68,6 +68,7 @@ Route::post('/donacion', 'DonacionController@store');
 Route::get('/donacion/{id_donacion}/edit', 'DonacionController@edit');
 Route::patch('/donacion/{id_donacion}', 'DonacionController@update');
 Route::delete('/donacion/{id_donacion}', 'DonacionController@delete');
+Route::post('/donacion/obtener-receptores','DonacionController@obtener_receptores');
 
 //Rutas de conejos enfermos
 Route::get('/enfermo', 'EnfermoController@index');
@@ -169,7 +170,6 @@ Route::get('/materia/{id_materia}/edit', 'MateriaController@edit');
 Route::patch('/materia/{id_materia}', 'MateriaController@update');
 Route::delete('/materia/{id_materia}','MateriaController@delete');
 Route::post('/grupos/obtener-grupos', 'MateriaController@obtener_grupo');
-
 
 //Rutas De Enfermedad
 Route::get('/enfermedad', 'EnfermedadController@index');

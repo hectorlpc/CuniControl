@@ -22,6 +22,8 @@
       <th>Fecha de baja:</th>
       <th>Motivo de baja:</th>
       <th>Descripcion de baja:</th>
+      <th>Registró</th>
+      <th>Actualizó</th>
       <th></th>
     </tr>
   </thead>
@@ -32,6 +34,8 @@
       <td> {{$transferencia->Fecha_Baja}} </td>
       <td> {{$transferencia->area->Nombre_Area}} </td>
       <td> {{$transferencia->area->Descripcion_Area}} </td>
+      <td> {{$transferencia->Creador}} </td>
+      <td> {{$transferencia->Modificador}} </td>      
       <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
         <form method="POST" action="{{url('/transferencia/' . $transferencia->Id_Transferencia)}}">

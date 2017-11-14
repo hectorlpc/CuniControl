@@ -22,6 +22,10 @@ class CreateDesteteTable extends Migration
           $table->smallInteger('No_Destetados')->index();
           $table->float('Peso_Destete')->nullable();
           $table->smallInteger('Tatuados')->default(0);
+          $table->string('Creador', 18)->nullable();
+          $table->foreign('Creador')->references('CURP')->on('Usuario');
+          $table->string('Modificador', 18)->nullable();
+          $table->foreign('Modificador')->references('CURP')->on('Usuario');          
           $table->timestamps();
         });
     }

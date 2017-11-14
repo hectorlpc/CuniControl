@@ -31,21 +31,30 @@ class SolicitudHorasController extends Controller
 			$solicitudHoras->Horas_Totales = $request->input('Horas_Totales');
 			$solicitudHoras->Id_Solicitud = strtoupper(substr($solicitudHoras->CURP_Alumno,0,4) . $solicitudHoras->Fecha_Solicitud);
 			$solicitudHoras->save();
-      		session()->flash("Exito","Materia Registrada");
+      		session()->flash("Exito","Solicitud realizada correctamente");
 			return redirect('/solicitudHoras');
 		}catch (\Illuminate\Database\QueryException $e){
-            session()->flash("Error","No es posible crear, solicitudHoras existente" . $e);
+            session()->flash("Error","No es posible crear, solicitud activa");
             return redirect('/solicitudHoras');
         }
 	}
 	public function index (Request $request)
 	{
-       /* if($request->Nombre_Materia)
-        {
-            $materias = Materia::where('Nombre_Materia', $request->Nombre_Materia)->get();
-        } else {
-            $materias = Materia::all();
-        }*/
-        return view('solicitudHoras/index');		
+       $CURP = Auth::user()->CURP;
+        $solicitudes = SolicitudHoras::where('CURP_Alumno', $CURP)->get();
+        return view('solicitudHoras/index',[
+            'solicitudes' => $solicitudes
+        ]);		
 	}
+    public function delete ($id_solicitud){
+        try{
+            $solicitud = SolicitudHoras::where('Id_Solicitud', $id_solicitud)->first();
+            $solicitud->delete();
+            session()->flash("Exito","Solicitud cancelada");
+            return redirect()->back();
+        }catch (\Illuminate\Database\QueryException $e){
+            session()->flash("Error","No es posible eliminar esa Solicitud");
+            return redirect()->back();
+        }
+    }
 }

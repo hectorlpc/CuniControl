@@ -5,15 +5,15 @@
   @include("compartidas.alertas")
           <center><h2>Resumen De Solicitud De Horas Practicas:</h2></center>
           <br>
+          <div align="right"><a href="{{url('/solicitudHoras/create')}}" type="submit" class="btn btn-outline-success">Solicitar horas</a>
           <br>
-          <a href="{{url('/solicitudHoras/create')}}" type="submit" class="btn btn-outline-success">Solicitar horas</a>
           <form>
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
+      <th>Código:</th>
       <th>Asignatura:</th>
       <th>Grupo:</th>
-      <th>Carrera:</th>
       <th>Fecha de la solicitud:</th>
       <th>Cantidad de horas practicas:</th>
       <th></th>
@@ -21,16 +21,22 @@
   </thead>
   <tbody>
     <tr>
-      <td>Laboratorio de conejos</td>
-      <td>1703</td>
-      <td>Veterinaria</td>
-      <td>17/10/2017</td>
-      <td>200</td>
+      @foreach($solicitudes as $solicitud)
+      <td>{{$solicitud->Id_Solicitud}}</td>
+      <td> {{$solicitud->Id_Materia}} </td>
+      <td> {{$solicitud->Id_Grupo}} </td>
+      <td> {{$solicitud->Fecha_Solicitud}} </td>
+      <td> {{$solicitud->Horas_Totales}} </td>
       <td><div class="btn-group btn-group-sm" role="group" aria-label="">
-      <button type="button" class="btn btn-secondary btn-outline-danger ">Cancelar Solicitud</button>
+         <form method="POST" action="{{url('solicitudHoras/' . $solicitud->Id_Solicitud)}}">
+          {{csrf_field()}}
+          {{method_field('delete')}}
+          <input type="hidden" name="Id_Solicitud" value="{{$solicitud->Id_Solicitud}}">
+            <button type="submit" class="btn btn-secondary btn-outline-danger ">Cancelar Solicitud</button>
+          </form>
       </div></td>
     </tr>
-
+    @endforeach
   </tbody>
 </table>
 

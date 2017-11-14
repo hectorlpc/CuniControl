@@ -5,6 +5,10 @@
             <form action="{{url('/solicitudHoras')}}" method="post">
         <center><h2>Solicitud De Horas Practicas:</h2></center>
       </br>
+      <div class="form-group">
+            <label for="exampleInputEmail1"> Fecha de la solicitud:</label>
+            <input class="form-control" readonly type="date" name="Fecha_Solicitud" value="{{$fecha=date('Y-m-d')}}">
+          </div>
           <div class="form-group">
             <label for="exampleInputPassword2">Asignatura:</label>
           <select class="form-control" name="Id_Materia">
@@ -23,12 +27,8 @@
                  @endforeach
             </select>
           </div>
-            <div class="form-group">
-            <label for="exampleInputEmail1"> Fecha de la solicitud:</label>
-            <input class="form-control" type="date" name="Fecha_Solicitud" value="{{$fecha=date('Y-m-d')}}">
-          </div>
           <div class="form-group">
-            <label for="exampleInputPassword2">Cantidad de horas practicas:</label>
+            <label for="exampleInputPassword2">Cantidad de horas prácticas a cumplir:</label>
             <input type="number" name="Horas_Totales" min="0" max="500">
           </div> 
         </br>

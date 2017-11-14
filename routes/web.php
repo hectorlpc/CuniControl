@@ -83,10 +83,10 @@ Route::get('/horas/{id_destete}', 'HorasController@edit');
 Route::delete('/horas/{id_destete}', 'HorasController@delete');
 
 //Rutas solicitud de horas
-Route::get('/solicitudHoras/create', 'solicitudHorasController@create');
-Route::get('/solicitudHoras','solicitudHorasController@index');
-Route::delete('/solicitudHoras/{id_horas}', 'solicitudHorasController@delete');
-Route::post('/solicitudHoras', 'solicitudHorasController@store');
+Route::get('/solicitudHoras/create', 'SolicitudHorasController@create');
+Route::get('/solicitudHoras','SolicitudHorasController@index');
+Route::delete('/solicitudHoras/{id_solicitud}', 'SolicitudHorasController@delete');
+Route::post('/solicitudHoras', 'SolicitudHorasController@store');
 
 //Rutas de parto
 Route::get('/parto/create', 'PartoController@create');

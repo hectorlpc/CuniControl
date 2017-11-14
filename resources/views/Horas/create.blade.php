@@ -8,7 +8,7 @@
     <div class="form-group">
       <label for="exampleInputEmail1">Fecha en que realizó actividades:</label>
 
-      <input class="form-control" type="date" name="fecha" min="2000-01-01" max="2050-01-01" step="2">
+      <input class="form-control" type="date" name="fecha" min="2000-01-01" max="2050-01-01" step="1">
     </div>
 
     <div class="form-group">

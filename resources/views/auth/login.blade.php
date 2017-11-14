@@ -19,10 +19,20 @@
                 {{ session('warning') }}
               </div>
             @endif
+            @if ($errors->has('CURP'))
+                            <span style="color:#990000">
+                                <strong>{{ $errors->first('CURP') }}</strong>
+                            </span>
+            @endif
+            @if ($errors->has('password'))
+               <span style="color:#990000">
+                   <br><strong>{{ $errors->first('password') }}</strong>
+               </span>
+           @endif
             <form method="POST" action="{{ route('login') }}">
                 {{ csrf_field() }}
                 <p>CURP</p>
-                <input type="text" name="CURP" placeholder="Ingresa CURP">
+                <input type="text" style="text-transform:uppercase;" onkeyup="javascript:this.value=this.value.toUpperCase();" name="CURP" placeholder="Ingresa CURP">
                 <p>Contraseña</p>
                 <input type="Password" name="password" placeholder="••••••">
                 <input type="submit" name="" value="Iniciar">

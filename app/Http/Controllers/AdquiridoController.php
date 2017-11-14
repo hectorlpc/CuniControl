@@ -71,7 +71,6 @@ class AdquiridoController extends Controller{
     public function store(Request $request)
     {
         try{
-
             $conejoAdquirido = new Adquirido;
             $conejo = new Conejo;
             $conejo->Tatuaje_Derecho = $request->input('Tatuaje_Derecho');

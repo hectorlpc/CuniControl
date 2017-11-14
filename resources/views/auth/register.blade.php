@@ -10,12 +10,7 @@
     <title>CuniControl | PRrincipal</title>
 </head>
 
-<<<<<<< HEAD
-<body>  
-    {{-- {{var_dump($errors)}}                 --}}
-=======
 <body>
->>>>>>> d7d27e993bbe1d54b7d6ca1c0f91e1ab68a91a8e
     <div class="contenedor-formulario">
         <div align="center"><img src="{{asset('images/LOGO CUNICONTROL.png')}}" class="user"></div>
         <div class="wrap">

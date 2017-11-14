@@ -23,17 +23,21 @@
           <th>Destetados</th>
           <th>Muertos</th>
           <th>Peso promedio de los destetados (Kilos)</th>
+          <th>Registró</th>
+          <th>Actualizó</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
         <tr>
           @foreach($destetes as $destete)
-          <td>{{$destete->parto->monta->Id_Conejo_Hembra}}</td>
-          <td>{{$destete->Fecha_Destete}}</td>
-          <td>{{$destete->Numero_Destetados}}</td>
-          <td>{{$destete->No_Destetados}}</td>
-          <td>{{$destete->Peso_Destete}}</td>
+          <td> {{$destete->parto->monta->Id_Conejo_Hembra}} </td>
+          <td> {{$destete->Fecha_Destete}} </td>
+          <td> {{$destete->Numero_Destetados}} </td>
+          <td> {{$destete->No_Destetados}} </td>
+          <td> {{$destete->Peso_Destete}} </td>
+          <td> {{$destete->Creador}} </td>
+          <td> {{$destete->Modificador}} </td>          
           <td></td>
           <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">

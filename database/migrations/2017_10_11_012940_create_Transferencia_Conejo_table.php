@@ -20,6 +20,10 @@ class CreateTransferenciaConejoTable extends Migration
             $table->string('Id_Area');
             $table->foreign('Id_Area')->references('Id_Area')->on('Area_Destino');
             $table->date('Fecha_Baja');
+            $table->string('Creador', 18)->nullable();
+            $table->foreign('Creador')->references('CURP')->on('Usuario');
+            $table->string('Modificador', 18)->nullable();
+            $table->foreign('Modificador')->references('CURP')->on('Usuario');            
             $table->timestamps();
         });
     }

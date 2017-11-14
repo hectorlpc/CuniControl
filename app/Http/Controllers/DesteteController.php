@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Destete;
 use App\Parto;
@@ -30,6 +31,7 @@ class DesteteController extends Controller{
           $destete = Destete::where('Id_Destete', $id_destete)->first();
           $destete->Numero_Destetados = $request->input('Numero_Destetados');
           $destete->Peso_Destete = $request->input('Peso_Destete');
+          $destete->Modificador = Auth::user()->CURP;
           $destete->save();
           return redirect('/destete');
         }catch (\Illuminate\Database\QueryException $e){
@@ -61,6 +63,7 @@ class DesteteController extends Controller{
             $destete->Numero_Destetados = $request->input('Numero_Destetados');
             $destete->No_Destetados = $request->input('No_Destetados');
             $destete->Peso_Destete = $request->input('Peso_Destete');
+            $destete->Creador = Auth::user()->CURP;
             $destete->save();
 
             $parto = Parto::where('Id_Parto', $request->input('Id_Parto'))->first();

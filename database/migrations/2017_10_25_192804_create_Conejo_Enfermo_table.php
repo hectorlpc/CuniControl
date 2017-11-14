@@ -19,6 +19,10 @@ class CreateConejoEnfermoTable extends Migration
             $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
             $table->date('Fecha_Inicio')->index();
             $table->date('Fecha_Fin')->index();
+            $table->string('Creador', 18)->nullable();
+            $table->foreign('Creador')->references('CURP')->on('Usuario');
+            $table->string('Modificador', 18)->nullable();
+            $table->foreign('Modificador')->references('CURP')->on('Usuario');            
             $table->timestamps();            
         });
     }

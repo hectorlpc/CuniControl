@@ -21,6 +21,10 @@ class CreateDonacionGazapoTable extends Migration
             $table->foreign('Id_Parto_Donatorio')->references('Id_Parto')->on('Parto');
             $table->smallInteger('Cantidad_Gazapos');
             $table->date('Fecha');
+            $table->string('Creador', 18)->nullable();
+            $table->foreign('Creador')->references('CURP')->on('Usuario');
+            $table->string('Modificador', 18)->nullable();
+            $table->foreign('Modificador')->references('CURP')->on('Usuario');            
             $table->timestamps();
         });
     }

@@ -62,6 +62,7 @@ class ProductoraController extends Controller{
             $productora->Id_Raza = $request->input('Id_Conejo_Hembra')[0];
             $productora->Id_Conejo_Hembra = $request->input('Id_Conejo_Hembra');
             $productora->Numero_Conejo = $request->input('Numero_Conejo');
+            $productora->Fecha_Activo = $request->input('Fecha_Activo');
             $productora->Status = 'Activo';
             $productora->save();
 

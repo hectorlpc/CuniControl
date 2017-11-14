@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Donacion;
 use App\Parto;
@@ -34,12 +35,19 @@ class DonacionController extends Controller{
             $donacion->Id_Parto_Donatorio = $request->input('Id_Parto_Donatorio');
             $donacion->Id_Donacion = $donacion->Id_Parto_Donante . $donacion->Id_Parto_Donatorio;
             $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
-            $donacion->save();
-            session()->flash("Exito","Donación registrada");
-            return redirect('/donacion');
-        }catch (\Illuminate\Database\QueryException $e){
-            session()->flash("Error","No es posible registrar, donación existente");
-            return redirect('/donacion');
+            $donacion->Creador = Auth::user()->CURP;
+
+            $parto = Parto::where('Id_Parto', $request->input('Id_Parto_Donante'))->first();
+            if($donacion->Cantidad_Gazapos <= $parto->Numero_Vivos) {
+                $donacion->save();
+            } else {
+                return redirect()->back();
+            }
+             session()->flash("Exito","Donación registrada");
+             return redirect('/donacion');
+         }catch (\Illuminate\Database\QueryException $e){
+             session()->flash("Error","No es posible registrar, donación existente");
+             return redirect('/donacion');
         }
 
     }
@@ -71,11 +79,28 @@ class DonacionController extends Controller{
         try{
           $donacion = Donacion::where('Id_Donacion', $id_donacion)->first();
           $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
+          $donacion->Modificador = Auth::user()->CURP;
           $donacion->save();
           return redirect('/donacion');
         }catch (\Illuminate\Database\QueryException $e){
           session()->flash("Error","No es posible Modificar esa Donación");
           return redirect('/donacion');
         }
+    }
+
+    public function obtener_receptores (Request $request) {
+        $opciones = Parto::where('Activado', '=', '0')->where('Numero_Vivos', '>', '0')->get();
+        $i = 0;
+        $arrayOptions = [];
+        foreach ($opciones as $opcion) {
+            $arrayOptions[$i] =[
+                'Id_Parto' => $opcion->Id_Parto,
+                'Id_Conejo_Hembra' => $opcion->monta->Id_Conejo_Hembra
+            ];
+            $i++;
+        }
+        $respuesta = ['opciones' => $arrayOptions];
+
+        return response()->json($respuesta);
     }
 }

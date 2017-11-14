@@ -7,6 +7,11 @@
     </br>
           <form action="{{url('/cemental')}}" method="post">
             {{ csrf_field() }}
+          <div>
+            <label>Fecha de alta</label>
+            <input class="form-control" type="date" name="Fecha_Activo" value="{{$fecha = date('Y-m-d')}}">
+          </div>
+          <br>
           <div class="form-group" >
             <label for="Conejo_Cemental">Número de tatuaje del conejo:</label>
            <select class="form-control" name="Id_Conejo_Macho">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Conejo;
 use App\Enfermedad;
@@ -32,6 +33,7 @@ class EnfermoController extends Controller
             $enfermo->Fecha_Inicio = $request->input('Fecha_Inicio');
             $enfermo->Fecha_Fin = $request->input('Fecha_Fin');
             $enfermo->Id_Conejo_Enfermo = $enfermo->Id_Conejo . $enfermo->Fecha_Inicio;
+            $enfermo->Creador = Auth::user()->CURP;
             $enfermo->save();
             session()->flash("Exito","Conejo Enfermo registrado");
             $enfermo->enfermedades()->attach($request->input('Id_Enfermedad'),
@@ -95,7 +97,7 @@ class EnfermoController extends Controller
         $enfermo->Fecha_Fin = $request->input('Fecha_Fin');
         $enfermo->Id_Enfermedad = $request->input('Id_Enfermedad');
         $enfermo->Id_Medicamento = $request->input('Id_Medicamento');
-        //dd($request->all());
+        $enfermo->Modificador = Auth::user()->CURP;
         $enfermo->save();
 
         return redirect('/enfermo');

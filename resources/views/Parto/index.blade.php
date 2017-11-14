@@ -24,18 +24,22 @@
     <th>Cant.gazapos vivos</th>
     <th>Cant.de gazapos muertos</th>
     <th>Peso promedio (g)</th>
+    <th>Registró</th>
+    <th>Actualizó</th>    
     <th></th>
   </tr>
 </thead>
 <tbody>
   <tr>
     @foreach($partos as $parto)
-    <td>{{$parto->Fecha_Parto}}</td>
-    <td>{{$parto->monta->Id_Conejo_Hembra}}</td>
-    <td>{{$parto->monta->Fecha_Monta}}</td>
-    <td>{{$parto->Numero_Vivos}}</td>
-    <td>{{$parto->Numero_Muertos}}</td>
-    <td>{{$parto->Peso_Nacer}}</td>
+    <td> {{$parto->Fecha_Parto}} </td>
+    <td> {{$parto->monta->Id_Conejo_Hembra}} </td>
+    <td> {{$parto->monta->Fecha_Monta}} </td>
+    <td> {{$parto->Numero_Vivos}} </td>
+    <td> {{$parto->Numero_Muertos}} </td>
+    <td> {{$parto->Peso_Nacer}} </td>
+    <td> {{$parto->Creador}} </td>
+    <td> {{$parto->Modificador}} </td>    
     <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
         <form method="POST" action="{{url('/parto/' . $parto->Id_Parto)}}">

@@ -24,6 +24,10 @@ class CreateMontaTable extends Migration
             $table->enum('Resultado_Diagnostico',['Positivo','Negativo'])->nullable()->index();
             $table->date('Fecha_Parto')->nullable();
             $table->boolean('Activado')->default(0);
+            $table->string('Creador', 18)->nullable();
+            $table->foreign('Creador')->references('CURP')->on('Usuario');
+            $table->string('Modificador', 18)->nullable();
+            $table->foreign('Modificador')->references('CURP')->on('Usuario');
             $table->timestamps();
         });
     }

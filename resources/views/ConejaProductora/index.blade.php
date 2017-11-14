@@ -18,9 +18,13 @@
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
-      <th>Coneja de producción:</th>
-      <th>Raza Coneja:</th>
+      <th>Coneja:</th>
+      <th>Raza:</th>
       <th>Numero de productora:</th>
+      <th>Fecha Alta:</th>
+      <th>Montas:</th>
+      <th>Exitosas:</th>
+      <th>Ultima monta:</th>
       <th></th>
     </tr>
   </thead>
@@ -31,6 +35,10 @@
       <td> {{$productora->Id_Conejo_Hembra}} </td>
       <td> {{$productora->raza->Nombre_Raza}} </td>
       <td> {{$productora->Numero_Conejo}} </td>
+      <td> {{$productora->Fecha_Activo}} </td>
+      <td> {{$productora->Numero_Monta}} </td>
+      <td> {{$productora->Monta_Positiva}} </td>
+      <td> {{$productora->Fecha_Ultima_Monta}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
           <form method="POST" action="{{url('/productora/' . $productora->Id_Conejo_Hembra)}}">

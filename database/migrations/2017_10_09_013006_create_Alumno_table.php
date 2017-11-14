@@ -15,9 +15,10 @@ class CreateAlumnoTable extends Migration
     {
         Schema::create('Alumno', function (Blueprint $table) {
             $table->string('CURP_Alumno',18)->primary('CURP_Alumno');
-            $table->string('Seguro_Axxa',10);
-            $table->string('Seguro_Facultativo',11);
-            $table->string('Numero_Cuenta',10);
+            $table->foreign('CURP_Alumno',18)->references('CURP')->on('Usuario');
+            $table->string('Seguro_Axxa',10)->nullable();
+            $table->string('Seguro_Facultativo',11)->nullable();
+            $table->string('Numero_Cuenta',10)->nullable();
             $table->timestamps();
         });
     }

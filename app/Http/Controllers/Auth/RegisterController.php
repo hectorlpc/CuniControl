@@ -48,6 +48,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+      $messages = [
+        'CURP.required' => 'Es necesario el CURP.',
+        'Nombre_Usuario.required' => 'Es necesario el Nombre.',
+        'Apellido_Paterno.required' => 'Es necesario el Apellido Paterno.',
+        'Apellido_Materno.required' => 'Es necesario el Apellido Materno.',
+        'Correo.required' => 'Es necesario el Correo.',
+        'Genero.required' => 'Es necesario el Genero.',
+        'Fecha_Nacimiento.required' => 'Es necesario la Fecha de Nacimiento.',
+        'Telefono.required' => 'Es necesario un Numero de Telefono.',
+        'Celular.required' => 'Es necesario un Numero de Celular.',
+        'password.required' => 'Es necesario poner una Contraseña.',
+        'password.confirmed' => 'La confirmación de contraseña no coincide.',
+        'password.min' => 'La contraseña debe tener al menos :min caracteres.',
+      ];
+
         return Validator::make($data, [
             'CURP' => 'required|string|max:255',
             'Nombre_Usuario' => 'required|string|max:255',
@@ -59,7 +74,7 @@ class RegisterController extends Controller
             'Telefono' => 'required|string|max:255',
             'Celular' => 'required|string|max:255',
             'password' => 'required|string|min:6|confirmed',
-        ]);
+        ],$messages);
     }
 
 /**

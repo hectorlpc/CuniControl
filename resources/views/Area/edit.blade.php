@@ -3,7 +3,7 @@
 @section('content')
 
       <div class="container">
-        <center><h2>Actualizar Registro De Raza:</h2></center>
+        <center><h2>Actualizar Registro De Area:</h2></center>
     </br>
           <form action="{{url('/area/' . $area->Id_Area)}}" method="POST" role="form">
             {{method_field('patch')}}

@@ -29,9 +29,9 @@ class TransferenciaController extends Controller{
 
 			$conejo->save();
 			$transferencia->save();
-			
+
 			session()->flash("Exito","Transferencia creada");
-			return redirect('/transferencia');	
+			return redirect('/transferencia');
 		}catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, Transferencia existente");
             return redirect('/transferencia');
@@ -61,11 +61,16 @@ class TransferenciaController extends Controller{
 	}
 
 	public function update(Request $request, $id_transferencia){
+		try{
 		$transferencia = Transferencia::where('Id_Transferencia', $id_transferencia)->first();
 		$transferencia->Id_Area = $request->input('Id_Area');
 		$transferencia->save();
 
 		return redirect('/transferencia');
+	}catch (\Illuminate\Database\QueryException $e){
+					session()->flash("Error","No es posible Modificar Transferencia");
+					return redirect('/transferencia');
+			}
 	}
 
 	public function delete($id_transferencia){
@@ -73,8 +78,8 @@ class TransferenciaController extends Controller{
 			$transferencia = Transferencia::where('Id_Transferencia',$id_transferencia)->first();
 			$transferencia->delete();
 	        session()->flash("Exito","Transferencia eliminada");
-			return redirect()->back();	
-		}catch (\Illuminate\Database\QueryException $e){ 
+			return redirect()->back();
+		}catch (\Illuminate\Database\QueryException $e){
 	        session()->flash("Error","No es posible eliminar esa Transferencia");
 	        return redirect()->back();
     }

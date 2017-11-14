@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Destete;
 use App\Parto;
 
-class DesteteController extends Controller{ 
+class DesteteController extends Controller{
 
     public function create()
     {
@@ -19,28 +19,32 @@ class DesteteController extends Controller{
     {
         $destete = Destete::all();
         $destete = Destete::where('Id_Destete', $id_destete)->first();
-    	
+
         return view('Destete.edit',[
             'destete' => $destete ]);
     }
 
     public function update(Request $request, $id_destete)
     {
-        $destete = Destete::where('Id_Destete', $id_destete)->first();
-        $destete->Numero_Destetados = $request->input('Numero_Destetados');
-        $destete->Peso_Destete = $request->input('Peso_Destete');
-        $destete->save();
-
-        return redirect('/destete');
+        try{
+          $destete = Destete::where('Id_Destete', $id_destete)->first();
+          $destete->Numero_Destetados = $request->input('Numero_Destetados');
+          $destete->Peso_Destete = $request->input('Peso_Destete');
+          $destete->save();
+          return redirect('/destete');
+        }catch (\Illuminate\Database\QueryException $e){
+          session()->flash("Error","No es posible Modificar ese destete");
+          return redirect('/destete');
+        }
     }
 
     public function delete($id_destete)
-    {   
+    {
         try{
             $destete = Destete::where('Id_Destete', $id_destete)->first();
             $destete->delete();
             session()->flash("Exito","Destete eliminado");
-            return redirect()->back();   
+            return redirect()->back();
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible eliminar ese destete");
             return redirect()->back();
@@ -53,7 +57,7 @@ class DesteteController extends Controller{
             $destete = new Destete;
             $destete->Id_Parto = $request->input('Id_Parto');
             $destete->Fecha_Destete = $request->input('Fecha_Destete');
-            $destete->Id_Destete = $destete->Id_Parto .  $destete->Fecha_Destete; 
+            $destete->Id_Destete = $destete->Id_Parto .  $destete->Fecha_Destete;
             $destete->Numero_Destetados = $request->input('Numero_Destetados');
             $destete->No_Destetados = $request->input('No_Destetados');
             $destete->Peso_Destete = $request->input('Peso_Destete');
@@ -62,9 +66,9 @@ class DesteteController extends Controller{
             $parto = Parto::where('Id_Parto', $request->input('Id_Parto'))->first();
             $parto->Activado = 1;
             $parto->save();
-            
+
             session()->flash("Exito","Destete creado");
-            return redirect('/destete');            
+            return redirect('/destete');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, destete existente");
             return redirect('/destete');
@@ -87,10 +91,10 @@ class DesteteController extends Controller{
         $no_destetados = $opcion->Numero_Muertos;
         $peso = $opcion->Peso_Nacer;
         $fechaDeParto = $opcion->Fecha_Parto;
-        
+
         $fecha_destete = date_create($fechaDeParto);
         date_add($fecha_destete, date_interval_create_from_date_string('35 days'));
-        $fechaDeParto = date_format($fecha_destete, 'Y-m-d');   
+        $fechaDeParto = date_format($fecha_destete, 'Y-m-d');
 
         $respuesta = [
             'cantidad' => $cantidad,
@@ -100,5 +104,5 @@ class DesteteController extends Controller{
         ];
 
         return response()->json($respuesta);
-    }          
+    }
 }

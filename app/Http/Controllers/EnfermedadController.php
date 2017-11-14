@@ -17,21 +17,25 @@ class EnfermedadController extends Controller
     {
         $enfermedad = Enfermedad::where('Id_Enfermedad', $id_enfermedad)->first();
 
-        return view('Enfermedad/edit',['enfermedad' => $enfermedad]);        
+        return view('Enfermedad/edit',['enfermedad' => $enfermedad]);
     }
 
     public function update(Request $request, $id_enfermedad)
     {
-        $enfermedad = Enfermedad::where('Id_Enfermedad', $id_enfermedad)->first();
-        $enfermedad->Nombre_Enfermedad = $request->input('Nombre_Enfermedad');
-        $enfermedad->Descripcion_Enfermedad = $request->input('Descripcion_Enfermedad');
-        $enfermedad->save();
-
-        return redirect('/enfermedad');
+        try{
+          $enfermedad = Enfermedad::where('Id_Enfermedad', $id_enfermedad)->first();
+          $enfermedad->Nombre_Enfermedad = $request->input('Nombre_Enfermedad');
+          $enfermedad->Descripcion_Enfermedad = $request->input('Descripcion_Enfermedad');
+          $enfermedad->save();
+          return redirect('/enfermedad');
+        }catch (\Illuminate\Database\QueryException $e){
+          session()->flash("Error","No es posible Modificar esa enfermedad");
+          return redirect('/enfermedad');
+        }
     }
 
     public function delete($id_enfermedad)
-    {   
+    {
         try{
             $enfermedad = Enfermedad::where('Id_Enfermedad', $id_enfermedad)->first();
             $enfermedad->delete();
@@ -41,7 +45,7 @@ class EnfermedadController extends Controller
             session()->flash("Error","No es posible eliminar esa enfermedad");
             return redirect()->back();
         }
-        
+
     }
 
     public function store(Request $request)
@@ -52,19 +56,19 @@ class EnfermedadController extends Controller
             $enfermedad->Id_Enfermedad = strtoupper(substr($request->input('Nombre_Enfermedad'),0,3) . substr($request->input('Nombre_Enfermedad'),-3));
             $enfermedad->Descripcion_Enfermedad = $request->input('Descripcion_Enfermedad');
             $enfermedad->save();
-            session()->flash("Exito","Enfermedad registrada");            
+            session()->flash("Exito","Enfermedad registrada");
             return redirect('/enfermedad');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible registrar, enfermedad existente");
             return redirect('/enfermedad');
         }
-        
+
     }
 
     public function index(Request $request)
     {
         if($request->Id_Enfermedad)
-        {   
+        {
             $enfermedades = Enfermedad::where('Nombre_Enfermedad', $request->Id_Enfermedad)->get();
         } else {
             $enfermedades = Enfermedad::all();

@@ -51,9 +51,20 @@ class LoginController extends Controller
         }
        return redirect($this->redirectTo);
      }
+
+    protected function validateLogin(Request $request)
+    {
+      $messages = [
+        'CURP.required' => 'Es necesario el CURP.',
+        'password.required' => 'La contraseña es necesaria.',
+      ];
+        $this->validate($request, [
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+        ],$messages);
+    }
     public function username()
     {
         return 'CURP';
     }
-
 }

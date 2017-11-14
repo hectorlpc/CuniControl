@@ -4,15 +4,16 @@
       <div class="container">
         <center><h2>Registro De Conejo Adquirido:</h2></center>
     </br>
+    <br>
           <form action="{{url('/adquirido')}}" method="post">
             {{ csrf_field() }}
           <div class="form-group">
             <label for="Conejo_Adquirido">Número de tatuaje derecho:</label>
-            <input class="form-control" name="Tatuaje_Derecho" type="text" >
+            <input class="form-control" onkeypress="return solonumeros(event)" name="Tatuaje_Derecho" type="text" >
           </div>
           <div class="form-group">
             <label for="Conejo_Adquirido">Número de tatuaje izquierdo:</label>
-            <input class="form-control" name="Tatuaje_Izquierdo" type="text" >
+            <input class="form-control" onkeypress="return solonumeros(event)" name="Tatuaje_Izquierdo" type="text" >
           </div>
 
           <div class="form-group">
@@ -53,4 +54,8 @@
         </form>
       </div>
 
+@endsection
+@section('Scrips')
+<script src="{{ asset('js/SoloNumeros.js') }}"></script>
+<script src="{{ asset('js/SoloLetras.js') }}"></script>
 @endsection

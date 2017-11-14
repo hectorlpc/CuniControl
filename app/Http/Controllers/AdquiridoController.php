@@ -42,23 +42,27 @@ class AdquiridoController extends Controller{
 
     public function update(Request $request, $id_adquirido)
     {
+      try{
         $conejoAdquirido = Adquirido::where('Id_Adquirido', $id_adquirido)->first();
         $conejoAdquirido->Id_Adquisicion = $request->input('Id_Adquisicion');
         $conejoAdquirido->Fecha_Adquisicion = $request->input('Fecha_Adquisicion');
         $conejoAdquirido->save();
-
         return redirect('/adquirido');
+      }catch (\Illuminate\Database\QueryException $e){
+          session()->flash("Error","No es posible Modificar");
+          return redirect('/adquirido');
+      }
     }
 
     public function delete($id_adquirido)
-    {   
+    {
         try{
         $conejoAdquirido = Adquirido::where('Id_Adquirido', $id_adquirido)->first();
         $conejoAdquirido->delete();
         session()->flash("Exito","Conejo eliminado");
-        return redirect()->back();   
+        return redirect()->back();
         }catch (\Illuminate\Database\QueryException $e){
-        
+
         session()->flash("Error","No es posible eliminar este conejo");
         return redirect()->back();
     }
@@ -67,7 +71,6 @@ class AdquiridoController extends Controller{
     public function store(Request $request)
     {
         try{
-
             $conejoAdquirido = new Adquirido;
             $conejo = new Conejo;
             $conejo->Tatuaje_Derecho = $request->input('Tatuaje_Derecho');
@@ -84,17 +87,17 @@ class AdquiridoController extends Controller{
             $conejoAdquirido->Id_Adquirido = $conejoAdquirido->Id_Conejo . $conejoAdquirido->Id_Adquisicion;
             $conejoAdquirido->save();
             session()->flash("Exito","Conejo Adquirido creado");
-            return redirect('/adquirido');   
+            return redirect('/adquirido');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, conejo con tatuajes iguales existente");
             return redirect('/adquirido');
-        }   
+        }
     }
 
     public function index(Request $request)
     {
         if($request->Id_Conejo)
-        {   
+        {
             $adquiridos = Adquirido::where('Id_Conejo', $request->Id_Conejo)->get();
         } else {
             $adquiridos = Adquirido::all();

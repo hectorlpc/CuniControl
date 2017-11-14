@@ -20,15 +20,15 @@ class CarreraController extends Controller
 			$carrera = new Carrera;
 			$carrera->Clave_Carrera = $request->input('Clave_Carrera');
 			$carrera->Nombre_Carrera = $request->input('Nombre_Carrera');
-			$carrera->Id_Carrera = strtoupper(substr($request->input('Nombre_Carrera'),0,3) . substr($request->input('Nombre_Carrera'),-3));		
+			$carrera->Id_Carrera = strtoupper(substr($request->input('Nombre_Carrera'),0,3) . substr($request->input('Nombre_Carrera'),-3));
 			$carrera->save();
             session()->flash("Exito","Carrera creada");
-			return redirect('/carrera');	
+			return redirect('/carrera');
 		}catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, Carrera existente");
             return redirect('/carrera');
         }
-		
+
 	}
 
 	public function index (Request $request)
@@ -39,7 +39,7 @@ class CarreraController extends Controller
         } else {
             $carreras = Carrera::all();
         }
-        return view('carrera/index', ['carreras' => $carreras]);		
+        return view('carrera/index', ['carreras' => $carreras]);
 	}
 
 	public function edit ($id_carrera)
@@ -52,11 +52,16 @@ class CarreraController extends Controller
 
 	public function update (Request $request, $id_carrera)
 	{
-		$carrera = Carrera::where('Id_Carrera', $id_carrera)->first();
-		$carrera->Nombre_Carrera = $request->input('Nombre_Carrera');
-		$carrera->save();
+		try{
+			$carrera = Carrera::where('Id_Carrera', $id_carrera)->first();
+			$carrera->Nombre_Carrera = $request->input('Nombre_Carrera');
+			$carrera->save();
+			return redirect('/carrera');
+		}catch (\Illuminate\Database\QueryException $e){
 
-		return redirect('/carrera');
+			session()->flash("Error","No es posible Modificar esa carrera");
+			return redirect('/carrera');
+		}
 	}
 
 	public function delete ($id_carrera)
@@ -67,10 +72,10 @@ class CarreraController extends Controller
 		session()->flash("Exito","Carrera Eliminada");
 		return redirect()->back();
 		}catch (\Illuminate\Database\QueryException $e){
-        
+
         session()->flash("Error","No es posible eliminar esa carrera");
         return redirect()->back();
     }
-		
+
 	}
 }

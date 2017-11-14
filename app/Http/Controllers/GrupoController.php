@@ -20,7 +20,7 @@ class GrupoController extends Controller
 			$grupo = new Grupo;
 			$grupo->Clave_Grupo = $request->input('Clave_Grupo');
 			$grupo->Id_Carrera = $request->input('Id_Carrera');
-			$grupo->Id_Grupo = $grupo->Clave_Grupo. '-' . $grupo->Id_Carrera; 
+			$grupo->Id_Grupo = $grupo->Clave_Grupo. '-' . $grupo->Id_Carrera;
 			$grupo->save();
             session()->flash("Exito","Grupo creado");
 			return redirect('/grupo');
@@ -28,7 +28,7 @@ class GrupoController extends Controller
             session()->flash("Error","No es posible crear, grupo existente");
             return redirect('/grupo');
         }
-		
+
 	}
 
 	public function index (Request $request)
@@ -39,7 +39,7 @@ class GrupoController extends Controller
         } else {
             $grupos = Grupo::all();
         }
-        return view('Grupo/index', ['grupos' => $grupos]);		
+        return view('Grupo/index', ['grupos' => $grupos]);
 	}
 
 	public function edit ($id_grupo)
@@ -52,11 +52,15 @@ class GrupoController extends Controller
 
 	public function update (Request $request, $id_grupo)
 	{
+		try{
 		$grupo = Grupo::where('Id_Grupo', $id_grupo)->first();
 		$grupo->Id_Grupo = $request->input('Id_Grupo');
 		$grupo->save();
-
 		return redirect('/grupo');
+	}catch (\Illuminate\Database\QueryException $e){
+			session()->flash("Error","No es posible Modificar ese grupo");
+			return redirect('/grupo');
+		}
 	}
 
 	public function delete ($id_grupo)
@@ -65,9 +69,9 @@ class GrupoController extends Controller
 		$grupo = Grupo::where('Id_Grupo', $id_grupo)->first();
 		$grupo->delete();
 		session()->flash("Exito","Grupo eliminado");
-		return redirect()->back();	
+		return redirect()->back();
 		}catch (\Illuminate\Database\QueryException $e){
-        
+
         session()->flash("Error","No es posible eliminar ese grupo");
         return redirect()->back();
     	}

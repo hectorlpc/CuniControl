@@ -25,6 +25,7 @@ class CementalController extends Controller
 
     public function update(Request $request, $id_cemental)
     {
+        try{
         $cemental = Cemental::where('Id_Conejo_Macho', $id_cemental)->first();
         $cemental->Status = 'Inactivo';
         $cemental->save();
@@ -38,12 +39,16 @@ class CementalController extends Controller
         $desecho->Id_Raza = $request->input('Id_Conejo_Macho')[0];
         $desecho->Procedencia = 'Semental';
         $desecho->save();
-
         return redirect('/cemental');
+      }catch (\Illuminate\Database\QueryException $e){
+
+      session()->flash("Error","No es posible Modificar este Semental");
+      return redirect('/cemental');
+      }
     }
 
     public function delete($id_cemental)
-    {   
+    {
         try{
 
         $cemental = Cemental::where('Id_Cemental', $id_cemental)->first();
@@ -51,7 +56,7 @@ class CementalController extends Controller
         session()->flash("Exito","Semental eliminado");
         return redirect()->back();
         }catch (\Illuminate\Database\QueryException $e){
-        
+
         session()->flash("Error","No es posible eliminar este Semental");
         return redirect()->back();
         }
@@ -74,7 +79,7 @@ class CementalController extends Controller
             $conejo->save();
 
             session()->flash("Exito","Semental registrado");
-            
+
             return redirect('/cemental');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, Semental existente");
@@ -85,7 +90,7 @@ class CementalController extends Controller
     public function index(Request $request)
     {
         if($request->Id_Conejo_Macho)
-        {   
+        {
             $cementales = Cemental::where('Id_Conejo_Macho', $request->Id_Conejo_Macho)->get();
         } else {
             $cementales = Cemental::all();

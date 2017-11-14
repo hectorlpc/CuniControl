@@ -10,7 +10,7 @@ use App\Cemental;
 use App\Raza;
 
 class MontaController extends Controller{
-    public function create(){   
+    public function create(){
         $razas = Raza::all();
         $cementales = Cemental::all();
         $productoras = Productora::all();
@@ -18,7 +18,7 @@ class MontaController extends Controller{
             'cementales' => $cementales,
             'productoras' => $productoras,
             'razas' => $razas
-        ]);   
+        ]);
     }
 
     public function edit($id_monta){
@@ -34,6 +34,7 @@ class MontaController extends Controller{
     }
 
     public function update(Request $request, $id_monta){
+      try{
         $monta = Monta::where('Id_Monta', $id_monta)->first();
         //$intervalo = date_diff($fecha_monta, $fecha_parto);
         //dd($intervalo);
@@ -41,8 +42,11 @@ class MontaController extends Controller{
         $monta->Resultado_Diagnostico = $request->input('Resultado_Diagnostico');
         $monta->Fecha_Parto = $request->input('Fecha_Parto');
         $monta->save();
-
-        return redirect('/monta');         
+        return redirect('/monta');
+      }catch (\Illuminate\Database\QueryException $e){
+          session()->flash("Error","No es posible Modificar Monta");
+          return redirect('/monta');
+      }
     }
 
     public function delete($id_monta){
@@ -50,7 +54,7 @@ class MontaController extends Controller{
             $monta = Monta::where('Id_Monta', $id_monta)->first();
             $monta->delete();
             session()->flash("Exito","Monta eliminada");
-            return redirect()->back();   
+            return redirect()->back();
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible eliminar esa Monta");
             return redirect()->back();
@@ -58,25 +62,25 @@ class MontaController extends Controller{
     }
 
     public function store (Request $request){
-        try{ 
+        try{
             $monta = new Monta;
             $monta->Fecha_Monta = $request->input('Fecha_Monta');
             $monta->Id_Conejo_Hembra = $request->input('Id_Conejo_Hembra');
-            $monta->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');    
+            $monta->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');
             $monta->Fecha_Monta = $request->input('Fecha_Monta');
             $monta->Id_Monta = $monta->Id_Conejo_Hembra . $monta->Fecha_Monta;
 
             $fecha_diagnostico = date_create($monta->Fecha_Monta);
             date_add($fecha_diagnostico, date_interval_create_from_date_string('15 days'));
-            $monta->Fecha_Diagnostico = date_format($fecha_diagnostico, 'Y-m-d');   
-            
+            $monta->Fecha_Diagnostico = date_format($fecha_diagnostico, 'Y-m-d');
+
             $fecha_parto = date_create($monta->Fecha_Diagnostico);
             date_add($fecha_parto, date_interval_create_from_date_string('15 days'));
-            $monta->Fecha_Parto = date_format($fecha_parto, 'Y-m-d');            
+            $monta->Fecha_Parto = date_format($fecha_parto, 'Y-m-d');
 
             $monta->save();
             session()->flash("Exito","Monta registrada");
-            return redirect('/monta');   
+            return redirect('/monta');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible registrar, monta existente");
             return redirect('/monta');
@@ -92,7 +96,7 @@ class MontaController extends Controller{
             $montas = Monta::all();
         }
         return view('Monta.index', ['montas' => $montas]);
-    }  
+    }
 
     public function obtener_semental(Request $request) {
         $opciones = Cemental::where('Id_Raza', $request->raza)->get();
@@ -105,16 +109,15 @@ class MontaController extends Controller{
         $respuesta = ['opciones' =>$arrayOpcionesId];
 
         return response()->json($respuesta);
-    }  
+    }
 
     public function obtener_fechas(Request $request) {
         $opcion = Monta::find($request->datosMonta);
         $fecha_diagnostico = $opcion->Fecha_Parto;
-        
+
 
         $respuesta = ['fecha_diagnostico' => $fecha_diagnostico];
 
-        return response()->json($respuesta);        
+        return response()->json($respuesta);
     }
 }
-

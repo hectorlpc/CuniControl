@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
-    @include(compartidas.alertas)
+    @include("compartidas.alertas")
               <form method="get" action="{{url('adquisicion/')}}">
               <center><h2><label for="Adquisicion">Tipos de Adquisición</label></h2></center>
               <div class="form-group">
@@ -48,6 +48,5 @@
 
     </div>
 
-</form>
 
 @endsection

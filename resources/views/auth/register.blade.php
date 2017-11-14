@@ -11,7 +11,7 @@
 </head>
 
 <body>  
-    {{var_dump($errors)}}                
+    {{-- {{var_dump($errors)}}                 --}}
     <div class="contenedor-formulario">
         <div align="center"><img src="{{asset('images/LOGO CUNICONTROL.png')}}" class="user"></div>     
         <div class="wrap">

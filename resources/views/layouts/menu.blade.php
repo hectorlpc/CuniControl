@@ -15,7 +15,10 @@
         <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>
           Alumno<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
             <ul>
-              <li> <a href="{{url('/horas/create')}}">Solicitar horas practicas </a> </li>
+              <li> <a href="{{url('/solicitudHoras')}}">Solicitar horas practicas </a> </li>
+              <li> <a href="{{url('/horas/create')}}">Registro de horas cumplidas </a> </li>
+              <li> <a href="{{url('/alumno/create')}}">Completa tus datos personales</a> </li>
+              <li> <a href="{{url('/alumno/edit')}}">Actualiza tus datos personales</a> </li>
           </ul>
           </li>
 @endif
@@ -65,7 +68,7 @@
 @endif
 
 @if(Auth::user()->tieneRol('ROLPRF'))
-              <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Profesor Encargado<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+              <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Profesor<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="{{url('/grupo/')}}">Registro de Grupos</a> </li>
                     <li> <a href="{{url('/materia/')}}">Registro de Materias</a> </li>

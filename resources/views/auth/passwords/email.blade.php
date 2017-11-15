@@ -1,47 +1,35 @@
-@extends('layouts.app')
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CuniControl | Inicio</title>
+        <link rel="stylesheet" type="text/css" href="{{ URL::to('/') }}/css/login.css">
+    </head>
+    <body>
+        <div class="loginBox">
+            <img src="{{asset('images/LOGO CUNICONTROL.png')}}" class="user">
+            <h2>BIENVENIDO A CUNICONTROL</h2>
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Reset Password</div>
-
-                <div class="panel-body">
                     @if (session('status'))
-                        <div class="alert alert-success">
+                        <div style="color:green">
                             {{ session('status') }}
                         </div>
                     @endif
+                    @if ($errors->has('email'))
+                        <span style="color:red">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
 
-                    <form class="form-horizontal" method="POST" action="{{ route('password.email') }}">
+                    <form  method="POST" action="{{ route('password.email') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+                            <p for="email">Correo</p>
+                            <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Send Password Reset Link
-                                </button>
-                            </div>
-                        </div>
+                            <input type="submit" name="" value="Enviar Correo ">
                     </form>
-                </div>
+                    <center><a href="{{url('/login')}}">Regresar</a>
             </div>
-        </div>
-    </div>
-</div>
-@endsection
+          </body>
+        </html>

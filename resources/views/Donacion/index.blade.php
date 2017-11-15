@@ -18,9 +18,11 @@
   <thead class="thead-default">
     <tr>
       <th>Fecha:</th>
-      <th>Coneja donante:</th>
-      <th>Coneja receptora</th>
-      <th>No. de gazapos donados:</th>
+      <th>Donante:</th>
+      <th>Receptora</th>
+      <th>Donados:</th>
+      <th>Adoptados:</th>
+      <th>Destetados:</th>
       <th>Registró</th>
       <th>Actualizó</th>      
       <th></th>
@@ -32,7 +34,9 @@
       <td> {{$donacion->Fecha}} </td>
       <td> {{substr($donacion->Id_Parto_Donante, 0, 10)}} </td>
       <td> {{substr($donacion->Id_Parto_Donatorio, 0, 10)}} </td>
-      <td> {{$donacion->Cantidad_Gazapos}} </td>
+      <td> {{$donacion->Donados}} </td>
+      <td> {{$donacion->Adoptados}} </td>
+      <td> {{$donacion->Destetados}} </td>
       <td> {{$donacion->Creador}} </td>
       <td> {{$donacion->Modificador}} </td>      
       <td></td>

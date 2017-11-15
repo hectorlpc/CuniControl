@@ -64,6 +64,18 @@ class ProductoraController extends Controller{
             $productora->Numero_Conejo = $request->input('Numero_Conejo');
             $productora->Fecha_Activo = $request->input('Fecha_Activo');
             $productora->Status = 'Activo';
+
+            // $productoras = Productora::all();
+            // for ($i=0; $i < 50; $i++) { 
+            //     if ($productora->Numero_Conejo != $productoras[$i]->Numero_Conejo) {
+            //         dd($productoras);
+            //         $productora->Numero_Conejo = $request->input('Numero_Conejo');
+            //     } else {
+            //         return redirect()->back();
+            //         session()->flash('Error', 'Numero de productora duplicado');
+            //     }
+            // }
+
             $productora->save();
 
             $conejo = Conejo::where('Id_Conejo', $request->input('Id_Conejo_Hembra'))->first();

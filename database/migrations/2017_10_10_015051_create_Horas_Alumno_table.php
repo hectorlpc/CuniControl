@@ -22,7 +22,7 @@ class CreateHorasAlumnoTable extends Migration
             $table->date('Fecha');
             $table->time('Hora_Entrada');
             $table->time('Hora_Salida');
-            $table->string('Status');
+            $table->enum('Status',['Aceptado','Rechazado','Pendiente'])->index();
             $table->timestamps();
         });
     }

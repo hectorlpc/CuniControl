@@ -80,9 +80,13 @@ Route::patch('/enfermo/{id_conejo}', 'EnfermoController@update');
 Route::delete('/enfermo/{id_conejo}', 'EnfermoController@delete');
 
 //Rutas de horas
+
+Route::get('/horas', 'HorasController@index');
 Route::get('/horas/create', 'HorasController@create');
-Route::get('/horas/{id_destete}', 'HorasController@edit');
+Route::post('/horas', 'HorasController@store');
+Route::get('/horas/{id_destete}/edit', 'HorasController@edit');
 Route::delete('/horas/{id_destete}', 'HorasController@delete');
+
 
 //Rutas solicitud de horas
 Route::get('/solicitudHoras/create', 'SolicitudHorasController@create');

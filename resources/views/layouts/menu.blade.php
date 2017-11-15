@@ -16,7 +16,7 @@
           Alumno<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
             <ul>
               <li> <a href="{{url('/solicitudHoras')}}">Solicitar horas practicas </a> </li>
-              <li> <a href="{{url('/horas/create')}}">Registro de horas cumplidas </a> </li>
+              <li> <a href="{{url('/horas')}}">Registro de horas cumplidas </a> </li>
               <li> <a href="{{url('/alumno/create')}}">Completa tus datos personales</a> </li>
               <li> <a href="{{url('/alumno/edit')}}">Actualiza tus datos personales</a> </li>
           </ul>
@@ -78,8 +78,8 @@
               <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
-                    Salir
+                             document.getElementById('logout-form').submit();"><i class="icono izquierda fa fa-lock" aria-hidden="true"></i>
+                    Cerrar Sesión
                 </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}

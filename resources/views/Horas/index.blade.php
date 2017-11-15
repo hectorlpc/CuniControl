@@ -4,36 +4,50 @@
 <div class="container">
     @include("compartidas.alertas")
 
-          <h2>Inicio Registro de Horas</h2>
-          <form>
+          <center><h2>Inicio Registro de Horas</h2>
+          <form method="get" action="{{url('horas/')}}">
           <div class="form-group">
             <label for="">Fecha de las actividades: </label>
-            <input type="date" class="form-control" id="" placeholder="Buscar">
+            <input type="date" class="form-control" id="" placeholder="Buscar" name="Fecha">
             <br>
             <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
-            <button type="submit" class="btn btn-outline-success">Agregar</button>
+            <a href="{{url('/horas/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
             </div>
           </div>
         </form>
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
+      <th>Fecha:</th>
       <th>Hora de entrada:</th>
       <th>Hora de salida:</th>
       <th>Actividad realizada</th>
+      <th>Status:</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>09:10:a.m</td>
-      <td>11:00:a.m</td>
-      <td>Diagnostico gestación</td>
-      <td><div class="btn-group btn-group-sm" role="group" aria-label="">
-      <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><button type="button" class="btn btn-secondary btn-outline-info">Modificar</button></td>
-      </div></td>
-    </tr>
+      @foreach($horas as $hora)
+          <td>{{$hora->Fecha}}</td>
+          <td>{{$hora->Hora_Entrada}}</td>
+          <td>{{$hora->Hora_Salida}}</td>
+          <td>{{$hora->Id_Actividad}}</td>
+          <td>{{$hora->Status}}</td>
 
+          <td>
+            <div class="btn-group btn-group-sm" role="group" aria-label="">
+              <form method="POST" action="{{url('horas/' . $hora->Id_Horas)}}">
+                {{csrf_field()}}
+                {{method_field('delete')}}
+              <input type="hidden" name="Id_Area" value="{{$hora->Id_Horas}}">
+
+            <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+          </form> <a href="{{url('horas/' . $hora->Id_Horas . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+            </div>
+          </td>
+    </tr>
+    @endforeach
   </tbody>
 </table>
 

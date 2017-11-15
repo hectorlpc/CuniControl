@@ -7,7 +7,6 @@
           <br>
           <div align="right"><a href="{{url('/solicitudHoras/create')}}" type="submit" class="btn btn-outline-success">Solicitar horas</a>
           <br>
-          <form>
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
@@ -31,7 +30,7 @@
 
           <form method="POST" action="{{url('/solicitudHoras/create' . $solicitud->Id_Solicitud)}}">
           {{csrf_field()}}
-          {{method_field('delete')}}
+          {{method_field('DELETE')}}
           <input type="hidden" name="Id_Solicitud" value="{{$solicitud->Id_Solicitud}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Cancelar Solicitud</button>
            </form>

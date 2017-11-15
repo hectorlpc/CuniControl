@@ -37,8 +37,17 @@ class DonacionController extends Controller{
             $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
             $donacion->Creador = Auth::user()->CURP;
 
-            $parto = Parto::where('Id_Parto', $request->input('Id_Parto_Donante'))->first();
-            if($donacion->Cantidad_Gazapos <= $parto->Numero_Vivos) {
+            $partoDonante = Parto::where('Id_Parto', $request->input('Id_Parto_Donante'))->first();
+
+            $partoDonante->Numero_Vivos -= $donacion->Cantidad_Gazapos;
+
+            $partoReceptor = Parto::where('Id_Parto', $request->input('Id_Parto_Donatorio'))->first();
+
+            $partoReceptor->Numero_Vivos += $donacion->Cantidad_Gazapos;
+
+            if($donacion->Cantidad_Gazapos <= $partoDonante->Numero_Vivos) {
+                $partoDonante->save();
+                $partoReceptor->save();
                 $donacion->save();
             } else {
                 return redirect()->back();

@@ -27,6 +27,8 @@ class CreateConejoTable extends Migration
             $table->enum('Engorda',['Si', 'No'])->nullable()->index();
             $table->enum('Productora',['Si', 'No'])->nullable()->index();
             $table->enum('Semental',['Si', 'No'])->nullable()->index();
+            $table->string('Id_Jaula',3)->nullable();
+            $table->foreign('Id_Jaula')->references('Id_Jaula')->on('Jaula');
             $table->string('Creador', 18)->nullable();
             $table->foreign('Creador')->references('CURP')->on('Usuario');
             $table->string('Modificador', 18)->nullable();

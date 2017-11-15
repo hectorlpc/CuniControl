@@ -18,11 +18,13 @@
             <table class="table table-sm table-responsive">
       <thead class="thead-default">
         <tr>
-          <th>Numero de Coneja</th>
-          <th>Fecha de destete</th>
+          <th>Fecha</th>
+          <th>Coneja</th>
           <th>Destetados</th>
-          <th>Muertos</th>
-          <th>Peso promedio de los destetados (Kilos)</th>
+          <th>No destetados</th>
+          <th>Adoptados destetados</th>
+          <th>Adoptados no destetados</th>
+          <th>Peso</th>
           <th>Registró</th>
           <th>Actualizó</th>
           <th></th>
@@ -31,10 +33,12 @@
       <tbody>
         <tr>
           @foreach($destetes as $destete)
+          <td> {{$destete->Fecha_Destete}} </td>          
           <td> {{$destete->parto->monta->Id_Conejo_Hembra}} </td>
-          <td> {{$destete->Fecha_Destete}} </td>
-          <td> {{$destete->Numero_Destetados}} </td>
+          <td> {{$destete->Destetados}} </td>
           <td> {{$destete->No_Destetados}} </td>
+          <td> {{$destete->Adoptados_Destetados}} </td>
+          <td> {{$destete->Adoptados_No_Destetados}} </td>
           <td> {{$destete->Peso_Destete}} </td>
           <td> {{$destete->Creador}} </td>
           <td> {{$destete->Modificador}} </td>          

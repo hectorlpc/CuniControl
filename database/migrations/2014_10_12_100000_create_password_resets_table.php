@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJaulaTable extends Migration
+class CreatePasswordResetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateJaulaTable extends Migration
      */
     public function up()
     {
-        Schema::create('Jaula', function (Blueprint $table) {
-            $table->string('Id_Jaula',3);
-            $table->primary('Id_Jaula');
-            $table->timestamps();
+        Schema::create('password_resets', function (Blueprint $table) {
+            $table->string('email')->index();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
         });
     }
 
@@ -27,6 +27,6 @@ class CreateJaulaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Jaula');
+        Schema::dropIfExists('password_resets');
     }
 }

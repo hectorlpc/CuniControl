@@ -19,12 +19,13 @@ class CreateDonacionGazapoTable extends Migration
             $table->foreign('Id_Parto_Donante')->references('Id_Parto')->on('Parto');
             $table->string('Id_Parto_Donatorio', 50);
             $table->foreign('Id_Parto_Donatorio')->references('Id_Parto')->on('Parto');
-            $table->smallInteger('Cantidad_Gazapos');
+            $table->smallInteger('Donados');
             $table->date('Fecha');
             $table->string('Creador', 18)->nullable();
             $table->foreign('Creador')->references('CURP')->on('Usuario');
             $table->string('Modificador', 18)->nullable();
-            $table->foreign('Modificador')->references('CURP')->on('Usuario');            
+            $table->foreign('Modificador')->references('CURP')->on('Usuario');
+            $table->longText('Notas')->nullable();            
             $table->timestamps();
         });
     }

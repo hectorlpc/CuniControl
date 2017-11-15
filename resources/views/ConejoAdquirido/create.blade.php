@@ -45,7 +45,7 @@
 
           <div class="form-group">
             <label for="Conejo_Adquirido">Fecha de adquisición:</label>
-            <input class="form-control" type="date" name="Fecha_Adquisicion" min="2016-01-01" max="2050-01-01" step="1">
+            <input class="form-control" type="date" name="Fecha_Adquisicion" value="{{$fecha = date('Y-m-d')}}">
           </div>
         <br>
           <div align="right"><button type="submit" class="btn btn-outline-primary">Registrar</button>

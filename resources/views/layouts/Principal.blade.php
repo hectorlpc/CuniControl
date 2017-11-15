@@ -22,7 +22,12 @@
       <figure>
         <img src="{{asset('images/cuni.jpg')}}" alt="">
       </figure>
-
+      <figure>
+        <img src="{{asset('images/cea.jpg')}}" alt="">
+      </figure>
+      <figure>
+        <img src="{{asset('images/logo_fesc.jpg')}}" alt="">
+      </figure>
     </header>
 
     <section class="contenedorPrincipal2">

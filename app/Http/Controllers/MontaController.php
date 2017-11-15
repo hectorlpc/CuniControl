@@ -9,16 +9,19 @@ use App\Monta;
 use App\Productora;
 use App\Cemental;
 use App\Raza;
+use App\Jaula;
 
 class MontaController extends Controller{
     public function create(){
         $razas = Raza::all();
         $cementales = Cemental::all();
         $productoras = Productora::all();
+        $jaulas = Jaula::all();
         return view('Monta/create',[
             'cementales' => $cementales,
             'productoras' => $productoras,
-            'razas' => $razas
+            'razas' => $razas,
+            'jaulas' => $jaulas
         ]);
     }
 
@@ -81,6 +84,7 @@ class MontaController extends Controller{
             $monta->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');
             $monta->Fecha_Monta = $request->input('Fecha_Monta');
             $monta->Id_Monta = $monta->Id_Conejo_Hembra . $monta->Fecha_Monta;
+            $monta->Id_Jaula = $request->input('Id_Jaula');
             $monta->Creador = Auth::user()->CURP;
 
             $fecha_diagnostico = date_create($monta->Fecha_Monta);

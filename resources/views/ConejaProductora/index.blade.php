@@ -23,7 +23,7 @@
       <th>Numero de productora:</th>
       <th>Fecha Alta:</th>
       <th>Montas:</th>
-      <th>Exitosas:</th>
+      <th>Positivas:</th>
       <th>Ultima monta:</th>
       <th></th>
     </tr>

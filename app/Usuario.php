@@ -14,7 +14,7 @@ class Usuario extends Authenticatable
     protected $primaryKey = 'CURP';
     protected $fillable = [
   		'CURP', 'Nombre_Usuario', 'Apellido_Paterno', 'Apellido_Materno',
-    	'Correo', 'Genero', 'Fecha_Nacimiento', 'Telefono', 'Celular', 'password','confirmacion_code',
+    	'email', 'Genero', 'Fecha_Nacimiento', 'Telefono', 'Celular', 'password','confirmacion_code',
   	];
   protected $hidden = [
  		'password', 'remember_token',

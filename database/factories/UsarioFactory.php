@@ -19,7 +19,7 @@ $factory->define(App\Usuario::class, function (Faker $faker) {
      	'Nombre_Usuario' => $faker->firstName,
       	'Apellido_Paterno' => $faker->lastName,
       	'Apellido_Materno' => $faker->lastName,
-      	'Correo' => $faker->email,
+      	'email' => $faker->email,
       	'Genero' => $faker->randomElement(['F', 'M']),
     	'Fecha_Nacimiento' => $faker->dateTime(),
    		'Telefono' => $faker->tollFreePhoneNumber,

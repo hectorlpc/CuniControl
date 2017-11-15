@@ -46,7 +46,7 @@ class SolicitudHorasController extends Controller
             'solicitudes' => $solicitudes
         ]);		
 	}
-    public function delete ($id_solicitud){
+    public function delete ($id_solicitud){ 
         try{
             $solicitud = SolicitudHoras::where('Id_Solicitud', $id_solicitud)->first();
             $solicitud->delete();

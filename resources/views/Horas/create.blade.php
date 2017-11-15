@@ -28,14 +28,10 @@
 
 
     <select class="form-control" name="Actividades">
-      <option>Tatuado de conejos</option>
-      <option>Supervisión de la monta</option>
-      <option>Diagnóstico de gestación</option>
-      <option>Supervisión de gestación</option>
-      <option>Supervisión de parto</option>
-      <option>Registro de destete</option>
-      <option>Registro de donación</option>
-      <option>Registro de Conejo enfermo</option>
+      <option> -- Seleccione la actividad realizada -- </option>
+                 @foreach ($actividades as $actividad)
+                  <option value="{{$actividad->Id_Actividad}}">{{$actividad->Nombre_Actividad}}</option>
+                 @endforeach
       </select>
     </div>
   <br>

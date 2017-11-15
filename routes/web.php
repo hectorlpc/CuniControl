@@ -22,6 +22,7 @@ Route::post('/cuentas/{curp}/roles', 'UsuarioController@store_rol');
 Route::delete('/cuentas/{curp}/roles/{idrol}', 'UsuarioController@destroy_rol');
 Auth::routes();
 
+Route::get('/acercaDe','AcercaController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 
 // Rutas de montas

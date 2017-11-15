@@ -75,8 +75,6 @@
                   </ul>
               </li>
 @endif
-        <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Perfil<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
-            <ul>
               <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -87,8 +85,7 @@
                     {{ csrf_field() }}
                 </form>
               </li>
-            </ul>
-        </li>
+              <li><a href="{{url('/acercaDe')}}"><i class="icono izquierda fa fa-address-card-o" aria-hidden="true"></i>Acerca de</a></li>
             </ul>
 
 </div>

@@ -72,6 +72,8 @@
                   <ul>
                     <li> <a href="{{url('/grupo/')}}">Registro de Grupos</a> </li>
                     <li> <a href="{{url('/materia/')}}">Registro de Materias</a> </li>
+                    <li> <a href="{{url('/profesor/create')}}">Completa tus datos personales</a> </li>
+                    <li> <a href="{{url('/profesor/edit')}}">Actualiza tus datos personales</a> </li>
                   </ul>
               </li>
 @endif

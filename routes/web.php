@@ -179,6 +179,13 @@ Route::get('/alumno/edit','AlumnoController@edit');
 Route::post('/alumno','AlumnoController@store');
 Route::patch('/alumno/{CURP_Alumno}', 'AlumnoController@update');
 
+//Rutas de Profesores
+Route::get('/profesor/create', 'ProfesorController@create');
+Route::get('/profesor/edit','ProfesorController@edit');
+Route::post('/profesor','ProfesorController@store');
+Route::patch('/profesor/{CURP_Profesor}', 'ProfesorController@update');
+
+
 //Rutas de materias
 Route::get('/materia', 'MateriaController@index');
 Route::get('/materia/create', 'MateriaController@create');

@@ -2,8 +2,24 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
+	@include('compartidas.alertas')
 <h3>Usuario: {{$usuario->Nombre_Usuario}}</h3>
 <hr>
+
+<form action="{{url('/cuentas/'.$usuario->CURP.'/roles') }}" method="post">
+<div class="form-group">
+	<label>Agregar Rol:</label>
+	<select class="form-control" name="Id_Rol">
+		@foreach($roles as $rol)
+		<option value="{{$rol->Id_Rol}}">{{$rol->Nombre_Rol}}</option>
+		@endforeach
+	</select>
+	</div>
+	{{csrf_field()}}
+	<br>
+	<button class="btn btn-outline-info">Asignar Rol</button>
+</form>
+
 <h4>Roles:</h4>
 <table class="table table-sm table-responsive">
   <thead class="thead-default">
@@ -25,19 +41,6 @@
 @endforeach
 </tbody>
 </table>
-<hr>
-<form action="{{url('/cuentas/'.$usuario->CURP.'/roles') }}" method="post">
-<div class="form-group">
-	<label>Agregar Rol:</label>
-	<select class="form-control" name="Id_Rol">
-		@foreach($roles as $rol)
-		<option value="{{$rol->Id_Rol}}">{{$rol->Nombre_Rol}}</option>
-		@endforeach
-	</select>
-	</div>
-	{{csrf_field()}}
-	<br>
-	<button class="btn btn-outline-info">Enviar</button>
-</form>
 </div>
+<hr>
 @endsection

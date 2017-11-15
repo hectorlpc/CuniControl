@@ -22,14 +22,22 @@ class UsuarioController extends Controller
     	return view('usuarios.show', ['usuario' => $usuario,'roles'=>$roles,'rolesUsuario'=>$rolesUsuario]);
     }
     public function store_rol(Request $request,$curp){
-    	$usuario = Usuario::find($curp);
-    	$usuario->roles()->attach($request->Id_Rol);
-    	return redirect()->back();
+        try{
+        $usuario = Usuario::find($curp);
+        $usuario->roles()->attach($request->Id_Rol);
+        session()->flash("Exito","Rol Asignado");   
+        }catch(\Illuminate\Database\QueryException $e){
+        session()->flash("Error","Ya tiene el rol asignado");
+        }
+        return redirect()->back();
     }
     public function destroy_rol($curp,$idrol){
-    	$usuario = Usuario::find($curp);
-    	$usuario->roles()->detach($idrol);
-
+        try{ 
+            $usuario = Usuario::find($curp);
+            $usuario->roles()->detach($idrol);
+            session()->flash("Exito","Rol descartado");   
+        }catch(\Illuminate\Database\QueryException $e){            session()->flash("Error","Rol no se puede descartar");   
+        }
     	return redirect()->back();
     }
 }

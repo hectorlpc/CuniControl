@@ -25,7 +25,6 @@
             <br>
             <div align="right">
             <button type="submit" class="btn btn-outline-primary">Actualizar</button>
-            <a href="{{url('alumno/' . $alumno->CURP_Alumno)}}" class="btn btn-secondary btn-outline-info">Modificar</a>
             </div>
         </form>
       </div>

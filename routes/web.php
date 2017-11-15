@@ -52,6 +52,8 @@ Route::get('/destete/{id_destete}/edit', 'DesteteController@edit');
 Route::patch('/destete/{id_destete}', 'DesteteController@update');
 Route::delete('/destete/{id_destete}', 'DesteteController@delete');
 Route::post('/destete/obtener-datos', 'DesteteController@obtener_datos');
+Route::post('/destete/obtener-adoptados', 'DesteteController@obtener_adoptados');
+Route::post('/destete/obtener-notas','DesteteController@obtener_notas');
 
 //Rutas de tatuajes
 Route::get('tatuaje/','TatuajeController@index');

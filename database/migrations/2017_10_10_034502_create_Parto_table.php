@@ -20,6 +20,7 @@ class CreatePartoTable extends Migration
             $table->foreign('Id_Monta')->references('Id_Monta')->on('Monta');
             $table->smallInteger('Numero_Vivos')->index();
             $table->smallInteger('Numero_Muertos')->index();
+            $table->smallInteger('Total_Vivos');
             $table->float('Peso_Nacer')->nullable();
             $table->boolean('Activado')->default(0);
             $table->string('Creador', 18)->nullable();

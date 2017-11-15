@@ -53,7 +53,7 @@ class RegisterController extends Controller
         'Nombre_Usuario.required' => 'Es necesario el Nombre.',
         'Apellido_Paterno.required' => 'Es necesario el Apellido Paterno.',
         'Apellido_Materno.required' => 'Es necesario el Apellido Materno.',
-        'Correo.required' => 'Es necesario el Correo.',
+        'email.required' => 'Es necesario el Correo.',
         'Genero.required' => 'Es necesario el Genero.',
         'Fecha_Nacimiento.required' => 'Es necesario la Fecha de Nacimiento.',
         'Telefono.required' => 'Es necesario un Numero de Telefono.',
@@ -68,7 +68,7 @@ class RegisterController extends Controller
             'Nombre_Usuario' => 'required|string|max:255',
             'Apellido_Paterno' => 'required|string|max:255',
             'Apellido_Materno' => 'required|string|max:255',
-            'Correo' => 'required|string|email|max:255|unique:Usuario',
+            'email' => 'required|string|email|max:255|unique:Usuario',
             'Genero' => 'required|string|max:255',
             'Fecha_Nacimiento' => 'required|date|max:255',
             'Telefono' => 'required|string|max:255',
@@ -91,7 +91,7 @@ class RegisterController extends Controller
             'Nombre_Usuario' => $data['Nombre_Usuario'],
             'Apellido_Paterno' => $data['Apellido_Paterno'],
             'Apellido_Materno' => $data['Apellido_Materno'],
-            'Correo' => $data['Correo'],
+            'email' => $data['email'],
             'Genero' => $data['Genero'],
             'Fecha_Nacimiento' => $data['Fecha_Nacimiento'],
             'Telefono' => $data['Telefono'],
@@ -102,7 +102,7 @@ class RegisterController extends Controller
         Mail::send('Correo.Plantillacorreo',$data,function($message) use ($data)
         {
             $message->from('cunicontrol@gmail.com','Modulo de Cunicultura');
-            $message->to($data['Correo'])->subject('Confirmacion CuniControl');
+            $message->to($data['email'])->subject('Confirmacion CuniControl');
         });
         return $user;
     }

@@ -24,7 +24,8 @@
           <th>No destetados</th>
           <th>Adoptados destetados</th>
           <th>Adoptados no destetados</th>
-          <th>Peso</th>
+          <th>Notas</th>
+          <th>Peso</th>          
           <th>Registró</th>
           <th>Actualizó</th>
           <th></th>
@@ -39,6 +40,7 @@
           <td> {{$destete->No_Destetados}} </td>
           <td> {{$destete->Adoptados_Destetados}} </td>
           <td> {{$destete->Adoptados_No_Destetados}} </td>
+          <td> {{$destete->Notas}} </td>
           <td> {{$destete->Peso_Destete}} </td>
           <td> {{$destete->Creador}} </td>
           <td> {{$destete->Modificador}} </td>          

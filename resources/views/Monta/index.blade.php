@@ -17,6 +17,7 @@
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
+      <th>Jaula</th>
       <th>Fecha de Monta</th>
       <th>Tatuaje Coneja</th>
       <th>Tatuaje Conejo</th>
@@ -24,13 +25,14 @@
       <th>Resultado Diagnostico</th>
       <th>Fecha Parto Aprox</th>
       <th>Registró</th>
-      <th>Actualizó</th>
+      <th>Diagnosticó</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       @foreach($montas as $monta)
+      <td> {{$monta->Id_Jaula}} </td>
       <td> {{$monta->Fecha_Monta}} </td>
       <td> {{$monta->Id_Conejo_Hembra}} </td>
       <td> {{$monta->Id_Conejo_Macho}} </td>

@@ -28,6 +28,7 @@ class CreateDesteteTable extends Migration
           $table->foreign('Creador')->references('CURP')->on('Usuario');
           $table->string('Modificador', 18)->nullable();
           $table->foreign('Modificador')->references('CURP')->on('Usuario');          
+          $table->longText('Notas')->nullable();
           $table->timestamps();
         });
     }

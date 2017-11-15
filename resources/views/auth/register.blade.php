@@ -62,11 +62,11 @@
 
 
                 <div class="input-group">
-                    <input type="email" id="correo" name="Correo" value="{{old('Correo')}}">
-                    <label class="label" for="correo">Correo Electrónico:</label>
-                    @if ($errors->has('Correo'))
+                    <input type="email" id="email" name="email" value="{{old('email')}}">
+                    <label class="label" for="email">Correo Electrónico:</label>
+                    @if ($errors->has('email'))
                        <span style="color:#990000">
-                           <strong>{{ $errors->first('Correo') }}</strong>
+                           <strong>{{ $errors->first('email') }}</strong>
                        </span>
                    @endif
                 </div>

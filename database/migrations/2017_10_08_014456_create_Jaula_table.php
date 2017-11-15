@@ -15,6 +15,7 @@ class CreateJaulaTable extends Migration
     {
         Schema::create('Jaula', function (Blueprint $table) {
             $table->string('Id_Jaula',3);
+            $table->boolean('Activa')->default(0);
             $table->primary('Id_Jaula');
             $table->timestamps();
         });

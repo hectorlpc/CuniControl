@@ -34,24 +34,25 @@ class DonacionController extends Controller{
             $donacion->Id_Parto_Donante = $request->input('Id_Parto_Donante');
             $donacion->Id_Parto_Donatorio = $request->input('Id_Parto_Donatorio');
             $donacion->Id_Donacion = $donacion->Id_Parto_Donante . $donacion->Id_Parto_Donatorio;
-            $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
+            $donacion->Donados = $request->input('Donados');
+            $donacion->Notas = $request->input('Notas');
             $donacion->Creador = Auth::user()->CURP;
 
-            $partoDonante = Parto::where('Id_Parto', $request->input('Id_Parto_Donante'))->first();
+            // $partoDonante = Parto::where('Id_Parto', $request->input('Id_Parto_Donante'))->first();
 
-            $partoDonante->Numero_Vivos -= $donacion->Cantidad_Gazapos;
+            // $partoDonante->Numero_Vivos -= $donacion->Cantidad_Gazapos;
 
-            $partoReceptor = Parto::where('Id_Parto', $request->input('Id_Parto_Donatorio'))->first();
+            // $partoReceptor = Parto::where('Id_Parto', $request->input('Id_Parto_Donatorio'))->first();
 
-            $partoReceptor->Numero_Vivos += $donacion->Cantidad_Gazapos;
+            // $partoReceptor->Numero_Vivos += $donacion->Cantidad_Gazapos;
 
-            if($donacion->Cantidad_Gazapos <= $partoDonante->Numero_Vivos) {
-                $partoDonante->save();
-                $partoReceptor->save();
-                $donacion->save();
-            } else {
-                return redirect()->back();
-            }
+            // if($donacion->Cantidad_Gazapos <= $partoDonante->Numero_Vivos) {
+            //     $partoDonante->save();
+            //     $partoReceptor->save();
+                 $donacion->save();
+            // } else {
+            //     return redirect()->back();
+            // }
              session()->flash("Exito","Donación registrada");
              return redirect('/donacion');
          }catch (\Illuminate\Database\QueryException $e){

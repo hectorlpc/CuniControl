@@ -28,14 +28,16 @@
           </div>          
           <div class="form-group">
             <label for="exampleInputPassword2">Cantidad de gazapos donados:</label>
-            <select class="form-control" name="Cantidad_Gazapos">
+            <select class="form-control" name="Donados">
               <option value="01">01</option>
               <option value="02">02</option>
               <option value="03">03</option>
               <option value="04">04</option>
               <option value="05">05</option>
             </select>
-      </div>
+          </div>
+          <label>Notas:</label>
+          <input type="text" class="form-control" name="Notas">
 
         </br>
         <div align="right">

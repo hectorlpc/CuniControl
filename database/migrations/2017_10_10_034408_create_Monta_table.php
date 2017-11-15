@@ -22,6 +22,8 @@ class CreateMontaTable extends Migration
             $table->foreign('Id_Conejo_Macho')->references('Id_Conejo')->on('Conejo');
             $table->date('Fecha_Diagnostico')->nullable();
             $table->enum('Resultado_Diagnostico',['Positivo','Negativo'])->nullable()->index();
+            $table->string('Id_Jaula',3)->nullable();
+            $table->foreign('Id_Jaula')->references('Id_Jaula')->on('Jaula');
             $table->date('Fecha_Parto')->nullable();
             $table->boolean('Activado')->default(0);
             $table->string('Creador', 18)->nullable();

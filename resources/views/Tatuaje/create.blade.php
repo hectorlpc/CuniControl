@@ -10,7 +10,7 @@
             <select class="form-control" name="Id_Destete" id="conejaDestete">
               <option> -- Seleccione coneja -- </option>
             @foreach($destetes as $destete)
-            @if($destete->Tatuados < $destete->Numero_Destetados)
+            @if($destete->Tatuados < $destete->Destetados)
               <option value="{{$destete->Id_Destete}}">{{$destete->parto->monta->Id_Conejo_Hembra}}</option>
             @endif
             @endforeach

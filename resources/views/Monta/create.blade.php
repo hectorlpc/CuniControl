@@ -15,7 +15,9 @@
             <select class="form-control" name="Id_Jaula">
               <option> -- Seleccione la jaula -- </option>
               @foreach($jaulas as $jaula)
+                @if($jaula->Activa != 1)
                   <option value="{{$jaula->Id_Jaula}}">{{$jaula->Id_Jaula}}</option>
+                @endif
               @endforeach
             </select>
           </div>        

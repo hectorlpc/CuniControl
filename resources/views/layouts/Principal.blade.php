@@ -48,5 +48,7 @@
     <script src="{{ asset('js/partos.js') }}"></script>
     <script src="{{ asset('js/tatuaje-datos.js') }}"></script>
     <script src="{{ asset('js/donacion.js') }}"></script>
+    <script src="{{ asset('js/destetes-adoptados.js') }}"></script>
+    <script src="{{ asset('js/destetes-notas.js') }}"></script>
   </body>
 </html>

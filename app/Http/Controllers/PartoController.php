@@ -40,6 +40,7 @@ class PartoController extends Controller{
             $parto->Id_Monta = $request->input('Id_Monta');
             $parto->Numero_Vivos = $request->input('Numero_Vivos');
             $parto->Numero_Muertos = $request->input('Numero_Muertos');
+            $parto->Total_Vivos = $parto->Numero_Vivos;
             $parto->Peso_Nacer = $request->input('Peso_Nacer');
             $parto->Id_Parto =  $parto->Id_Monta . $parto->Fecha_Parto ;
             $parto->Creador = Auth::user()->CURP;

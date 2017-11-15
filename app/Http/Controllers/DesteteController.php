@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Destete;
 use App\Parto;
+use App\Donacion;
 
 class DesteteController extends Controller{
 
@@ -29,7 +30,7 @@ class DesteteController extends Controller{
     {
         try{
           $destete = Destete::where('Id_Destete', $id_destete)->first();
-          $destete->Numero_Destetados = $request->input('Numero_Destetados');
+          $destete->Destetados = $request->input('Destetados');
           $destete->Peso_Destete = $request->input('Peso_Destete');
           $destete->Modificador = Auth::user()->CURP;
           $destete->save();
@@ -60,14 +61,23 @@ class DesteteController extends Controller{
             $destete->Id_Parto = $request->input('Id_Parto');
             $destete->Fecha_Destete = $request->input('Fecha_Destete');
             $destete->Id_Destete = $destete->Id_Parto .  $destete->Fecha_Destete;
-            $destete->Numero_Destetados = $request->input('Numero_Destetados');
+            $destete->Destetados = $request->input('Destetados');
             $destete->No_Destetados = $request->input('No_Destetados');
+            $destete->Adoptados_Destetados = $request->input('Adoptados_Destetados');
+            $destete->Adoptados_No_Destetados = $request->input('Adoptados_No_Destetados');            
             $destete->Peso_Destete = $request->input('Peso_Destete');
+            $destete->Notas = $request->input('Notas');
             $destete->Creador = Auth::user()->CURP;
-            $destete->save();
 
             $parto = Parto::where('Id_Parto', $request->input('Id_Parto'))->first();
             $parto->Activado = 1;
+
+            if($destete->Adoptados_No_Destetados > 0) {
+                $donante = Parto::find($request->input('Parto_Donante'));
+                $donante->Total_Vivos -= $destete->Adoptados_No_Destetados;
+                $donante->save();
+            }
+            $destete->save();
             $parto->save();
 
             session()->flash("Exito","Destete creado");
@@ -90,7 +100,7 @@ class DesteteController extends Controller{
 
     public function obtener_datos (Request $request) {
         $opcion = Parto::find($request->datos);
-        $cantidad = $opcion->Numero_Vivos;
+        $cantidad = $opcion->Total_Vivos;
         $no_destetados = $opcion->Numero_Muertos;
         $peso = $opcion->Peso_Nacer;
         $fechaDeParto = $opcion->Fecha_Parto;
@@ -107,5 +117,32 @@ class DesteteController extends Controller{
         ];
 
         return response()->json($respuesta);
+    }
+
+    public function obtener_adoptados(Request $request) {
+        $opcion = Donacion::where('Id_Parto_Donatorio', $request->conejo)->first();
+        if(is_null($opcion)) {
+            $adoptados = 0;
+            $donador = 0;
+        } else {
+            $adoptados = $opcion->Donados;
+            $donador = $opcion->Id_Parto_Donante;
+        }
+        $respuesta = [
+            'adoptados' => $adoptados,
+            'donador' => $donador
+        ];
+        return response()->json($respuesta);
+    }
+
+    public function obtener_notas(Request $request) {
+        $opcion = Donacion::where('Id_Parto_Donante', $request->donador)->first();
+        if(is_null($opcion)) {
+            $notas = 'No hay notas';
+        } else {
+            $notas = $opcion->Notas;
+        }
+        $respuesta = ['notas' => $notas];
+        return response()->json($respuesta);        
     }
 }

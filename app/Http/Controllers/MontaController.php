@@ -103,6 +103,10 @@ class MontaController extends Controller{
             $productora->Fecha_Ultima_Monta = $monta->Fecha_Monta;
             $productora->Numero_Monta += 1;
 
+            $jaula = Jaula::where('Id_Jaula', $request->input('Id_Jaula'))->first();
+            $jaula->Activa = 1;
+
+            $jaula->save();
             $semental->save();
             $productora->save();
             $monta->save();

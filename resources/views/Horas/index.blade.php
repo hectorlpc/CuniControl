@@ -44,10 +44,10 @@
               <form method="POST" action="{{url('horas/' . $hora->Id_Horas)}}">
                 {{csrf_field()}}
                 {{method_field('delete')}}
-              <input type="hidden" name="Id_Area" value="{{$hora->Id_Horas}}">
+              <input type="hidden" name="Id_Hora" value="{{$hora->Id_Horas}}">
 
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-          </form> <a href="{{url('horas/' . $hora->Id_Horas . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+          </form> 
             </div>
           </td>
     </tr>

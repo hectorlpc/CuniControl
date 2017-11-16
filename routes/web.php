@@ -86,8 +86,8 @@ Route::delete('/enfermo/{id_conejo}', 'EnfermoController@delete');
 Route::get('/horas', 'HorasController@index');
 Route::get('/horas/create', 'HorasController@create');
 Route::post('/horas', 'HorasController@store');
-Route::get('/horas/{id_destete}/edit', 'HorasController@edit');
-Route::delete('/horas/{}', 'HorasController@delete');
+//Route::get('/horas/{id_destete}/edit', 'HorasController@edit');
+Route::delete('/horas/{id_horas}', 'HorasController@delete');
 
 //rutas validacion de horas
 Route::get('/validacion', 'ValidacionController@index');

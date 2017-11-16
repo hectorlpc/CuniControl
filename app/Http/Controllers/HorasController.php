@@ -32,7 +32,17 @@ class HorasController extends Controller
 
     public function delete($id_horas)
     {
+        try{
+        $hora = Horas::where('Id_Horas', $id_horas)->first();
+        $hora->delete();
+        session()->flash("Exito","Horas Practicas eliminadas");
         return redirect()->back();
+
+    }catch (\Illuminate\Database\QueryException $e){
+        session()->flash("Error","No es posible eliminar");
+        return redirect()->back();
+    }
+
     }
     public function index(Request $request)
     {

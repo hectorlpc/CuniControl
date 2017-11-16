@@ -14,7 +14,6 @@ class CreateConejaProductoraTable extends Migration
     public function up()
     {
         Schema::create('Coneja_Productora', function (Blueprint $table) {
-            //$table->increments('Id_Productora');
             $table->string('Id_Conejo_Hembra',11);
             $table->foreign('Id_Conejo_Hembra')->references('Id_Conejo')->on('Conejo');
             $table->string('Id_Raza',2);
@@ -26,7 +25,6 @@ class CreateConejaProductoraTable extends Migration
             $table->smallInteger('Monta_Positiva')->default(0);
             $table->enum('Status',['Activo', 'Inactivo'])->nullable()->index();
             $table->primary('Id_Conejo_Hembra');
-            //$table->date('Fecha');
             $table->timestamps();    
         });
     }

@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 namespace App\Http\Controllers;
 
@@ -10,6 +10,7 @@ use App\Monta;
 use App\Parto;
 use App\Productora;
 use App\Destete;
+use App\Jaula;
 use Illuminate\Support\Facades\DB;
 
 class TatuajeController extends Controller

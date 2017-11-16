@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Cemental;
 use App\Conejo;
+use App\Monta;
 use App\Desecho;
 
 class CementalController extends Controller
@@ -90,6 +91,10 @@ class CementalController extends Controller
 
     public function index(Request $request)
     {
+        //select id_conejo_macho, count(*) from monta id_conejo_macho where resultado_diagnostico = "positivo" group by id_conejo_macho;        
+        //$cementales = Monta::select('Id_Conejo_Macho')->where('Resultado_Diagnostico','=', 'Positivo')->groupby('Id_Conejo_Macho')->get();
+        //dd($cementales);
+
         if($request->Id_Conejo_Macho)
         {
             $cementales = Cemental::where('Id_Conejo_Macho', $request->Id_Conejo_Macho)->get();

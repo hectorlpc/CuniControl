@@ -13,7 +13,7 @@ class SolicitudHoras extends Model
 
 public function alumno()
     {
-    	return $this->belongsTo(Usuario::class,'CURP','CURP_Alumno');
+    	return $this->belongsTo(Usuario::class,'CURP_Alumno','CURP');
     	//return $this->belongsTo('App\Conejo','Id_Conejo_Hembra','Id_Conejo_Hembra');
     }
      public function horas(){

@@ -7,6 +7,7 @@
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
+      <th>Alumno:</th>
       <th>Fecha:</th>
       <th>Hora de entrada:</th>
       <th>Hora de salida:</th>
@@ -17,6 +18,7 @@
   <tbody>
     <tr>
       @foreach($horas as $hora)
+          <td>{{$hora->solicitud->alumno->Nombre_Usuario . " " . $hora->solicitud->alumno->Apellido_Paterno . " " . $hora->solicitud->alumno->Apellido_Materno}}</td>
           <td>{{$hora->Fecha}}</td>
           <td>{{$hora->Hora_Entrada}}</td>
           <td>{{$hora->Hora_Salida}}</td>

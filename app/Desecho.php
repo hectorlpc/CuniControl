@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Desecho extends Model
 {
-    public $incrementing=true;
+    public $incrementing=false;
     public $fillable=['Id_Conejo_Desecho','Id_Raza','Procedencia'];
     protected $table='Conejo_Desecho';
     protected $primaryKey='Id_Conejo_Desecho';

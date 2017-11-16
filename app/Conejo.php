@@ -19,6 +19,6 @@ class Conejo extends Model
 
     public function productora()
     {
-    	return $this->belongsTo(productora::class,'Id_Conejo','Id_Conejo_Hembra');
+    	return $this->belongsTo(Productora::class,'Id_Conejo','Id_Conejo_Hembra');
     }
 }

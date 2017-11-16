@@ -18,7 +18,7 @@ class TatuajeController extends Controller
     {
         $destetes = Destete::all();
 
-        return view('/tatuaje/create', ['destetes' => $destetes]);
+        return view('Tatuaje.create', ['destetes' => $destetes]);
     }
 
     public function store(Request $request){
@@ -66,13 +66,13 @@ class TatuajeController extends Controller
         } else {
             $conejos = Conejo::all();
         }
-        return view('tatuaje/index',['conejos' => $conejos]);
+        return view('Tatuaje.index',['conejos' => $conejos]);
     }
 
     public function edit($id_conejo)
     {
         $conejo = Conejo::where('Id_Conejo', $id_conejo)->first();
-        return view('/tatuaje/edit', ['conejo' => $conejo]);
+        return view('Tatuaje.edit', ['conejo' => $conejo]);
     }
 
     public function update(Request $request, $id_conejo)

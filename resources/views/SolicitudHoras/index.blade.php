@@ -28,7 +28,7 @@
       <td> {{$solicitud->Horas_Totales}} </td>
       <td><div class="btn-group btn-group-sm" role="group" aria-label="">
 
-          <form method="POST" action="{{url('/solicitudHoras/create' . $solicitud->Id_Solicitud)}}">
+          <form method="POST" action="{{url('/SolicitudHoras/' . $solicitud->Id_Solicitud)}}">
           {{csrf_field()}}
           {{method_field('DELETE')}}
           <input type="hidden" name="Id_Solicitud" value="{{$solicitud->Id_Solicitud}}">

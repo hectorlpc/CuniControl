@@ -12,4 +12,12 @@
       </button>
       {{ session()->get('Error')}}
     </div>
+  @elseif(session()->has('Peligro'))
+    <div class="alert alert-warning" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      {{ session()->get('Peligro')}}
+    </div>
+  
 @endif

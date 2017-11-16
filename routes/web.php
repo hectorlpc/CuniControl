@@ -87,13 +87,17 @@ Route::get('/horas', 'HorasController@index');
 Route::get('/horas/create', 'HorasController@create');
 Route::post('/horas', 'HorasController@store');
 Route::get('/horas/{id_destete}/edit', 'HorasController@edit');
-Route::delete('/horas/{id_destete}', 'HorasController@delete');
+Route::delete('/horas/{}', 'HorasController@delete');
+
+//rutas validacion de horas
+Route::get('/validacion', 'ValidacionController@index');
+Route::patch('/validacion/{id_horas}', 'ValidacionController@update');
 
 
 //Rutas solicitud de horas
 Route::get('/solicitudHoras/create', 'SolicitudHorasController@create');
 Route::get('/solicitudHoras','SolicitudHorasController@index');
-Route::delete('/solicitudHoras/{id_solicitud}', 'SolicitudHorasController@delete');
+Route::delete('/SolicitudHoras/{id_solicitud}', 'SolicitudHorasController@delete');
 Route::post('/solicitudHoras', 'SolicitudHorasController@store');
 
 //Rutas de parto
@@ -186,7 +190,6 @@ Route::get('/profesor/create', 'ProfesorController@create');
 Route::get('/profesor/edit','ProfesorController@edit');
 Route::post('/profesor','ProfesorController@store');
 Route::patch('/profesor/{CURP_Profesor}', 'ProfesorController@update');
-
 
 //Rutas de materias
 Route::get('/materia', 'MateriaController@index');

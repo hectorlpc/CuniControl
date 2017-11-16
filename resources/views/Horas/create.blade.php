@@ -8,7 +8,7 @@
     <div class="form-group">
       <label for="exampleInputEmail1">Fecha en que realizó actividades:</label>
 
-      <input class="form-control" type="date" name="Fecha" min="2000-01-01" max="2050-01-01" step="1">
+      <input class="form-control" type="date" name="Fecha" value="{{$fecha=date('Y-m-d')}}">
     </div>
 
     <div class="form-group">

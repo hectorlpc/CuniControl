@@ -21,7 +21,12 @@ class HorasController extends Controller
 
     public function edit($id_horas)
     {
-        return view('horas/edit');
+        try{
+            return view('horas/edit');    
+        }catch(\Illuminate\Database\QueryException $e){
+            session()->flash("Error","Necesitas registrar tu solicitud de horas antes");
+            return redirect('/home');
+        }
     }
 
     public function delete($id_horas)
@@ -51,8 +56,7 @@ class HorasController extends Controller
             $hora->Status = "Pendiente";
             $solicitud =  SolicitudHoras::where('CURP_Alumno', Auth::user()->CURP)->first();
             $hora->Id_Solicitud = $solicitud->Id_Solicitud;
-            $hora->Id_Horas = strtoupper(substr($hora->Id_Solicitud,0,4) . $hora->Fecha_Solicitud . $hora->Hora_Entrada . $hora->Hora_Salida);
-
+            $hora->Id_Horas = strtoupper(substr($hora->Id_Solicitud,0,4) . $hora->Fecha . $hora->Hora_Entrada . $hora->Hora_Salida);
             $hora->save();
             session()->flash("Exito","Horas practicas registradas");
             return redirect('/horas');

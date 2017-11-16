@@ -18,6 +18,7 @@ class CreateConejoTable extends Migration
             $table->string('Tatuaje_Derecho',5);
             $table->string('Tatuaje_Izquierdo',6);
             $table->date('Fecha_Nacimiento')->index();
+            $table->date('Fecha_Muerte')->nullable()->index();
             $table->string('Id_Raza');
             $table->foreign('Id_Raza')->references('Id_Raza')->on('Raza');
             $table->enum('Genero',['Macho','Hembra'])->index();

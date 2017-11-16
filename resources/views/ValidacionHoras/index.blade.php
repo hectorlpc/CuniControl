@@ -22,7 +22,7 @@
           <td>{{$hora->Fecha}}</td>
           <td>{{$hora->Hora_Entrada}}</td>
           <td>{{$hora->Hora_Salida}}</td>
-          <td>{{$hora->Id_Actividad}}</td>
+          <td>{{$hora->actividad->Nombre_Actividad}}</td>
 
           <td>
             <div class="btn-group btn-group-sm" role="group" aria-label="">

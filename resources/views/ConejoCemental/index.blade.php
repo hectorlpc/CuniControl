@@ -25,19 +25,21 @@
       <th>Montas:</th>
       <th>Positivas:</th>
       <th>Ultima monta:</th>
+      <th>Status:</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       @foreach($cementales as $cemental)
-      @if($cemental->Status == 'Activo')
+      @if($cemental->Status != 'Muerto')
       <td> {{$cemental->Id_Conejo_Macho}} </td>
       <td> {{$cemental->raza->Nombre_Raza}} </td>
       <td> {{$cemental->Fecha_Activo}} </td>
       <td> {{$cemental->Numero_Monta}} </td>
       <td> {{$cemental->Monta_Positiva}} </td>
       <td> {{$cemental->Fecha_Ultima_Monta}} </td>
+      <td> {{$cemental->Status}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
           <form method="POST" action="{{url('/cemental/' . $cemental->Id_Conejo_Macho)}}">

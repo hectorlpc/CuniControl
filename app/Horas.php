@@ -14,6 +14,10 @@ class Horas extends Model
     public function solicitud()
     {
     	return $this->belongsTo(SolicitudHoras::class,'Id_Solicitud','Id_Solicitud');
-    	//return $this->belongsTo('App\Conejo','Id_Conejo_Hembra','Id_Conejo_Hembra');
+    }   
+    public function actividad()
+    {
+        return $this->belongsTo(Actividad::class,'Id_Actividad','Id_Actividad');
+        
     }   
 }

@@ -15,6 +15,9 @@
             @endif
             @endforeach
             </select>
+          <br>
+          <label>Jaula: </label>
+          <input readonly class="form-control" name="Id_Jaula" id="numero_jaula">
           <input type="hidden" id="numeroConeja" name="Numero_Conejo" value="{{$destete->parto->monta->conejo->productora->Numero_Conejo}}" >
           <input type="hidden" value="{{$destete->parto->monta->conejo->Id_Raza}}" id="razaTatuaje" name="Id_Raza">
           </div>

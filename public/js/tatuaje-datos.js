@@ -6,6 +6,7 @@ if(opcionesConeja[0]) {
 	var numeroConeja = $('#numeroConeja');
 	var razaTatuaje = $('#razaTatuaje');
 	var fechaParto = $('#fechaParto');
+	var numero_jaula = $('#numero_jaula');
 	// Manejo de evento change
 	opcionesConeja.change(function() {
 		var numero = this.value;
@@ -22,6 +23,7 @@ if(opcionesConeja[0]) {
 				numeroConeja.val(respuesta.numero_conejo);
 				razaTatuaje.val(respuesta.raza);
 				fechaParto.val(respuesta.fecha_parto);
+				numero_jaula.val(respuesta.numero_jaula);
 			},
 			error: function() {
 

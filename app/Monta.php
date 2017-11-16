@@ -17,4 +17,9 @@ class Monta extends Model
     	return $this->belongsTo(Conejo::class,'Id_Conejo_Hembra','Id_Conejo');
     	//return $this->belongsTo('App\Conejo','Id_Conejo_Hembra','Id_Conejo_Hembra');
     }
+
+    public function jaula()
+    {
+        return $this->belongsTo(Jaula::class,'Id_Jaula','Id_Jaula');
+    }
 }

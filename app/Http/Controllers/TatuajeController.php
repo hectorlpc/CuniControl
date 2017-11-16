@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -42,11 +42,20 @@ class TatuajeController extends Controller
 // Generar Id conejo
         $conejo->Id_Conejo = $conejo->Tatuaje_Derecho . $conejo->Tatuaje_Izquierdo;
 // Insertar los demás campos
+        $conejo->Id_Jaula = $request->input('Id_Jaula');
         $conejo->Status = 'Vivo';
         $conejo->Fecha_Nacimiento = $fecha;
         $conejo->Genero = $request->input('Genero');
+
         $destete = Destete::where('Id_Destete', $request->input('Id_Destete'))->first();
         $destete->Tatuados += 1;
+
+       if($destete->Tatuados == $destete->Destetados){
+            $jaula = Jaula::find($request->input('Id_Jaula'));
+            $jaula->Activa = 0;
+            $jaula->save();
+        }
+
 //Guardar conejo
         $conejo->Creador = Auth::user()->CURP;
         $conejo->save();
@@ -106,12 +115,14 @@ class TatuajeController extends Controller
         $numero_conejo = $opcion->parto->monta->conejo->productora->Numero_Conejo;
         $fecha_parto = $opcion->parto->Fecha_Parto;
         $raza = $opcion->parto->monta->conejo->Id_Raza;
+        $numero_jaula = $opcion->parto->monta->Id_Jaula;
 
         $respuesta = [
             'numero_consecutivo' => $numero_consecutivo,
             'numero_conejo' => $numero_conejo,
             'fecha_parto' => $fecha_parto,
-            'raza' => $raza
+            'raza' => $raza,
+            'numero_jaula' => $numero_jaula
         ];
 
         return response()->json($respuesta);

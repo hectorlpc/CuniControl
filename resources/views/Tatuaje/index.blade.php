@@ -17,9 +17,9 @@
   <thead class="thead-default">
     <tr>
       <th>Fecha Nacimiento:</th>
-      <th>Tatuaje Derecho:</th>
-      <th>Tatuaje Izquierdo:</th>
+      <th>Tatuajes (D - I):</th>
       <th>Raza:</th>
+      <th>Jaula:</th>
       <th>Genero:</th>
       <th>Registró</th>
       <th>Actualizó</th>
@@ -33,9 +33,9 @@
     @if($conejo->Desecho != 'Si')
     @if($conejo->Engorda != 'No')
       <td> {{$conejo->Fecha_Nacimiento}} </td>
-      <td> {{$conejo->Tatuaje_Derecho}} </td>
-      <td> {{$conejo->Tatuaje_Izquierdo}} </td>
+      <td> {{substr($conejo->Id_Conejo, 0, 5) . ' - ' . substr($conejo->Id_Conejo, 5 , 11)}} </td>
       <td> {{$conejo->raza->Nombre_Raza}} </td>
+      <td> {{$conejo->Id_Jaula}} </td>
       <td> {{$conejo->Genero}} </td>
       <td> {{$conejo->Creador}} </td>
       <td> {{$conejo->Modificador}} </td>      

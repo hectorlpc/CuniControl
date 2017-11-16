@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\SolicitudHoras;
 use App\Actividad;
@@ -42,8 +43,12 @@ class HorasController extends Controller
         } else {
             $solicitudhoras = SolicitudHoras::where('CURP_Alumno',Auth::user()->CURP)->first();
             $horas = Horas::where('Id_Solicitud', $solicitudhoras->Id_Solicitud)->get();
+            $conteohoras = Horas::select(DB::raw("id_solicitud, SUM(Hora_Salida - Hora_Entrada) as total"))
+    ->where('Status', '=', 'Aceptado')
+    ->groupBy('id_solicitud')->get();
         }
-        return view ('Horas.index',['horas'=> $horas]);
+        
+        return view ('Horas.index',['horas'=> $horas , 'conteohoras' => $conteohoras]);
     }
      public function store(Request $request)
     {

@@ -15,6 +15,10 @@
             </div>
           </div>
         </form>
+        <div>
+          <label for="">Total de horas validas: </label>
+          <input readonly type="text" name="Cantidad_Horas" value="{{$conteohoras[0]->total/10000}}">
+        </div>
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>

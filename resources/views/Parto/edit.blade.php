@@ -21,11 +21,29 @@
     </div>
     <div>
         <label for="cant_vivos">Cantidad de gazapos vivos:</label>
-            <input value="{{$parto->Numero_Vivos}}" class="form-control" type="text" name="Numero_Vivos">
+            <!-- <input value="{{$parto->Numero_Vivos}}" class="form-control" type="text" name="Numero_Vivos"> -->
+            <select class="form-control" name="Numero_Vivos">
+            @for($i = 0; $i <= 20; $i++)
+                @if($i == $parto->Numero_Vivos)
+                <option value="{{str_pad($i, 2, "0", STR_PAD_LEFT)}}" selected>{{$i}}</option>
+                @else
+                <option value="{{str_pad($i, 2, "0", STR_PAD_LEFT)}}">{{$i}}</option>
+                @endif
+            @endfor
+            </select>
     </div>
     <div>
         <label for="cant_muertos">Cantidad de gazapos muertos:</label>
-            <input value="{{$parto->Numero_Muertos}}" class="form-control" type="text" name="Numero_Muertos">
+            <!-- <input value="{{$parto->Numero_Muertos}}" class="form-control" type="text" name="Numero_Muertos"> -->
+            <select class="form-control" name="Numero_Muertos">
+            @for($i = 0; $i <= 20; $i++)
+                @if($i == $parto->Numero_Muertos)
+                <option value="{{str_pad($i, 2, "0", STR_PAD_LEFT)}}" selected>{{$i}}</option>
+                @else
+                <option value="{{str_pad($i, 2, "0", STR_PAD_LEFT)}}">{{$i}}</option>
+                @endif
+            @endfor
+            </select>
     </div>
 
     <div>

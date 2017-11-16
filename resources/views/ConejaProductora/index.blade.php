@@ -25,13 +25,14 @@
       <th>Montas:</th>
       <th>Positivas:</th>
       <th>Ultima monta:</th>
+      <th>Status:</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       @foreach($productoras as $productora)
-      @if($productora->Status == 'Activo')
+      @if($productora->Status != 'Muerto')
       <td> {{$productora->Id_Conejo_Hembra}} </td>
       <td> {{$productora->raza->Nombre_Raza}} </td>
       <td> {{$productora->Numero_Conejo}} </td>
@@ -39,6 +40,7 @@
       <td> {{$productora->Numero_Monta}} </td>
       <td> {{$productora->Monta_Positiva}} </td>
       <td> {{$productora->Fecha_Ultima_Monta}} </td>
+      <th> {{$productora->Status}} </th>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
           <form method="POST" action="{{url('/productora/' . $productora->Id_Conejo_Hembra)}}">
@@ -46,7 +48,7 @@
           {{method_field('delete')}}
           <input type="hidden" name="Id_Conejo_Hembra" value="{{$productora->Id_Conejo_Hembra}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form> <a href="{{url('/productora/' . $productora->Id_Conejo_Hembra . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+           </form> <a href="{{url('/productora/' . $productora->Id_Conejo_Hembra . '/edit')}}" class="btn btn-secondary btn-outline-info">Dar de baja</a>
         </div>
       </td>
     </tr>

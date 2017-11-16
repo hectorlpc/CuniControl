@@ -23,7 +23,7 @@ class CreateConejaProductoraTable extends Migration
             $table->date('Fecha_Ultima_Monta')->nullable();
             $table->smallInteger('Numero_Monta')->default(0);
             $table->smallInteger('Monta_Positiva')->default(0);
-            $table->enum('Status',['Activo', 'Inactivo'])->nullable()->index();
+            $table->enum('Status',['Activo','Inactivo','Muerto'])->nullable()->index();
             $table->primary('Id_Conejo_Hembra');
             $table->timestamps();    
         });

@@ -24,19 +24,35 @@ class ProductoraController extends Controller{
     {
       try{
         $productora = Productora::where('Id_Conejo_Hembra', $id_productora)->first();
-        $productora->Status = 'Inactivo';
-        $productora->save();
 
-        $conejo = Conejo::where('Id_Conejo', $id_productora)->first();
-        $conejo->Desecho = 'Si';
-        $conejo->save();
+        $productora->Status = $request->input('Status');
+        if ($productora->Status == 'Desecho') {
+            $conejo = Conejo::where('Id_Conejo', $id_productora)->first();
+            $productora->Status = 'Inactivo';
+            $conejo->Desecho = 'Si';
+            $conejo->save();
+            $productora->save();            
 
-        $desecho = new Desecho;
-        $desecho->Id_Conejo_Desecho = $request->input('Id_Conejo_Hembra');
-        $desecho->Id_Raza = $request->input('Id_Conejo_Hembra')[0];
-        $desecho->Procedencia = 'Productora';
-        $desecho->save();
+            $desecho = new Desecho;
+            $desecho->Id_Conejo_Desecho = $request->input('Id_Conejo_Hembra');
+            $desecho->Id_Raza = $request->input('Id_Conejo_Hembra')[0];
+            $desecho->Procedencia = 'Productora';
+            $desecho->save();
+        } else if ($productora->Status == 'Muerto') {
+            $conejo = Conejo::where('Id_Conejo', $id_productora)->first();
+            $conejo->Status = $request->input('Status');
+            $conejo->Fecha_Muerte = $request->input('Fecha_Muerte');
+            $conejo->Desecho = 'Si';
 
+            $desecho = Desecho::where('Id_Conejo_Desecho', $id_productora)->first();
+            if(is_null($desecho)) {
+                
+            }   else {
+                $desecho->delete();
+            }
+            $conejo->save();
+            $productora->save();     
+        }   
         return redirect('/productora');
       }catch (\Illuminate\Database\QueryException $e){
           session()->flash("Error","No es posible Modificar Coneja productora");

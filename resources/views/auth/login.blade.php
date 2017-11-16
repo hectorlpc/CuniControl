@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>CuniControl | Inicio</title>
         <link rel="stylesheet" type="text/css" href="{{ URL::to('/') }}/css/login.css">
+        <meta name="viewport" content="width=device-width, user-scalable=no">
     </head>
     <body>
         <div class="loginBox">

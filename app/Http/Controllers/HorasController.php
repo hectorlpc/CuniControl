@@ -60,6 +60,7 @@ class HorasController extends Controller
 
         return view ('Horas.index',['horas'=> $horas , 'conteohoras' => $conteohoras]);
     }
+
      public function store(Request $request)
     {
         try{

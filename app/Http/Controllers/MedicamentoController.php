@@ -53,7 +53,7 @@ class MedicamentoController extends Controller
             $medicamento->Id_Medicamento = strtoupper(substr($request->input('Nombre_Medicamento'),0,3) . substr($request->input('Nombre_Medicamento'),-3));
             $medicamento->Cantidad = $request->input('Cantidad');
             $medicamento->save();
-            session()-flash("Exito","Medicamento Registrado")
+            session()-flash("Exito","Medicamento Registrado");
             return redirect('/medicamento');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, Medicamento existente");

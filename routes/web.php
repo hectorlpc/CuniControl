@@ -88,6 +88,17 @@ Route::get('/horas/create', 'HorasController@create');
 Route::post('/horas', 'HorasController@store');
 //Route::get('/horas/{id_destete}/edit', 'HorasController@edit');
 Route::delete('/horas/{id_horas}', 'HorasController@delete');
+Route::get('/Horas/pdf', function() {
+	$usuario = Auth::user();
+	$alumno = App\Alumno::where('CURP_Alumno', $usuario->CURP)->get();
+	$solicitudes = App\SolicitudHoras::where('CURP_Alumno', $alumno[0]->CURP_Alumno)->get();
+	$horas = App\Horas::where('Id_Solicitud', $solicitudes[0]->Id_Solicitud)->get();
+	$conteohoras = App\Horas::select(DB::raw("id_solicitud, SUM(Hora_Salida - Hora_Entrada) as total"))
+    ->where('Status', '=', 'Aceptado')
+    ->groupBy('id_solicitud')->get();
+	$pdf = PDF::loadView('Horas/pdf', ['horas' => $horas, 'usuario' => $usuario, 'alumno' =>$alumno, 'solicitud' => $solicitudes, 'conteohoras' => $conteohoras]);
+	return $pdf->download('HorasCumplidas.pdf');
+});
 
 //rutas validacion de horas
 Route::get('/validacion', 'ValidacionController@index');

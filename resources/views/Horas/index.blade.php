@@ -15,10 +15,12 @@
             </div>
           </div>
         </form>
+       @if($conteohoras->count()>0)
         <div>
           <label for="">Total de horas validas: </label>
-          <input readonly type="text" name="Cantidad_Horas" value="{{$conteohoras[0]->total/10000}}">
+                  <input readonly type="text" name="Cantidad_Horas" value="{{$conteohoras[0]->total/10000}}">  
         </div>
+        @endif
         <div style="overflow-x:auto;"><table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
@@ -55,6 +57,7 @@
   </tbody>
 </table>
 </div>
+<a href="{{url('/Horas/pdf')}}" type="submit" class="btn btn-outline-success">Imprimir</a>
 </div>
 
 @endsection

@@ -44,18 +44,12 @@ class TatuajeController extends Controller
 // Insertar los demás campos
         $conejo->Id_Jaula = $request->input('Id_Jaula');
         $conejo->Status = 'Vivo';
+        $conejo->Desecho = 'No';
         $conejo->Fecha_Nacimiento = $fecha;
         $conejo->Genero = $request->input('Genero');
 
         $destete = Destete::where('Id_Destete', $request->input('Id_Destete'))->first();
         $destete->Tatuados += 1;
-
-       if($destete->Tatuados == $destete->Destetados){
-            $jaula = Jaula::find($request->input('Id_Jaula'));
-            $jaula->Activa = 0;
-            $jaula->save();
-        }
-
 //Guardar conejo
         $conejo->Creador = Auth::user()->CURP;
         $conejo->save();
@@ -74,7 +68,7 @@ class TatuajeController extends Controller
         if($request->Id_Conejo) {
             $conejos = Conejo::where('Id_Conejo', $request->Id_Conejo)->get();
         } else {
-            $conejos = Conejo::all();
+            $conejos = Conejo::where('Id_Raza', $request->Id_Raza);
         }
         return view('Tatuaje.index',['conejos' => $conejos]);
     }

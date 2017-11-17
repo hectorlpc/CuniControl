@@ -28,7 +28,7 @@ class ProductoraController extends Controller{
         $productora->Status = $request->input('Status');
         if ($productora->Status == 'Desecho') {
             $conejo = Conejo::where('Id_Conejo', $id_productora)->first();
-            $productora->Status = 'Inactivo';
+            $productora->Status = 'Desecho';
             $conejo->Desecho = 'Si';
             $conejo->save();
             $productora->save();            

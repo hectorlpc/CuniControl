@@ -32,7 +32,7 @@ class CementalController extends Controller
         $cemental->Status = $request->input('Status');
         if ($cemental->Status == 'Desecho') {
             $conejo = Conejo::where('Id_Conejo', $id_cemental)->first();
-            $cemental->Status = 'Inactivo';
+            $cemental->Status = 'Desecho';
             $conejo->Desecho = 'Si';
             $conejo->save();
             $cemental->save();

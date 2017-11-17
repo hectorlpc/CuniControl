@@ -79,7 +79,7 @@ class AdquiridoController extends Controller{
             $conejo->Id_Raza = $request->input('Id_Raza');
             $conejo->Fecha_Nacimiento = $request->input('Fecha_Adquisicion');
             $conejo->Genero = $request->input('Genero');
-            $conejo->Status = $request->input('Status');
+            $conejo->Status = 'Vivo';
             $conejo->save();
             $conejoAdquirido->Id_Conejo = $conejo->Id_Conejo;
             $conejoAdquirido->Id_Adquisicion = $request->input('Id_Adquisicion');

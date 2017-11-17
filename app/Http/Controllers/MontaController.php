@@ -40,12 +40,9 @@ class MontaController extends Controller{
     public function update(Request $request, $id_monta){
       try{
         $monta = Monta::where('Id_Monta', $id_monta)->first();
-        //$intervalo = date_diff($fecha_monta, $fecha_parto);
-        //dd($intervalo);
         $monta->Fecha_Diagnostico = $request->input('Fecha_Diagnostico');
         $monta->Resultado_Diagnostico = $request->input('Resultado_Diagnostico');
         $monta->Fecha_Parto = $request->input('Fecha_Parto');
-        //dd($monta->Resultado_Diagnostico);
         if($monta->Resultado_Diagnostico == 'Positivo') {
             $semental = Cemental::where('Id_Conejo_Macho', $request->input('Id_Conejo_Macho'))->first();
             $semental->Monta_Positiva += 1;
@@ -68,6 +65,7 @@ class MontaController extends Controller{
         try{
             $monta = Monta::where('Id_Monta', $id_monta)->first();
             $monta->delete();
+
             session()->flash("Exito","Monta eliminada");
             return redirect()->back();
         }catch (\Illuminate\Database\QueryException $e){
@@ -104,7 +102,7 @@ class MontaController extends Controller{
             $productora->Numero_Monta += 1;
 
             $jaula = Jaula::where('Id_Jaula', $request->input('Id_Jaula'))->first();
-            $jaula->Activa = 1;
+            $jaula->Status = 'Ocupada';
 
             $jaula->save();
             $semental->save();
@@ -125,7 +123,10 @@ class MontaController extends Controller{
         {
             $montas = Monta::where('Id_Conejo_Hembra', $request->Id_Conejo_Hembra)->get();
         } else {
-            $montas = Monta::all();
+            $montas = Monta::select()
+                ->whereBetween('Fecha_Monta',['2015-11-01','2017-11-31'])->get();
+            //->latest('Fecha_Monta')->get();
+            //dd($montas);
         }
         return view('Monta.index', ['montas' => $montas]);
     }

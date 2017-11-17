@@ -16,9 +16,9 @@
             <input class="form-control" type="date" name="Fecha_Inicio" value="{{$fecha = date('Y-m-d')}}">
           </div>
           <br>
-          <a href="{{url('/engorda/pdf')}}" type="submit" class="btn btn-outline-success">Buscar</a>          
+          <a href="{{url('/baja/pdf')}}" type="submit" class="btn btn-outline-success">Buscar</a>          
         </form>
         <br>
-        <a href="{{url('/engorda/pdf')}}" type="submit" class="btn btn-outline-success">Imprimir</a>
+        <a href="{{url('/baja/pdf')}}" type="submit" class="btn btn-outline-success">Imprimir</a>
 </div>
 @endsection

@@ -236,16 +236,30 @@ Route::delete('/area/{id_area}','AreaController@delete');
 //Rutas De Bajas
 Route::get('/baja', 'BajaController@index');
 Route::get('/baja/pdf', function() {
-	$conejos = App\Conejo::all();
-	$pdf = PDF::loadView('CensoMuerte/pdf', ['conejos' => $conejos]);
+	$agrupaciones = [
+		'Engorda' => App\Conejo::numeroDe('Engorda', 'Muerto')->get(),
+		'Gazapos' => App\Parto::numeroGazapos('Vivos', 'Muertos')->get(),
+		'Productora' => App\Conejo::numeroDe('Engorda', 'Muerto')->get(),
+		'Semental' => App\Conejo::numeroDe('Engorda', 'Muerto')->get(),
+		'Desecho' => App\Conejo::numeroDe('Engorda', 'Muerto')->get(),
+	];
+
+	$pdf = PDF::loadView('CensoMuerte/pdf', ['agrupaciones' => $agrupaciones]);
 	return $pdf->download('Censo_de_muertes.pdf');
 });
 
 //Rutas de engorda
 Route::get('/engorda', 'EngordaController@index');
 Route::get('/engorda/pdf', function() {
-	$razas = App\Conejo::numeroDe('Desecho')->get();
-	$pdf = PDF::loadView('CensoEngorda/pdf', ['razas' => $razas]);
+	$agrupaciones = [
+		'Engorda' => App\Conejo::numeroDe('Engorda')->get(),
+		'Gazapos' => App\Parto::numeroGazapos('Vivos')->get(),
+		'Productora' => App\Conejo::numeroDe('Engorda')->get(),
+		'Semental' => App\Conejo::numeroDe('Engorda')->get(),
+		'Desecho' => App\Conejo::numeroDe('Engorda')->get(),
+	];
+
+	$pdf = PDF::loadView('CensoEngorda/pdf', ['agrupaciones' => $agrupaciones]);
 	return $pdf->download('Censo_de_engorda.pdf');
 });
 //Confirmacion de Correo

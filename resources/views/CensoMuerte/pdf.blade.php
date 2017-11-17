@@ -17,14 +17,16 @@
         <div>Carretera Cuautitlán-Teoloyucan Km. 2.5,<br /> Col. San Sebastián Xhala, Cuautitlán Izcalli, Edo. Mex.</div>
         <div>CP. 54714 </div>
       </div>
-      <div id="project">
+      <!-- <div id="project">
         <div>MODULO DE CUNICULTURA CEA</div>
         <div><span>Fecha:</span> Noviembre 11, 2017</div>
 
-      </div>
+      </div> -->
       <br>
       <br>
     <main>
+      @foreach($agrupaciones as $nombre => $razas)
+      <h3 class="agrupacion">{{$nombre}}</h3>
       <table class="table table-hover table-striped">
         <thead>
             <tr>
@@ -41,5 +43,5 @@
             @endforeach
         </tbody>
       </table>
+      @endforeach
       <hr>
- 

@@ -3,7 +3,7 @@
 @section('content')
       <div class="container">
         <h2 align="center">Actualizacion Datos Alumno</h2>
-        <form action="{{url('/Alumno/'.$alumno->CURP_Alumno)}}" method="POST" role="form">
+        <form action="{{url('/alumno/'.$alumno->CURP_Alumno)}}" method="POST" role="form">
            {{method_field('patch')}}
   {{csrf_field()}}
             <div>

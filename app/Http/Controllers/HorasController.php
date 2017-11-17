@@ -46,18 +46,25 @@ class HorasController extends Controller
     }
     public function index(Request $request)
     {
-        if($request->Fecha)
-        {
-            $solicitudhoras = SolicitudHoras::where('CURP_Alumno',Auth::user()->CURP)->first();
-            $horas = Horas::where('Id_Solicitud', $solicitudhoras->Id_Solicitud)->where('Fecha', $request->Fecha)->get();
-        } else {
-            $solicitudhoras = SolicitudHoras::where('CURP_Alumno',Auth::user()->CURP)->first();
-            $horas = Horas::where('Id_Solicitud', $solicitudhoras->Id_Solicitud)->get();
-            $conteohoras = Horas::select(DB::raw("id_solicitud, SUM(Hora_Salida - Hora_Entrada) as total"))
-    ->where('Status', '=', 'Aceptado')
-    ->groupBy('id_solicitud')->get();
-        }
-
+        $solicitudhoras = SolicitudHoras::where('CURP_Alumno',Auth::user()->CURP)->first();
+        if($solicitudhoras){
+            if($request->Fecha)
+            {
+                $horas = Horas::where('Id_Solicitud', $solicitudhoras->Id_Solicitud)->where('Fecha', $request->Fecha)->get();
+            } else {
+                $solicitudhoras = SolicitudHoras::where('CURP_Alumno',Auth::user()->CURP)->first();
+                $horas = Horas::where('Id_Solicitud', $solicitudhoras->Id_Solicitud)->get();
+                $conteohoras = Horas::select(DB::raw("id_solicitud, SUM(Hora_Salida - Hora_Entrada) as total"))
+        ->where('Status', '=', 'Aceptado')
+        ->groupBy('id_solicitud')->get();
+            }
+    
+        }else{
+            $horas=null;
+            $conteohoras=null;
+            
+        }    
+        
         return view ('Horas.index',['horas'=> $horas , 'conteohoras' => $conteohoras]);
     }
 

@@ -23,10 +23,16 @@ class ProfesorController extends Controller
 	}
 	public function edit()
     {
+    	try{
+
     	$CURP = Auth::user()->CURP;
         $profesor = Profesor::where('CURP_Profesor', $CURP)->first();
 
         return view('Profesor/edit',['profesor' => $profesor]);
+    	}catch(\ErrorException $e){
+    		session()->flash("Error","Necesitas crear tus datos de profesor");
+			return redirect('/home');
+    	}
     }
 
 	public function update(Request $request,$profesor){
@@ -38,6 +44,7 @@ class ProfesorController extends Controller
 		    $profesor->Numero_Cuenta = $request->input('Numero_Cuenta');
 		    $profesor->save();
 		    session()->flash("Exito","Datos actualizados Exitosamente");
+		    
 		}catch(\Illuminate\Database\QueryException $e){
 			session()->flash("Error","Datos invalidos o nulos");
 		}

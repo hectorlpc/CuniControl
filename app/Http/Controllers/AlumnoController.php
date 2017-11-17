@@ -11,8 +11,13 @@ class AlumnoController extends Controller
 {
     //
 	public function create(){
+		try{
+			return view("Alumno/create");
+		}catch(\Exception $e){
+			session()->flash("Error","No se puede acceder a esta vista");
+		}
 
-    	return view("Alumno/create");
+    	
 
 	}
 	public function store(Request $request){
@@ -26,10 +31,16 @@ class AlumnoController extends Controller
 	}
 	public function edit()
     {
-    	$CURP = Auth::user()->CURP;
-        $alumno = Alumno::where('CURP_Alumno', $CURP)->first();
+    	try{
+    		$CURP = Auth::user()->CURP;
+        	$alumno = Alumno::where('CURP_Alumno', $CURP)->first();
 
-        return view('Alumno/edit',['alumno' => $alumno]);
+        return view('Alumno/edit',['alumno' => $alumno]);	
+    	}catch(\Exception $e){
+    		session()->flash("Error","Necesitas crear tus datos de alumno");
+			return redirect('/home');
+    	}
+    	
     }
 
 	public function update(Request $request,$alumno){

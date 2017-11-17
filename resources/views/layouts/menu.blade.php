@@ -17,8 +17,11 @@
             <ul>
               <li> <a href="{{url('/solicitudHoras')}}">Solicitar horas practicas </a> </li>
               <li> <a href="{{url('/horas')}}">Registro de horas cumplidas </a> </li>
-              <li> <a href="{{url('/alumno/create')}}">Completa tus datos personales</a> </li>
+              @if(Auth::user()->tienePerfil("Alumno"))
               <li> <a href="{{url('/alumno/edit')}}">Actualiza tus datos personales</a> </li>
+              @else
+              <li> <a href="{{url('/alumno/create')}}">Completa tus datos personales</a> </li>
+              @endif
           </ul>
           </li>
 @endif
@@ -70,8 +73,12 @@
                   <ul>
                     <li> <a href="{{url('/grupo/')}}">Registro de Grupos</a> </li>
                     <li> <a href="{{url('/materia/')}}">Registro de Materias</a> </li>
-                    <li> <a href="{{url('/profesor/create')}}">Completa tus datos personales</a> </li>
+
+                    @if(Auth::user()->tienePerfil("Profesor"))
                     <li> <a href="{{url('/profesor/edit')}}">Actualiza tus datos personales</a> </li>
+                    @else
+                    <li> <a href="{{url('/profesor/create')}}">Completa tus datos personales</a> </li>
+                    @endif
                   </ul>
               </li>
 @endif

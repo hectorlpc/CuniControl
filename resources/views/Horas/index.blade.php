@@ -3,7 +3,10 @@
 @section('content')
 <div class="container">
     @include("compartidas.alertas")
-
+    @if(is_null($horas))
+          <center><h2>Registra primero tu solicitud de horas prácticas</h2>
+            <a href="{{url('/solicitudHoras')}}" class="btn btn-outline-success">Solicitar horas practicas </a> </li>
+    @else
           <center><h2>Inicio Registro de Horas</h2>
           <form method="get" action="{{url('horas/')}}">
           <div class="form-group">
@@ -59,5 +62,5 @@
 </div>
 <a href="{{url('/Horas/pdf')}}" type="submit" class="btn btn-outline-success">Imprimir</a>
 </div>
-
+@endif
 @endsection

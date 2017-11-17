@@ -27,6 +27,23 @@ class Usuario extends Authenticatable
     public function tieneRol($id_rol){
       return $this->roles->pluck("Id_Rol")->contains($id_rol);
     }
+    public function tienePerfil($perfil){
+      switch($perfil){
+        case "Profesor":
+          return $this->profesor;
+      
+        case "Alumno":
+          return $this->alumno;
+      }
+    }
+    public function profesor(){
+      return $this->hasOne(Profesor::class,'CURP_Profesor','CURP');
+    }
+
+    public function alumno(){
+      return $this->hasOne(Alumno::class,'CURP_Alumno','CURP');
+    }
+
 		public function sendPasswordResetNotification($token)
 {
     $this->notify(new MyResetPassword($token));

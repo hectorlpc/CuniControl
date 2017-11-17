@@ -238,10 +238,10 @@ Route::get('/baja', 'BajaController@index');
 Route::get('/baja/pdf', function() {
 	$agrupaciones = [
 		'Engorda' => App\Conejo::numeroDe('Engorda', 'Muerto')->get(),
-		'Gazapos' => App\Parto::numeroGazapos('Vivos', 'Muertos')->get(),
-		'Productora' => App\Conejo::numeroDe('Engorda', 'Muerto')->get(),
-		'Semental' => App\Conejo::numeroDe('Engorda', 'Muerto')->get(),
-		'Desecho' => App\Conejo::numeroDe('Engorda', 'Muerto')->get(),
+		'Gazapos' => App\Parto::numeroGazapos('Muertos')->get(),
+		'Productora' => App\Conejo::numeroDe('Productora', 'Muerto')->get(),
+		'Semental' => App\Conejo::numeroDe('Semental', 'Muerto')->get(),
+		'Desecho' => App\Conejo::numeroDe('Desecho', 'Muerto')->get(),
 	];
 
 	$pdf = PDF::loadView('CensoMuerte/pdf', ['agrupaciones' => $agrupaciones]);
@@ -254,9 +254,9 @@ Route::get('/engorda/pdf', function() {
 	$agrupaciones = [
 		'Engorda' => App\Conejo::numeroDe('Engorda')->get(),
 		'Gazapos' => App\Parto::numeroGazapos('Vivos')->get(),
-		'Productora' => App\Conejo::numeroDe('Engorda')->get(),
-		'Semental' => App\Conejo::numeroDe('Engorda')->get(),
-		'Desecho' => App\Conejo::numeroDe('Engorda')->get(),
+		'Productora' => App\Conejo::numeroDe('Productora')->get(),
+		'Semental' => App\Conejo::numeroDe('Semental')->get(),
+		'Desecho' => App\Conejo::numeroDe('Desecho')->get(),
 	];
 
 	$pdf = PDF::loadView('CensoEngorda/pdf', ['agrupaciones' => $agrupaciones]);

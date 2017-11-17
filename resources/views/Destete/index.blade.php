@@ -53,7 +53,7 @@
           {{method_field('delete')}}
           <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
         </form>
-        <a href="{{url('/destete/' . $destete->Id_Destete . '/edit')}}" type="button" class="btn btn-secondary btn-outline-info">Modificar</a></td>
+        {{-- <a href="{{url('/destete/' . $destete->Id_Destete . '/edit')}}" type="button" class="btn btn-secondary btn-outline-info">Modificar</a></td> --}}
       </div>
         </tr>
         @endforeach

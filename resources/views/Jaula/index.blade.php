@@ -17,6 +17,8 @@
   <thead class="thead-default">
     <tr>
       <th>Numero de Jaula:</th>
+      <th>Estado de Jaula:</th>
+      <th></th>
       <th></th>
     </tr>
   </thead>
@@ -24,6 +26,7 @@
     <tr>
       @foreach($jaulas as $jaula)
       <td> {{$jaula->Id_Jaula}} </td>
+      <td> {{$jaula->Status}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
           <form method="POST" action="{{url('/jaula/' . $jaula->Id_Jaula)}}">
@@ -31,7 +34,7 @@
           {{method_field('delete')}}
           <input type="hidden" name="Id_Jaula" value="{{$jaula->Id_Jaula}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form>
+           </form> <a href="{{url('/jaula/' . $jaula->Id_Jaula . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a> 
         </div>
       </td>
     </tr>

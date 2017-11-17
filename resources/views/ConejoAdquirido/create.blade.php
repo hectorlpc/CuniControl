@@ -38,12 +38,6 @@
             <input type="radio" name="Genero" value="Hembra" /> Hembra
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword2">Status:</label>
-            <input type="radio" name="Status" value="Vivo" /> Vivo
-            <input type="radio" name="Status" value="Muerto" /> Muerto
-          </div>
-
-          <div class="form-group">
             <label for="Conejo_Adquirido">Fecha de adquisición:</label>
             <input class="form-control" type="date" name="Fecha_Adquisicion" value="{{$fecha = date('Y-m-d')}}">
           </div>

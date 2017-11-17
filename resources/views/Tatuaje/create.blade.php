@@ -2,16 +2,17 @@
 @extends('layouts.menu')
 @section('content')
       <div class="container">
-        <center><h2>Tatuado de Conejos:</h2></center>
+        <center><h2>Tatuado de Conejos</h2></center>
+        @if($destetes->count() > 0)
           <form method="POST" action="{{url('/tatuaje')}}">
             {{csrf_field()}}
           <div class="form-group">
-            <label for="">Numero de tatuaje de la madre:</label>
+            <label for="">Tatuajes de la madre:</label>
             <select class="form-control" name="Id_Destete" id="conejaDestete">
               <option> -- Seleccione coneja -- </option>
             @foreach($destetes as $destete)
             @if($destete->Tatuados < $destete->Destetados)
-              <option value="{{$destete->Id_Destete}}">{{$destete->parto->monta->Id_Conejo_Hembra}}</option>
+              <option value="{{$destete->Id_Destete}}">{{substr($destete->parto->monta->Id_Conejo_Hembra,0,5) . ' - ' . substr($destete->parto->monta->Id_Conejo_Hembra,5,11)}}</option>
             @endif
             @endforeach
             </select>
@@ -36,5 +37,9 @@
         </br>
           <button type="submit" class="btn btn-outline-primary">Registrar</button>
       </form>
+      @else
+      <br>
+      <center><h2>No existen destetes</h2></center>
+      @endif
       </div>
 @endsection

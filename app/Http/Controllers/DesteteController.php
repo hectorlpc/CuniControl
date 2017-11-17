@@ -93,7 +93,7 @@ class DesteteController extends Controller{
         if ($request->input('Id_Conejo_Hembra')) {
             $destetes = Destete::where('Id_Destete', 'LIKE', $request->input('Id_Conejo_Hembra') . '%')->get();
         } else {
-            $destetes = Destete::all();
+            $destetes = Destete::select()->latest('Fecha_Destete')->get();
         }
         return view ('Destete.index',['destetes'=> $destetes]);
     }

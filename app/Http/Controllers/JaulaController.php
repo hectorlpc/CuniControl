@@ -48,4 +48,21 @@ class JaulaController extends Controller
 	        return redirect()->back();
 	    }
 	}
+
+	public function edit($id_jaula)	
+	{
+        $jaula = Jaula::where('Id_Jaula', $id_jaula)->first();
+        return view('Jaula.edit', ['jaula' => $jaula]);
+	}
+
+	public function update(Request $request, $id_jaula)	{
+		try {
+			$jaula = Jaula::where('Id_Jaula', $id_jaula)->first();
+			$jaula->Status = $request->input('Status');
+			$jaula->save();
+			return redirect('/jaula');
+		} catch (\Illuminate\Database\QueryException $e) {
+			return redirect('/jaula');
+		}
+	}	
 }

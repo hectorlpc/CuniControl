@@ -21,6 +21,12 @@
       <th>Raza:</th>
       <th>Jaula:</th>
       <th>Genero:</th>
+      <th>Status:</th>
+      <th>Desecho:</th>
+      <th>Engorda:</th>
+      <th>Productora:</th>
+      <th>Semental:</th>
+      <th>Fecha Muerte:</th>
       <th>Registró</th>
       <th>Actualizó</th>
       <th></th>
@@ -29,14 +35,20 @@
   <tbody>
     <tr>
     @foreach($conejos as $conejo)
-    @if($conejo->Status == 'Vivo')
-    @if($conejo->Desecho != 'Si')
-    @if($conejo->Engorda != 'No')
+    {{-- @if($conejo->Status == 'Vivo') --}}
+    {{-- @if($conejo->Desecho == 'No') --}}
+    {{-- @if($conejo->Engorda != 'No') --}}
       <td> {{$conejo->Fecha_Nacimiento}} </td>
       <td> {{substr($conejo->Id_Conejo, 0, 5) . ' - ' . substr($conejo->Id_Conejo, 5 , 11)}} </td>
       <td> {{$conejo->raza->Nombre_Raza}} </td>
       <td> {{$conejo->Id_Jaula}} </td>
       <td> {{$conejo->Genero}} </td>
+      <td> {{$conejo->Status}} </td>
+      <td> {{$conejo->Desecho}} </td>
+      <td> {{$conejo->Engorda}} </td>
+      <td> {{$conejo->Productora}} </td>
+      <td> {{$conejo->Semental}} </td>
+      <td> {{$conejo->Fecha_Muerte}} </td>
       <td> {{$conejo->Creador}} </td>
       <td> {{$conejo->Modificador}} </td>
       <td></td>
@@ -52,9 +64,9 @@
       </div>
     </td>
     </tr>
+{{--     @endif
     @endif
-    @endif
-    @endif
+    @endif --}}
     @endforeach
   </tbody>
 </table></div>

@@ -244,8 +244,8 @@ Route::get('/baja/pdf', function() {
 //Rutas de engorda
 Route::get('/engorda', 'EngordaController@index');
 Route::get('/engorda/pdf', function() {
-	$conejos = App\Conejo::all();
-	$pdf = PDF::loadView('CensoEngorda/pdf', ['conejos' => $conejos]);
+	$razas = App\Conejo::numeroDe('Desecho')->get();
+	$pdf = PDF::loadView('CensoEngorda/pdf', ['razas' => $razas]);
 	return $pdf->download('Censo_de_engorda.pdf');
 });
 //Confirmacion de Correo

@@ -30,28 +30,33 @@ class CementalController extends Controller
         $cemental = Cemental::where('Id_Conejo_Macho', $id_cemental)->first();
 
         $cemental->Status = $request->input('Status');
-        if ($cemental->Status == 'Inactivo') {
+        if ($cemental->Status == 'Desecho') {
             $conejo = Conejo::where('Id_Conejo', $id_cemental)->first();
-            $cemental->Status = $request->input('Status');
+            $cemental->Status = 'Inactivo';
+            $conejo->Desecho = 'Si';
             $conejo->save();
             $cemental->save();
-            $conejo->Desecho = 'Si';
 
             $desecho = new Desecho;
             $desecho->Id_Conejo_Desecho = $request->input('Id_Conejo_Macho');
             $desecho->Id_Raza = $request->input('Id_Conejo_Macho')[0];
             $desecho->Procedencia = 'Semental';
             $desecho->save();
-        }
-        if ($cemental->Status == 'Muerto') {
+        } else if ($cemental->Status == 'Muerto') {
             $conejo = Conejo::where('Id_Conejo', $id_cemental)->first();
             $conejo->Status = $request->input('Status');
             $conejo->Fecha_Muerte = $request->input('Fecha_Muerte');
+            $conejo->Desecho = 'Si';
+
+            $desecho = Desecho::where('Id_Conejo_Desecho', $id_cemental)->first();
+            if(is_null($desecho)) {
+
+            }   else {
+                $desecho->delete();
+            }
             $conejo->save();
             $cemental->save();
-            $conejo->Desecho = 'Si';
             session()->flash("Exito","Semental dado de baja");
-
         }
         return redirect('/cemental');
       }catch (\Illuminate\Database\QueryException $e){

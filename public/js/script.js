@@ -9,7 +9,7 @@ $('document').ready(function()
        menu="abierto";
      }
         else {
-         $('.menuNavegacion').animate({left: '-22%'})
+         $('.menuNavegacion').animate({left: '-25%'})
 
          menu="cerrado";
         }

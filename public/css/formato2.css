@@ -50,10 +50,10 @@ html
 .menuNavegacion
 {
   position: fixed;
-  width: 22%;
+  width: 25%;
   height: calc(100% - 50px);
   top: 50px;
-  left: -22%;
+  left: -25%;
   overflow-y: scroll;
   background: white;
   background-image:url('images/fondo-negro-2218.jpg');

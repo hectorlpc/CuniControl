@@ -20,7 +20,7 @@ class JaulaController extends Controller
 	public function create ()
 	{
 		$jaulas = Jaula::all();
-		return view('jaula/create', ['jaulas' => $jaulas]);
+		return view('Jaula/create', ['jaulas' => $jaulas]);
 	}
 
 	public function store (Request $request){
@@ -30,11 +30,11 @@ class JaulaController extends Controller
 			$jaula->save();
 	        session()->flash("Exito","Raza creada");
 			return redirect('/jaula');
-		}catch (\Illuminate\Database\QueryException $e){ 
+		}catch (\Illuminate\Database\QueryException $e){
 	        session()->flash("Error","No es posible crear esa jaula");
 	        return redirect('/jaula');
 	    }
-		
+
 	}
 
 	public function delete (Request $request, $id_jaula){
@@ -42,8 +42,8 @@ class JaulaController extends Controller
 			$jaula = Jaula::where('Id_Jaula', $id_jaula)->first();
 			$jaula->delete();
       		session()->flash("Exito","Jaula eliminada");
-			return redirect()->back();	
-		}catch (\Illuminate\Database\QueryException $e){ 
+			return redirect()->back();
+		}catch (\Illuminate\Database\QueryException $e){
 	        session()->flash("Error","No es posible eliminar esa jaula");
 	        return redirect()->back();
 	    }

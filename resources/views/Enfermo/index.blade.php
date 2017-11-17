@@ -15,7 +15,7 @@
               <a href="{{url('/enfermo/create')}}" type="submit" class="btn btn-outline-success">Agregar</a></div>
           </div>
       </form>
-      <table class="table table-sm table-responsive">
+      <div style="overflow-x:auto;"><table class="table table-sm table-responsive">
           <thead class="thead-default">
               <tr>
                   <th>Id Conejo Enfermo:</th>
@@ -24,7 +24,7 @@
                   <th>Inicio de tratamiento:</th>
                   <th>Fin de tratamiento</th>
                   <th>Registró</th>
-                  <th>Actualizó</th>                  
+                  <th>Actualizó</th>
                   <th></th>
               </tr>
           </thead>
@@ -52,5 +52,5 @@
               @endforeach
             @endforeach
           </tbody>
-      </table>
+      </table></div>
 @endsection

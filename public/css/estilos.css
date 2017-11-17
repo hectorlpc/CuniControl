@@ -123,5 +123,10 @@ a{
   .contenedor-menu{
     width: 100%;
   }
-
+  .contenedorPrincipal
+  {
+   padding-top:50px;
+   padding-left: 3%;
+   padding-right: 3%;
+  }
 }

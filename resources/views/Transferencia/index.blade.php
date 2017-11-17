@@ -15,7 +15,7 @@
     <a href="{{url('/transferencia/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
     </div>
   </form>
-        <table class="table table-sm table-responsive">
+        <div style="overflow-x:auto;"><table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
       <th>Tatuaje Conejo:</th>
@@ -35,7 +35,7 @@
       <td> {{$transferencia->area->Nombre_Area}} </td>
       <td> {{$transferencia->area->Descripcion_Area}} </td>
       <td> {{$transferencia->Creador}} </td>
-      <td> {{$transferencia->Modificador}} </td>      
+      <td> {{$transferencia->Modificador}} </td>
       <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
         <form method="POST" action="{{url('/transferencia/' . $transferencia->Id_Transferencia)}}">
@@ -49,7 +49,7 @@
       @endforeach
     </tr>
   </tbody>
-</table>
+</table></div>
 
 </div>
 

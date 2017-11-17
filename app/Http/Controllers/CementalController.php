@@ -21,7 +21,7 @@ class CementalController extends Controller
         $cemental = Cemental::all();
         $cemental = Cemental::where('Id_Conejo_Macho', $id_cemental)->first();
 
-    	return view('/ConejoCemental/edit',['cemental' => $cemental]);
+    	return view('ConejoCemental/edit',['cemental' => $cemental]);
     }
 
     public function update(Request $request, $id_cemental)
@@ -34,7 +34,7 @@ class CementalController extends Controller
             $conejo = Conejo::where('Id_Conejo', $id_cemental)->first();
             $cemental->Status = $request->input('Status');
             $conejo->save();
-            $cemental->save();            
+            $cemental->save();
             $conejo->Desecho = 'Si';
 
             $desecho = new Desecho;
@@ -48,7 +48,7 @@ class CementalController extends Controller
             $conejo->Status = $request->input('Status');
             $conejo->Fecha_Muerte = $request->input('Fecha_Muerte');
             $conejo->save();
-            $cemental->save();            
+            $cemental->save();
             $conejo->Desecho = 'Si';
             session()->flash("Exito","Semental dado de baja");
 
@@ -104,7 +104,7 @@ class CementalController extends Controller
 
     public function index(Request $request)
     {
-        //select id_conejo_macho, count(*) from monta id_conejo_macho where resultado_diagnostico = "positivo" group by id_conejo_macho;        
+        //select id_conejo_macho, count(*) from monta id_conejo_macho where resultado_diagnostico = "positivo" group by id_conejo_macho;
         //$cementales = Monta::select('Id_Conejo_Macho')->where('Resultado_Diagnostico','=', 'Positivo')->groupby('Id_Conejo_Macho')->get();
         //dd($cementales);
 

@@ -13,7 +13,7 @@
             <a href="{{url('donacion/create')}}" type="submit" class="btn btn-outline-success">Agregar</a></div>
           </div>
         </form>
-
+<div style="overflow-x:auto;">
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
@@ -23,7 +23,7 @@
       <th>Donados:</th>
       <th>Registró</th>
       <th>Actualizó</th>
-      <th>Notas</th>      
+      <th>Notas</th>
       <th></th>
     </tr>
   </thead>
@@ -35,8 +35,8 @@
       <td> {{substr($donacion->Id_Parto_Donatorio, 0, 10)}} </td>
       <td> {{$donacion->Donados}} </td>
       <td> {{$donacion->Creador}} </td>
-      <td> {{$donacion->Modificador}} </td>   
-      <td> {{$donacion->Notas}} </td>   
+      <td> {{$donacion->Modificador}} </td>
+      <td> {{$donacion->Notas}} </td>
       <td></td>
       <td><div class="btn-group btn-group-sm" role="group" aria-label="">
       <form method="POST" action="{{url('/donacion/' . $donacion->Id_Donacion)}}">
@@ -49,6 +49,6 @@
     @endforeach
   </tbody>
 </table>
-
+</div>
 </div>
 @endsection

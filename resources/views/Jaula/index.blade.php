@@ -12,7 +12,7 @@
           </form>
             <a href="{{url('/jaula/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
           </div>
-
+<div style="overflow-x:auto;">
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
@@ -31,13 +31,13 @@
           {{method_field('delete')}}
           <input type="hidden" name="Id_Jaula" value="{{$jaula->Id_Jaula}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form> 
+           </form>
         </div>
       </td>
     </tr>
       @endforeach
   </tbody>
 </table>
-
+</div>
 </div>
 @endsection

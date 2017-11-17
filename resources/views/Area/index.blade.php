@@ -14,6 +14,7 @@
             <a href="{{url('/area/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
           </div>
         </form>
+        <div style="overflow-x:auto;">
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
@@ -46,7 +47,6 @@
 
   </tbody>
 </table>
-
+</div>
 </div>
 @endsection
-

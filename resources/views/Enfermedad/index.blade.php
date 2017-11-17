@@ -14,7 +14,7 @@
         <a href="{{url('/enfermedad/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
       </div>
     </form>
-        <table class="table table-sm table-responsive">
+        <div style="overflow-x:auto;"><table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
       <th>Código:</th>
@@ -44,7 +44,7 @@
         </tr>
         @endforeach
   </tbody>
-</table>
+</table></div>
 </form>
 </div>
 </form>

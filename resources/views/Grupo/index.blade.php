@@ -14,7 +14,7 @@
           </form>
             <a href="{{url('/grupo/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
           </div>
-
+<div style="overflow-x:auto;">
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
@@ -44,6 +44,6 @@
       @endforeach
   </tbody>
 </table>
-
+</div>
 </div>
 @endsection

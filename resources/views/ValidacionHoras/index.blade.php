@@ -4,7 +4,7 @@
 <div class="container">
   @include('compartidas.alertas')
           <h2>Validación De Horas Practicas</h2>
-        <table class="table table-sm table-responsive">
+      <div style="overflow-x:auto;">  <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
       <th>Alumno:</th>
@@ -34,7 +34,7 @@
 
 
             <button type="submit" class="btn btn-secondary btn-outline-info ">Aceptar</button>
-          </form> 
+          </form>
           <form method="POST" action="{{url('validacion/' . $hora->Id_Horas)}}">
                 {{method_field('patch')}}
                 {{ csrf_field() }}
@@ -48,7 +48,7 @@
     </tr>
     @endforeach
   </tbody>
-</table>
+</table></div>
 
 </div>
 

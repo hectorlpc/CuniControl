@@ -12,6 +12,7 @@
             <a hidden href="" type="submit" class="btn btn-outline-success">Agregar</a>
           </div>
         </form>
+        <div style="overflow-x:auto;">
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
@@ -43,6 +44,7 @@
     @endforeach
   </tbody>
 </table>
+</div>
 <a href="{{url('/engorda/pdf')}}" type="submit" class="btn btn-outline-success">Imprimir</a>
 </div>
 @endsection

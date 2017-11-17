@@ -14,7 +14,7 @@ class MateriaController extends Controller
 		$carreras = Carrera::all();
 		$grupos = Grupo::all();
 
-		return view('materia/create', [
+		return view('Materia/create', [
 			'carreras' => $carreras,
 			'grupos' => $grupos]);
 	}
@@ -42,7 +42,7 @@ class MateriaController extends Controller
         } else {
             $materias = Materia::all();
         }
-        return view('materia/index', ['materias' => $materias]);
+        return view('Materia/index', ['materias' => $materias]);
 	}
 
 	public function edit ($id_materia)
@@ -51,7 +51,7 @@ class MateriaController extends Controller
 		$materias = Materia::all();
 		$materia = Materia::where('Id_Materia', $id_materia)->first();
 
-		return view('materia/edit', [
+		return view('Materia/edit', [
 			'materia' => $materia,
 			'carreras' => $carreras
 		]);

@@ -12,7 +12,7 @@ class GrupoController extends Controller
 	{
 		$carreras = Carrera::all();
 
-		return view('grupo/create', ['carreras' => $carreras]);
+		return view('Grupo/create', ['carreras' => $carreras]);
 	}
 
 	public function store (Request $request){
@@ -47,7 +47,7 @@ class GrupoController extends Controller
 		$grupos = Grupo::all();
 		$grupo = Grupo::where('Id_Grupo', $id_grupo)->first();
 
-		return view('grupo/edit', ['grupo' => $grupo]);
+		return view('Grupo/edit', ['grupo' => $grupo]);
 	}
 
 	public function update (Request $request, $id_grupo)

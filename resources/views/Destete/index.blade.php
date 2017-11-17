@@ -15,6 +15,7 @@
                 <a href="{{url('/destete/create')}}" type="submit" class="btn btn-outline-success">Agregar</a></div>
               </div>
             </form>
+            <div style="overflow-x:auto;">
             <table class="table table-sm table-responsive">
       <thead class="thead-default">
         <tr>
@@ -25,7 +26,7 @@
           <th>Adoptados destetados</th>
           <th>Adoptados no destetados</th>
           <th>Notas</th>
-          <th>Peso</th>          
+          <th>Peso</th>
           <th>Registró</th>
           <th>Actualizó</th>
           <th></th>
@@ -34,7 +35,7 @@
       <tbody>
         <tr>
           @foreach($destetes as $destete)
-          <td> {{$destete->Fecha_Destete}} </td>          
+          <td> {{$destete->Fecha_Destete}} </td>
           <td> {{$destete->parto->monta->Id_Conejo_Hembra}} </td>
           <td> {{$destete->Destetados}} </td>
           <td> {{$destete->No_Destetados}} </td>
@@ -43,7 +44,7 @@
           <td> {{$destete->Notas}} </td>
           <td> {{$destete->Peso_Destete}} </td>
           <td> {{$destete->Creador}} </td>
-          <td> {{$destete->Modificador}} </td>          
+          <td> {{$destete->Modificador}} </td>
           <td></td>
           <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
@@ -58,6 +59,6 @@
         @endforeach
       </tbody>
     </table>
-
+</div>
     </div>
 @endsection

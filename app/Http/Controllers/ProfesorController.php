@@ -10,15 +10,15 @@ class ProfesorController extends Controller
 {
     //
     public function create(){
-    	return view("/Profesor/create");
+    	return view("Profesor/create");
 	}
 	public function store(Request $request){
 		try{
 			Profesor::create($request->all());
-			session()->flash("Exito","Datos Registrados Exitosamente");	
+			session()->flash("Exito","Datos Registrados Exitosamente");
 		}catch(\Illuminate\Database\QueryException $e){
 			session()->flash("Error","Datos existentes o invalidos");
-		}	
+		}
 		return redirect('/home');
 	}
 	public function edit()
@@ -26,7 +26,7 @@ class ProfesorController extends Controller
     	$CURP = Auth::user()->CURP;
         $profesor = Profesor::where('CURP_Profesor', $CURP)->first();
 
-        return view('profesor/edit',['profesor' => $profesor]);        
+        return view('Profesor/edit',['profesor' => $profesor]);
     }
 
 	public function update(Request $request,$profesor){
@@ -37,7 +37,7 @@ class ProfesorController extends Controller
 		    $profesor->Seguro_Facultativo = $request->input('Seguro_Facultativo');
 		    $profesor->Numero_Cuenta = $request->input('Numero_Cuenta');
 		    $profesor->save();
-		    session()->flash("Exito","Datos actualizados Exitosamente");	
+		    session()->flash("Exito","Datos actualizados Exitosamente");
 		}catch(\Illuminate\Database\QueryException $e){
 			session()->flash("Error","Datos invalidos o nulos");
 		}

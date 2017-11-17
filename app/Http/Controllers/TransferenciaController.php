@@ -12,7 +12,7 @@ class TransferenciaController extends Controller{
 	public function create(){
 		$areas = Area::all();
 		$conejos = Conejo::all();
-		return view('transferencia/create', [
+		return view('Transferencia/create', [
 			'conejos' => $conejos,
 			'areas' => $areas
 		]);
@@ -47,7 +47,7 @@ class TransferenciaController extends Controller{
         } else {
           $transferencias = Transferencia::all();
         }
-        return view('transferencia/index', ['transferencias' => $transferencias]);
+        return view('Transferencia/index', ['transferencias' => $transferencias]);
 	}
 
 	public function edit($id_transferencia){
@@ -55,7 +55,7 @@ class TransferenciaController extends Controller{
 		$conejos = Conejo::all();
 		$transferencia = Transferencia::where('Id_Transferencia', $id_transferencia)->first();
 
-		return view('transferencia/edit', [
+		return view('Transferencia/edit', [
 			'conejos' => $conejos,
 			'areas' => $areas,
 			'transferencia' => $transferencia

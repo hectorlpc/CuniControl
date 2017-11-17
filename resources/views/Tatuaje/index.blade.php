@@ -13,7 +13,7 @@
             <a href="{{url('/tatuaje/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
           </div>
         </form>
-        <table class="table table-sm table-responsive">
+        <div style="overflow-x:auto;"><table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
       <th>Fecha Nacimiento:</th>
@@ -38,7 +38,7 @@
       <td> {{$conejo->Id_Jaula}} </td>
       <td> {{$conejo->Genero}} </td>
       <td> {{$conejo->Creador}} </td>
-      <td> {{$conejo->Modificador}} </td>      
+      <td> {{$conejo->Modificador}} </td>
       <td></td>
       <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
@@ -57,7 +57,7 @@
     @endif
     @endforeach
   </tbody>
-</table>
+</table></div>
 
 </div>
 @endsection

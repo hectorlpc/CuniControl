@@ -12,16 +12,16 @@ class AlumnoController extends Controller
     //
 	public function create(){
 
-    	return view("/alumno/create");
+    	return view("Alumno/create");
 
 	}
 	public function store(Request $request){
 		try{
 			Alumno::create($request->all());
-			session()->flash("Exito","Datos Registrados Exitosamente");	
+			session()->flash("Exito","Datos Registrados Exitosamente");
 		}catch(\Illuminate\Database\QueryException $e){
 			session()->flash("Error","Datos existentes o invalidos");
-		}	
+		}
 		return redirect('/home');
 	}
 	public function edit()
@@ -29,7 +29,7 @@ class AlumnoController extends Controller
     	$CURP = Auth::user()->CURP;
         $alumno = Alumno::where('CURP_Alumno', $CURP)->first();
 
-        return view('Alumno/edit',['alumno' => $alumno]);        
+        return view('Alumno/edit',['alumno' => $alumno]);
     }
 
 	public function update(Request $request,$alumno){
@@ -40,7 +40,7 @@ class AlumnoController extends Controller
 		    $alumno->Seguro_Facultativo = $request->input('Seguro_Facultativo');
 		    $alumno->Numero_Cuenta = $request->input('Numero_Cuenta');
 		    $alumno->save();
-		    session()->flash("Exito","Datos actualizados Exitosamente");	
+		    session()->flash("Exito","Datos actualizados Exitosamente");
 		}catch(\Illuminate\Database\QueryException $e){
 			session()->flash("Error","Datos invalidos o nulos");
 		}

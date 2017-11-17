@@ -14,6 +14,7 @@
             </div>
           </div>
         </form>
+        <div style="overflow-x:auto;">
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
@@ -40,7 +41,7 @@
       <td> {{$monta->Resultado_Diagnostico}} </td>
       <td> {{$monta->Fecha_Parto}} </td>
       <td> {{$monta->Creador}} </td>
-      <td> {{$monta->Modificador}} </td>  
+      <td> {{$monta->Modificador}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
           <form method="POST" action="{{url('/monta/' . $monta->Id_Monta)}}">
@@ -55,6 +56,6 @@
       @endforeach
   </tbody>
 </table>
-
+</div>
 </div>
 @endsection

@@ -15,7 +15,7 @@ class HorasController extends Controller
     public function create()
     {
         $actividades=Actividad::all();
-    	return view('horas/create',[
+    	return view('Horas/create',[
             'actividades' => $actividades
         ]);
     }
@@ -23,7 +23,7 @@ class HorasController extends Controller
     public function edit($id_horas)
     {
         try{
-            return view('horas/edit');    
+            return view('Horas/edit');    
         }catch(\Illuminate\Database\QueryException $e){
             session()->flash("Error","Necesitas registrar tu solicitud de horas antes");
             return redirect('/home');
@@ -57,7 +57,7 @@ class HorasController extends Controller
     ->where('Status', '=', 'Aceptado')
     ->groupBy('id_solicitud')->get();
         }
-        
+
         return view ('Horas.index',['horas'=> $horas , 'conteohoras' => $conteohoras]);
     }
      public function store(Request $request)

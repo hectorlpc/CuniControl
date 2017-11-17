@@ -17,7 +17,7 @@ class ProductoraController extends Controller{
     public function edit($id_productora){
         $productora = Productora::all();
         $productora = Productora::where('Id_Conejo_Hembra', $id_productora)->first();
-    	return view('/ConejaProductora/edit',['productora' => $productora]);
+    	return view('ConejaProductora/edit',['productora' => $productora]);
     }
 
     public function update(Request $request, $id_productora)
@@ -66,7 +66,7 @@ class ProductoraController extends Controller{
             $productora->Status = 'Activo';
 
             // $productoras = Productora::all();
-            // for ($i=0; $i < 50; $i++) { 
+            // for ($i=0; $i < 50; $i++) {
             //     if ($productora->Numero_Conejo != $productoras[$i]->Numero_Conejo) {
             //         dd($productoras);
             //         $productora->Numero_Conejo = $request->input('Numero_Conejo');

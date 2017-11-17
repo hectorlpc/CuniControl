@@ -15,7 +15,7 @@ class SolicitudHorasController extends Controller
     	$materias = Materia::all();
     	$carreras = Carrera::all();
     	$grupos = Grupo::all();
-    	return view("/solicitudHoras/create",[
+    	return view("SolicitudHoras/create",[
     		'materias' => $materias,
     		'carreras' => $carreras,
     		'grupos' => $grupos
@@ -42,11 +42,11 @@ class SolicitudHorasController extends Controller
 	{
        $CURP = Auth::user()->CURP;
         $solicitudes = SolicitudHoras::where('CURP_Alumno', $CURP)->get();
-        return view('solicitudHoras/index',[
+        return view('SolicitudHoras/index',[
             'solicitudes' => $solicitudes
-        ]);		
+        ]);
 	}
-    public function delete ($id_solicitud){ 
+    public function delete ($id_solicitud){
         try{
             $solicitud = SolicitudHoras::where('Id_Solicitud', $id_solicitud)->first();
             $solicitud->delete();

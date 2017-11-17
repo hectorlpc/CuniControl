@@ -13,7 +13,7 @@
           </form>
             <a href="{{url('/carrera/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
           </div>
-
+<div style="overflow-x:auto;">
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
@@ -28,7 +28,7 @@
       @foreach($carreras as $carrera)
       <td> {{$carrera->Id_Carrera}} </td>
       <td> {{$carrera->Clave_Carrera}} </td>
-      <td> {{$carrera->Nombre_Carrera}} </td> 
+      <td> {{$carrera->Nombre_Carrera}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
           <form method="POST" action="{{url('/carrera/' . $carrera->Id_Carrera)}}">
@@ -43,6 +43,6 @@
       @endforeach
   </tbody>
 </table>
-
+</div>
 </div>
 @endsection

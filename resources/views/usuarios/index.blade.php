@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
-<table class="table table-sm table-responsive">
+<div style="overflow-x:auto;"><table class="table table-sm table-responsive">
 <thead class="thead-default">
 		<tr>
 			<th>CURP</th>
@@ -25,6 +25,6 @@
 		</tr>
 		@endforeach
 	</tbody>
-</table>
+</table></div>
 </div>
 @endsection

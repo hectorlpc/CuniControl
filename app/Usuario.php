@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\MyResetPassword;
 
 class Usuario extends Authenticatable
 {
@@ -26,4 +27,8 @@ class Usuario extends Authenticatable
     public function tieneRol($id_rol){
       return $this->roles->pluck("Id_Rol")->contains($id_rol);
     }
+		public function sendPasswordResetNotification($token)
+{
+    $this->notify(new MyResetPassword($token));
+}
 }

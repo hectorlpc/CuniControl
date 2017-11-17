@@ -15,7 +15,7 @@
           </div>
         </div>
       </form>
-      <table class="table table-sm table-responsive">
+    <div style="overflow-x:auto;">  <table class="table table-sm table-responsive">
 <thead class="thead-default">
   <tr>
     <th>Fecha de Parto</th>
@@ -25,7 +25,7 @@
     <th>Cant.de gazapos muertos</th>
     <th>Peso promedio (g)</th>
     <th>Registró</th>
-    <th>Actualizó</th>    
+    <th>Actualizó</th>
     <th></th>
   </tr>
 </thead>
@@ -39,7 +39,7 @@
     <td> {{$parto->Numero_Muertos}} </td>
     <td> {{$parto->Peso_Nacer}} </td>
     <td> {{$parto->Creador}} </td>
-    <td> {{$parto->Modificador}} </td>    
+    <td> {{$parto->Modificador}} </td>
     <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
         <form method="POST" action="{{url('/parto/' . $parto->Id_Parto)}}">
@@ -53,7 +53,7 @@
   </tr>
   @endforeach
 </tbody>
-</table>
+</table></div>
 
 </div>
 @endsection

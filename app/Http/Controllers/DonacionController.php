@@ -81,7 +81,7 @@ class DonacionController extends Controller{
         $donaciones = Donacion::all();
         $donacion = Donacion::where('Id_Donacion', $id_donacion)->first();
 
-        return view('donacion/edit', ['donacion' => $donacion]);
+        return view('Donacion/edit', ['donacion' => $donacion]);
     }
 
     public function update(Request $request, $id_donacion)

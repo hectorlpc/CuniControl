@@ -14,6 +14,7 @@
               </div>
           </div>
         </form>
+        <div style="overflow-x:auto;">
         <table class="table table-sm table-responsive">
           <thead class="thead-default">
             <tr>
@@ -44,5 +45,6 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </div>
 @endsection

@@ -1,4 +1,6 @@
-	<?php
+<?php
+
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -246,13 +248,13 @@ Route::delete('/area/{id_area}','AreaController@delete');
 
 //Rutas De Bajas
 Route::get('/baja', 'BajaController@index');
-Route::get('/baja/pdf', function() {
+Route::get('/baja/pdf', function(Request $request) {
 	$agrupaciones = [
-		'Engorda' => App\Conejo::numeroDe('Engorda', 'Muerto')->get(),
-		'Gazapos' => App\Parto::numeroGazapos('Muertos')->get(),
-		'Productora' => App\Conejo::numeroDe('Productora', 'Muerto')->get(),
-		'Semental' => App\Conejo::numeroDe('Semental', 'Muerto')->get(),
-		'Desecho' => App\Conejo::numeroDe('Desecho', 'Muerto')->get(),
+		'Engorda' => App\Conejo::numeroDe('Engorda', 'Muerto')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
+		'Gazapos' => App\Parto::numeroGazapos('Muertos')->whereBetween('Parto.Fecha_Parto',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
+		'Productora' => App\Conejo::numeroDe('Productora', 'Muerto')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
+		'Semental' => App\Conejo::numeroDe('Semental', 'Muerto')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
+		'Desecho' => App\Conejo::numeroDe('Desecho', 'Muerto')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
 	];
 
 	$pdf = PDF::loadView('CensoMuerte/pdf', ['agrupaciones' => $agrupaciones]);
@@ -261,13 +263,13 @@ Route::get('/baja/pdf', function() {
 
 //Rutas de engorda
 Route::get('/engorda', 'EngordaController@index');
-Route::get('/engorda/pdf', function() {
+Route::get('/engorda/pdf', function(Request $request) {
 	$agrupaciones = [
-		'Engorda' => App\Conejo::numeroDe('Engorda')->get(),
-		'Gazapos' => App\Parto::numeroGazapos('Vivos')->get(),
-		'Productora' => App\Conejo::numeroDe('Productora')->get(),
-		'Semental' => App\Conejo::numeroDe('Semental')->get(),
-		'Desecho' => App\Conejo::numeroDe('Desecho')->get(),
+		'Engorda' => App\Conejo::numeroDe('Engorda')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
+		'Gazapos' => App\Parto::numeroGazapos('Vivos')->whereBetween('Parto.Fecha_Parto',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
+		'Productora' => App\Conejo::numeroDe('Productora')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
+		'Semental' => App\Conejo::numeroDe('Semental')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
+		'Desecho' => App\Conejo::numeroDe('Desecho')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
 	];
 
 	$pdf = PDF::loadView('CensoEngorda/pdf', ['agrupaciones' => $agrupaciones]);

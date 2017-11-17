@@ -124,8 +124,8 @@ class MontaController extends Controller{
             $montas = Monta::where('Id_Conejo_Hembra', $request->Id_Conejo_Hembra)->get();
         } else {
             $montas = Monta::select()
-                ->whereBetween('Fecha_Monta',['2015-11-01','2017-11-31'])->get();
-            //->latest('Fecha_Monta')->get();
+            //    ->whereBetween('Fecha_Monta',['2015-11-01','2017-11-31'])->get();
+                ->latest('Fecha_Monta')->get();
             //dd($montas);
         }
         return view('Monta.index', ['montas' => $montas]);

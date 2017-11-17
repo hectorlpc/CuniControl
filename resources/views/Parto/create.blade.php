@@ -4,6 +4,7 @@
 
 <div class="container">
   <center><h2>Supervision de Parto</h2></center>
+@if($montas->count() > 0)
 <form action="{{url('/parto')}}" method="post">
     {{ csrf_field() }}
     <div class="form-group">
@@ -98,5 +99,9 @@
     <button type="submit" class="btn btn-outline-secondary">Regresar</button>
     </div>
 </form>
+@else
+<br>  
+<center><h2>No existen montas</h2></center>
+@endif
 </div>
 @endsection

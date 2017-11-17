@@ -38,7 +38,7 @@
           <button type="submit" class="btn btn-outline-primary">Registrar</button>
       </form>
       @else
-      <br>
+      <br>  
       <center><h2>No existen destetes</h2></center>
       @endif
       </div>

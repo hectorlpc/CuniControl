@@ -2,10 +2,10 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">"
+@if($productoras->count() > 0)
           <form action="{{url('/monta')}}" method="POST">
             {{ csrf_field() }}
             <h2>Registrar Monta</h2>
-
           <div class="form-group">
             <label for="">Fecha de Monta</label>
             <input value="{{$fecha_actual = date('Y-m-d')}}" type="date" class="form-control" name="Fecha_Monta" placeholder="Introduce la monta">
@@ -43,5 +43,9 @@
             <a class="btn btn-outline-secondary" href="{{url('/monta/')}}">Regresar</a>
           </div>
         </form>
+      @else
+      <br>  
+      <center><h2>No existen conejos para monta</h2></center>
+      @endif
 </div>
 @endsection

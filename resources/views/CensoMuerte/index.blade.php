@@ -2,8 +2,8 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
-          <h2>Censo general muertos</h2>
-          <form method="get" action="{{url('engorda/')}}">
+          <h2>Censo general Muertos</h2>
+          <form method="get" action="{{url('baja/pdf')}}">
 
           <br>
           <div>
@@ -13,12 +13,10 @@
           <br>
           <div>
             <label>Ingrese fecha final</label>
-            <input class="form-control" type="date" name="Fecha_Inicio" value="{{$fecha = date('Y-m-d')}}">
+            <input class="form-control" type="date" name="Fecha_Fin" value="{{$fecha = date('Y-m-d')}}">
           </div>
           <br>
-          <a href="{{url('/baja/pdf')}}" type="submit" class="btn btn-outline-success">Buscar</a>          
+          <button type="submit" class="btn btn-outline-success">Imprimir</button>
         </form>
-        <br>
-        <a href="{{url('/baja/pdf')}}" type="submit" class="btn btn-outline-success">Imprimir</a>
 </div>
 @endsection

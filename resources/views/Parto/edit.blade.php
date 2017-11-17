@@ -9,7 +9,7 @@
       {{ csrf_field() }}
     <div class="form-group">
             <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
-                <input readonly class="form-control" type="text" name="Id_Parto" value="{{$parto->Id_Monta}}">
+                <input readonly class="form-control" type="text" name="Id_Parto" value="{{substr($parto->Id_Monta,0,10)}}">
     </div>
     <div>
         <label for="fecha">Fecha de monta:</label>

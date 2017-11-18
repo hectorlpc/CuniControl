@@ -119,6 +119,8 @@ class MontaController extends Controller{
 
     public function index(Request $request)
     {
+        // $fecha = $request->input('Fecha_Actual');
+        // dd($fecha);
         if($request->Id_Conejo_Hembra)
         {
             $montas = Monta::where('Id_Conejo_Hembra', $request->Id_Conejo_Hembra)->get();

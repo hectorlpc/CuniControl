@@ -10,7 +10,14 @@ use App\Desecho;
 class ProductoraController extends Controller{
 
     public function create(){
-        $conejos = Conejo::all();
+        $conejos = Conejo::Select('Id_Conejo')
+            ->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
+            ->leftJoin('Conejo_Engorda','Conejo.Id_Conejo','=','Conejo_Engorda.Id_Conejo_Engorda')
+            ->where('Conejo.Genero','Hembra')
+            ->whereNull('Coneja_Productora.Id_Conejo_Hembra')
+            ->whereNull('Conejo_Engorda.Id_Conejo_Engorda')
+            ->get();  
+
     	return view('ConejaProductora/create',['conejos' => $conejos]);
     }
 
@@ -27,29 +34,13 @@ class ProductoraController extends Controller{
 
         $productora->Status = $request->input('Status');
         if ($productora->Status == 'Desecho') {
-            $conejo = Conejo::where('Id_Conejo', $id_productora)->first();
             $productora->Status = 'Desecho';
-            $conejo->Desecho = 'Si';
-            $conejo->save();
-            $productora->save();            
-
-            $desecho = new Desecho;
-            $desecho->Id_Conejo_Desecho = $request->input('Id_Conejo_Hembra');
-            $desecho->Id_Raza = $request->input('Id_Conejo_Hembra')[0];
-            $desecho->Procedencia = 'Productora';
-            $desecho->save();
+            $productora->save();
         } else if ($productora->Status == 'Muerto') {
             $conejo = Conejo::where('Id_Conejo', $id_productora)->first();
             $conejo->Status = $request->input('Status');
             $conejo->Fecha_Muerte = $request->input('Fecha_Muerte');
-            $conejo->Desecho = 'Si';
-
-            $desecho = Desecho::where('Id_Conejo_Desecho', $id_productora)->first();
-            if(is_null($desecho)) {
-                
-            }   else {
-                $desecho->delete();
-            }
+            $productora->Status = 'Baja';
             $conejo->save();
             $productora->save();     
         }   
@@ -62,7 +53,7 @@ class ProductoraController extends Controller{
 
     public function delete($id_productora){
         try{
-            $productora = Productora::where('id_Productora', $id_productora)->first();
+            $productora = Productora::where('Id_Conejo_Hembra', $id_productora)->first();
             $productora->delete();
             session()->flash("Exito","Coneja Productora eliminada");
             return redirect()->back();
@@ -80,29 +71,9 @@ class ProductoraController extends Controller{
             $productora->Numero_Conejo = $request->input('Numero_Conejo');
             $productora->Fecha_Activo = $request->input('Fecha_Activo');
             $productora->Status = 'Activo';
-
-            // $productoras = Productora::all();
-            // for ($i=0; $i < 50; $i++) {
-            //     if ($productora->Numero_Conejo != $productoras[$i]->Numero_Conejo) {
-            //         dd($productoras);
-            //         $productora->Numero_Conejo = $request->input('Numero_Conejo');
-            //     } else {
-            //         return redirect()->back();
-            //         session()->flash('Error', 'Numero de productora duplicado');
-            //     }
-            // }
-
             $productora->save();
-
-            $conejo = Conejo::where('Id_Conejo', $request->input('Id_Conejo_Hembra'))->first();
-            $conejo->Desecho = 'No';
-            $conejo->Engorda = 'No';
-            $conejo->Productora = 'Si';
-            $conejo->Semental = 'No';
-            $conejo->save();
-
+            
             session()->flash("Exito","Coneja Productora Registrada");
-
             return redirect('/productora');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, Coneja productora existente");

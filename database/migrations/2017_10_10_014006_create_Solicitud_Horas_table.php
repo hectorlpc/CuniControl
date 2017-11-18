@@ -18,7 +18,7 @@ class CreateSolicitudHorasTable extends Migration
             $table->string('CURP_Alumno');
             $table->foreign('CURP_Alumno')->references('CURP_Alumno')->on('Alumno');
             $table->string('CURP_Profesor')->nullable();
-            $table->foreign('CURP_Profesor')->references('CURP_Profesor');
+            $table->foreign('CURP_Profesor')->references('CURP_Profesor')->on('Profesor');
             $table->date('Fecha_Solicitud');
             $table->string('Horas_Totales');
             $table->string('Id_Materia');

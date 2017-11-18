@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Productora extends Model
 {   
     public $incrementing=false;
-    public $fillable=['Id_Conejo_Hembra','Id_Raza','Numero_Conejo','Fecha_Activo','Fecha_Ultima_Monta','Numero_Monta','Monta_Positiva','Status'];
+    public $fillable=['Id_Conejo_Hembra','Id_Raza','Numero_Conejo','Fecha_Activo','Fecha_Ultima_Monta','Status','Numero_Monta','Monta_Positiva'];
     protected $table='Coneja_Productora';
     protected $primaryKey='Id_Conejo_Hembra';      	
 

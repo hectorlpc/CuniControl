@@ -17,13 +17,7 @@
            <select class="form-control" name="Id_Conejo_Hembra">
               <option> -- Seleccione los tatuajes del conejo -- </option>
               @foreach ($conejos as $conejo)
-                @if( $conejo->Genero == 'Hembra')
-                @if( $conejo->Status == 'Vivo')
-                @if( $conejo->Productora != 'Si')
-                  <option value="{{$conejo->Id_Conejo}}">{{$conejo->Tatuaje_Derecho . " - " . $conejo->Tatuaje_Izquierdo}}</option>
-                @endif
-                @endif
-                @endif
+                  <option value="{{$conejo->Id_Conejo}}">{{ substr($conejo->Id_Conejo,0,5) . ' - ' . substr($conejo->Id_Conejo,5,11) }}</option>
               @endforeach
             </select>
           </div>

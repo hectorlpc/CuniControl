@@ -32,8 +32,7 @@
   <tbody>
     <tr>
       @foreach($cementales as $cemental)
-      @if($cemental->Status != 'Muerto')
-      <td> {{$cemental->Id_Conejo_Macho}} </td>
+      <td> {{substr($cemental->Id_Conejo_Macho,0,5) . ' - ' . substr($cemental->Id_Conejo_Macho,5,11)}} </td>
       <td> {{$cemental->raza->Nombre_Raza}} </td>
       <td> {{$cemental->Fecha_Activo}} </td>
       <td> {{$cemental->Numero_Monta}} </td>
@@ -51,7 +50,6 @@
         </div>
       </td>
     </tr>
-      @endif
       @endforeach
   </tbody>
 </table>

@@ -3,6 +3,11 @@
 @section('content')
 <div class="container">
     @include("compartidas.alertas")
+    <input readonly type="date" value="{{$fecha_ini = date('Y-m-d')}}" name="Fecha_Actual">
+    {{-- para controlar la fecha de fin "asi se muestran solo los registros en ese intervalo" --}}
+    {{-- {{date_add($fecha_ini, date_interval_create_from_date_string('15 days'))
+    $fecha_fin = date_format($fecha_ini, 'Y-m-d')}} --}}
+    {{-- <input value="{{$fecha_fin}}" name=""> --}}
       <form method="get" action="{{url('/monta')}}">
             <h2>Inicio Registro Montas</h2>
           <div class="form-group">

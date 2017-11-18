@@ -12,7 +12,13 @@ class CementalController extends Controller
 {
      public function create()
      {
-        $conejos = Conejo::all();
+        $conejos = Conejo::Select('Id_Conejo')
+            ->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
+            ->leftJoin('Conejo_Engorda','Conejo.Id_Conejo','=','Conejo_Engorda.Id_Conejo_Engorda')
+            ->where('Conejo.Genero','Macho')
+            ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
+            ->whereNull('Conejo_Engorda.Id_Conejo_Engorda')
+            ->get();
     	return view('ConejoCemental/create',['conejos' => $conejos]);
     }
 
@@ -31,29 +37,13 @@ class CementalController extends Controller
 
         $cemental->Status = $request->input('Status');
         if ($cemental->Status == 'Desecho') {
-            $conejo = Conejo::where('Id_Conejo', $id_cemental)->first();
             $cemental->Status = 'Desecho';
-            $conejo->Desecho = 'Si';
-            $conejo->save();
             $cemental->save();
-
-            $desecho = new Desecho;
-            $desecho->Id_Conejo_Desecho = $request->input('Id_Conejo_Macho');
-            $desecho->Id_Raza = $request->input('Id_Conejo_Macho')[0];
-            $desecho->Procedencia = 'Semental';
-            $desecho->save();
         } else if ($cemental->Status == 'Muerto') {
             $conejo = Conejo::where('Id_Conejo', $id_cemental)->first();
             $conejo->Status = $request->input('Status');
             $conejo->Fecha_Muerte = $request->input('Fecha_Muerte');
-            $conejo->Desecho = 'Si';
-
-            $desecho = Desecho::where('Id_Conejo_Desecho', $id_cemental)->first();
-            if(is_null($desecho)) {
-
-            }   else {
-                $desecho->delete();
-            }
+            $cemental->Status = 'Baja';
             $conejo->save();
             $cemental->save();
             session()->flash("Exito","Semental dado de baja");
@@ -70,7 +60,7 @@ class CementalController extends Controller
     {
         try{
 
-        $cemental = Cemental::where('Id_Cemental', $id_cemental)->first();
+        $cemental = Cemental::where('Id_Conejo_Macho', $id_cemental)->first();
         $cemental->delete();
         session()->flash("Exito","Semental eliminado");
         return redirect()->back();
@@ -90,14 +80,6 @@ class CementalController extends Controller
             $cemental->Fecha_Activo = $request->input('Fecha_Activo');
             $cemental->Status = 'Activo';
             $cemental->save();
-
-            $conejo = Conejo::where('Id_Conejo', $request->input('Id_Conejo_Macho'))->first();
-            $conejo->Desecho = 'No';
-            $conejo->Engorda = 'No';
-            $conejo->Productora = 'No';
-            $conejo->Semental = 'Si';
-            $conejo->save();
-
             session()->flash("Exito","Semental registrado");
 
             return redirect('/cemental');
@@ -109,10 +91,6 @@ class CementalController extends Controller
 
     public function index(Request $request)
     {
-        //select id_conejo_macho, count(*) from monta id_conejo_macho where resultado_diagnostico = "positivo" group by id_conejo_macho;
-        //$cementales = Monta::select('Id_Conejo_Macho')->where('Resultado_Diagnostico','=', 'Positivo')->groupby('Id_Conejo_Macho')->get();
-        //dd($cementales);
-
         if($request->Id_Conejo_Macho)
         {
             $cementales = Cemental::where('Id_Conejo_Macho', $request->Id_Conejo_Macho)->get();

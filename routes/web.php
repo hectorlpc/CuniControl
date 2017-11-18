@@ -134,11 +134,16 @@ Route::get('/productora/{id_productora}/edit', 'ProductoraController@edit');
 Route::patch('/productora/{id_productora}', 'ProductoraController@update');
 Route::delete('/productora/{id_productora}', 'ProductoraController@delete');
 
-//Rutas de conejos de desecho
-Route::get('/desecho', 'DesechoController@index');
-Route::get('/desecho/create', 'DesechoController@create');
-Route::post('/desecho', 'DesechoController@store');
-Route::get('/desecho/pdf', function() {
+//Rutas de conejos de Engorda
+Route::get('/engorda', 'EngordaController@index');
+Route::get('/engorda/create', 'EngordaController@create');
+Route::post('/engorda', 'EngordaController@store');
+Route::get('/engorda/{id_engorda}/edit', 'EngordaController@edit');
+Route::patch('/engorda/{id_engorda}', 'EngordaController@update');
+Route::delete('/engorda/{id_engorda}', 'EngordaController@delete');
+
+
+Route::get('/engorda/pdf', function() {
 	$desechos = App\Desecho::all();
 	$pdf = PDF::loadView('ConejoDesecho/pdf', ['desechos' => $desechos]);
 	return $pdf->download('Censo_de_desecho.pdf');

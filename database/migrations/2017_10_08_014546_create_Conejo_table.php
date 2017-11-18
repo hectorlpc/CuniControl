@@ -19,15 +19,10 @@ class CreateConejoTable extends Migration
             $table->string('Tatuaje_Izquierdo',6);
             $table->date('Fecha_Nacimiento')->index();
             $table->date('Fecha_Muerte')->nullable()->index();
-            $table->string('Id_Raza');
+            $table->string('Id_Raza',5);
             $table->foreign('Id_Raza')->references('Id_Raza')->on('Raza');
             $table->enum('Genero',['Macho','Hembra'])->index();
-//            $table->integer('Peso_Conejo');
             $table->enum('Status',['Vivo','Muerto','Transferido'])->index();
-            $table->enum('Desecho',['Si','No'])->nullable()->index();
-            $table->enum('Engorda',['Si', 'No'])->nullable()->index();
-            $table->enum('Productora',['Si', 'No'])->nullable()->index();
-            $table->enum('Semental',['Si', 'No'])->nullable()->index();
             $table->string('Id_Jaula',3)->nullable();
             $table->foreign('Id_Jaula')->references('Id_Jaula')->on('Jaula');
             $table->string('Creador', 18)->nullable();

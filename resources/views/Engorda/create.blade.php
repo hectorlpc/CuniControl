@@ -2,19 +2,18 @@
 @extends('layouts.menu')
 @section('content')
       <div class="container">
-        <center><h2>Registro De Conejo Semental:</h2></center>
+        <center><h2>Registro De Conejo de Engorda:</h2></center>
 
     </br>
-          <form action="{{url('/cemental')}}" method="post">
+          <form action="{{url('/engorda')}}" method="post">
             {{ csrf_field() }}
-          <div>
-            <label>Fecha de alta</label>
-            <input class="form-control" type="date" name="Fecha_Activo" value="{{$fecha = date('Y-m-d')}}">
-          </div>
+          <br>
+          <label>Fecha:</label>
+          <input type="date" class="form-control" name="Fecha_Alta" value="{{$fecha = date('Y-m-d')}}">
           <br>
           <div class="form-group" >
-            <label for="Conejo_Cemental">Número de tatuaje del conejo:</label>
-           <select class="form-control" name="Id_Conejo_Macho">
+            <label for="Conejo">Tatuajes del conejo:</label>
+           <select class="form-control" name="Id_Conejo_Engorda">
               <option> -- Seleccione los tatuajes del conejo -- </option>
               @foreach ($conejos as $conejo)
                   <option value="{{$conejo->Id_Conejo}}">{{ substr($conejo->Id_Conejo,0,5) . ' - ' . substr($conejo->Id_Conejo,5,11) }}</option>

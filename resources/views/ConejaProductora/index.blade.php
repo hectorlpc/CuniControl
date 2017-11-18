@@ -4,23 +4,24 @@
 <div class="container">
     @include("compartidas.alertas")
 
-          <center><h2>Coneja Productora</h2></center>
-          <form>
-            <div class="form-group">
-              <label for="Coneja_Productora">Número de tatuaje de la coneja:</label>
-              <input type="" name="Id_Conejo_Hembra" class="form-control">
-              <br>
-              <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
-          </form>
+          <center><h2>Conejas productoras</h2></center>
+      <form method="get" action="{{url('/productora')}}">
+          <div class="form-group">
+            <label for="">Tatuaje productora:</label>
+            <input type="" class="form-control" name="Id_Conejo_Hembra" placeholder="Buscar">
+            <br>
+          <div align="right">  <button type="submit" class="btn btn-outline-primary">Buscar</button>
             <a href="{{url('/productora/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
+            </div>
           </div>
+        </form>
 <div style="overflow-x:auto;">
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
-      <th>Coneja:</th>
+      <th>Conejo:</th>
       <th>Raza:</th>
-      <th>Numero de productora:</th>
+      <th>Numero:</th>
       <th>Fecha Alta:</th>
       <th>Montas:</th>
       <th>Positivas:</th>
@@ -32,15 +33,15 @@
   <tbody>
     <tr>
       @foreach($productoras as $productora)
-      @if($productora->Status != 'Muerto')
-      <td> {{$productora->Id_Conejo_Hembra}} </td>
+      {{-- @if($productora->Status != 'Baja') --}}
+      <td> {{substr($productora->Id_Conejo_Hembra,0,5) . ' - ' . substr($productora->Id_Conejo_Hembra,5,11)}} </td>
       <td> {{$productora->raza->Nombre_Raza}} </td>
       <td> {{$productora->Numero_Conejo}} </td>
       <td> {{$productora->Fecha_Activo}} </td>
       <td> {{$productora->Numero_Monta}} </td>
       <td> {{$productora->Monta_Positiva}} </td>
       <td> {{$productora->Fecha_Ultima_Monta}} </td>
-      <th> {{$productora->Status}} </th>
+      <td> {{$productora->Status}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
           <form method="POST" action="{{url('/productora/' . $productora->Id_Conejo_Hembra)}}">
@@ -52,7 +53,7 @@
         </div>
       </td>
     </tr>
-      @endif
+      {{-- @endif --}}
       @endforeach
   </tbody>
 </table>

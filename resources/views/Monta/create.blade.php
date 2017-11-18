@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">"
-@if($productoras->count() > 0)
+@if($productoras->count() > 0 || $cementales->count() > 0)
           <form action="{{url('/monta')}}" method="POST">
             {{ csrf_field() }}
             <h2>Registrar Monta</h2>

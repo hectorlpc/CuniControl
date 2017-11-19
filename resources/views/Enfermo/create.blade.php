@@ -12,7 +12,7 @@
         <select name="Id_Conejo" id="input" class="form-control">
             <option> -- Seleccione los tatuajes del conejo -- </option>
             @foreach ($conejos as $conejo)
-                <option value="{{$conejo->Id_Conejo}}">{{$conejo->Tatuaje_Derecho . " - " . $conejo->Tatuaje_Izquierdo}}</option>
+                <option value="{{$conejo->Id_Conejo}}">{{substr($conejo->Id_Conejo,0,5) . " - " . substr($conejo->Id_Conejo,5,11)}}</option>
             @endforeach
         </select>
       </div>

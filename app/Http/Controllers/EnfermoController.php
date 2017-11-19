@@ -18,7 +18,11 @@ class EnfermoController extends Controller
     {
         $medicamentos = Medicamento::all();
         $enfermedades = Enfermedad::all();
-        $conejos = Conejo::all();
+        $conejos = Conejo::Select('Conejo.Id_Conejo')
+            //->leftJoin('Conejo_Enfermo','Conejo.Id_Conejo','=','Conejo_Enfermo.Id_Conejo')
+            ->where('Status','Vivo')
+            //->whereNull('Conejo_Enfermo.Id_Conejo')
+            ->get();
 
         return view('Enfermo/create', [
             'conejos' => $conejos,
@@ -48,9 +52,9 @@ class EnfermoController extends Controller
 
     public function index(Request $request)
     {
-        if($request->Id_Conejo)
+        if($request->Id_Conejo_Enfermo)
         {
-            $enfermos = Enfermo::where('Id_Conejo', $request->Id_Conejo)->get();
+            $enfermos = Enfermo::where('Id_Conejo_Enfermo', $request->Id_Conejo_Enfermo)->get();
         } else {
             $enfermos = Enfermo::all();
         }

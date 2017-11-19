@@ -11,13 +11,15 @@ Use App\Jaula;
 class EngordaController extends Controller
 {
     public function create () {
-    	$conejos = Conejo::Select('Id_Conejo')
+    	$conejos = Conejo::Select('Conejo.Id_Conejo')
             ->leftJoin('Conejo_Engorda','Conejo.Id_Conejo','=','Conejo_Engorda.Id_Conejo_Engorda')
             ->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
             ->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
+            ->leftJoin('Transferencia_Conejo','Conejo.Id_Conejo','=','Transferencia_Conejo.Id_Conejo')
             ->whereNull('Conejo_Engorda.Id_Conejo_Engorda')
             ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
             ->whereNull('Coneja_Productora.Id_Conejo_Hembra')
+            ->whereNull('Transferencia_Conejo.Id_Conejo')
             ->orderBy('Id_Conejo')
             ->get();
         return view('Engorda.create',['conejos' => $conejos]);            

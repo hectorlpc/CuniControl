@@ -24,7 +24,7 @@
                   <th>Inicio de tratamiento:</th>
                   <th>Fin de tratamiento</th>
                   <th>Registró</th>
-                  <th>Actualizó</th>
+                  {{-- <th>Actualizó</th> --}}
                   <th></th>
               </tr>
           </thead>
@@ -32,20 +32,21 @@
               <tr>
                 @foreach($enfermos as $enfermo)
                   @foreach($enfermo->tratamientos() as $tratamiento)
-                    <td> {{$enfermo->Id_Conejo}} </a></td>
+                    <td> {{substr($enfermo->Id_Conejo,0,5) . ' - ' . substr($enfermo->Id_Conejo,5,11)}}</td>
                     <td> {{$tratamiento->Nombre_Enfermedad}} </td>
                     <td> {{$tratamiento->Nombre_Medicamento}} </td>
                     <td> {{$enfermo->Fecha_Inicio}} </td>
                     <td> {{$enfermo->Fecha_Fin}} </td>
                     <td> {{$enfermo->Creador}} </td>
-                    <td> {{$enfermo->Modificador}} </td>
+                    {{-- <td> {{$enfermo->Modificador}} </td> --}}
                     <td>
                     <div class="btn-group btn-group-sm" role="group" aria-label="">
-                        <form method="POST" action="{{url('/enfermo/' . $enfermo->Id_Conejo)}}">
+{{--                         <form method="POST" action="{{url('/enfermo/' . $enfermo->Id_Conejo)}}">
                           {{csrf_field()}}
                           {{method_field('delete')}}
                           <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-                        </form> <a href="{{url('/enfermo/' . $enfermo->Id_Conejo . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+                        </form> 
+                        <a href="{{url('/enfermo/' . $enfermo->Id_Conejo . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a> --}}
                     </div>
                   </td>
               </tr>

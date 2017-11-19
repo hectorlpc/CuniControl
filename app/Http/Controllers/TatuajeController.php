@@ -65,15 +65,17 @@ class TatuajeController extends Controller
     public function index(Request $request)
     {
         if ($request->Id_Conejo) {
-           $conejos = Conejo::where('Id_Conejo', $request->Id_Conejo)->get();
+           $conejos = Conejo::where('Conejo.Id_Conejo', $request->Id_Conejo)->get();
         } else {
-          $conejos = Conejo::Select('Fecha_Nacimiento','Id_Conejo','Conejo.Id_Raza','Id_Jaula','Conejo.Genero','Conejo.Creador','Conejo.Modificador')
+          $conejos = Conejo::Select('Fecha_Nacimiento','Conejo.Id_Conejo','Conejo.Id_Raza','Id_Jaula','Conejo.Genero','Conejo.Creador','Conejo.Modificador')
             ->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
             ->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
             ->leftJoin('Conejo_Engorda','Conejo.Id_Conejo','=','Conejo_Engorda.Id_Conejo_Engorda')
+            ->leftJoin('Transferencia_Conejo','Conejo.Id_Conejo','=','Transferencia_Conejo.Id_Conejo')
             ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
             ->whereNull('Coneja_Productora.Id_Conejo_Hembra')
             ->whereNull('Conejo_Engorda.Id_Conejo_Engorda')
+            ->whereNull('Transferencia_Conejo.Id_Conejo')
             ->orderBy('Id_Conejo')
             ->get();            
         }

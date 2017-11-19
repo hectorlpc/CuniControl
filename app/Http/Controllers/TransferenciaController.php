@@ -1,4 +1,4 @@
-	<?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -34,7 +34,7 @@ class TransferenciaController extends Controller{
 			$transferencia->Id_Area = $request->input('Id_Area');
 			$transferencia->Fecha_Baja = $request->input('Fecha_Baja');
 			$transferencia->Creador = Auth::user()->CURP;
-			
+
 			$conejo = Conejo::where('Id_Conejo', $request->input('Id_Conejo'))->first();
 			$conejo->Status = 'Transferido';
 			$conejo->save();

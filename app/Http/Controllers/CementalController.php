@@ -12,10 +12,12 @@ class CementalController extends Controller
 {
      public function create()
      {
-        $conejos = Conejo::Select('Id_Conejo')
+        $conejos = Conejo::Select('Conejo.Id_Conejo')
             ->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
             ->leftJoin('Conejo_Engorda','Conejo.Id_Conejo','=','Conejo_Engorda.Id_Conejo_Engorda')
+            ->leftJoin('Transferencia_Conejo','Conejo.Id_Conejo','=','Transferencia_Conejo.Id_Conejo')
             ->where('Conejo.Genero','Macho')
+            ->whereNull('Transferencia_Conejo.Id_Conejo')
             ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
             ->whereNull('Conejo_Engorda.Id_Conejo_Engorda')
             ->get();

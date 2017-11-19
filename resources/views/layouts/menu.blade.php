@@ -35,8 +35,7 @@
               <li> <a href="{{url('/destete/')}}">Destete de gazapos</a> </li>
               <li> <a href="{{url('/tatuaje/')}}">Tatuado de conejos </a> </li>
               <li> <a href="{{url('/engorda/')}}">Conejos de engorda </a> </li>
-              <li> <a href="{{url('/enfermo/')}}">Conejo enfermo</a> </li>
-              <li> <a href="{{url('/transferencia/')}}">Baja de conejos por transferencia</a> </li>
+              <li> <a href="{{url('/enfermo/')}}">Conejos enfermos</a> </li>
            </ul>
           </li>
 @endif
@@ -62,6 +61,7 @@
               <li><a href="#"><i class="icono izquierda fa fa-chevron-down" aria-hidden="true"></i>Profesor Encargado<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="{{url('/validacion/')}}">Validar practica</a> </li>
+                    <li> <a href="{{url('/transferencia/')}}">Baja de conejos por transferencia</a> </li>
                     <li> <a href="{{url('/engorda/')}}">Censo General Vivos</a> </li>
                     <li> <a href="{{url('/baja/')}}">Censo General Muertos</a> </li>
                    {{--  <li> <a href="{{url('/desecho/')}}">Censo de desecho</a> </li> --}}

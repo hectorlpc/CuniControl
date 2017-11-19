@@ -10,12 +10,14 @@ use App\Desecho;
 class ProductoraController extends Controller{
 
     public function create(){
-        $conejos = Conejo::Select('Id_Conejo')
+        $conejos = Conejo::Select('Conejo.Id_Conejo')
             ->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
             ->leftJoin('Conejo_Engorda','Conejo.Id_Conejo','=','Conejo_Engorda.Id_Conejo_Engorda')
+            ->leftJoin('Transferencia_Conejo','Conejo.Id_Conejo','=','Transferencia_Conejo.Id_Conejo')            
             ->where('Conejo.Genero','Hembra')
             ->whereNull('Coneja_Productora.Id_Conejo_Hembra')
             ->whereNull('Conejo_Engorda.Id_Conejo_Engorda')
+            ->whereNull('Transferencia_Conejo.Id_Conejo')
             ->get();  
 
     	return view('ConejaProductora/create',['conejos' => $conejos]);

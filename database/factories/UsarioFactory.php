@@ -15,11 +15,13 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Usuario::class, function (Faker $faker) {
     return [
-   		'CURP' => $faker->numerify('###############'),
+   		'CURP' => "ADMINCONEJO",
      	'Nombre_Usuario' => $faker->firstName,
       	'Apellido_Paterno' => $faker->lastName,
       	'Apellido_Materno' => $faker->lastName,
       	'email' => $faker->email,
+        'activated' => 1,
+        'confirmacion_code' => "CrlsS45bWDxJluFgio3HgpyvL",
       	'Genero' => $faker->randomElement(['F', 'M']),
     	'Fecha_Nacimiento' => $faker->dateTime(),
    		'Telefono' => $faker->tollFreePhoneNumber,

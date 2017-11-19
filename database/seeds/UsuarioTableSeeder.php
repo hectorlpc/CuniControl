@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Usuario;
 
 class UsuarioTableSeeder extends Seeder
 {
@@ -11,6 +12,11 @@ class UsuarioTableSeeder extends Seeder
      */
     public function run()
     {
-      factory(App\Usuario::class, 5)->create();
+       factory(App\Usuario::class, 1)->create();
+       $user =Usuario::where('CURP',"ADMINCONEJO")->first();
+       $user->roles()->attach('ROLADM');
+       $user->save();
+
+
     }
 }

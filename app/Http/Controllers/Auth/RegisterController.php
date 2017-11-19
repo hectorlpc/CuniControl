@@ -119,7 +119,7 @@ class RegisterController extends Controller
         return redirect('/');
       }
       $user->activated=true;
-      $user->roles()->attach('ROLADM');
+      $user->roles()->attach('ROLALU');
       $user->save();
       return redirect('/login')->with('status','Correo confirmado. Puedes Iniciar Sesion.');
     }

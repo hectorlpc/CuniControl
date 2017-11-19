@@ -12,8 +12,11 @@ class DesteteController extends Controller{
 
     public function create()
     {
-        $partos = Parto::all();
-
+      $partos = Parto::Select('Parto.Id_Parto')
+            ->leftJoin('Destete','Parto.Id_Parto','=','Destete.Id_Parto')
+            ->whereNull('Destete.Id_Parto')
+            ->orderBy('Id_Parto')
+            ->get();
     	return view('Destete.create',['partos' => $partos]);
     }
 
@@ -56,7 +59,7 @@ class DesteteController extends Controller{
 
     public function store(Request $request)
     {
-        //try{
+        try{
 
             $destete = new Destete;
             $destete->Id_Parto = $request->input('Id_Parto');
@@ -76,7 +79,6 @@ class DesteteController extends Controller{
                             $destete->Notas = $request->input('Notas');
                             $destete->Creador = Auth::user()->CURP;
                             $parto = Parto::where('Id_Parto', $request->input('Id_Parto'))->first();
-                            $parto->Activado = 1;
                             $destete->Adoptados_Destetados = 0;
                             $destete->Adoptados_No_Destetados = 0;
                             $destete->save();

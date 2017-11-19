@@ -10,7 +10,11 @@ use App\Monta;
 
 class PartoController extends Controller{
     public function create(){
-        $montas = Monta::all();
+        $montas = Monta::Select('Monta.Id_Monta')
+            ->leftJoin('Parto','Monta.Id_Monta','=','Parto.Id_Monta')
+            ->whereNull('Parto.Id_Monta')
+            ->where('Monta.Resultado_Diagnostico','Positivo')
+            ->get();        
         return view('Parto/create',['montas' =>$montas]);
     }
 
@@ -45,10 +49,6 @@ class PartoController extends Controller{
             $parto->Id_Parto =  $parto->Id_Monta . $parto->Fecha_Parto ;
             $parto->Creador = Auth::user()->CURP;
             $parto->save();
-
-            $monta = Monta::where('Id_Monta', $request->input('Id_Monta'))->first();
-            $monta->Activado = 1;
-            $monta->save();
 
             session()->flash("Exito","Parto Registrado");
             return redirect('/parto');

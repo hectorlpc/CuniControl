@@ -11,11 +11,11 @@
           <select class="form-control" name="Id_Parto" type="text" id="conejaParto">
             <option> -- Seleccione coneja -- </option>
           @foreach ($partos as $parto)
-          @if($parto->Total_Vivos > 0)
-          @if($parto->Activado == 0)
-            <option value="{{$parto->Id_Parto}}">{{substr($parto->monta->Id_Conejo_Hembra,0,5) . ' - ' . substr($parto->monta->Id_Conejo_Hembra,5,6) }}</option>
-          @endif
-          @endif
+{{--           @if($parto->Total_Vivos > 0)
+          @if($parto->Activado == 0) --}}
+            <option value="{{$parto->Id_Parto}}">{{substr($parto->Id_Parto,0,5) . ' - ' . substr($parto->Id_Parto,5,5) }}</option>
+{{--           @endif
+          @endif --}}
           @endforeach
           </select>
       </div>
@@ -61,7 +61,7 @@
           </div>
 
           <input type="hidden" name="Parto_Donante" id="donador">
-          <label>Notas:</label>
+          <label>Notas si fue parto donante:</label>
           <input type="text" name="Notas" class="form-control" id="notas">
       <br>
       <div align="right">

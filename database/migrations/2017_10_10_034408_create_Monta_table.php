@@ -25,7 +25,6 @@ class CreateMontaTable extends Migration
             $table->string('Id_Jaula',3)->nullable();
             $table->foreign('Id_Jaula')->references('Id_Jaula')->on('Jaula');
             $table->date('Fecha_Parto')->nullable();
-            $table->boolean('Activado')->default(0);
             $table->string('Creador', 18)->nullable();
             $table->foreign('Creador')->references('CURP')->on('Usuario');
             $table->string('Modificador', 18)->nullable();

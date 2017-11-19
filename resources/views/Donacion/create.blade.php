@@ -3,6 +3,7 @@
 @section('content')
       <div class="container">
         <center><h2>Registro de Donacion de Gazapos</h2></center>
+@if($partos->count() > 0)        
           <form form action="{{url('/donacion')}}" method="POST">
             {{ csrf_field() }}
           <div>
@@ -34,7 +35,7 @@
               @endfor
             </select>
           </div>
-          <label>Notas:</label>
+          <label>Notas si fue parto donante:</label>
           <input type="text" class="form-control" name="Notas">
 
         </br>
@@ -42,5 +43,7 @@
           <button type="submit" class="btn btn-outline-primary">Registrar</button>
           </div>
         </form>
+@endif        
+<center><h2>No existen montas positivas</h2></center>        
       </div>
 @endsection

@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 namespace App\Http\Controllers;
 
@@ -6,12 +6,21 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Conejo;
 use App\Area;
+use App\Engorda;
 use App\Transferencia;
 
 class TransferenciaController extends Controller{
 	public function create(){
 		$areas = Area::all();
-		$conejos = Conejo::all();
+    	$conejos = Conejo::Select('Id_Conejo')
+            ->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
+            ->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
+            ->where('Conejo.Status','Vivo')
+            ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
+            ->whereNull('Coneja_Productora.Id_Conejo_Hembra')
+            ->orderBy('Id_Conejo')
+            ->get();
+
 		return view('Transferencia/create', [
 			'conejos' => $conejos,
 			'areas' => $areas
@@ -25,10 +34,9 @@ class TransferenciaController extends Controller{
 			$transferencia->Id_Area = $request->input('Id_Area');
 			$transferencia->Fecha_Baja = $request->input('Fecha_Baja');
 			$transferencia->Creador = Auth::user()->CURP;
-
+			
 			$conejo = Conejo::where('Id_Conejo', $request->input('Id_Conejo'))->first();
 			$conejo->Status = 'Transferido';
-
 			$conejo->save();
 			$transferencia->save();
 

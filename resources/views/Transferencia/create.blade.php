@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
       <div class="container">
-        <center><h2>Registro De Baja por transferencias:</h2></center>
+        <center><h2>Registro de baja por transferencia</h2></center>
     </br>
   <form action="{{url('/transferencia')}}" method="post">
   {{ csrf_field() }}
@@ -13,8 +13,9 @@
     <div class="form-group">
       <label for="Conejo_Adquirido">Tatuajes de conejo:</label>
         <select class="form-control" name="Id_Conejo">
+          <option> -- Seleccione un conejo -- </option>
           @foreach($conejos as $conejo)
-           <option>{{$conejo->Id_Conejo}}</option>
+            <option value="{{$conejo->Id_Conejo}}">{{substr($conejo->Id_Conejo,0,5) . ' - ' . substr($conejo->Id_Conejo,5,11)}}</option>
           @endforeach
         </select>
     </div>

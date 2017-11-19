@@ -47,6 +47,7 @@
       <td> {{$monta->Fecha_Parto}} </td>
       <td> {{$monta->Creador}} </td>
       <td> {{$monta->Modificador}} </td>
+@if($monta->Resultado_Diagnostico != 'Positivo')      
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
           <form method="POST" action="{{url('/monta/' . $monta->Id_Monta)}}">
@@ -54,9 +55,11 @@
           {{method_field('delete')}}
           <input type="hidden" name="Id_Monta" value="{{$monta->Id_Monta}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form> <a href="{{url('/monta/' . $monta->Id_Monta . '/edit')}}" class="btn btn-secondary btn-outline-info">Diagnosticar</a>
+           </form>
+           <a href="{{url('/monta/' . $monta->Id_Monta . '/edit')}}" class="btn btn-secondary btn-outline-info">Diagnosticar</a>
         </div>
       </td>
+@endif      
     </tr>
       @endforeach
   </tbody>

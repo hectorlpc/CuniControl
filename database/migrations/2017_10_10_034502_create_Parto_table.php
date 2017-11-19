@@ -22,7 +22,6 @@ class CreatePartoTable extends Migration
             $table->smallInteger('Numero_Muertos')->index();
             $table->smallInteger('Total_Vivos');
             $table->float('Peso_Nacer')->nullable();
-            $table->boolean('Activado')->default(0);
             $table->string('Creador', 18)->nullable();
             $table->foreign('Creador')->references('CURP')->on('Usuario');
             $table->string('Modificador', 18)->nullable();

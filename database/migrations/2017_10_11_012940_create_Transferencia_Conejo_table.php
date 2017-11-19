@@ -14,8 +14,8 @@ class CreateTransferenciaConejoTable extends Migration
     public function up()
     {
         Schema::create('Transferencia_Conejo', function (Blueprint $table) {
-            $table->increments('Id_Transferencia');
-            $table->string('Id_Conejo');
+            //$table->increments('Id_Transferencia');
+            $table->string('Id_Conejo',11);
             $table->foreign('Id_Conejo')->references('Id_Conejo')->on('Conejo');
             $table->string('Id_Area');
             $table->foreign('Id_Area')->references('Id_Area')->on('Area_Destino');

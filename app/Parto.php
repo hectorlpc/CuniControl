@@ -9,7 +9,7 @@ class Parto extends Model
 {
     //
     public $incrementing=false;
-    public $fillable=['Id_Parto','Fecha_Parto','Id_Monta','Numero_Vivos','Numero_Muertos','Total_Vivos','Peso_Nacer','Activado','Creador','Modificador'];
+    public $fillable=['Id_Parto','Fecha_Parto','Id_Monta','Numero_Vivos','Numero_Muertos','Total_Vivos','Peso_Nacer','Creador','Modificador'];
     protected $table='Parto';
     protected $primaryKey='Id_Parto';    
 

@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 	
 class Transferencia extends Model
 {
-    public $incrementing=true;
-    public $fillable=['Id_Transferencia','Id_Conejo','Id_Area', 'Fecha_Area','Creador','Modificador'];
+    public $incrementing=false;
+    public $fillable=['Id_Conejo','Id_Area','Fecha_Baja','Creador','Modificador'];
     protected $table='Transferencia_Conejo';
     protected $primaryKey='Id_Transferencia';
 

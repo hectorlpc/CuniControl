@@ -3,11 +3,12 @@
 @section('content')
 <div class="container">
     @include("compartidas.alertas")
-          <h2>Inicio Tatuado de Conejos</h2>
+          <center><h1>Tatuado de Conejos</h1></center>
+          <center><h3>Conejos recien tatuados sin asignar</h3></center>
           <form method="get" action="{{url('/tatuaje')}}">
           <div class="form-group">
-            <label for="">Tatuaje del conejo: </label>
-            <input type="" class="form-control" name="Id_Conejo" placeholder="Introduce tatuajes sin espacio">
+            <label for="">Tatuajes del conejo: </label>
+            <input type="" class="form-control" name="Id_Conejo" placeholder="Introduce tatuaje derecho + izquierdo sin espacio">
             <br>
             <button type="submit" class="btn btn-outline-primary">Buscar</button>
             <a href="{{url('/tatuaje/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
@@ -21,8 +22,8 @@
       <th>Raza:</th>
       <th>Jaula:</th>
       <th>Genero:</th>
-      <th>Status:</th>
-      <th>Fecha Muerte:</th>
+{{--       <th>Status:</th>
+      <th>Fecha Muerte:</th> --}}
       <th>Registró</th>
       <th>Actualizó</th>
       <th></th>
@@ -33,11 +34,11 @@
     @foreach($conejos as $conejo)
       <td> {{$conejo->Fecha_Nacimiento}} </td>
       <td> {{substr($conejo->Id_Conejo, 0, 5) . ' - ' . substr($conejo->Id_Conejo, 5 , 11)}} </td>
-      <td> {{$conejo->raza->Nombre_Raza}} </td>
+      <td> {{$conejo->Id_Raza}} </td>
       <td> {{$conejo->Id_Jaula}} </td>
       <td> {{$conejo->Genero}} </td>
-      <td> {{$conejo->Status}} </td>
-      <td> {{$conejo->Fecha_Muerte}} </td>
+{{--       <td> {{$conejo->Status}} </td>
+      <td> {{$conejo->Fecha_Muerte}} </td> --}}
       <td> {{$conejo->Creador}} </td>
       <td> {{$conejo->Modificador}} </td>
       <td></td>

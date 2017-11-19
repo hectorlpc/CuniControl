@@ -12,11 +12,7 @@
         <select class="form-control" name="Id_Monta" id="parto">
             <option> -- Seleccione la coneja -- </option>
           @foreach($montas as $monta)
-          @if($monta->Resultado_Diagnostico == 'Positivo')
-          @if($monta->Activado == 0)
-            <option value="{{$monta->Id_Monta}}">{{substr($monta->Id_Conejo_Hembra,0,5) . ' - ' . substr($monta->Id_Conejo_Hembra,5,11)}}</option>
-          @endif
-          @endif
+            <option value="{{$monta->Id_Monta}}">{{substr($monta->Id_Monta,0,5) . ' - ' . substr($monta->Id_Monta,5,5)}}</option>
           @endforeach
         </select>
     </div>
@@ -101,7 +97,7 @@
 </form>
 @else
 <br>  
-<center><h2>No existen montas</h2></center>
+<center><h2>No existen montas positivas</h2></center>
 @endif
 </div>
 @endsection

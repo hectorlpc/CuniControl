@@ -7,9 +7,7 @@
     </br>
           <form action="{{url('/engorda')}}" method="post">
             {{ csrf_field() }}
-          <br>
-          <label>Fecha:</label>
-          <input type="date" class="form-control" name="Fecha_Alta" value="{{$fecha = date('Y-m-d')}}">
+          <input hidden type="date" class="form-control" name="Fecha_Alta" value="{{$fecha = date('Y-m-d')}}">
           <br>
           <div class="form-group" >
             <label for="Conejo">Tatuajes del conejo:</label>

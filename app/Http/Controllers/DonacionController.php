@@ -29,15 +29,24 @@ class DonacionController extends Controller{
 
     public function store(Request $request){
         try{
-            $donacion = new Donacion;
-            $donacion->Fecha = $request->input('Fecha');
-            $donacion->Id_Parto_Donante = $request->input('Id_Parto_Donante');
-            $donacion->Id_Parto_Donatorio = $request->input('Id_Parto_Donatorio');
-            $donacion->Id_Donacion = $donacion->Id_Parto_Donante . $donacion->Id_Parto_Donatorio;
-            $donacion->Donados = $request->input('Donados');
-            $donacion->Notas = $request->input('Notas');
-            $donacion->Creador = Auth::user()->CURP;
-
+            $donador = Parto::find($request->input('Id_Parto_Donante'));
+            $donador->Numero_Vivos;
+            $cantidad = $request->input('Donados');
+            if($cantidad <= $donador->Numero_Vivos) {
+                $donacion = new Donacion;
+                $donacion->Fecha = $request->input('Fecha');
+                $donacion->Id_Parto_Donante = $request->input('Id_Parto_Donante');
+                $donacion->Id_Parto_Donatorio = $request->input('Id_Parto_Donatorio');
+                $donacion->Id_Donacion = $donacion->Id_Parto_Donante . $donacion->Id_Parto_Donatorio;
+                $donacion->Donados = $request->input('Donados');
+                $donacion->Notas = $request->input('Notas');
+                $donacion->Creador = Auth::user()->CURP;
+                $donacion->save();
+                session()->flash("Exito","Donación registrada");
+                return redirect('/donacion');                
+            } else {
+                return redirect('donacion/create');
+            }
             // $partoDonante = Parto::where('Id_Parto', $request->input('Id_Parto_Donante'))->first();
 
             // $partoDonante->Numero_Vivos -= $donacion->Cantidad_Gazapos;
@@ -49,17 +58,13 @@ class DonacionController extends Controller{
             // if($donacion->Cantidad_Gazapos <= $partoDonante->Numero_Vivos) {
             //     $partoDonante->save();
             //     $partoReceptor->save();
-                 $donacion->save();
             // } else {
             //     return redirect()->back();
             // }
-             session()->flash("Exito","Donación registrada");
-             return redirect('/donacion');
-         }catch (\Illuminate\Database\QueryException $e){
+        }catch (\Illuminate\Database\QueryException $e){
              session()->flash("Error","No es posible registrar, donación existente");
              return redirect('/donacion');
         }
-
     }
 
     public function delete($id_donacion)
@@ -86,12 +91,24 @@ class DonacionController extends Controller{
 
     public function update(Request $request, $id_donacion)
     {
+        $donador = substr($id_donacion,0,30);
+        //dd($donador);
         try{
-          $donacion = Donacion::where('Id_Donacion', $id_donacion)->first();
-          $donacion->Cantidad_Gazapos = $request->input('Cantidad_Gazapos');
-          $donacion->Modificador = Auth::user()->CURP;
-          $donacion->save();
-          return redirect('/donacion');
+            $donador = Parto::where('Id_Parto',$donador)->first();
+            $donador->Numero_Vivos;
+            $cantidad = $request->input('Donados');
+            if($cantidad <= $donador->Numero_Vivos) {
+                $donacion = Donacion::where('Id_Donacion',$id_donacion)->first();
+                $donacion->Donados = $cantidad;
+                $donacion->Notas = $request->input('Notas');
+                $donacion->Modificador = Auth::user()->CURP;
+                $donacion->save();
+                session()->flash("Exito","Donación actualizada");
+                return redirect('/donacion');                
+            } else {
+                return redirect('donacion/');
+                session()->flash("Error","No puede donar más conejos de los que existen");
+            }
         }catch (\Illuminate\Database\QueryException $e){
           session()->flash("Error","No es posible Modificar esa Donación");
           return redirect('/donacion');

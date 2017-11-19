@@ -31,19 +31,20 @@
     <tr>
       @foreach($donaciones as $donacion)
       <td> {{$donacion->Fecha}} </td>
-      <td> {{substr($donacion->Id_Parto_Donante, 0, 10)}} </td>
-      <td> {{substr($donacion->Id_Parto_Donatorio, 0, 10)}} </td>
+      <td> {{substr($donacion->Id_Parto_Donante, 0, 5) . ' - ' . substr($donacion->Id_Parto_Donante, 5, 5)}} </td>
+      <td> {{substr($donacion->Id_Parto_Donatorio, 0, 5) . ' - ' . substr($donacion->Id_Parto_Donatorio, 5, 5)}} </td>
       <td> {{$donacion->Donados}} </td>
       <td> {{$donacion->Creador}} </td>
       <td> {{$donacion->Modificador}} </td>
       <td> {{$donacion->Notas}} </td>
       <td></td>
       <td><div class="btn-group btn-group-sm" role="group" aria-label="">
-      <form method="POST" action="{{url('/donacion/' . $donacion->Id_Donacion)}}">
+      {{-- <form method="POST" action="{{url('/donacion/' . $donacion->Id_Donacion)}}">
         {{csrf_field()}}
         {{method_field('delete')}}
         <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-      </form> <a href="{{url('/donacion/' . $donacion->Id_Donacion . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+      </form> --}}
+      <a href="{{url('/donacion/' . $donacion->Id_Donacion . '/edit')}}" class="btn btn-secondary btn-outline-info">Actualizar</a>
       </div></td>
     </tr>
     @endforeach

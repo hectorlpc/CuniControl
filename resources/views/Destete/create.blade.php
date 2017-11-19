@@ -13,7 +13,7 @@
           @foreach ($partos as $parto)
           @if($parto->Total_Vivos > 0)
           @if($parto->Activado == 0)
-            <option value="{{$parto->Id_Parto}}">{{$parto->monta->Id_Conejo_Hembra}}</option>
+            <option value="{{$parto->Id_Parto}}">{{substr($parto->monta->Id_Conejo_Hembra,0,5) . ' - ' . substr($parto->monta->Id_Conejo_Hembra,5,6) }}</option>
           @endif
           @endif
           @endforeach
@@ -29,6 +29,20 @@
             <label for="">Cantidad de destetados:</label>
             <input class="form-control" name="Destetados" id="vivos">
           </div>
+
+{{--           <div class="form-group">
+            <label for="">Cantidad de conejos donados:</label>
+            <select class="form-control" name="Donados" id="vivos">
+              @for($i = 0; $i <= 25; $i++)
+              @if($i == $parto->Numero_Vivos)
+              <option value="{{str_pad($i, 2, "0", STR_PAD_LEFT)}}" selected>{{$i}}</option>
+              @else
+              <option value="{{str_pad($i, 2, "0", STR_PAD_LEFT)}}">{{$i}}</option>
+              @endif
+              @endfor
+            </select>
+          </div> --}}
+
           <div class="form-group">
             <label for="">Cantidad de no destetados:</label>
             <input class="form-control" name="No_Destetados" id="noDestetados">

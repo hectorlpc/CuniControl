@@ -7,7 +7,7 @@
             {{ csrf_field() }}
           <div>
             <label>Fecha de donación</label>
-            <input class="form-control" name="Fecha" type="date" value="{{$fecha_actual = date('Y-m-d')}}">
+            <input class="form-control" name="Fecha" type="date" value="{{$fecha = date('Y-m-d')}}">
           </div>  
           <br>
           <div class="form-group">
@@ -27,13 +27,11 @@
             </select>
           </div>          
           <div class="form-group">
-            <label for="exampleInputPassword2">Cantidad de gazapos donados:</label>
+            <label for="">Cantidad de gazapos donados:</label>
             <select class="form-control" name="Donados">
-              <option value="01">01</option>
-              <option value="02">02</option>
-              <option value="03">03</option>
-              <option value="04">04</option>
-              <option value="05">05</option>
+              @for($i = 1; $i <= 10; $i++)
+              <option value="{{str_pad($i, 2, "0", STR_PAD_LEFT)}}"">{{$i}}</option>
+              @endfor
             </select>
           </div>
           <label>Notas:</label>

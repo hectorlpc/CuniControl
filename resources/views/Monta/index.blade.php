@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     @include("compartidas.alertas")
-    <input readonly type="date" value="{{$fecha_ini = date('Y-m-d')}}" name="Fecha_Actual">
+    {{-- <input readonly type="date" value="{{$fecha_ini = date('Y-m-d')}}" name="Fecha_Actual"> --}}
     {{-- para controlar la fecha de fin "asi se muestran solo los registros en ese intervalo" --}}
     {{-- {{date_add($fecha_ini, date_interval_create_from_date_string('15 days'))
     $fecha_fin = date_format($fecha_ini, 'Y-m-d')}} --}}
@@ -40,8 +40,8 @@
       @foreach($montas as $monta)
       <td> {{$monta->Id_Jaula}} </td>
       <td> {{$monta->Fecha_Monta}} </td>
-      <td> {{$monta->Id_Conejo_Hembra}} </td>
-      <td> {{$monta->Id_Conejo_Macho}} </td>
+      <td> {{substr($monta->Id_Conejo_Hembra,0,5) . ' - ' . substr($monta->Id_Conejo_Hembra,5,11)}} </td>
+      <td> {{substr($monta->Id_Conejo_Macho,0,5) . ' - ' . substr($monta->Id_Conejo_Macho,5,11)}} </td>
       <td> {{$monta->Fecha_Diagnostico}} </td>
       <td> {{$monta->Resultado_Diagnostico}} </td>
       <td> {{$monta->Fecha_Parto}} </td>

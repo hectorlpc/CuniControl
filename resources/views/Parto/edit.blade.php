@@ -36,7 +36,7 @@
         <label for="cant_muertos">Cantidad de gazapos muertos:</label>
             <!-- <input value="{{$parto->Numero_Muertos}}" class="form-control" type="text" name="Numero_Muertos"> -->
             <select class="form-control" name="Numero_Muertos">
-            @for($i = 0; $i <= 20; $i++)
+            @for($i = 0; $i <= 25; $i++)
                 @if($i == $parto->Numero_Muertos)
                 <option value="{{str_pad($i, 2, "0", STR_PAD_LEFT)}}" selected>{{$i}}</option>
                 @else

@@ -8,19 +8,29 @@
       {{ csrf_field() }}
           <div class="form-group">
             <label for="  ">Coneja Donante:</label>
-            <input readonly class="form-control" name="Id_Parto_Donante" value="{{$donacion->parto->monta->Id_Conejo_Hembra}}">
+            <input readonly class="form-control" name="Id_Parto_Donante" value="{{substr($donacion->Id_Parto_Donante,0,10)}}">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword2">Parto Receptor:</label>
-            <input readonly class="form-control" name="Id_Parto_Donante" value="{{$donacion->parto->monta->Id_Conejo_Hembra}}">
+            <label for="">Parto Receptor:</label>
+            <input readonly class="form-control" name="Id_Parto_Donatorio" value="{{substr($donacion->Id_Parto_Donatorio,0,10)}}">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword2">Cantidad de gazapos donados:</label>
-            <input class="form-control" value="{{$donacion->Cantidad_Gazapos}}" name="Cantidad_Gazapos">
+            <label for="">Cantidad de gazapos donados:</label>
+            <select class="form-control" name="Donados">
+              @for($i = 0; $i <= 10; $i++)
+              @if($i == $donacion->Donados)
+              <option value="{{str_pad($i, 2, "0", STR_PAD_LEFT)}}" selected>{{$i}}</option>
+              @else
+              <option value="{{str_pad($i, 2, "0", STR_PAD_LEFT)}}">{{$i}}</option>
+              @endif
+              @endfor
+            </select>
           </div>
-
+          <div>
+            <label>Notas:</label>
+            <input type="text" class="form-control" value="{{$donacion->Notas}}" name="Notas">
+          </div>          
         </br>
-
           <DIV align="right"><button type="submit" class="btn btn-outline-primary">Actualizar</button>
         </form>
       </div>

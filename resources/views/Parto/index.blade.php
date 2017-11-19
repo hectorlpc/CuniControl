@@ -33,7 +33,7 @@
   <tr>
     @foreach($partos as $parto)
     <td> {{$parto->Fecha_Parto}} </td>
-    <td> {{$parto->monta->Id_Conejo_Hembra}} </td>
+    <td> {{substr($parto->monta->Id_Conejo_Hembra,0,5) . ' - ' . substr($parto->monta->Id_Conejo_Hembra,5,11)}} </td>
     <td> {{$parto->monta->Fecha_Monta}} </td>
     <td> {{$parto->Numero_Vivos}} </td>
     <td> {{$parto->Numero_Muertos}} </td>
@@ -42,12 +42,12 @@
     <td> {{$parto->Modificador}} </td>
     <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
-        <form method="POST" action="{{url('/parto/' . $parto->Id_Parto)}}">
+        {{-- <form method="POST" action="{{url('/parto/' . $parto->Id_Parto)}}">
           {{csrf_field()}}
           {{method_field('delete')}}
           <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-        </form>
-        <a href="{{url('/parto/' . $parto->Id_Parto . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+        </form> --}}
+        <a href="{{url('/parto/' . $parto->Id_Parto . '/edit')}}" class="btn btn-secondary btn-outline-info">Actualizar</a>
         </td>
       </div>
   </tr>

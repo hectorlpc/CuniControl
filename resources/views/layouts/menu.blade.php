@@ -31,12 +31,12 @@
             <ul>
               <li> <a href="{{url('/monta/')}}">Supervisión de la monta</a> </li>
               <li> <a href="{{url('/parto/')}}">Supervisión del parto</a> </li>
+              <li> <a href="{{url('/donacion/')}}">Donación de conejos</a> </li>
               <li> <a href="{{url('/destete/')}}">Destete de gazapos</a> </li>
               <li> <a href="{{url('/tatuaje/')}}">Tatuado de conejos </a> </li>
               <li> <a href="{{url('/engorda/')}}">Conejos de engorda </a> </li>
-              <li> <a href="{{url('/donacion/')}}">Registro de donación de conejos</a> </li>
-              <li> <a href="{{url('/enfermo/')}}">Registro de conejo enfermo</a> </li>
-              <li> <a href="{{url('/transferencia/')}}">Registrar baja de conejos por transferencia</a> </li>
+              <li> <a href="{{url('/enfermo/')}}">Conejo enfermo</a> </li>
+              <li> <a href="{{url('/transferencia/')}}">Baja de conejos por transferencia</a> </li>
            </ul>
           </li>
 @endif

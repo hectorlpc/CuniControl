@@ -13,6 +13,6 @@ class Donacion extends Model
 
     public function parto()
     {
-    	return $this->belongsTo(Parto::class,'Id_Parto_Donante','Id_Parto');
+    	return $this->belongsTo(Parto::class,'Id_Parto','Id_Parto_Donante');
     }	
 }

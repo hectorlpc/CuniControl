@@ -14,7 +14,7 @@
           @foreach($montas as $monta)
           @if($monta->Resultado_Diagnostico == 'Positivo')
           @if($monta->Activado == 0)
-            <option value="{{$monta->Id_Monta}}">{{$monta->Id_Conejo_Hembra}}</option>
+            <option value="{{$monta->Id_Monta}}">{{substr($monta->Id_Conejo_Hembra,0,5) . ' - ' . substr($monta->Id_Conejo_Hembra,5,11)}}</option>
           @endif
           @endif
           @endforeach

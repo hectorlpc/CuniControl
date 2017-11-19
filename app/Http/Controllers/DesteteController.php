@@ -64,7 +64,7 @@ class DesteteController extends Controller{
             $destete->Destetados = $request->input('Destetados');
             $destete->No_Destetados = $request->input('No_Destetados');
             $destete->Adoptados_Destetados = $request->input('Adoptados_Destetados');
-            $destete->Adoptados_No_Destetados = $request->input('Adoptados_No_Destetados');            
+            $destete->Adoptados_No_Destetados = $request->input('Adoptados_No_Destetados');
             $destete->Peso_Destete = $request->input('Peso_Destete');
             $destete->Notas = $request->input('Notas');
             $destete->Creador = Auth::user()->CURP;

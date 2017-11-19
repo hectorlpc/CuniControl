@@ -19,9 +19,9 @@
           </div>
         </form>
        @if($conteohoras->count()>0)
-        <div>
+        <div class="form-control">
           <label for="">Total de horas validas: </label>
-                  <input readonly type="text" name="Cantidad_Horas" value="{{$conteohoras[0]->total/10000}}">  
+                  <input class="form-control" style="text-align:center;" readonly type="text" name="Cantidad_Horas" value="{{$conteohoras[0]->total/10000}}">  
         </div>
         @endif
         <div style="overflow-x:auto;"><table class="table table-sm table-responsive">

@@ -44,7 +44,6 @@ class TatuajeController extends Controller
 // Insertar los demás campos
         $conejo->Id_Jaula = $request->input('Id_Jaula');
         $conejo->Status = 'Vivo';
-        $conejo->Desecho = 'No';
         $conejo->Fecha_Nacimiento = $fecha;
         $conejo->Genero = $request->input('Genero');
 
@@ -65,10 +64,25 @@ class TatuajeController extends Controller
 
     public function index(Request $request)
     {
-        if($request->Id_Conejo) {
-            $conejos = Conejo::where('Id_Conejo', $request->Id_Conejo)->get();
+        // if($request->Id_Conejo) {
+        //     $conejos = Conejo::Select($request->Id_Conejo)
+        //         ->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
+        //         ->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
+        //         ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
+        //         ->whereNull('Coneja_Productora.Id_Conejo_Hembra')
+        //         ->first();
+        // } else {
+        //     $conejos = Conejo::Select('Id_Jaula','Id_Conejo','Conejo.Id_Raza','Fecha_Nacimiento','Genero')
+        //         ->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
+        //         ->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
+        //         ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
+        //         ->whereNull('Coneja_Productora.Id_Conejo_Hembra')
+        //         ->get();
+        // }
+        if ($request->Id_Conejo) {
+           $conejos = Conejo::where('Id_Conejo', $request->Id_Conejo)->get();
         } else {
-            $conejos = Conejo::where('Id_Raza', $request->Id_Raza);
+           $conejos = Conejo::where('Id_Raza', $request->Id_Raza);
         }
         return view('Tatuaje.index',['conejos' => $conejos]);
     }
@@ -84,8 +98,7 @@ class TatuajeController extends Controller
       try{
         $conejo = Conejo::where('Id_Conejo', $id_conejo)->first();
         $conejo->Genero = $request->input('Genero');
-        $conejo->Status = $request->input('Status');
-        $conejo->Engorda = $request->input('Engorda');
+        //$conejo->Status = $request->input('Status');
         $conejo->Modificador = Auth::user()->CURP;
         $conejo->save();
 

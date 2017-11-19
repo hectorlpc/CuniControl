@@ -56,34 +56,61 @@ class DesteteController extends Controller{
 
     public function store(Request $request)
     {
-        try{
+        //try{
+
             $destete = new Destete;
             $destete->Id_Parto = $request->input('Id_Parto');
+            $parto = Parto::where('Id_Parto', $destete->Id_Parto)->first();
+            $parto->Numero_Vivos;
+            $parto->Numero_Muertos;
             $destete->Fecha_Destete = $request->input('Fecha_Destete');
             $destete->Id_Destete = $destete->Id_Parto .  $destete->Fecha_Destete;
             $destete->Destetados = $request->input('Destetados');
-            $destete->No_Destetados = $request->input('No_Destetados');
-            $destete->Adoptados_Destetados = $request->input('Adoptados_Destetados');
-            $destete->Adoptados_No_Destetados = $request->input('Adoptados_No_Destetados');
-            $destete->Peso_Destete = $request->input('Peso_Destete');
-            $destete->Notas = $request->input('Notas');
-            $destete->Creador = Auth::user()->CURP;
-
-            $parto = Parto::where('Id_Parto', $request->input('Id_Parto'))->first();
-            $parto->Activado = 1;
-
-            if($destete->Adoptados_No_Destetados > 0) {
-                $donante = Parto::find($request->input('Parto_Donante'));
-                $donante->Total_Vivos -= $destete->Adoptados_No_Destetados;
-                $donante->save();
+            if ($destete->Destetados > 0 && $destete->Destetados <= $parto->Numero_Vivos) {
+                $destete->No_Destetados = $request->input('No_Destetados');   
+                if ($destete->No_Destetados >= $parto->Numero_Muertos && $destete->No_Destetados <= ($parto->Numero_Muertos + $destete->Destetados)) {
+                    $donacion = Donacion::where('Id_Parto_Donatorio',$destete->Id_Parto)->first();
+                    if(is_null($donacion)) {
+                        $destete->Peso_Destete = $request->input('Peso_Destete');
+                        if ($destete->Peso_Destete >= 0) {
+                            $destete->Notas = $request->input('Notas');
+                            $destete->Creador = Auth::user()->CURP;
+                            $parto = Parto::where('Id_Parto', $request->input('Id_Parto'))->first();
+                            $parto->Activado = 1;
+                            $destete->Adoptados_Destetados = 0;
+                            $destete->Adoptados_No_Destetados = 0;
+                            $destete->save();
+                            $parto->save();
+                            return redirect('/destete');
+                            session()->flash("Exito","Destete creado");
+                        }                        
+                    }
+                    $donacion->Id_Parto_Donante;
+                    $donacion->Donados;
+                    $destete->Adoptados_Destetados = $request->input('Adoptados_Destetados');
+                    if ($destete->Adoptados_Destetados >= 0 && $destete->Adoptados_Destetados <= $donacion->Donados) {
+                        $destete->Adoptados_No_Destetados = $request->input('Adoptados_No_Destetados');
+                        if ($destete->Adoptados_No_Destetados >= 0 && $destete->    Adoptados_No_Destetados <= $donacion->Donados) {
+                                $donante = Parto::where('Id_Parto',$donacion->Id_Parto_Donante)->first();
+                                $donante->Total_Vivos -= $destete->Adoptados_No_Destetados;
+                                $destete->Peso_Destete = $request->input('Peso_Destete');
+                            if ($destete->Peso_Destete >= 0) {
+                                $destete->Notas = $request->input('Notas');
+                                $destete->Creador = Auth::user()->CURP;
+                                $parto = Parto::where('Id_Parto', $request->input('Id_Parto'))->first();
+                                $parto->Activado = 1;
+                                $donante->save();
+                                $destete->save();
+                                $parto->save();
+                                session()->flash("Exito","Destete creado");
+                            }
+                        }
+                    }
+                }
             }
-            $destete->save();
-            $parto->save();
-
-            session()->flash("Exito","Destete creado");
             return redirect('/destete');
         }catch (\Illuminate\Database\QueryException $e){
-            session()->flash("Error","No es posible crear, destete existente");
+            session()->flash("Error","No es posible crear destete ");
             return redirect('/destete');
         }
     }

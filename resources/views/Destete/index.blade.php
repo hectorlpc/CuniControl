@@ -28,7 +28,7 @@
           <th>Notas</th>
           <th>Peso</th>
           <th>Registró</th>
-          <th>Actualizó</th>
+{{--           <th>Actualizó</th> --}}
           <th></th>
         </tr>
       </thead>
@@ -44,16 +44,16 @@
           <td> {{$destete->Notas}} </td>
           <td> {{$destete->Peso_Destete}} </td>
           <td> {{$destete->Creador}} </td>
-          <td> {{$destete->Modificador}} </td>
+{{--           <td> {{$destete->Modificador}} </td> --}}
           <td></td>
           <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
-        <form method="POST" action="{{url('/destete/' . $destete->Id_Destete)}}">
+{{--         <form method="POST" action="{{url('/destete/' . $destete->Id_Destete)}}">
           {{csrf_field()}}
           {{method_field('delete')}}
           <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
         </form>
-        {{-- <a href="{{url('/destete/' . $destete->Id_Destete . '/edit')}}" type="button" class="btn btn-secondary btn-outline-info">Modificar</a></td> --}}
+        <a href="{{url('/destete/' . $destete->Id_Destete . '/edit')}}" type="button" class="btn btn-secondary btn-outline-info">Modificar</a></td> --}}
       </div>
         </tr>
         @endforeach

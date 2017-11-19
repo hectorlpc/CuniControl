@@ -43,12 +43,13 @@
       <td></td>
       <td>
       <div class="btn-group btn-group-sm" role="group" aria-label="">
-          <form method="POST" action="{{url('/tatuaje/' . $conejo->Id_Conejo)}}">
+{{--           <form method="POST" action="{{url('/tatuaje/' . $conejo->Id_Conejo)}}">
           {{csrf_field()}}
           {{method_field('delete')}}
           <input type="hidden" name="Id_Conejo" value="{{$conejo->Id_Conejo}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form> <a href="{{url('/tatuaje/' . $conejo->Id_Conejo . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+           </form> --}} 
+           <a href="{{url('/tatuaje/' . $conejo->Id_Conejo . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
       </td>
       </div>
     </td>

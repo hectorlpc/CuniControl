@@ -28,10 +28,12 @@
   </thead>
   <tbody>
     <tr>
-      @foreach($engordas as $engorda)
-      <td> {{substr($engorda->Id_Conejo_Engorda,0,5) . ' - ' . substr($engorda->Id_Conejo_Engorda,5,11)}} </td>
+      @foreach($conejos as $conejos)
+      <td> {{$engorda->Id_Jaula}} </td>
+      <td> {{substr($engorda->Id_Conejo,0,5) . ' - ' . substr($engorda->Id_Conejo,5,11)}} </td>
       <td> {{$engorda->raza->Nombre_Raza}} </td>
       <td> {{$engorda->Fecha_Alta}} </td>
+      <td> {{$engorda->Genero}} </td>
       <td> {{$engorda->Status}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">

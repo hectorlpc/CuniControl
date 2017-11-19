@@ -87,12 +87,30 @@ class EngordaController extends Controller
     }    
 
     public function index(Request $request){
-        if($request->Id_Conejo_Engorda) {
-            $engordas = Engorda::where('Id_Conejo_Engorda', $request->Id_Conejo_Engorda)->get();
+        
+        if($request->Id_Conejo) {
+            $conejos = Conejo::Select($request->Id_Conejo)
+                ->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
+                ->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
+                ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
+                ->whereNull('Coneja_Productora.Id_Conejo_Hembra')
+                ->first();
         } else {
-            $engordas = Engorda::all(); 
+            $engordas = [
+                'Conejos' => App\Conejo::Select('Id_Jaula','Id_Conejo','Conejo.Id_Raza','Fecha_Nacimiento','Genero')
+                ->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
+                ->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
+                ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
+                ->whereNull('Coneja_Productora.Id_Conejo_Hembra')
+                ->get()
+            ];
+        }        
+        // if($request->Id_Conejo_Engorda) {
+        //     $engordas = Engorda::where('Id_Conejo_Engorda', $request->Id_Conejo_Engorda)->get();
+        // } else {
+        //     $engordas = Engorda::all(); 
         }
-        return view('Engorda.index',['engordas' => $engordas]);
+        return view('Engorda.index', ['engordas' => $engordas]);
     }
     
 }

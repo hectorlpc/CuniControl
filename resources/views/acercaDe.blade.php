@@ -125,7 +125,7 @@
 
 	   <center><h2>Contacto: cunicontrol@gmail.com</h2></center>
 	   <center><h5><i>© Derechos Reservados 2017 BitBox Systems S.A de C.V. Todos los Derechos Reservados.</i></h5></center>
-     	   <center><h7>Todos los contenidos de este Sistema(Incluyendo, pero no limitado a, texto, logotipos, contenido, fotografías, botones y nombres comerciales) están sujetos a derechos de propiedad por las leyes de Derechos de Autor a <i><b>BitBox Systems S.A de C.V.</i></b>de terceros titulares de los mismos que han autorizado debidamente su inclusión.</h7></center> 
+     	   <center><h7>Todos los contenidos de este Sistema(Incluyendo, pero no limitado a, texto, logotipos, contenido, fotografías, botones y nombres comerciales) están sujetos a derechos de propiedad por las leyes de Derechos de Autor a <i><b>BitBox Systems S.A de C.V.</i></b> de terceros titulares de los mismos que han autorizado debidamente su inclusión.</h7></center> 
      	   <center><h6>Queda prohibido copiar, reproducir, distribuir, publicar, transmitir, difundir, o en cualquier modo explotar cualquier parte de este servicio sin la autorización previa por escrito de <i><b>BitBox Systems S.A de C.V.</i></b> o de los titulares correspondientes. </h6></center>	
 	 </div>
 

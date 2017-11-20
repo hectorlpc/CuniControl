@@ -20,7 +20,7 @@
   <tr>
     <th>Fecha de Parto</th>
     <th>Tatuaje Coneja</th>
-    <th>Fecha de Monta</th>
+    {{-- <th>Fecha de Monta</th> --}}
     <th>Cant.gazapos vivos</th>
     <th>Cant.de gazapos muertos</th>
     <th>Peso promedio (g)</th>
@@ -34,7 +34,7 @@
     @foreach($partos as $parto)
     <td> {{$parto->Fecha_Parto}} </td>
     <td> {{substr($parto->monta->Id_Conejo_Hembra,0,5) . ' - ' . substr($parto->monta->Id_Conejo_Hembra,5,11)}} </td>
-    <td> {{$parto->monta->Fecha_Monta}} </td>
+    {{-- <td> {{$parto->monta->Fecha_Monta}} </td> --}}
     <td> {{$parto->Numero_Vivos}} </td>
     <td> {{$parto->Numero_Muertos}} </td>
     <td> {{$parto->Peso_Nacer}} </td>

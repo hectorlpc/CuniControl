@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Jaula;
+use App\Conejo;
 
 class JaulaController extends Controller
 {
@@ -64,5 +65,16 @@ class JaulaController extends Controller
 		} catch (\Illuminate\Database\QueryException $e) {
 			return redirect('/jaula');
 		}
+	}
+
+	public function index_jaulas () {
+			$grupo_jaulas = [
+				'Jaula' => Conejo::Select(\DB::raw('Id_Jaula, COUNT(*) AS Conejos'))
+					->where('Status','Vivo')
+					->groupBy('Id_Jaula')
+					->orderBy('Id_Jaula')
+					->get()
+			];			
+		return view('CensoJaulas.index',['grupo_jaulas' => $grupo_jaulas]);
 	}	
 }

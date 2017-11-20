@@ -20,7 +20,7 @@ if(donador) {
 				for(var i = 0; i < opciones.length; i++) {
 					console.log(opciones[i], valor);
 					if( opciones[i].Id_Parto !=  valor) {
-						opcionesReceptor.append('<option value="' + opciones[i].Id_Parto + '">' + opciones[i].Id_Conejo_Hembra + '</option>');
+						opcionesReceptor.append('<option value="' + opciones[i].Id_Parto + '">' + (opciones[i].Id_Parto.substr(0,5) + ' - ' + opciones[i].Id_Parto.substr(5,5)) + '</option>');
 					}
 				}
 			},

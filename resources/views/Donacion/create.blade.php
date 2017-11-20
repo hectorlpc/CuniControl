@@ -16,9 +16,7 @@
           <select class="form-control" name="Id_Parto_Donante" id="donador">
             <option> -- Seleccione parto -- </option>
             @foreach ($partos as $parto)
-            @if($parto->Activado == 0)
-              <option value="{{$parto->Id_Parto}}">{{$parto->monta->Id_Conejo_Hembra}}</option>
-            @endif
+              <option value="{{$parto->Id_Parto}}">{{ substr($parto->Id_Parto,0,5) . ' - ' . substr($parto->Id_Parto,5,5)}} </option>
             @endforeach
           </select>
           </div>
@@ -43,7 +41,8 @@
           <button type="submit" class="btn btn-outline-primary">Registrar</button>
           </div>
         </form>
-@endif        
-<center><h2>No existen montas positivas</h2></center>        
+@else        
+<center><h2>No existen partos sin destetar</h2></center>        
+@endif
       </div>
 @endsection

@@ -65,17 +65,27 @@ class ProductoraController extends Controller{
         }
     }
 
-    public function store(Request $request){
+    public function store(Request $request) {
         try{
-            $productora = new Productora;
-            $productora->Id_Raza = $request->input('Id_Conejo_Hembra')[0];
-            $productora->Id_Conejo_Hembra = $request->input('Id_Conejo_Hembra');
-            $productora->Numero_Conejo = $request->input('Numero_Conejo');
-            $productora->Fecha_Activo = $request->input('Fecha_Activo');
-            $productora->Status = 'Activo';
-            $productora->save();
-            
-            session()->flash("Exito","Coneja Productora Registrada");
+            $raza = $request->input('Id_Conejo_Hembra')[0];
+            $numero = $request->input('Numero_Conejo');
+            $encontrar_numero = Productora::Select('Numero_Conejo')
+                ->where('Id_Raza', $raza)
+                ->where('Numero_Conejo', $numero)
+                ->where('Status','Activo')
+                ->first();
+            if (is_null($encontrar_numero)) {
+                $productora = new Productora;
+                $productora->Id_Conejo_Hembra = $request->input('Id_Conejo_Hembra');
+                $productora->Id_Raza = $raza;
+                $productora->Numero_Conejo = $numero;
+                $productora->Fecha_Activo = $request->input('Fecha_Activo');
+                $productora->Status = 'Activo';
+                $productora->save();
+                session()->flash("Exito","Coneja Productora Registrada");
+                return redirect('/productora');
+            }
+            session()->flash("Error","No es posible registrar productora, el número está ocupado");
             return redirect('/productora');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, Coneja productora existente");

@@ -11,14 +11,12 @@
             <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
                 <input readonly class="form-control" type="text" name="Id_Parto" value="{{substr($parto->Id_Monta,0,10)}}">
     </div>
-    <div>
-        <label for="fecha">Fecha de monta:</label>
-            <input readonly value="{{$parto->Fecha_Monta}}" class="form-control" type="date" name="Fecha_Monta">
-    </div>
+
     <div>
         <label for="fecha">Fecha de parto:</label>
             <input readonly value="{{$parto->Fecha_Parto}}" class="form-control" type="date" name="Fecha_Parto" min="2000-01-01" max="2050-01-01" step="1">
     </div>
+    <br>
     <div>
         <label for="cant_vivos">Cantidad de gazapos vivos:</label>
             <!-- <input value="{{$parto->Numero_Vivos}}" class="form-control" type="text" name="Numero_Vivos"> -->
@@ -32,6 +30,7 @@
             @endfor
             </select>
     </div>
+    <br>
     <div>
         <label for="cant_muertos">Cantidad de gazapos muertos:</label>
             <!-- <input value="{{$parto->Numero_Muertos}}" class="form-control" type="text" name="Numero_Muertos"> -->
@@ -45,7 +44,7 @@
             @endfor
             </select>
     </div>
-
+    <br>
     <div>
         <label for="peso">Peso promedio al nacer:</label>
             <input value="{{$parto->Peso_Nacer}}" class="form-control" type="text" name="Peso_Nacer">

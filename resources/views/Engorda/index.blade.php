@@ -8,7 +8,7 @@
       <form method="get" action="{{url('/engorda')}}">
           <div class="form-group">
             <label for="">Tatuaje semental:</label>
-            <input type="" class="form-control" name="Id_Conejo_" placeholder="Buscar">
+            <input type="" class="form-control" name="Id_Conejo" placeholder="Buscar">
             <br>
           <div align="right">  <button type="submit" class="btn btn-outline-primary">Buscar</button>
             <a href="{{url('/engorda/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
@@ -37,10 +37,10 @@
       <td> {{$engorda->Status}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
-{{--           <form method="POST" action="{{url('/engorda/' . $engorda->Id_Conejo_)}}">
+{{--           <form method="POST" action="{{url('/engorda/' . $engorda->Id_Conejo)}}">
           {{csrf_field()}}
           {{method_field('delete')}}
-          <input type="hidden" name="Id_Conejo_" value="{{$engorda->Id_Conejo_}}">
+          <input type="hidden" name="Id_Conejo" value="{{$engorda->Id_Conejo}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
            </form> --}}
         @if($engorda->Status != 'Baja')

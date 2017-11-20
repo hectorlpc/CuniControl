@@ -44,12 +44,15 @@
       <td> {{$productora->Status}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
+        @if($productora->Numero_Monta == 0)
           <form method="POST" action="{{url('/productora/' . $productora->Id_Conejo_Hembra)}}">
           {{csrf_field()}}
           {{method_field('delete')}}
           <input type="hidden" name="Id_Conejo_Hembra" value="{{$productora->Id_Conejo_Hembra}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form> <a href="{{url('/productora/' . $productora->Id_Conejo_Hembra . '/edit')}}" class="btn btn-secondary btn-outline-info">Dar de baja</a>
+           </form>
+        @endif
+           <a href="{{url('/productora/' . $productora->Id_Conejo_Hembra . '/edit')}}" class="btn btn-secondary btn-outline-info">Dar de baja</a>
         </div>
       </td>
     </tr>

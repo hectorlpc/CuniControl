@@ -9,10 +9,12 @@ use App\Parto;
 
 
 class DonacionController extends Controller{
-    //
     public function create()
     {
-        $partos = Parto::all();
+        $partos = Parto::Select('Parto.Id_Parto')
+            ->leftJoin('Destete','Parto.Id_Parto','=','Destete.Id_Parto')
+            ->whereNull('Destete.Id_Parto')
+            ->get();
     	return view('Donacion.create',['partos' => $partos]);
     }
 
@@ -102,13 +104,16 @@ class DonacionController extends Controller{
     }
 
     public function obtener_receptores (Request $request) {
-        $opciones = Parto::where('Activado', '=', '0')->where('Numero_Vivos', '>', '0')->get();
+        $opciones = Parto::Select('Parto.Id_Parto')
+            ->leftJoin('Destete','Parto.Id_Parto','=','Destete.Id_Parto')
+            ->whereNull('Destete.Id_Parto')
+            ->get();
+        
         $i = 0;
         $arrayOptions = [];
         foreach ($opciones as $opcion) {
             $arrayOptions[$i] =[
-                'Id_Parto' => $opcion->Id_Parto,
-                'Id_Conejo_Hembra' => $opcion->monta->Id_Conejo_Hembra
+                'Id_Parto' => $opcion->Id_Parto
             ];
             $i++;
         }

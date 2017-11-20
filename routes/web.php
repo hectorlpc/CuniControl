@@ -266,5 +266,8 @@ Route::get('/censo-general-vivos/pdf', 'CensoController@vivos_pdf');
 Route::get('/censo-general-muertos', 'CensoController@index_muertos');
 Route::get('/censo-general-muertos/pdf', 'CensoController@muertos_pdf');
 
+//Rutas de censo de jaulas
+Route::get('/censo-jaulas', 'JaulaController@index_jaulas');
+
 //Confirmacion de Correo
 Route::get('/Usuario/activacion/{code}','Auth\RegisterController@activarcode');

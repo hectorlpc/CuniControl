@@ -9,6 +9,7 @@ use App\Parto;
 use App\Monta;
 
 class PartoController extends Controller{
+
     public function create(){
         $montas = Monta::Select('Monta.Id_Monta')
             ->leftJoin('Parto','Monta.Id_Monta','=','Parto.Id_Monta')
@@ -63,7 +64,7 @@ class PartoController extends Controller{
         if ($request->input('Id_Conejo_Hembra')) {
             $partos = Parto::where('Id_Parto', 'LIKE', $request->input('Id_Conejo_Hembra') . '%')->get();
         } else {
-            $partos = Parto::select()->latest('Fecha_Parto')->get();
+            $partos = Parto::select()->orderBy('Fecha_Parto','DES')->get();
         }
         return view('Parto.index', ['partos' => $partos]);
     }

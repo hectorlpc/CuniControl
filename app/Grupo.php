@@ -7,12 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Grupo extends Model
 {
     public $incrementing=false;
-    public $fillable=['Id_Grupo', 'Clave_Grupo', 'Id_Carrera'];
+    public $fillable=['Id_Grupo', 'Clave_Grupo'];
     protected $table='Grupo';
     protected $primaryKey='Id_Grupo';        
-
-    public function carrera ()
-    {
-    	return $this->belongsTo(Carrera::class,'Id_Carrera', 'Id_Carrera');
-    }
 }

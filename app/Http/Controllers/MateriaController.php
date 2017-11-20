@@ -6,25 +6,31 @@ use Illuminate\Http\Request;
 use App\Carrera;
 use App\Grupo;
 use App\Materia;
+use Carbon\Carbon;
+use App\Periodo;
 
 class MateriaController extends Controller
 {
 	public function create ()
 	{
+	
 		$carreras = Carrera::all();
 		$grupos = Grupo::all();
+		$periodo = Periodo::whereDate('Fecha_Inicio',"<=",Carbon::now()->format('Y-m-d'))->whereDate('Fecha_Termino',">=",Carbon::now()->format('Y-m-d'))->first();
 
 		return view('Materia/create', [
 			'carreras' => $carreras,
-			'grupos' => $grupos]);
+			'grupos' => $grupos, 
+			'periodo' => $periodo]);	
 	}
 
 	public function store (Request $request){
 		try{
 			$materia = new Materia;
-			$materia->Id_Materia = $request->input('Id_Materia');
 			$materia->Nombre_Materia = $request->input('Nombre_Materia');
-			$materia->Id_Grupo = $request->input('Id_Grupo');
+			$materia->Id_Periodo = $request->input('Id_Periodo');
+			$materia->Id_Carrera = $request->input('Id_Carrera');
+			$materia->Id_Materia = strtoupper(substr($materia->Nombre_Materia,0,2) . substr($materia->Nombre_Materia,-2) . $materia->Id_Periodo . substr($materia->Id_Carrera,0,2) . substr($materia->Id_Carrera,-2)); 
 			$materia->save();
       		session()->flash("Exito","Materia Registrada");
 			return redirect('/materia');
@@ -36,40 +42,20 @@ class MateriaController extends Controller
 
 	public function index (Request $request)
 	{
+        $periodo = Periodo::whereDate('Fecha_Inicio',"<=",Carbon::now()->format('Y-m-d'))->whereDate('Fecha_Termino',">=",Carbon::now()->format('Y-m-d'))->first();
+
         if($request->Nombre_Materia)
         {
             $materias = Materia::where('Nombre_Materia', $request->Nombre_Materia)->get();
         } else {
-            $materias = Materia::all();
+            $materias = Materia::where('Id_Periodo', $periodo->Id_Periodo)->get();
         }
-        return view('Materia/index', ['materias' => $materias]);
+        
+        return view('Materia/index', ['materias' => $materias, 
+			'periodo' => $periodo]);
 	}
 
-	public function edit ($id_materia)
-	{
-		$carreras = Carrera::all();
-		$materias = Materia::all();
-		$materia = Materia::where('Id_Materia', $id_materia)->first();
-
-		return view('Materia/edit', [
-			'materia' => $materia,
-			'carreras' => $carreras
-		]);
-	}
-
-	public function update (Request $request, $id_materia)
-	{
-		try{
-			$materia = Materia::where('Id_Materia', $id_materia)->first();
-			$materia->Id_Materia = $request->input('Id_Materia');
-			$materia->Nombre_Materia = $request->input('Nombre_Materia');
-			$materia->save();
-		return redirect('/materia');
-		}catch (\Illuminate\Database\QueryException $e){
-					session()->flash("Error","No es posible Modificar");
-					return redirect('/materia');
-		}
-	}
+	
 
 	public function delete ($id_materia){
 		try{
@@ -94,4 +80,5 @@ class MateriaController extends Controller
         $respuesta = ['opciones' =>$arrayOpcionesId];
         return response()->json($respuesta);
     }
+
 }

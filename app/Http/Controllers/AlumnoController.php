@@ -6,13 +6,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Alumno;
 use App\Usuario;
+use App\Carrera;
 
 class AlumnoController extends Controller
 {
     //
 	public function create(){
 		try{
-			return view("Alumno/create");
+			$carreras = Carrera::all();
+			return view("Alumno/create",[
+				'carreras' => $carreras
+			]);
 		}catch(\Exception $e){
 			session()->flash("Error","No se puede acceder a esta vista");
 		}
@@ -34,8 +38,9 @@ class AlumnoController extends Controller
     	try{
     		$CURP = Auth::user()->CURP;
         	$alumno = Alumno::where('CURP_Alumno', $CURP)->first();
+        	$carreras = Carrera::all();
 
-        return view('Alumno/edit',['alumno' => $alumno]);	
+        return view('Alumno/edit',['alumno' => $alumno, 'carreras' => $carreras]);	
     	}catch(\Exception $e){
     		session()->flash("Error","Necesitas crear tus datos de alumno");
 			return redirect('/home');

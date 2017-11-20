@@ -14,7 +14,7 @@ class CreateGrupoTable extends Migration
     public function up()
     {
         Schema::create('Grupo', function (Blueprint $table) {
-            $table->string('Id_Grupo'19)->primary('Id_Grupo');
+            $table->string('Id_Grupo',19)->primary('Id_Grupo');
             $table->string('Clave_Grupo');
             $table->timestamps();
         });

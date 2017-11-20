@@ -43,7 +43,7 @@
               <li><a href="#"><i class="icono izquierda fa fa-chevron-down" aria-hidden="true"></i>Encargado Modulo<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="{{url('/cemental/')}}">Registro de conejos sementales</a> </li>
-
+                    <li> <a href="{{url('/periodo/')}}">Registro de Periodos</a> </li>
                     <li> <a href="{{url('/productora/')}}">Registro de conejas productoras</a> </li>
                     <li> <a href="{{url('/jaula/')}}">Registro de Jaulas</a> </li>
                     <li> <a href="{{url('/area/')}}">Registro Areas De Destino</a> </li>

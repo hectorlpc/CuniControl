@@ -196,6 +196,14 @@ Route::get('/grupo/{id_grupo}/edit', 'GrupoController@edit');
 Route::patch('/grupo/{id_grupo}', 'GrupoController@update');
 Route::delete('/grupo/{id_grupo}','GrupoController@delete');
 
+//Rutas de periodos
+Route::get('/periodo', 'PeriodoController@index');
+Route::get('/periodo/create', 'PeriodoController@create');
+Route::post('/periodo', 'PeriodoController@store');
+Route::get('/periodo/{id_periodo}/edit', 'PeriodoController@edit');
+Route::patch('/periodo/{id_periodo}', 'PeriodoController@update');
+Route::delete('/periodo/{id_periodo}','PeriodoController@delete');
+
 //Rutas de Alumnos
 Route::get('/alumno/create', 'AlumnoController@create');
 Route::get('/alumno/edit','AlumnoController@edit');

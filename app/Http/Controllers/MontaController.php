@@ -78,6 +78,13 @@ class MontaController extends Controller{
         try{
             $monta = new Monta;
             $monta->Fecha_Monta = $request->input('Fecha_Monta');
+            //dd($monta->Fecha_Monta);
+            if (is_null($monta->Fecha_Monta)) {
+                session()->flash("Error","No es posible registrar, datos incompletos");
+                return redirect('/monta');
+            }
+            $jaula = Jaula::where('Id_Jaula', $request->input('Id_Jaula'))->first();
+            $jaula->Status = 'Ocupada';
             $monta->Id_Conejo_Hembra = $request->input('Id_Conejo_Hembra');
             $monta->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');
             $monta->Fecha_Monta = $request->input('Fecha_Monta');
@@ -100,9 +107,6 @@ class MontaController extends Controller{
             $productora = Productora::where('Id_Conejo_Hembra', $request->input('Id_Conejo_Hembra'))->first();
             $productora->Fecha_Ultima_Monta = $monta->Fecha_Monta;
             $productora->Numero_Monta += 1;
-
-            $jaula = Jaula::where('Id_Jaula', $request->input('Id_Jaula'))->first();
-            $jaula->Status = 'Ocupada';
 
             $jaula->save();
             $semental->save();

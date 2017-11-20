@@ -64,7 +64,7 @@ class PartoController extends Controller{
         if ($request->input('Id_Conejo_Hembra')) {
             $partos = Parto::where('Id_Parto', 'LIKE', $request->input('Id_Conejo_Hembra') . '%')->get();
         } else {
-            $partos = Parto::select()->orderBy('Fecha_Parto','DES')->get();
+            $partos = Parto::select()->orderBy('Fecha_Parto','DESC')->get();
         }
         return view('Parto.index', ['partos' => $partos]);
     }

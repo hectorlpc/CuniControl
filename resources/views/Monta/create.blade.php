@@ -15,9 +15,7 @@
             <select class="form-control" name="Id_Jaula">
               <option> -- Seleccione la jaula -- </option>
               @foreach($jaulas as $jaula)
-                @if($jaula->Status == 'Disponible')
                   <option value="{{$jaula->Id_Jaula}}">{{$jaula->Id_Jaula}}</option>
-                @endif
               @endforeach
             </select>
           </div>        
@@ -27,9 +25,7 @@
             <select class="form-control" name="Id_Conejo_Hembra" id="coneja">
               <option> -- Seleccione los tatuajes de la productora -- </option>
               @foreach($productoras as $productora)
-              @if($productora->Status == 'Activo');
-                  <option value="{{$productora->Id_Conejo_Hembra}}">{{$productora->Id_Conejo_Hembra}}</option>
-              @endif
+                  <option value="{{$productora->Id_Conejo_Hembra}}">{{substr($productora->Id_Conejo_Hembra,0,5) . ' - ' . substr($productora->Id_Conejo_Hembra,5,5)}}</option>
               @endforeach
             </select>
           </div>

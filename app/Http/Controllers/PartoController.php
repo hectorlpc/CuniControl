@@ -75,6 +75,7 @@ class PartoController extends Controller{
         $parto = Parto::where('Id_Parto', $id_parto)->first();
         $parto->Numero_Vivos = $request->input('Numero_Vivos');
         $parto->Numero_Muertos = $request->input('Numero_Muertos');
+        $parto->Total_Vivos = $parto->Numero_Vivos;
         $parto->Peso_Nacer = $request->input('Peso_Nacer');
         $parto->Modificador = Auth::user()->CURP;
         $parto->save();

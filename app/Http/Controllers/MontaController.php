@@ -14,9 +14,15 @@ use App\Jaula;
 class MontaController extends Controller{
     public function create(){
         $razas = Raza::all();
-        $cementales = Cemental::all();
-        $productoras = Productora::all();
-        $jaulas = Jaula::all();
+        $cementales = Cemental::select()
+            ->where('Status','Activo')
+            ->get();
+        $productoras = Productora::select()
+            ->where('Status','Activo')
+            ->get();
+        $jaulas = Jaula::select()
+            ->where('Status','Disponible')
+            ->get();
         return view('Monta/create',[
             'cementales' => $cementales,
             'productoras' => $productoras,
@@ -76,20 +82,22 @@ class MontaController extends Controller{
 
     public function store (Request $request){
         try{
-            $monta = new Monta;
-            $monta->Fecha_Monta = $request->input('Fecha_Monta');
-            //dd($monta->Fecha_Monta);
-            if (is_null($monta->Fecha_Monta)) {
+            $hembra = $request->input('Id_Conejo_Hembra');
+            $macho = $request->input('Id_Conejo_Macho');
+            $fecha = $request->input('Fecha_Monta');
+            $jaula_destino = $request->input('Id_Jaula');
+            if (is_null($fecha) || is_null($hembra) || is_null($macho) || is_null($jaula_destino)) {
                 session()->flash("Error","No es posible registrar, datos incompletos");
                 return redirect('/monta');
             }
-            $jaula = Jaula::where('Id_Jaula', $request->input('Id_Jaula'))->first();
-            $jaula->Status = 'Ocupada';
-            $monta->Id_Conejo_Hembra = $request->input('Id_Conejo_Hembra');
-            $monta->Id_Conejo_Macho = $request->input('Id_Conejo_Macho');
-            $monta->Fecha_Monta = $request->input('Fecha_Monta');
+            $monta = new Monta;
+            $monta->Fecha_Monta = $fecha;
+            $monta->Id_Conejo_Macho = $macho;
+            $monta->Id_Conejo_Hembra = $hembra;
+            $jaula = Jaula::where('Id_Jaula', $jaula_destino)->first();
+            $jaula->Status = 'Ocupada'; 
             $monta->Id_Monta = $monta->Id_Conejo_Hembra . $monta->Fecha_Monta;
-            $monta->Id_Jaula = $request->input('Id_Jaula');
+            $monta->Id_Jaula = $jaula_destino;
             $monta->Creador = Auth::user()->CURP;
 
             $fecha_diagnostico = date_create($monta->Fecha_Monta);
@@ -100,11 +108,11 @@ class MontaController extends Controller{
             date_add($fecha_parto, date_interval_create_from_date_string('15 days'));
             $monta->Fecha_Parto = date_format($fecha_parto, 'Y-m-d');
 
-            $semental = Cemental::where('Id_Conejo_Macho', $request->input('Id_Conejo_Macho'))->first();
+            $semental = Cemental::where('Id_Conejo_Macho', $macho)->first();
             $semental->Fecha_Ultima_Monta = $monta->Fecha_Monta;
             $semental->Numero_Monta += 1;
 
-            $productora = Productora::where('Id_Conejo_Hembra', $request->input('Id_Conejo_Hembra'))->first();
+            $productora = Productora::where('Id_Conejo_Hembra', $hembra)->first();
             $productora->Fecha_Ultima_Monta = $monta->Fecha_Monta;
             $productora->Numero_Monta += 1;
 
@@ -142,8 +150,10 @@ class MontaController extends Controller{
         $i = 0;
         $arrayOpcionesId = [];
         foreach ($opciones as $opcion) {
-            $arrayOpcionesId[$i] = $opcion->Id_Conejo_Macho;
-            $i++;
+            if ($opcion->Status == 'Activo') {
+                $arrayOpcionesId[$i] = $opcion->Id_Conejo_Macho;
+                $i++;
+            }
         }
         $respuesta = ['opciones' =>$arrayOpcionesId];
 

@@ -18,8 +18,8 @@ if(opcionesConeja[0]) {
 				opcionesSementales.empty();
 				var opciones = respuesta.opciones;
 				for(var i = 0; i < opciones.length; i++) {
-					opcionesSementales.append('<option value="' + opciones[i] + '">' + opciones[i] + '</option>');
-				}
+					opcionesSementales.append('<option value="' + opciones[i] + '">' + (opciones[i].substr(0,5) + ' - ' + opciones[i].substr(5,5)) +'</option>');
+				}					
 			},
 			error: function() {
 

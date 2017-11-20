@@ -33,10 +33,16 @@ class UsuarioController extends Controller
     }
     public function destroy_rol($curp,$idrol){
         try{ 
-            $usuario = Usuario::find($curp);
-            $usuario->roles()->detach($idrol);
-            session()->flash("Exito","Rol descartado");   
-        }catch(\Illuminate\Database\QueryException $e){            session()->flash("Error","Rol no se puede descartar");   
+            if($curp == "ADMINCONEJO" && $idrol =="ROLADM"){
+                session()->flash("Error","Rol no se puede descartar");   
+            }else{
+                $usuario = Usuario::find($curp);
+                $usuario->roles()->detach($idrol);
+                session()->flash("Exito","Rol descartado"); 
+            } 
+               
+        }catch(\Illuminate\Database\QueryException $e){    
+            session()->flash("Error","Rol no se puede descartar");   
         }
     	return redirect()->back();
     }

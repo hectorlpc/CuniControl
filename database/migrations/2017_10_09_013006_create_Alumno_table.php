@@ -19,6 +19,8 @@ class CreateAlumnoTable extends Migration
             $table->string('Seguro_Axxa',10)->nullable();
             $table->string('Seguro_Facultativo',11)->nullable();
             $table->string('Numero_Cuenta',10)->nullable();
+            $table->string('Id_Carrera',6);
+            $table->foreign('Id_Carrera')->references('Id_Carrera')->on('Carrera');
             $table->timestamps();
         });
     }

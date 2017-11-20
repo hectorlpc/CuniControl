@@ -16,10 +16,10 @@ use Faker\Generator as Faker;
 $factory->define(App\Usuario::class, function (Faker $faker) {
     return [
    		'CURP' => "ADMINCONEJO",
-     	'Nombre_Usuario' => $faker->firstName,
-      	'Apellido_Paterno' => $faker->lastName,
-      	'Apellido_Materno' => $faker->lastName,
-      	'email' => $faker->email,
+     	'Nombre_Usuario' => "Administrador",
+      	'Apellido_Paterno' => "CuniControl",
+      	'Apellido_Materno' => "BitBox",
+      	'email' => "cunicontrol@gmail.com",
         'activated' => 1,
         'confirmacion_code' => "CrlsS45bWDxJluFgio3HgpyvL",
       	'Genero' => $faker->randomElement(['F', 'M']),

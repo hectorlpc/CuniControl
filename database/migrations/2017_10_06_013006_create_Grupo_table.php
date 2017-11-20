@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCarreraTable extends Migration
+class CreateGrupoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateCarreraTable extends Migration
      */
     public function up()
     {
-        Schema::create('Carrera', function (Blueprint $table) {
-            $table->string('Id_Carrera',6)->primary('Id_Carrera');
-            $table->string('Clave_Carrera');
-            $table->string('Nombre_Carrera',70);
+        Schema::create('Grupo', function (Blueprint $table) {
+            $table->string('Id_Grupo'19)->primary('Id_Grupo');
+            $table->string('Clave_Grupo');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateCarreraTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Carrera');
+        Schema::dropIfExists('Grupo');
     }
 }

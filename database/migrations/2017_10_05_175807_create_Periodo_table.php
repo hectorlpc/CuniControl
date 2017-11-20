@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGrupoTable extends Migration
+class CreatePeriodoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateGrupoTable extends Migration
      */
     public function up()
     {
-        Schema::create('Grupo', function (Blueprint $table) {
-            $table->string('Id_Grupo')->primary('Id_Grupo');
-            $table->string('Clave_Grupo');
-            $table->string('Id_Carrera');
-            $table->foreign('Id_Carrera')->references('Id_Carrera')->on('Carrera'); 
+        Schema::create('Periodo', function (Blueprint $table) {
+            $table->string('Id_Periodo',6)->primary('Id_Periodo');
+            $table->date('Fecha_Inicio')->index();
+            $table->date('Fecha_Termino')->index(); 
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateGrupoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Grupo');
+        Schema::dropIfExists('Periodo');
     }
 }

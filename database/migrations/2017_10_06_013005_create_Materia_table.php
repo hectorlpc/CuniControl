@@ -14,10 +14,12 @@ class CreateMateriaTable extends Migration
     public function up()
     {
         Schema::create('Materia', function (Blueprint $table) {
-            $table->string('Id_Materia')->primary('Id_Materia');
+            $table->string('Id_Materia',14)->primary('Id_Materia');
             $table->string('Nombre_Materia',50);
-            $table->string('Id_Grupo');
-            $table->foreign('Id_Grupo')->references('Id_Grupo')->on('Grupo');
+            $table->string('Id_Carrera',6);
+            $table->foreign('Id_Carrera')->references('Id_Carrera')->on('Carrera');
+            $table->string('Id_Periodo',6);
+            $table->foreign('Id_Periodo')->references('Id_Periodo')->on('Periodo');
             $table->timestamps();
         });
     }

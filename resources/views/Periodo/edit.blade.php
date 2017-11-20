@@ -4,17 +4,21 @@
       <div class="container">
         <center><h2>Actualizar Grupo:</h2></center>
     </br>
-<form action="{{url('/grupo/' . $grupo->Id_Grupo)}}" method="POST" role="form">
+<form action="{{url('/periodo/' . $periodo->Id_Periodo)}}" method="POST" role="form">
   {{method_field('patch')}}
   {{csrf_field()}}
           <div class="form-group" >
-            <label>Clave del grupo:</label>
-            <input class="form-control" name="Id_Grupo" value="{{$grupo->Id_Grupo}}">
+            <label>Periodo:</label>
+            <input class="form-control" value="{{$periodo->Id_Periodo}}" name="Id_Periodo">
           </div>
-          <div class="form-group" >
-            <label>Nombre de la Carrera:</label>
-            <input readonly value="{{$grupo->carrera->Nombre_Carrera}}" class="form-control" name="Nombre_Carrera">
-          </div>
+          <div class="form-group">
+      <label for="exampleInputEmail1">Fecha de Inicio del Periodo:</label>
+      <input class="form-control" type="date" value="{{$periodo->Fecha_Inicio}}" name="Fecha_Inicio">
+    </div><div class="form-group">
+      <label for="exampleInputEmail1">Fecha de Termino del Periodo</label>
+
+      <input class="form-control" type="date" value="{{$periodo->Fecha_Termino}}"  name="Fecha_Termino">
+    </div>
         <br>
           <div align="right"><button type="submit" class="btn btn-outline-primary">Registrar</button>
 

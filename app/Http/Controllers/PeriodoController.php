@@ -14,16 +14,12 @@ class PeriodoController extends Controller
 
 	public function store (Request $request){
 		try{
-			$grupo = new Grupo;
-			$grupo->Clave_Grupo = $request->input('Clave_Grupo');
-			$grupo->Id_Carrera = $request->input('Id_Carrera');
-			$grupo->Id_Grupo = $grupo->Clave_Grupo. '-' . $grupo->Id_Carrera;
-			$grupo->save();
-            session()->flash("Exito","Grupo creado");
-			return redirect('/grupo');
+			Periodo::create($request->all());
+			session()->flash("Exito","Periodo Registrado Exitosamente");
+			return redirect('/periodo');
 		}catch(\Illuminate\Database\QueryException $e){
-            session()->flash("Error","No es posible crear, grupo existente");
-            return redirect('/grupo');
+            session()->flash("Error","No es posible crear, periodo existente");
+            return redirect('/periodo');
         }
 
 	}
@@ -39,37 +35,39 @@ class PeriodoController extends Controller
         return view('Periodo/index', ['periodos' => $periodos]);
 	}
 
-	public function edit ($id_grupo)
+	public function edit ($id_periodo)
 	{
-		$grupos = Grupo::all();
-		$grupo = Grupo::where('Id_Grupo', $id_grupo)->first();
+		$periodo = Periodo::where('Id_Periodo', $id_periodo)->first();
 
-		return view('Grupo/edit', ['grupo' => $grupo]);
+		return view('Periodo/edit', ['periodo' => $periodo]);
 	}
 
-	public function update (Request $request, $id_grupo)
+	public function update (Request $request, $id_periodo)
 	{
 		try{
-		$grupo = Grupo::where('Id_Grupo', $id_grupo)->first();
-		$grupo->Id_Grupo = $request->input('Id_Grupo');
-		$grupo->save();
-		return redirect('/grupo');
+		$periodo = Periodo::where('Id_Periodo', $id_periodo)->first();
+		$periodo->Id_Periodo = $request->input('Id_Periodo');
+		$periodo->Fecha_Inicio = $request->input('Fecha_Inicio');
+		$periodo->Fecha_Termino = $request->input('Fecha_Termino');
+		$periodo->save();
+		session()->flash("Exito", "Periodo Actualizado");
+		return redirect('/periodo');
 	}catch (\Illuminate\Database\QueryException $e){
-			session()->flash("Error","No es posible Modificar ese grupo");
-			return redirect('/grupo');
+			session()->flash("Error","No es posible Modificar ese periodo");
+			return redirect('/periodo');
 		}
 	}
 
-	public function delete ($id_grupo)
+	public function delete ($id_periodo)
 	{
 		try{
-		$grupo = Grupo::where('Id_Grupo', $id_grupo)->first();
-		$grupo->delete();
-		session()->flash("Exito","Grupo eliminado");
+		$periodo = Periodo::where('Id_Periodo', $id_periodo)->first();
+		$periodo->delete();
+		session()->flash("Exito","Periodo eliminado");
 		return redirect()->back();
 		}catch (\Illuminate\Database\QueryException $e){
 
-        session()->flash("Error","No es posible eliminar ese grupo");
+        session()->flash("Error","No es posible eliminar ese periodo");
         return redirect()->back();
     	}
 	}

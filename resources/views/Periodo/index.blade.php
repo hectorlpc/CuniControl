@@ -12,7 +12,7 @@
               <br>
               <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
           </form>
-            <a href="{{url('/grupo/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
+            <a href="{{url('/periodo/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
           </div>
 <div style="overflow-x:auto;">
         <table class="table table-sm table-responsive">

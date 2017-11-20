@@ -2,8 +2,8 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
-          <h2>Censo general vivos</h2>
-          <form method="get" action="{{url('engorda/pdf')}}">
+          <center><h1>Censo general vivos</h1></center>
+          <form method="get" action="{{url('censo-general-vivos/pdf')}}">
 
           <br>
           <div>

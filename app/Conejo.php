@@ -22,11 +22,10 @@ class Conejo extends Model
     	return $this->belongsTo(Productora::class,'Id_Conejo','Id_Conejo_Hembra');
     }
 
-    public function scopeNumeroDe($query, $tipo, $status = 'Vivo') {
+    public function scopeNumeroDe($query, $status = 'Vivo') {
         return $query->select(\DB::raw('Nombre_Raza, COUNT(*) AS Numero'))
             ->join('Raza', 'Conejo.Id_Raza', '=', 'Raza.Id_Raza')
             ->where('Status', $status)
-            ->where($tipo, 'Si')
             ->groupBy('Nombre_Raza');
     }
 }

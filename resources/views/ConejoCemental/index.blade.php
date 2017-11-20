@@ -41,12 +41,15 @@
       <td> {{$cemental->Status}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
+        @if($cemental->Numero_Monta == 0)          
           <form method="POST" action="{{url('/cemental/' . $cemental->Id_Conejo_Macho)}}">
           {{csrf_field()}}
           {{method_field('delete')}}
           <input type="hidden" name="Id_Conejo_Macho" value="{{$cemental->Id_Conejo_Macho}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form> <a href="{{url('/cemental/' . $cemental->Id_Conejo_Macho . '/edit')}}" class="btn btn-secondary btn-outline-info">Dar de baja</a>
+           </form>
+        @endif
+           <a href="{{url('/cemental/' . $cemental->Id_Conejo_Macho . '/edit')}}" class="btn btn-secondary btn-outline-info">Dar de baja</a>
         </div>
       </td>
     </tr>

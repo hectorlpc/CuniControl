@@ -62,9 +62,8 @@
                   <ul>
                     <li> <a href="{{url('/validacion/')}}">Validar practica</a> </li>
                     <li> <a href="{{url('/transferencia/')}}">Baja de conejos por transferencia</a> </li>
-                    <li> <a href="{{url('/engorda/')}}">Censo General Vivos</a> </li>
-                    <li> <a href="{{url('/baja/')}}">Censo General Muertos</a> </li>
-                   {{--  <li> <a href="{{url('/desecho/')}}">Censo de desecho</a> </li> --}}
+                    <li> <a href="{{url('/censo-general-vivos/')}}">Censo General Vivos</a> </li>
+                    <li> <a href="{{url('/censo-general-muertos/')}}">Censo General Muertos</a> </li>
                   </ul>
               </li>
 @endif

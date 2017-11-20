@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Censo</title>
+    <title>Engorda</title>
     <link rel="stylesheet" href="css/pdf.css" media="all" />
   </head>
    <body>
@@ -11,7 +11,7 @@
        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <right><img src="images/cuni.jpg" ></right>
       </div>
-      <h1 class="page-header">Listado general Muertos</h1>
+      <h1 class="page-header">Listado general Vivos</h1>
       <div id="company" class="clearfix">
         <div>UNAM FES CUAUTITLÁN</div>
         <div>Carretera Cuautitlán-Teoloyucan Km. 2.5,<br /> Col. San Sebastián Xhala, Cuautitlán Izcalli, Edo. Mex.</div>
@@ -25,7 +25,7 @@
       <br>
       <br>
     <main>
-      @foreach($agrupaciones as $nombre => $razas)
+      @foreach($grupo_vivos as $nombre => $razas)
       <h3 class="agrupacion">{{$nombre}}</h3>
       <table class="table table-hover table-striped">
         <thead>
@@ -38,10 +38,11 @@
             @foreach($razas as $raza)
               <tr>
                 <td> {{$raza->Nombre_Raza}} </td>    
-                <td> {{$raza->Numero}} </td>
+                <td> {{$raza->Vivos}} </td>
               </tr>
             @endforeach
         </tbody>
       </table>
       @endforeach
       <hr>
+ 

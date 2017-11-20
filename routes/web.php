@@ -106,7 +106,6 @@ Route::get('/Horas/pdf', function() {
 Route::get('/validacion', 'ValidacionController@index');
 Route::patch('/validacion/{id_horas}', 'ValidacionController@update');
 
-
 //Rutas solicitud de horas
 Route::get('/solicitudHoras/create', 'SolicitudHorasController@create');
 Route::get('/solicitudHoras','SolicitudHorasController@index');
@@ -251,34 +250,13 @@ Route::get('/area/{id_area}/edit', 'AreaController@edit');
 Route::patch('/area/{id_area}', 'AreaController@update');
 Route::delete('/area/{id_area}','AreaController@delete');
 
-//Rutas De Bajas
-Route::get('/baja', 'BajaController@index');
-Route::get('/baja/pdf', function(Request $request) {
-	$agrupaciones = [
-		'Engorda' => App\Conejo::numeroDe('Engorda', 'Muerto')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
-		'Gazapos' => App\Parto::numeroGazapos('Muertos')->whereBetween('Parto.Fecha_Parto',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
-		'Productora' => App\Conejo::numeroDe('Productora', 'Muerto')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
-		'Semental' => App\Conejo::numeroDe('Semental', 'Muerto')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
-		'Desecho' => App\Conejo::numeroDe('Desecho', 'Muerto')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
-	];
+//Rutas de censo general vivos
+Route::get('/censo-general-vivos', 'CensoController@index_vivos');
+Route::get('/censo-general-vivos/pdf', 'CensoController@vivos_pdf');
 
-	$pdf = PDF::loadView('CensoMuerte/pdf', ['agrupaciones' => $agrupaciones]);
-	return $pdf->download('Censo_de_muertes.pdf');
-});
+//Rutas de censo muertos
+Route::get('/censo-general-muertos', 'CensoController@index_muertos');
+Route::get('/censo-general-muertos/pdf', 'CensoController@muertos_pdf');
 
-//Rutas de engorda
-Route::get('/engorda', 'EngordaController@index');
-Route::get('/engorda/pdf', function(Request $request) {
-	$agrupaciones = [
-		'Engorda' => App\Conejo::numeroDe('Engorda')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
-		'Gazapos' => App\Parto::numeroGazapos('Vivos')->whereBetween('Parto.Fecha_Parto',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
-		'Productora' => App\Conejo::numeroDe('Productora')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
-		'Semental' => App\Conejo::numeroDe('Semental')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
-		'Desecho' => App\Conejo::numeroDe('Desecho')->whereBetween('Fecha_Muerte',[$request->input('Fecha_Inicio'), $request->input('Fecha_Fin')])->get(),
-	];
-
-	$pdf = PDF::loadView('CensoEngorda/pdf', ['agrupaciones' => $agrupaciones]);
-	return $pdf->download('Censo_de_engorda.pdf');
-});
 //Confirmacion de Correo
 Route::get('/Usuario/activacion/{code}','Auth\RegisterController@activarcode');

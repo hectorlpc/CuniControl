@@ -18,26 +18,16 @@
         <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
-      <th>Id grupo:</th>
       <th>Clave grupo:</th>
-      <th>Nombre carrera:</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       @foreach($grupos as $grupo)
-      <td> {{$grupo->Id_Grupo}} </td>
       <td> {{$grupo->Clave_Grupo}} </td>
-      <td> {{$grupo->carrera->Nombre_Carrera}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">
-          <form method="POST" action="{{url('/grupo/' . $grupo->Id_Grupo)}}">
-          {{csrf_field()}}
-          {{method_field('delete')}}
-          <input type="hidden" name="Id_Grupo" value="{{$grupo->Id_Grupo}}">
-            <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form> <a href="{{url('/grupo/' . $grupo->Id_Grupo . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
         </div>
       </td>
     </tr>

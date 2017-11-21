@@ -5,23 +5,24 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Carrera;
 use App\Grupo;
+use App\Materia;
 
 class GrupoController extends Controller
 {
 	public function create ()
 	{
-		$carreras = Carrera::all();
-
-		return view('Grupo/create', ['carreras' => $carreras]);
+		$materias = Materia::all();
+		return view('Grupo/create', ['materias' => $materias]);
 	}
 
 	public function store (Request $request){
 		try{
 			$grupo = new Grupo;
 			$grupo->Clave_Grupo = $request->input('Clave_Grupo');
-			$grupo->Id_Carrera = $request->input('Id_Carrera');
-			$grupo->Id_Grupo = $grupo->Clave_Grupo. '-' . $grupo->Id_Carrera;
+			$grupo->Id_Grupo = $grupo->Clave_Grupo . $request->input('Id_Materia');
 			$grupo->save();
+			$materia = Materia::find($request->input('Id_Materia'));
+			$materia->grupos()->attach($grupo->Id_Grupo);
             session()->flash("Exito","Grupo creado");
 			return redirect('/grupo');
 		}catch(\Illuminate\Database\QueryException $e){

@@ -11,4 +11,9 @@ class Profesor extends Model
     public $fillable=['CURP_Profesor','Numero_unam','Seguro_social','RFC'];
     protected $table='Profesor';
     protected $primaryKey='CURP_Profesor';
+
+    public function usuario(){
+      return $this->hasOne(Usuario::class,'CURP','CURP_Profesor');
+    }
+
 }

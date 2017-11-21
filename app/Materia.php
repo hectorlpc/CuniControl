@@ -19,5 +19,8 @@ class Materia extends Model
     {
     	return $this->belongsTo(Periodo::class,'Id_Periodo','Id_Periodo');
     }
+    public function grupos (){
+    	return $this->belongsToMany(Grupo::class,'Materia_Grupo','Id_Materia','Id_Grupo');
+    }
        
 }

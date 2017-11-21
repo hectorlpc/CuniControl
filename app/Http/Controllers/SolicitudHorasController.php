@@ -8,6 +8,10 @@ use App\SolicitudHoras;
 use App\Materia;
 use App\Carrera;
 use App\Grupo;
+use App\Profesor;
+use App\Periodo;
+use Carbon\Carbon;
+
 
 class SolicitudHorasController extends Controller
 {
@@ -15,10 +19,15 @@ class SolicitudHorasController extends Controller
     	$materias = Materia::all();
     	$carreras = Carrera::all();
     	$grupos = Grupo::all();
+        $profesores = Profesor::all();
+        $periodo = Periodo::whereDate('Fecha_Inicio',"<=",Carbon::now()->format('Y-m-d'))->whereDate('Fecha_Termino',">=",Carbon::now()->format('Y-m-d'))->first();
+
     	return view("SolicitudHoras/create",[
     		'materias' => $materias,
     		'carreras' => $carreras,
-    		'grupos' => $grupos
+    		'grupos' => $grupos,
+            'profesores' => $profesores,
+            'periodo' => $periodo
     	]);
 	}
 	public function store (Request $request){
@@ -26,6 +35,7 @@ class SolicitudHorasController extends Controller
 			$solicitudHoras = new SolicitudHoras;
 			$solicitudHoras->CURP_Alumno = Auth::user()->CURP;
 			$solicitudHoras->Id_Grupo = $request->input('Id_Grupo');
+            $solicitudHoras->Id_Periodo = $request->input('Id_Periodo')
 			$solicitudHoras->Fecha_Solicitud = $request->input('Fecha_Solicitud');
 			$solicitudHoras->Id_Materia = $request->input('Id_Materia');
 			$solicitudHoras->Horas_Totales = $request->input('Horas_Totales');

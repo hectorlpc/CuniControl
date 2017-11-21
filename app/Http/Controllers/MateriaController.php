@@ -80,5 +80,8 @@ class MateriaController extends Controller
         $respuesta = ['opciones' =>$arrayOpcionesId];
         return response()->json($respuesta);
     }
+    public function grupos(){
+    	return $this->belongsToMany(Grupo::class,'Materia_Grupo','Id_Materia','Id_Grupo');
+    }
 
 }

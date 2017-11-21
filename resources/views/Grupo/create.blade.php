@@ -12,11 +12,11 @@
             <input class="form-control" name="Clave_Grupo">
           </div>
           <div class="form-group" >
-            <label for="">Carrera:</label>
-           <select class="form-control" name="Id_Carrera">
-              <option> -- Seleccione la carrera -- </option>
-              @foreach ($carreras as $carrera)
-                  <option value="{{$carrera->Id_Carrera}}">{{$carrera->Nombre_Carrera}}</option>
+            <label for="">Materia:</label>
+           <select class="form-control" name="Id_Materia">
+              <option> -- Seleccione la materia -- </option>
+              @foreach ($materias as $materia)
+                  <option value="{{$materia->Id_Materia}}">{{$materia->Nombre_Materia}}</option>
               @endforeach
             </select>
           </div>

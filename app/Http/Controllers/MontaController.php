@@ -70,6 +70,18 @@ class MontaController extends Controller{
     public function delete($id_monta){
         try{
             $monta = Monta::where('Id_Monta', $id_monta)->first();
+            $macho = $monta->Id_Conejo_Macho;
+            $hembra = $monta->Id_Conejo_Hembra;
+            $jaula_usada = $monta->Id_Jaula;
+            $semental = Cemental::where('Id_Conejo_Macho',$macho)->first();
+            $productora = Productora::where('Id_Conejo_Hembra',$hembra)->first();
+            $jaula = Jaula::where('Id_Jaula',$jaula_usada)->first();
+            $jaula->Status = 'Disponible';
+            $semental->Numero_Monta -= 1;
+            $productora->Numero_Monta -= 1;
+            $jaula->save();
+            $semental->save();
+            $productora->save();
             $monta->delete();
 
             session()->flash("Exito","Monta eliminada");
@@ -107,19 +119,19 @@ class MontaController extends Controller{
             $fecha_parto = date_create($monta->Fecha_Diagnostico);
             date_add($fecha_parto, date_interval_create_from_date_string('15 days'));
             $monta->Fecha_Parto = date_format($fecha_parto, 'Y-m-d');
-
+            $monta->save();
             $semental = Cemental::where('Id_Conejo_Macho', $macho)->first();
-            $semental->Fecha_Ultima_Monta = $monta->Fecha_Monta;
+            //$semental->Fecha_Ultima_Monta = $monta->Fecha_Monta;
             $semental->Numero_Monta += 1;
 
             $productora = Productora::where('Id_Conejo_Hembra', $hembra)->first();
-            $productora->Fecha_Ultima_Monta = $monta->Fecha_Monta;
+            //$productora->Fecha_Ultima_Monta = $monta->Fecha_Monta;
             $productora->Numero_Monta += 1;
 
             $jaula->save();
             $semental->save();
             $productora->save();
-            $monta->save();
+            
 
             session()->flash("Exito","Monta registrada");
             return redirect('/monta');

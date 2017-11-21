@@ -25,7 +25,7 @@
       <th>Fecha Alta:</th>
       <th>Montas:</th>
       <th>Positivas:</th>
-      <th>Ultima monta:</th>
+      {{-- <th>Ultima monta:</th> --}}
       <th>Status:</th>
       <th></th>
     </tr>
@@ -40,7 +40,7 @@
       <td> {{$productora->Fecha_Activo}} </td>
       <td> {{$productora->Numero_Monta}} </td>
       <td> {{$productora->Monta_Positiva}} </td>
-      <td> {{$productora->Fecha_Ultima_Monta}} </td>
+      {{-- <td> {{$productora->Fecha_Ultima_Monta}} </td> --}}
       <td> {{$productora->Status}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">

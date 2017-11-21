@@ -24,7 +24,7 @@
       <th>Fecha Alta:</th>
       <th>Montas:</th>
       <th>Positivas:</th>
-      <th>Ultima monta:</th>
+      {{-- <th>Ultima monta:</th> --}}
       <th>Status:</th>
       <th></th>
     </tr>
@@ -37,7 +37,7 @@
       <td> {{$cemental->Fecha_Activo}} </td>
       <td> {{$cemental->Numero_Monta}} </td>
       <td> {{$cemental->Monta_Positiva}} </td>
-      <td> {{$cemental->Fecha_Ultima_Monta}} </td>
+      {{-- <td> {{$cemental->Fecha_Ultima_Monta}} </td> --}}
       <td> {{$cemental->Status}} </td>
       <td>
         <div class="btn-group btn-group-sm" role="group" aria-label="">

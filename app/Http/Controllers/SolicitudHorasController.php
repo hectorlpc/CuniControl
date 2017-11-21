@@ -35,7 +35,7 @@ class SolicitudHorasController extends Controller
 			$solicitudHoras = new SolicitudHoras;
 			$solicitudHoras->CURP_Alumno = Auth::user()->CURP;
 			$solicitudHoras->Id_Grupo = $request->input('Id_Grupo');
-            $solicitudHoras->Id_Periodo = $request->input('Id_Periodo')
+            $solicitudHoras->Id_Periodo = $request->input('Id_Periodo');
 			$solicitudHoras->Fecha_Solicitud = $request->input('Fecha_Solicitud');
 			$solicitudHoras->Id_Materia = $request->input('Id_Materia');
 			$solicitudHoras->Horas_Totales = $request->input('Horas_Totales');

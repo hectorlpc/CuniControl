@@ -9,7 +9,7 @@
     </figure>
        <center><h1>Equipo de desarrollo:</h1></center>
       </br>
-      <center><h2>Licenciatura en informática</h2></center>
+      <center><h2>Licenciatura En Informática</h2></center>
     </br>
       <center><table>
         <tr>

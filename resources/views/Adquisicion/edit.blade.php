@@ -8,7 +8,7 @@
       <center><h2><label for="Adquisicion">Modificar Tipo de Adquisición</label></h2></center>
 
           <div>
-              <label for="id_adquisicion">Codigo de Adquisición:</label>
+              <label for="id_adquisicion">Código de Adquisición:</label>
               <input readonly class="form-control" type="text" name="Adquisición" value="{{$adquisicion->Id_Adquisicion}}">
           </div>
 <br>
@@ -19,7 +19,7 @@
 <br>
 
 <div>
-    <label for="descripcion">Descripcion de adquisición:</label>
+    <label for="descripcion">Descripción de adquisición:</label>
     <input class="form-control" name="Descripcion_Adquisicion" type="text" value="{{$adquisicion->Descripcion_Adquisicion}}">
 </div>
 

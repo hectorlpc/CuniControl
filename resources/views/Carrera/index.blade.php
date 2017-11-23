@@ -6,7 +6,7 @@
           <center><h2>Carreras Registradas</h2></center>
           <form>
             <div class="form-group">
-              <label for="">Clave Carrera:</label>
+              <label for="">Clave de Carrera:</label>
               <input type="" name="Nombre_Carrera" class="form-control">
               <br>
               <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
@@ -35,8 +35,8 @@
           {{csrf_field()}}
           {{method_field('delete')}}
           <input type="hidden" name="Id_Carrera" value="{{$carrera->Id_Carrera}}">
-            <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-           </form> <a href="{{url('/carrera/' . $carrera->Id_Carrera . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+           <div align="right"> <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+           </form><div align="right"> <a href="{{url('/carrera/' . $carrera->Id_Carrera . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
         </div>
       </td>
     </tr>

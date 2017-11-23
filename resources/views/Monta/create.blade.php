@@ -5,9 +5,9 @@
 @if($productoras->count() > 0 || $cementales->count() > 0)
           <form action="{{url('/monta')}}" method="POST">
             {{ csrf_field() }}
-            <h2>Registrar Monta</h2>
+            <h2>Registro De Monta</h2>
           <div class="form-group">
-            <label for="">Fecha de Monta</label>
+            <label for="">Fecha de Monta:</label>
             <input value="{{$fecha_actual = date('Y-m-d')}}" type="date" class="form-control" name="Fecha_Monta" placeholder="Introduce la monta">
           </div>
           <div class="form-group">
@@ -21,7 +21,7 @@
           </div>        
           <br>
           <div class="form-group">
-            <label for="">Tatuaje Hembra Productora:</label>
+            <label for="">Tatuaje De Hembra Productora:</label>
             <select class="form-control" name="Id_Conejo_Hembra" id="coneja">
               <option> -- Seleccione los tatuajes de la productora -- </option>
               @foreach($productoras as $productora)
@@ -30,18 +30,19 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="">Tatuaje Semental:</label>
+            <label for="">Tatuaje De Semental:</label>
             <select class="form-control" name="Id_Conejo_Macho" id="sementales">
             </select>
           </div>
           <div align="right">
-            <button type="submit" class="btn btn-outline-primary">Enviar Registro</button>
             <a class="btn btn-outline-secondary" href="{{url('/monta/')}}">Regresar</a>
+            <button type="submit" class="btn btn-outline-primary">Enviar Registro</button>
+            
           </div>
         </form>
       @else
       <br>  
-      <center><h2>No existen conejos para monta</h2></center>
+      <center><h2>No Existen Conejos Para Monta</h2></center>
       @endif
 </div>
 @endsection

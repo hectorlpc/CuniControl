@@ -20,7 +20,7 @@
             <tr>
               <th>Id Actividad</th>
               <th>Nombre Actividad</th>
-              <th>Descripcion</th>
+              <th>Descripción</th>
               <th></th>
             </tr>
           </thead>
@@ -31,6 +31,7 @@
               <td>Retirar los gazapos de la coneja madre para despues Tatuar y colocarlos en jaula diferentes</td>
               <td>
                 <div class="btn-group btn-group-sm" role="group" aria-label="">
+                <div align="right">
                 <button type="button" class="btn btn-secondary btn-outline-danger ">Eliminar</button><button type="button" class="btn btn-secondary btn-outline-info">Modificar</button></td>
                 </div>
             </tr>

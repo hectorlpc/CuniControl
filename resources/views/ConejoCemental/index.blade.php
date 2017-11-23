@@ -24,7 +24,7 @@
       <th>Fecha Alta:</th>
       <th>Montas:</th>
       <th>Positivas:</th>
-      {{-- <th>Ultima monta:</th> --}}
+      {{-- <th>Última monta:</th> --}}
       <th>Status:</th>
       <th></th>
     </tr>
@@ -46,7 +46,7 @@
           {{csrf_field()}}
           {{method_field('delete')}}
           <input type="hidden" name="Id_Conejo_Macho" value="{{$cemental->Id_Conejo_Macho}}">
-            <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+          <div align="right">  <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
            </form>
         @endif
            <a href="{{url('/cemental/' . $cemental->Id_Conejo_Macho . '/edit')}}" class="btn btn-secondary btn-outline-info">Dar de baja</a>

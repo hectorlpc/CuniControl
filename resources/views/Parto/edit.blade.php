@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="container">
-  <center><h2>Supervision de Parto</h2></center>
+  <center><h2>Supervisión de Parto</h2></center>
 <form action="{{url('/parto/' . $parto->Id_Parto)}}" method="POST" role="form">
       {{method_field('patch')}}
       {{ csrf_field() }}
     <div class="form-group">
-            <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
+            <label for="exampleInputPassword2">Número De Tatuaje De La Madre:</label>
                 <input readonly class="form-control" type="text" name="Id_Parto" value="{{substr($parto->Id_Monta,0,10)}}">
     </div>
 

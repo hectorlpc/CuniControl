@@ -9,7 +9,7 @@
               <input readonly type="text" class="form-control" name="CURP_Profesor" value= {{Auth::user()->CURP}} >
             </div>
             <div>
-              <label >Numero UNAM:</label>
+              <label >Número UNAM:</label>
               <input type="text" class="form-control" name="Numero_unam"  >
             </div>
             <div>

@@ -20,7 +20,7 @@
     <tr>
       <th>Código:</th>
       <th>Nombre:</th>
-      <th>Descripcion:</th>
+      <th>Descripción:</th>
       <th></th>
     </tr>
   </thead>

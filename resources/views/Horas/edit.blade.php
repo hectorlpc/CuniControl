@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
 <div class="container">
-  <h2>Actualizar Registro de Horas- Actividades</h2>
+ <center> <h2>Actualizar Registro de Horas- Actividades</h2></center>
 </br>
     <form>
     <div class="form-group">

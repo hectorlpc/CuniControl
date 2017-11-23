@@ -27,9 +27,9 @@
       <th>Fecha de Monta</th>
       <th>Tatuaje Coneja</th>
       <th>Tatuaje Conejo</th>
-      <th>Fecha Diagnostico</th>
-      <th>Resultado Diagnostico</th>
-      <th>Fecha Parto Aprox</th>
+      <th>Fecha Diagnóstico</th>
+      <th>Resultado Diagnóstico</th>
+      <th>Fecha Parto Aproximado</th>
       <th>Registró</th>
       <th>Diagnosticó</th>
       <th></th>
@@ -56,7 +56,7 @@
           <input type="hidden" name="Id_Monta" value="{{$monta->Id_Monta}}">
             <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
            </form>
-           <a href="{{url('/monta/' . $monta->Id_Monta . '/edit')}}" class="btn btn-secondary btn-outline-info">Diagnosticar</a>
+          <div align="right"><a href="{{url('/monta/' . $monta->Id_Monta . '/edit')}}" class="btn btn-secondary btn-outline-info">Diagnosticar</a>
         </div>
       </td>
 @endif      

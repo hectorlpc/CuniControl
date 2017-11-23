@@ -33,7 +33,7 @@
   </tbody>
 </table>
 </div>
-<a href="{{url('/desecho/pdf')}}" type="submit" class="btn btn-outline-success">Imprimir</a>
+<div align="right"><a href="{{url('/desecho/pdf')}}" type="submit" class="btn btn-outline-success">Imprimir</a>
 </div>
 </div>
 @endsection

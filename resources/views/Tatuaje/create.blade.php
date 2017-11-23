@@ -28,14 +28,14 @@
           </div>
           <br>
           <div class="form-group">
-            <label for="">Genero:</label>
+            <label for="">Género:</label>
             <input type="radio" name="Genero" value="Macho" /> Macho
             <input type="radio" name="Genero" value="Hembra" /> Hembra
           </div>
             <label for="">Consecutivo de conejo:</label>
             <input readonly class="form-control" name="Consecutivo" id="numeroConsecutivo" >
         </br>
-          <button type="submit" class="btn btn-outline-primary">Registrar</button>
+        <div align="right">  <button type="submit" class="btn btn-outline-primary">Registrar</button>
       </form>
       @else
       <br>  

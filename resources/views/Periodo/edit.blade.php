@@ -15,7 +15,7 @@
       <label for="exampleInputEmail1">Fecha de Inicio del Periodo:</label>
       <input class="form-control" type="date" value="{{$periodo->Fecha_Inicio}}" name="Fecha_Inicio">
     </div><div class="form-group">
-      <label for="exampleInputEmail1">Fecha de Termino del Periodo</label>
+      <label for="exampleInputEmail1">Fecha de Término del Periodo</label>
 
       <input class="form-control" type="date" value="{{$periodo->Fecha_Termino}}"  name="Fecha_Termino">
     </div>

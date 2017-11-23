@@ -4,10 +4,10 @@
 <div class="container">
     @include("compartidas.alertas")
 
-  <center><h2>Supervision de parto</h2></center>
+  <center><h2>Supervisión de parto</h2></center>
       <form method="get" action="{{url('/parto')}}">
         <div class="form-group">
-          <label for="">Numero de coneja: </label>
+          <label for="">Número de coneja: </label>
           <input type="" class="form-control" name="Id_Conejo_Hembra" placeholder="Buscar por tatuaje">
           <br>
           <div align="right"><button type="submit" class="btn btn-outline-primary">Buscar</button>
@@ -23,7 +23,7 @@
     {{-- <th>Fecha de Monta</th> --}}
     <th>Cant.gazapos vivos</th>
     <th>Cant.de gazapos muertos</th>
-    <th>Peso promedio (g)</th>
+    <th>Peso promedio(g)</th>
     <th>Registró</th>
     <th>Actualizó</th>
     <th></th>
@@ -45,9 +45,9 @@
         {{-- <form method="POST" action="{{url('/parto/' . $parto->Id_Parto)}}">
           {{csrf_field()}}
           {{method_field('delete')}}
-          <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+         <div align="right"> <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
         </form> --}}
-        <a href="{{url('/parto/' . $parto->Id_Parto . '/edit')}}" class="btn btn-secondary btn-outline-info">Actualizar</a>
+        <div align="right"><a href="{{url('/parto/' . $parto->Id_Parto . '/edit')}}" class="btn btn-secondary btn-outline-info">Actualizar</a>
         </td>
       </div>
   </tr>

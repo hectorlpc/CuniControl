@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
       <div class="container">
-        <center><h2>Registro De Conejos de desecho:</h2></center>
+        <center><h2>Registro De Conejos de Desecho:</h2></center>
 
     </br>
           <form action="{{url('/desecho')}}" method="post">

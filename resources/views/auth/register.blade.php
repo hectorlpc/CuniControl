@@ -144,7 +144,7 @@
                 </div>
 
                 <input type="submit" id="btn-submit" value="Registrarme">
-                <a href="{{url('/login')}}">Regresar a inicio</a>
+                <br><center><a href="{{url('/login')}}">Regresar a inicio</a></center>
 
             </form>
         </div>

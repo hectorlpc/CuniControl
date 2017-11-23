@@ -23,7 +23,7 @@
           <div class="form-group" >
             <label>Status:</label>
             <select class="form-control" name="Status">
-              <option> -- Seleccione motivo de baja -- </option>
+              <option> -- Seleccione motívo de baja -- </option>
                   <option> Desecho </option>
                   <option> Muerto </option>
             </select>

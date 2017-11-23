@@ -37,8 +37,8 @@
                 {{method_field('delete')}}
               <input type="hidden" name="Id_Raza" value="{{$raza->Id_Raza}}">
 
-            <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-          </form> <a href="{{url('/raza/' . $raza->Id_Raza . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+           <div align="right"> <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+          </form><div align="right"> <a href="{{url('/raza/' . $raza->Id_Raza . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
             </div>
           </td>
     </tr>

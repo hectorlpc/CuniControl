@@ -3,14 +3,14 @@
 @section('content')
 <div class="container">
   @include('compartidas.alertas')
-          <h2>Validación De Horas Practicas</h2>
+          <center><h2>Validación De Horas Prácticas</h2></center>
       <div style="overflow-x:auto;">  <table class="table table-sm table-responsive">
   <thead class="thead-default">
     <tr>
       <th>Alumno:</th>
       <th>Fecha:</th>
-      <th>Hora de entrada:</th>
-      <th>Hora de salida:</th>
+      <th>Hora De Entrada:</th>
+      <th>Hora De Salida:</th>
       <th>Actividad realizada</th>
       <th></th>
     </tr>
@@ -33,7 +33,7 @@
               <input type="hidden" name="Status" value="Aceptado">
 
 
-            <button type="submit" class="btn btn-secondary btn-outline-info ">Aceptar</button>
+            <div align="right">  <button type="submit" class="btn btn-secondary btn-outline-info ">Aceptar</button>
           </form>
           <form method="POST" action="{{url('validacion/' . $hora->Id_Horas)}}">
                 {{method_field('patch')}}
@@ -41,7 +41,7 @@
               <input type="hidden" name="Id_Horas" value="{{$hora->Id_Horas}}">
               <input type="hidden" name="Status" value="Rechazado">
 
-            <button type="submit" class="btn btn-secondary btn-outline-danger ">Rechazar</button>
+           <div align="right">   <button type="submit" class="btn btn-secondary btn-outline-danger ">Rechazar</button>
           </form>
             </div>
           </td>

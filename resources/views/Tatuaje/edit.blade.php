@@ -15,12 +15,12 @@
             <input readonly class="form-control" name="Tatuaje_Izquierdo" value="{{$conejo->Tatuaje_Izquierdo}}">
           </div>
           <div>
-            <label for="">Fecha Nacimiento</label>
+            <label for="">Fecha Nacimiento:</label>
             <input readonly class="form-control" type="date" name="Fecha_Nacimiento" value="{{$conejo->Fecha_Nacimiento}}">
           </div>
           <br>
           <div class="form-group">
-            <label for="">Genero:</label>
+            <label for="">Género:</label>
             <select class="form-control" name="Genero">
             <option value="{{$conejo->Genero}}">{{$conejo->Genero}}</option>
             @if($conejo->Genero == 'Hembra')
@@ -43,7 +43,7 @@
           </div> --}}
           <br>
           <div class="form-group">
-          <button type="submit" class="btn btn-outline-primary">Actualizar</button>
+         <div align="right"> <button type="submit" class="btn btn-outline-primary">Actualizar</button>
         </form>
       </div>
 @endsection

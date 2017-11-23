@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     @include("compartidas.alertas")
-          <center><h2>Conejo Adquirido</h2></center>
+          <center><h2>Conejo Adquirído</h2></center>
           <form>
             {{ csrf_field() }}
           <div class="form-group">
@@ -21,7 +21,7 @@
     <tr>
       <th>Tatuajes del conejo</th>
       <th>Tipo de adquisición:</th>
-      <th>fecha de adquisición:</th>
+      <th>Fecha de adquisición:</th>
       <th></th>
     </tr>
   </thead>
@@ -38,7 +38,7 @@
                 {{method_field('delete')}}
               <input type="hidden" name="Id_Adquirido" value="{{$adquirido->Id_Adquirido}}">
 
-            <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+           <div align="right"> <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
           </form> <a href="{{url('/adquirido/' . $adquirido->Id_Adquirido . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
             </div>
           </td>

@@ -9,7 +9,7 @@
                 <label for="id_adquisicion">Nombre de adquisición</label>
                 <input type="" class="form-control" name="Id_Adquisicion" placeholder="Buscar">
                 <br>
-                <button type="submit" class="btn btn-primary">Buscar</button>
+                <div align="right"><button type="submit" class="btn btn-primary">Buscar</button>
                 <a href="{{url('/adquisicion/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
 
               </div>
@@ -18,9 +18,9 @@
             <table class="table table-sm table-responsive">
       <thead class="thead-default">
         <tr>
-          <th>Codigo de Adquisición</th>
+          <th>Código de Adquisición</th>
           <th>Nombre de Adquisición</th>
-          <th>Descripcion de Adquisición</th>
+          <th>Descripción de Adquisición</th>
           <th></th>
         </tr>
       </thead>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
   @include("compartidas.alertas")
-          <center><h2>Resumen De Solicitud De Horas Practicas:</h2></center>
+          <center><h2>Resumen De Solicitud De Horas Prácticas:</h2></center>
           <br>
           <div align="right"><a href="{{url('/solicitudHoras/create')}}" type="submit" class="btn btn-outline-success">Solicitar horas</a>
           <br>

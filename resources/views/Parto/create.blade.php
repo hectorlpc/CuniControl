@@ -3,12 +3,12 @@
 @section('content')
 
 <div class="container">
-  <center><h2>Supervision de Parto</h2></center>
+  <center><h2>Supervisión de Parto</h2></center>
 @if($montas->count() > 0)
 <form action="{{url('/parto')}}" method="post">
     {{ csrf_field() }}
     <div class="form-group">
-        <label for="exampleInputPassword2">Numero de tatuaje de la madre:</label>
+        <label for="exampleInputPassword2">Número de tatuaje de la madre:</label>
         <select class="form-control" name="Id_Monta" id="parto">
             <option> -- Seleccione la coneja -- </option>
           @foreach($montas as $monta)
@@ -91,13 +91,14 @@
     </div>
     <br>
     <div align="right">
-    <button type="submit" class="btn btn-outline-primary">Agregar</button>
     <button type="submit" class="btn btn-outline-secondary">Regresar</button>
+    <button type="submit" class="btn btn-outline-primary">Agregar</button>
+    
     </div>
 </form>
 @else
 <br>  
-<center><h2>No existen montas positivas</h2></center>
+<center><h2>No Existen Montas Positivas</h2></center>
 @endif
 </div>
 @endsection

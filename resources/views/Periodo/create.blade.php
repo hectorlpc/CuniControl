@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
       <div class="container">
-        <center><h2>Registro De Periodos:</h2></center>
+        <center><h2>Registro De Periodos</h2></center>
 
     </br>
           <form action="{{url('/periodo')}}" method="post">
@@ -15,7 +15,7 @@
       <label for="exampleInputEmail1">Fecha de Inicio del Periodo:</label>
       <input class="form-control" type="date" name="Fecha_Inicio">
     </div><div class="form-group">
-      <label for="exampleInputEmail1">Fecha de Termino del Periodo</label>
+      <label for="exampleInputEmail1">Fecha de Término del Periodo</label>
 
       <input class="form-control" type="date" name="Fecha_Termino">
     </div>

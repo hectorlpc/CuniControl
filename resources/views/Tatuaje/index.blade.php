@@ -4,14 +4,14 @@
 <div class="container">
     @include("compartidas.alertas")
           <center><h1>Tatuado de Conejos</h1></center>
-          <center><h3>Conejos recien tatuados sin asignar</h3></center>
+          <center><h3>Conejos Recién Tatuados Sin Asignar</h3></center>
           <form method="get" action="{{url('/tatuaje')}}">
           <div class="form-group">
             <label for="">Tatuajes del conejo: </label>
             <input type="" class="form-control" name="Id_Conejo" placeholder="Introduce tatuaje derecho + izquierdo sin espacio">
             <br>
             <button type="submit" class="btn btn-outline-primary">Buscar</button>
-            <a href="{{url('/tatuaje/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
+          <div align="right">  <a href="{{url('/tatuaje/create')}}" type="submit" class="btn btn-outline-success">Agregar</a>
           </div>
         </form>
         <div style="overflow-x:auto;"><table class="table table-sm table-responsive">
@@ -21,7 +21,7 @@
       <th>Tatuajes (D - I):</th>
       <th>Raza:</th>
       <th>Jaula:</th>
-      <th>Genero:</th>
+      <th>Género:</th>
 {{--       <th>Status:</th>
       <th>Fecha Muerte:</th> --}}
       <th>Registró</th>
@@ -48,9 +48,9 @@
           {{csrf_field()}}
           {{method_field('delete')}}
           <input type="hidden" name="Id_Conejo" value="{{$conejo->Id_Conejo}}">
-            <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+           <div align="right"> <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
            </form> --}} 
-           <a href="{{url('/tatuaje/' . $conejo->Id_Conejo . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+          <div align="right"> <a href="{{url('/tatuaje/' . $conejo->Id_Conejo . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
       </td>
       </div>
     </td>

@@ -4,6 +4,7 @@
 <div class="container">
 <div style="overflow-x:auto;"><table class="table table-sm table-responsive">
 <thead class="thead-default">
+	<center><h3>Usuarios</h3></center><br><br>
 		<tr>
 			<th>CURP</th>
 			<th>Nombre</th>
@@ -20,7 +21,7 @@
 			<td>{{ $usuario->Apellido_Paterno}}</td>
 			<td>{{ $usuario->Apellido_Materno}}</td>
 			<td>
-				<a class="btn btn-outline-info" href="{{ url('/cuentas/' . $usuario->CURP) }}">Administrar</a>
+				<div align="right"><a class="btn btn-outline-info" href="{{ url('/cuentas/' . $usuario->CURP) }}">Administrar</a>
 			</td>
 		</tr>
 		@endforeach

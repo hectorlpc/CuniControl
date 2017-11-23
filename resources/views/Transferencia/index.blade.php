@@ -4,7 +4,7 @@
 <div class="container">
     @include("compartidas.alertas")
 
-          <center><h2>Baja por transferencias</h2></center>
+          <center><h2>Baja Por Transferencias</h2></center>
   <form method="get" action="{{url('/transferencia')}}">
     {{ csrf_field() }}
     <div class="form-group">
@@ -22,7 +22,7 @@
       <th>Tatuajes del conejo:</th>
       <th>Fecha de baja:</th>
       <th>Motivo de baja:</th>
-      <th>Descripcion de baja:</th>
+      <th>DescripciÓn de baja:</th>
       <th>Registró:</th>
       <th></th>
     </tr>
@@ -41,9 +41,9 @@
           {{csrf_field()}}
           {{method_field('delete')}}
           <input type="hidden" name="Id_Conejo" value="{{$transferencia->Id_Conejo}}">
-            <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+           <div align="right"> <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
         </form> 
-        <a href="{{url('/transferencia/' . $transferencia->Id_Conejo . '/edit')}}" class="btn btn-secondary btn-outline-info">Dar de baja</a> --}}
+       <div align="right"> <a href="{{url('/transferencia/' . $transferencia->Id_Conejo . '/edit')}}" class="btn btn-secondary btn-outline-info">Dar de baja</a> --}}
         </div>
       </td>
     </tr>

@@ -19,8 +19,8 @@
   <thead class="thead-default">
     <tr>
       <th>Periodo:</th>
-      <th>Fecha Inicio:</th>
-      <th>Fecha Termino:</th>
+      <th>Fecha de Inicio:</th>
+      <th>Fecha de Término:</th>
       <th></th>
     </tr>
   </thead>

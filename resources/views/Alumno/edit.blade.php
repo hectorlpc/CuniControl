@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
       <div class="container">
-        <h2 align="center">Actualizacion Datos Alumno</h2>
+        <h2 align="center">Actualización de Datos del Alumno</h2>
         <form action="{{url('/alumno/'.$alumno->CURP_Alumno)}}" method="POST" role="form">
            {{method_field('patch')}}
   {{csrf_field()}}
@@ -11,15 +11,15 @@
               <input readonly type="text" class="form-control" name="CURP_Alumno" value= {{Auth::user()->CURP}} >
             </div>
             <div>
-              <label>Numero Seguro Axxa:</label>
+              <label>Número Seguro Axxa:</label>
               <input type="text" class="form-control" name="Seguro_Axxa" value={{$alumno->Seguro_Axxa}}  >
             </div>
             <div>
-              <label>Numero Seguro Facultativo</label>
+              <label>Número Seguro Facultativo</label>
               <input class="form-control" name="Seguro_Facultativo" type="text"  value= {{$alumno->Seguro_Facultativo}}>
             </div>
             <div>
-              <label>Numero de Cuenta</label>
+              <label>Número de Cuenta</label>
               <input class="form-control" name="Numero_Cuenta" type="text" value={{$alumno->Numero_Cuenta}}>
             </div>
             <div class="form-group" >

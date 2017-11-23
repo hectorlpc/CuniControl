@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
 	@include('compartidas.alertas')
-<h3>Usuario: {{$usuario->Nombre_Usuario}}</h3>
+<center><h3>Usuario: {{$usuario->Nombre_Usuario}}</h3></center>
 <hr>
 
 <form action="{{url('/cuentas/'.$usuario->CURP.'/roles') }}" method="post">
@@ -35,7 +35,7 @@
 <td><form action="{{url('/cuentas/'.$usuario->CURP.'/roles/'.$rol->Id_Rol)}}" method="post">
 	{{method_field('delete')}}
 	{{csrf_field()}}
-	<button class="btn btn-outline-danger">Eliminar</button>
+	<div align="right"><button class="btn btn-outline-danger">Eliminar</button>
 </form></td>
 </tr>
 @endforeach

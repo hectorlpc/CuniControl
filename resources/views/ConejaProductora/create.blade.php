@@ -8,7 +8,7 @@
           <form action="{{url('/productora')}}" method="post">
             {{ csrf_field() }}
           <div>
-            <label>Fecha de alta</label>
+            <label>Fecha De Alta</label>
             <input class="form-control" type="date" name="Fecha_Activo" value="{{$fecha = date('Y-m-d')}}">
           </div>
           <br>            
@@ -22,7 +22,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="Coneja_Productora">Código de conejo:</label>
+            <label for="Coneja_Productora">Código del Conejo:</label>
             <select class="form-control" name="Numero_Conejo">
             <option value="01">01</option>
             <option value="02">02</option>

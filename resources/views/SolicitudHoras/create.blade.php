@@ -7,7 +7,7 @@
             <a href="{{url('/home')}}" class="btn btn-outline-primary">Volver a inicio </a> </li>
     @else
             <form action="{{url('/solicitudHoras')}}" method="post">
-        <center><h2>Solicitud De Horas Practicas:</h2></center>
+        <center><h2>Solicitud De Horas Prácticas:</h2></center>
       </br>
       <div class="form-group" >
             <label>Periodo Activo:</label>
@@ -45,7 +45,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword2">Cantidad de horas prácticas a cumplir:</label>
+            <label for="exampleInputPassword2">Cantidad De Horas Prácticas A Cumplir:</label>
             <input type="number" name="Horas_Totales" min="0" max="500">
           </div> 
         </br>

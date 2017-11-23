@@ -4,7 +4,7 @@
 <div class="container">
     @include("compartidas.alertas")
 
-          <center><h2>Conejas productoras</h2></center>
+          <center><h2>Conejas Productoras</h2></center>
       <form method="get" action="{{url('/productora')}}">
           <div class="form-group">
             <label for="">Tatuaje productora:</label>
@@ -21,11 +21,11 @@
     <tr>
       <th>Conejo:</th>
       <th>Raza:</th>
-      <th>Numero:</th>
+      <th>Número:</th>
       <th>Fecha Alta:</th>
       <th>Montas:</th>
       <th>Positivas:</th>
-      {{-- <th>Ultima monta:</th> --}}
+      {{-- <th>Última monta:</th> --}}
       <th>Status:</th>
       <th></th>
     </tr>
@@ -49,10 +49,10 @@
           {{csrf_field()}}
           {{method_field('delete')}}
           <input type="hidden" name="Id_Conejo_Hembra" value="{{$productora->Id_Conejo_Hembra}}">
-            <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
+            <div align="right"><button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
            </form>
         @endif
-           <a href="{{url('/productora/' . $productora->Id_Conejo_Hembra . '/edit')}}" class="btn btn-secondary btn-outline-info">Dar de baja</a>
+         <div align="right">  <a href="{{url('/productora/' . $productora->Id_Conejo_Hembra . '/edit')}}" class="btn btn-secondary btn-outline-info">Dar de baja</a>
         </div>
       </td>
     </tr>

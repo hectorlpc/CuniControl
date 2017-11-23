@@ -4,7 +4,7 @@
 <div class="container">
     @include("compartidas.alertas")
 
-          <center><h2>Conejos por jaulas</h2></center>
+          <center><h2>Conejos Por Jaulas</h2></center>
       <form method="get" action="{{url('/jaulas')}}">
           <div class="form-group">
             <label for="">Jaula:</label>

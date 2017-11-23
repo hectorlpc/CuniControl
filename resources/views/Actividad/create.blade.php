@@ -9,12 +9,12 @@
               <input type="text" class="form-control" name="nomActividad"  >
             </div>
             <div>
-              <label>Descripcion de Actividad:</label>
+              <label>Descripción de Actividad:</label>
               <input class="form-control" name="descActividad" type="text" >
             </div>
             <br>
             <div align="right">
-            <button type="submit" class="btn btn-outline-primary">Agregar</button>
+            <button type="submit" class="btn btn-outline-primary">Agregar Actividad</button>
             </div>
         </form>
       </div>

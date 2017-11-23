@@ -2,7 +2,7 @@
 @extends('layouts.menu')
 @section('content')
       <div class="container">
-        <center><h2>Registro De Baja por transferencias:</h2></center>
+        <center><h2>Registro De Baja Por Transferencias:</h2></center>
     </br>
   <form action="{{url('/transferencia/' . $transferencia->Id_Transferencia)}}" method="post">
       {{method_field('patch')}}
@@ -16,7 +16,7 @@
             <input readonly type="date" class="form-control" value="{{$transferencia->Fecha_Baja}}" name="Fecha_Baja">
     </div>
     <div class="form-group">
-      <label for="Conejo_Adquirido">Area de baja:</label>
+      <label for="Conejo_Adquirido">Área de baja:</label>
         <select class="form-control" name="Id_Area">
           @foreach($areas as $area)
             <option value="{{$area->Id_Area}}"> {{$area->Nombre_Area}} </option>

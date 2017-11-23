@@ -33,7 +33,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword2">Genero:</label>
+            <label for="exampleInputPassword2">Género:</label>
             <input type="radio" name="Genero" value="Macho" /> Macho
             <input type="radio" name="Genero" value="Hembra" /> Hembra
           </div>

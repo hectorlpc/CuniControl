@@ -94,7 +94,7 @@ Route::get('/Horas/pdf', function() {
 	$usuario = Auth::user();
 	$alumno = App\Alumno::where('CURP_Alumno', $usuario->CURP)->get();
 	$solicitudes = App\SolicitudHoras::where('CURP_Alumno', $alumno[0]->CURP_Alumno)->get();
-	$horas = App\Horas::where('Id_Solicitud', $solicitudes[0]->Id_Solicitud)->get();
+	$horas = App\Horas::where('Id_Solicitud', $solicitudes[count($solicitudes)-1]->Id_Solicitud)->get();
 	$conteohoras = App\Horas::select(DB::raw("id_solicitud, SUM(Hora_Salida - Hora_Entrada) as total"))
     ->where('Status', '=', 'Aceptado')
     ->groupBy('id_solicitud')->get();

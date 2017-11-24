@@ -52,13 +52,13 @@ class HorasController extends Controller
             {
                 $horas = Horas::where('Id_Solicitud', $solicitudhoras->Id_Solicitud)->where('Fecha', $request->Fecha)->get();
             } else {
-                $solicitudhoras = SolicitudHoras::where('CURP_Alumno',Auth::user()->CURP)->first();
-                $horas = Horas::where('Id_Solicitud', $solicitudhoras->Id_Solicitud)->get();
+                $solicitudhoras = SolicitudHoras::where('CURP_Alumno',Auth::user()->CURP)->get();
+                $horas = Horas::where('Id_Solicitud', $solicitudhoras[count($solicitudhoras)-1]->Id_Solicitud)->get();
                 $conteohoras = Horas::select(DB::raw("id_solicitud, SUM(Hora_Salida - Hora_Entrada) as total"))
         ->where('Status', '=', 'Aceptado')
-        ->groupBy('id_solicitud')->get();
+        ->groupBy('Id_Solicitud')->get();
             }
-    
+
         }else{
             $horas=null;
             $conteohoras=null;
@@ -77,9 +77,9 @@ class HorasController extends Controller
             $hora->Hora_Salida = $request->input('Hora_Salida');
             $hora->Id_Actividad = $request->input('Id_Actividad');
             $hora->Status = "Pendiente";
-            $solicitud =  SolicitudHoras::where('CURP_Alumno', Auth::user()->CURP)->first();
-            $hora->Id_Solicitud = $solicitud->Id_Solicitud;
-            $hora->Id_Horas = strtoupper(substr($hora->Id_Solicitud,0,4) . $hora->Fecha . $hora->Hora_Entrada . $hora->Hora_Salida);
+            $solicitud =  SolicitudHoras::where('CURP_Alumno', Auth::user()->CURP)->get();
+            $hora->Id_Solicitud = $solicitud[count($solicitud)-1]->Id_Solicitud;
+            $hora->Id_Horas = strtoupper($hora->Id_Solicitud . $hora->Fecha . $hora->Hora_Entrada . $hora->Hora_Salida);
             $hora->save();
             session()->flash("Exito","Horas practicas registradas");
             return redirect('/horas');

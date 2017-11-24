@@ -21,8 +21,9 @@
       </div>
       <div id="project">
         <div><span>Nombre del alumno:</span>{{$usuario->Nombre_Usuario . " " . $usuario->Apellido_Paterno . " " . $usuario->Apellido_Materno}}</div>
-        <div><span>Asignatura:</span> {{$solicitud[0]->Id_Materia}}</div>
-        <div><span>Grupo:</span> {{$solicitud[0]->Id_Grupo}}</div>
+        <div><span>Asignatura:</span> {{$solicitud[0]->materia->Nombre_Materia}}</div>
+        <div><span>Grupo:</span> {{$solicitud[count($solicitud)-1]->grupo->Clave_Grupo}}</div>
+        <div><span>Profesor:</span> {{$solicitud[count($solicitud)-1]->profesor->usuario->Nombre_Usuario . " " . $solicitud[count($solicitud)-1]->profesor->usuario->Apellido_Paterno . " " . $solicitud[count($solicitud)-1]->profesor->usuario->Apellido_Materno}}</div>
         <div><span>No. Seguro facultativo:</span> {{$alumno[0]->Seguro_Facultativo}}</div>
         <div><span>No. Seguro AXXA:</span> {{$alumno[0]->Seguro_Axxa}} </div>
         <div><span>Telefonos de contacto:</span> {{"Fijo: " . $usuario->Telefono . " Celular: " . $usuario->Celular}}</div>
@@ -42,30 +43,32 @@
       @if($conteohoras->count()>0)
         <div>
           <label for="">Total de horas validas: </label>
-                  <input readonly type="text" name="Cantidad_Horas" value="{{$conteohoras[0]->total/10000}}">  
+                  <input readonly type="text" name="Cantidad_Horas" value="{{$conteohoras[count($conteohoras)-1]->total/10000}}">  
         </div>
         @endif
-         <table class="table table-hover table-striped">
-        <thead>
+        <div>
+          <table class="table table-hover table-striped">
+          <thead>
             <tr>     
                 <th>Fecha:</th>
                 <th>Hora de entrada:</th>
                 <th>Hora de salida:</th>
                 <th>Actividades realizadas:</th>
                 <th>Status:</th>
-                <th></th>
             </tr>                            
-        </thead>
-        <tbody>
-          <tr>
-          @foreach($horas as $hora)
-          <td>{{$hora->Fecha}}</td>
-          <td>{{$hora->Hora_Entrada}}</td>
-          <td>{{$hora->Hora_Salida}}</td>
-          <td>{{$hora->actividad->Nombre_Actividad}}</td>
-          <td>{{$hora->Status}}</td>
+          </thead>
+          <tbody>
+            <tr>
+              @foreach($horas as $hora)
+              <td>{{$hora->Fecha}}</td>
+              <td>{{$hora->Hora_Entrada}}</td>
+              <td>{{$hora->Hora_Salida}}</td>
+              <td>{{$hora->actividad->Nombre_Actividad}}</td>
+              <td>{{$hora->Status}}</td>
             </tr>
-          @endforeach 
-        </tbody>
-    </table>
+              @endforeach 
+          </tbody>
+        </table>  
+        </div>
+        
     <hr>

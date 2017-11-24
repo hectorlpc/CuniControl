@@ -32,17 +32,18 @@ class SolicitudHorasController extends Controller
 	}
 	public function store (Request $request){
 		try{
-			$solicitudHoras = new SolicitudHoras;
-			$solicitudHoras->CURP_Alumno = Auth::user()->CURP;
-			$solicitudHoras->Id_Grupo = $request->input('Id_Grupo');
-            $solicitudHoras->Id_Periodo = $request->input('Id_Periodo');
-			$solicitudHoras->Fecha_Solicitud = $request->input('Fecha_Solicitud');
-			$solicitudHoras->Id_Materia = $request->input('Id_Materia');
-			$solicitudHoras->Horas_Totales = $request->input('Horas_Totales');
-			$solicitudHoras->Id_Solicitud = strtoupper(substr($solicitudHoras->CURP_Alumno,0,4) . $solicitudHoras->Fecha_Solicitud);
-			$solicitudHoras->save();
-      		session()->flash("Exito","Solicitud realizada correctamente");
-			return redirect('/solicitudHoras');
+                $solicitudHoras = new SolicitudHoras;
+                $solicitudHoras->CURP_Alumno = Auth::user()->CURP;
+                $solicitudHoras->Id_Grupo = $request->input('Id_Grupo');
+                $solicitudHoras->Id_Periodo = $request->input('Id_Periodo');
+                $solicitudHoras->CURP_Profesor = $request->input('CURP_Profesor');
+                $solicitudHoras->Fecha_Solicitud = $request->input('Fecha_Solicitud');
+                $solicitudHoras->Id_Materia = $request->input('Id_Materia');
+                $solicitudHoras->Horas_Totales = $request->input('Horas_Totales');
+                $solicitudHoras->Id_Solicitud = strtoupper($solicitudHoras->CURP_Alumno . $solicitudHoras->Id_Periodo);
+                $solicitudHoras->save();
+                session()->flash("Exito","Solicitud realizada correctamente");
+                return redirect('/solicitudHoras');      
 		}catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, solicitud activa");
             return redirect('/solicitudHoras');

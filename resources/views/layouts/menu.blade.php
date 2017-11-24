@@ -15,10 +15,10 @@
         <li><a href="#"><i class="icono izquierda fa fa-chevron-down" aria-hidden="true"></i>
           Alumno<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
             <ul>
-              <li> <a href="{{url('/solicitudHoras')}}">Solicitar horas practicas </a> </li>
-              <li> <a href="{{url('/horas')}}">Registro de horas cumplidas </a> </li>
               @if(Auth::user()->tienePerfil("Alumno"))
               <li> <a href="{{url('/alumno/edit')}}">Actualiza tus datos personales</a> </li>
+              <li> <a href="{{url('/solicitudHoras')}}">Solicitar horas practicas </a> </li>
+              <li> <a href="{{url('/horas')}}">Registro de horas cumplidas </a> </li>
               @else
               <li> <a href="{{url('/alumno/create')}}">Completa tus datos personales</a> </li>
               @endif

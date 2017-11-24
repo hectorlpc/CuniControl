@@ -22,8 +22,8 @@
     <tr>
       @foreach($solicitudes as $solicitud)
       <td>{{$solicitud->Id_Solicitud}}</td>
-      <td> {{$solicitud->Id_Materia}} </td>
-      <td> {{substr( $solicitud->Id_Grupo ,0,4)}} </td>
+      <td> {{$solicitud->materia->Nombre_Materia}} </td>
+      <td> {{$solicitud->grupo->Clave_Grupo }} </td>
       <td> {{$solicitud->Fecha_Solicitud}} </td>
       <td> {{$solicitud->Horas_Totales}} </td>
       <td><div class="btn-group btn-group-sm" role="group" aria-label="">

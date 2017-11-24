@@ -21,7 +21,7 @@
        @if($conteohoras->count()>0)
         <div class="form-control">
           <label for="">Total de horas validas: </label>
-                  <input class="form-control" style="text-align:center;" readonly type="text" name="Cantidad_Horas" value="{{$conteohoras[0]->total/10000}}">  
+                  <input class="form-control" style="text-align:center;" readonly type="text" name="Cantidad_Horas" value="{{$conteohoras[count($conteohoras)-1]->total/10000}}">  
         </div>
         @endif
         <div style="overflow-x:auto;"><table class="table table-sm table-responsive">
@@ -32,7 +32,6 @@
       <th>Hora de salida:</th>
       <th>Actividad realizada</th>
       <th>Status:</th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -43,18 +42,6 @@
           <td>{{$hora->Hora_Salida}}</td>
           <td>{{$hora->actividad->Nombre_Actividad}}</td>
           <td>{{$hora->Status}}</td>
-
-          <td>
-            <div class="btn-group btn-group-sm" role="group" aria-label="">
-              <form method="POST" action="{{url('horas/' . $hora->Id_Horas)}}">
-                {{csrf_field()}}
-                {{method_field('delete')}}
-              <input type="hidden" name="Id_Hora" value="{{$hora->Id_Horas}}">
-
-            <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-          </form>
-            </div>
-          </td>
     </tr>
     @endforeach
   </tbody>

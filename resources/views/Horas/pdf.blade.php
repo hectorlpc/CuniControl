@@ -58,15 +58,15 @@
             </tr>                            
           </thead>
           <tbody>
+            @foreach($horas as $hora)
             <tr>
-              @foreach($horas as $hora)
               <td>{{$hora->Fecha}}</td>
               <td>{{$hora->Hora_Entrada}}</td>
               <td>{{$hora->Hora_Salida}}</td>
               <td>{{$hora->actividad->Nombre_Actividad}}</td>
               <td>{{$hora->Status}}</td>
             </tr>
-              @endforeach 
+            @endforeach 
           </tbody>
         </table>  
         </div>

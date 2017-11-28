@@ -39,7 +39,7 @@ class CarreraController extends Controller
         } else {
             $carreras = Carrera::all();
         }
-        return view('Carrera/index', ['carreras' => $carreras]);
+        return view('Carrera.index', ['carreras' => $carreras]);
 	}
 
 	public function edit ($id_carrera)
@@ -47,7 +47,7 @@ class CarreraController extends Controller
 		$carreras = Carrera::all();
 		$carrera = Carrera::where('Id_Carrera', $id_carrera)->first();
 
-		return view('Carrera/edit', ['carrera' => $carrera]);
+		return view('Carrera.edit', ['carrera' => $carrera]);
 	}
 
 	public function update (Request $request, $id_carrera)

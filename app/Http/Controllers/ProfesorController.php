@@ -10,7 +10,7 @@ class ProfesorController extends Controller
 {
     //
     public function create(){
-    	return view("Profesor/create");
+    	return view("Profesor.create");
 	}
 	public function store(Request $request){
 		try{
@@ -28,7 +28,7 @@ class ProfesorController extends Controller
     	$CURP = Auth::user()->CURP;
         $profesor = Profesor::where('CURP_Profesor', $CURP)->first();
 
-        return view('Profesor/edit',['profesor' => $profesor]);
+        return view('Profesor.edit',['profesor' => $profesor]);
     	}catch(\ErrorException $e){
     		session()->flash("Error","Necesitas crear tus datos de profesor");
 			return redirect('/home');

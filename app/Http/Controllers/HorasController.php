@@ -15,7 +15,7 @@ class HorasController extends Controller
     public function create()
     {
         $actividades=Actividad::all();
-    	return view('Horas/create',[
+    	return view('Horas.create',[
             'actividades' => $actividades
         ]);
     }

@@ -17,7 +17,7 @@ class AreaController extends Controller
     {
         $area = Area::where('Id_Area', $id_area)->first();
 
-        return view('Area/edit',['area' => $area]);
+        return view('Area.edit',['area' => $area]);
     }
 
     public function update(Request $request, $id_area)

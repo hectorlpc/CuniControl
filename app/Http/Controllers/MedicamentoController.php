@@ -17,7 +17,7 @@ class MedicamentoController extends Controller
     {
         $medicamento = Medicamento::where('Id_Medicamento', $id_medicamento)->first();
 
-        return view('Medicamento/edit',['medicamento' => $medicamento]);
+        return view('Medicamento.edit',['medicamento' => $medicamento]);
     }
 
     public function update(Request $request, $id_medicamento)

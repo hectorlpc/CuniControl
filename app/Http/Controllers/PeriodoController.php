@@ -9,7 +9,7 @@ class PeriodoController extends Controller
 {
     public function create ()
 	{
-		return view('Periodo/create');
+		return view('Periodo.create');
 	}
 
 	public function store (Request $request){
@@ -32,14 +32,14 @@ class PeriodoController extends Controller
         } else {
             $periodos = Periodo::all();
         }
-        return view('Periodo/index', ['periodos' => $periodos]);
+        return view('Periodo.index', ['periodos' => $periodos]);
 	}
 
 	public function edit ($id_periodo)
 	{
 		$periodo = Periodo::where('Id_Periodo', $id_periodo)->first();
 
-		return view('Periodo/edit', ['periodo' => $periodo]);
+		return view('Periodo.edit', ['periodo' => $periodo]);
 	}
 
 	public function update (Request $request, $id_periodo)

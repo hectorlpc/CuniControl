@@ -11,7 +11,7 @@ class ValidacionController extends Controller
     public function index (Request $request)
 	{
         $horas = Horas::where('Status',"Pendiente")->get();
-        return view('ValidacionHoras/index',[
+        return view('ValidacionHoras.index',[
             'horas' => $horas
         ]);		
 	}

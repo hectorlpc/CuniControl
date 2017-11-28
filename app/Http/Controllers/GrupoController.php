@@ -12,7 +12,7 @@ class GrupoController extends Controller
 	public function create ()
 	{
 		$materias = Materia::all();
-		return view('Grupo/create', ['materias' => $materias]);
+		return view('Grupo.create', ['materias' => $materias]);
 	}
 
 	public function store (Request $request){
@@ -40,7 +40,7 @@ class GrupoController extends Controller
         } else {
             $grupos = Grupo::all();
         }
-        return view('Grupo/index', ['grupos' => $grupos]);
+        return view('Grupo.index', ['grupos' => $grupos]);
 	}
 
 	public function edit ($id_grupo)
@@ -48,7 +48,7 @@ class GrupoController extends Controller
 		$grupos = Grupo::all();
 		$grupo = Grupo::where('Id_Grupo', $id_grupo)->first();
 
-		return view('Grupo/edit', ['grupo' => $grupo]);
+		return view('Grupo.edit', ['grupo' => $grupo]);
 	}
 
 	public function update (Request $request, $id_grupo)

@@ -23,7 +23,7 @@ class MontaController extends Controller{
         $jaulas = Jaula::select()
             ->where('Status','Disponible')
             ->get();
-        return view('Monta/create',[
+        return view('Monta.create',[
             'cementales' => $cementales,
             'productoras' => $productoras,
             'razas' => $razas,
@@ -36,7 +36,7 @@ class MontaController extends Controller{
         $conejos = Conejo::all();
         $monta = Monta::where('Id_Monta', $id_monta)->first();
 
-        return view('Monta/edit', [
+        return view('Monta.edit', [
             'monta' => $montas,
             'conejos' => $conejos,
             'monta' => $monta

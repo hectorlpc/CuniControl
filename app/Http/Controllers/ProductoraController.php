@@ -20,13 +20,13 @@ class ProductoraController extends Controller{
             ->whereNull('Transferencia_Conejo.Id_Conejo')
             ->get();  
 
-    	return view('ConejaProductora/create',['conejos' => $conejos]);
+    	return view('ConejaProductora.create',['conejos' => $conejos]);
     }
 
     public function edit($id_productora){
         $productora = Productora::all();
         $productora = Productora::where('Id_Conejo_Hembra', $id_productora)->first();
-    	return view('ConejaProductora/edit',['productora' => $productora]);
+    	return view('ConejaProductora.edit',['productora' => $productora]);
     }
 
     public function update(Request $request, $id_productora)

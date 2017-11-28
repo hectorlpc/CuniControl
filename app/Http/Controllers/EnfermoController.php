@@ -24,7 +24,7 @@ class EnfermoController extends Controller
             //->whereNull('Conejo_Enfermo.Id_Conejo')
             ->get();
 
-        return view('Enfermo/create', [
+        return view('Enfermo.create', [
             'conejos' => $conejos,
             'enfermedades' => $enfermedades,
             'medicamentos' => $medicamentos
@@ -71,7 +71,7 @@ class EnfermoController extends Controller
         $enfermo = Enfermo::where('Id_Conejo', $id_conejo)->first();
         $tratamiento = $enfermo->tratamientos()->last();
 
-        return view('Enfermo/edit', [
+        return view('Enfermo.edit', [
             'conejos' => $conejos,
             'enfermedades' => $enfermedades,
             'medicamentos' => $medicamentos,

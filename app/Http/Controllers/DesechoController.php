@@ -18,14 +18,14 @@ class DesechoController extends Controller
         } else {
             $desechos = Desecho::all();
         }
-        return view ('ConejoDesecho/index',['desechos'=> $desechos]);
+        return view ('ConejoDesecho.index',['desechos'=> $desechos]);
     }	
 
 	public function create ()
 	{
 		$conejos = Conejo::all();
 
-		return view('ConejoDesecho/create',['conejos' => $conejos]);		
+		return view('ConejoDesecho.create',['conejos' => $conejos]);		
 	}
 
     public function store(Request $request)

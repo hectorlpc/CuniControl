@@ -15,7 +15,7 @@ class BajaController extends Controller
         } else {
             $conejos = Conejo::all(); 
         }
-        return view('CensoMuerte/index',['conejos' => $conejos]);
+        return view('CensoMuerte.index',['conejos' => $conejos]);
     }
 }
 

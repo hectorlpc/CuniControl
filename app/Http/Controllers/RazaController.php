@@ -17,7 +17,7 @@ class RazaController extends Controller
     {
         $raza = Raza::where('Id_Raza', $id_raza)->first();
 
-        return view('Raza/edit',['raza' => $raza]);
+        return view('Raza.edit',['raza' => $raza]);
     }
 
     public function update(Request $request, $id_raza)

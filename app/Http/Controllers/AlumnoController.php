@@ -14,7 +14,7 @@ class AlumnoController extends Controller
 	public function create(){
 		try{
 			$carreras = Carrera::all();
-			return view("Alumno/create",[
+			return view("Alumno.create",[
 				'carreras' => $carreras
 			]);
 		}catch(\Exception $e){
@@ -40,7 +40,7 @@ class AlumnoController extends Controller
         	$alumno = Alumno::where('CURP_Alumno', $CURP)->first();
         	$carreras = Carrera::all();
 
-        return view('Alumno/edit',['alumno' => $alumno, 'carreras' => $carreras]);	
+        return view('Alumno.edit',['alumno' => $alumno, 'carreras' => $carreras]);	
     	}catch(\Exception $e){
     		session()->flash("Error","Necesitas crear tus datos de alumno");
 			return redirect('/home');

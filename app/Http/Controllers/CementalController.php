@@ -21,7 +21,7 @@ class CementalController extends Controller
             ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
             ->whereNull('Conejo_Engorda.Id_Conejo_Engorda')
             ->get();
-    	return view('ConejoCemental/create',['conejos' => $conejos]);
+    	return view('ConejoCemental.create',['conejos' => $conejos]);
     }
 
     public function edit($id_cemental)
@@ -29,7 +29,7 @@ class CementalController extends Controller
         $cemental = Cemental::all();
         $cemental = Cemental::where('Id_Conejo_Macho', $id_cemental)->first();
 
-    	return view('ConejoCemental/edit',['cemental' => $cemental]);
+    	return view('ConejoCemental.edit',['cemental' => $cemental]);
     }
 
     public function update(Request $request, $id_cemental)

@@ -17,7 +17,7 @@ class EnfermedadController extends Controller
     {
         $enfermedad = Enfermedad::where('Id_Enfermedad', $id_enfermedad)->first();
 
-        return view('Enfermedad/edit',['enfermedad' => $enfermedad]);
+        return view('Enfermedad.edit',['enfermedad' => $enfermedad]);
     }
 
     public function update(Request $request, $id_enfermedad)

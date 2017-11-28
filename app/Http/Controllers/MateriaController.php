@@ -18,7 +18,7 @@ class MateriaController extends Controller
 		$grupos = Grupo::all();
 		$periodo = Periodo::whereDate('Fecha_Inicio',"<=",Carbon::now()->format('Y-m-d'))->whereDate('Fecha_Termino',">=",Carbon::now()->format('Y-m-d'))->first();
 
-		return view('Materia/create', [
+		return view('Materia.create', [
 			'carreras' => $carreras,
 			'grupos' => $grupos, 
 			'periodo' => $periodo]);	
@@ -51,7 +51,7 @@ class MateriaController extends Controller
             $materias = Materia::where('Id_Periodo', $periodo->Id_Periodo)->get();
         }
         
-        return view('Materia/index', ['materias' => $materias, 
+        return view('Materia.index', ['materias' => $materias, 
 			'periodo' => $periodo]);
 	}
 

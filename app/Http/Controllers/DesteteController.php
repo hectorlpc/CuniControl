@@ -25,8 +25,7 @@ class DesteteController extends Controller{
         $destete = Destete::all();
         $destete = Destete::where('Id_Destete', $id_destete)->first();
 
-        return view('Destete.edit',[
-            'destete' => $destete ]);
+        return view('Destete.edit',['destete' => $destete ]);
     }
 
     public function update(Request $request, $id_destete)

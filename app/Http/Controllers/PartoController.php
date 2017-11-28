@@ -16,14 +16,14 @@ class PartoController extends Controller{
             ->whereNull('Parto.Id_Monta')
             ->where('Monta.Resultado_Diagnostico','Positivo')
             ->get();        
-        return view('Parto/create',['montas' =>$montas]);
+        return view('Parto.create',['montas' =>$montas]);
     }
 
     public function edit($id_parto){
         $parto = Parto::all();
         $parto = Parto::where('Id_Parto', $id_parto)->first();
 
-        return view('Parto/edit',['parto' => $parto]);
+        return view('Parto.edit',['parto' => $parto]);
     }
 
     public function delete($id_parto){

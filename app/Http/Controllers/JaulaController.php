@@ -15,13 +15,13 @@ class JaulaController extends Controller
 		} else {
 			$jaulas = Jaula::all();
 		}
-		return view('Jaula/index', ['jaulas' => $jaulas]);
+		return view('Jaula.index', ['jaulas' => $jaulas]);
 	}
 
 	public function create ()
 	{
 		$jaulas = Jaula::all();
-		return view('Jaula/create', ['jaulas' => $jaulas]);
+		return view('Jaula.create', ['jaulas' => $jaulas]);
 	}
 
 	public function store (Request $request){

@@ -22,7 +22,7 @@ class SolicitudHorasController extends Controller
         $profesores = Profesor::all();
         $periodo = Periodo::whereDate('Fecha_Inicio',"<=",Carbon::now()->format('Y-m-d'))->whereDate('Fecha_Termino',">=",Carbon::now()->format('Y-m-d'))->first();
 
-    	return view("SolicitudHoras/create",[
+    	return view("SolicitudHoras.create",[
     		'materias' => $materias,
     		'carreras' => $carreras,
     		'grupos' => $grupos,
@@ -53,7 +53,7 @@ class SolicitudHorasController extends Controller
 	{
        $CURP = Auth::user()->CURP;
         $solicitudes = SolicitudHoras::where('CURP_Alumno', $CURP)->get();
-        return view('SolicitudHoras/index',[
+        return view('SolicitudHoras.index',[
             'solicitudes' => $solicitudes
         ]);
 	}

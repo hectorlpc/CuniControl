@@ -11,7 +11,7 @@ class JaulaController extends Controller
 	public function index (Request $request)
 	{
 		if($request->Id_Jaula) {
-			$jaulas = Jaula::where('Id_Jaula', $Id_Jaula)->get();
+			$jaulas = Jaula::where('Id_Jaula', $request->Id_Jaula)->get();
 		} else {
 			$jaulas = Jaula::all();
 		}

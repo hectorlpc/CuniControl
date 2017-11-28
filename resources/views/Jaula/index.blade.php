@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
           <center><h2>Jaulas</h2></center>
-          <form>
+          <form method="get" action="{{url('/jaula')}}">
             <div class="form-group">
               <label for="">Buscar jaula:</label>
               <input type="" name="Id_Jaula" class="form-control">

@@ -5,14 +5,14 @@
         <li><a href="{{url('/home')}}"><i class="icono izquierda fa fa-home" aria-hidden="true"></i>Inicio</a></li>
 @if(Auth::user()->tieneRol('ROLADM'))
 
-              <li><a href="#"><i class="icono izquierda fa fa-chevron-down" aria-hidden="true"></i>Administrador<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+              <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Administrador<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="{{url('/cuentas/')}}">Gestionar roles</a> </li>
                   </ul>
               </li>
 @endif        
 @if(Auth::user()->tieneRol('ROLALU'))
-        <li><a href="#"><i class="icono izquierda fa fa-chevron-down" aria-hidden="true"></i>
+        <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>
           Alumno<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
             <ul>
               @if(Auth::user()->tienePerfil("Alumno"))
@@ -27,7 +27,7 @@
 @endif
 @if(Auth::user()->tieneRol('ROLPRO'))
 
-           <li><a href="#"><i class="icono izquierda fa fa-chevron-down" aria-hidden="true"></i>Producción<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+           <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Producción<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
             <ul>
               <li> <a href="{{url('/monta/')}}">Supervisión de la monta</a> </li>
               <li> <a href="{{url('/parto/')}}">Supervisión del parto</a> </li>
@@ -40,7 +40,7 @@
           </li>
 @endif
 @if(Auth::user()->tieneRol('ROLEMO'))
-              <li><a href="#"><i class="icono izquierda fa fa-chevron-down" aria-hidden="true"></i>Encargado Modulo<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+              <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Encargado Modulo<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="{{url('/cemental/')}}">Registro de conejos sementales</a> </li>
                     <li> <a href="{{url('/productora/')}}">Registro de conejas productoras</a> </li>
@@ -59,7 +59,7 @@
               </li>
 @endif
 @if(Auth::user()->tieneRol('ROLPEN'))
-              <li><a href="#"><i class="icono izquierda fa fa-chevron-down" aria-hidden="true"></i>Profesor Encargado<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+              <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Profesor Encargado<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="{{url('/validacion/')}}">Validar practica</a> </li>
                     <li> <a href="{{url('/transferencia/')}}">Baja de conejos por transferencia</a> </li>
@@ -71,7 +71,7 @@
 @endif
 
 @if(Auth::user()->tieneRol('ROLPRF'))
-              <li><a href="#"><i class="icono izquierda fa fa-chevron-down" aria-hidden="true"></i>Profesor<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
+              <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Profesor<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
                     <li> <a href="{{url('/grupo/')}}">Registro de Grupos</a> </li>
                     <li> <a href="{{url('/materia/')}}">Registro de Materias</a> </li>

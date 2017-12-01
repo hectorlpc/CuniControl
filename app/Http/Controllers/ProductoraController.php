@@ -6,21 +6,21 @@ use Illuminate\Http\Request;
 use App\Productora;
 use App\Conejo;
 use App\Desecho;
+use App\Engorda;
+use App\Jaula;
 
 class ProductoraController extends Controller{
 
     public function create(){
         $conejos = Conejo::Select('Conejo.Id_Conejo')
             ->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
-            ->leftJoin('Conejo_Engorda','Conejo.Id_Conejo','=','Conejo_Engorda.Id_Conejo_Engorda')
             ->leftJoin('Transferencia_Conejo','Conejo.Id_Conejo','=','Transferencia_Conejo.Id_Conejo')            
             ->where('Conejo.Genero','Hembra')
             ->whereNull('Coneja_Productora.Id_Conejo_Hembra')
-            ->whereNull('Conejo_Engorda.Id_Conejo_Engorda')
             ->whereNull('Transferencia_Conejo.Id_Conejo')
             ->get();  
-
-    	return view('ConejaProductora.create',['conejos' => $conejos]);
+        $jaulas = Jaula::all();
+    	return view('ConejaProductora.create',['conejos' => $conejos, 'jaulas' => $jaulas]);
     }
 
     public function edit($id_productora){
@@ -82,6 +82,18 @@ class ProductoraController extends Controller{
                 $productora->Fecha_Activo = $request->input('Fecha_Activo');
                 $productora->Status = 'Activo';
                 $productora->save();
+
+
+                $conejo = Conejo::where('Id_Conejo', $productora->Id_Conejo_Hembra)->first();
+                $conejo->Id_Jaula = $request->input('Id_Jaula');
+                $conejo->save();
+
+                $engorda = Engorda::where('Id_Conejo_Engorda', $productora->Id_Conejo_Hembra)->first();
+                if(is_null($engorda)) {
+                    session()->flash("Exito","Coneja Productora registrada");
+                    return redirect('/productora');                
+                }
+                $engorda->delete();
                 session()->flash("Exito","Coneja Productora Registrada");
                 return redirect('/productora');
             }

@@ -12,6 +12,16 @@
             <input class="form-control" type="date" name="Fecha_Activo" value="{{$fecha = date('Y-m-d')}}">
           </div>
           <br>
+          <div>
+            <label> Seleccione Jaula</label>
+            <select class="form-control" name="Id_Jaula">
+              <option> -- Jaulas -- </option>
+              @foreach($jaulas as $jaula)
+                <option value="{{$jaula->Id_Jaula}}">{{$jaula->Id_Jaula}}</option>
+              @endforeach
+            </select>
+          </div>
+          <br>
           <div class="form-group" >
             <label for="Conejo_Cemental">Número de tatuaje del conejo:</label>
            <select class="form-control" name="Id_Conejo_Macho">

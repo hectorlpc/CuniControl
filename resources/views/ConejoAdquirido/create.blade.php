@@ -7,6 +7,16 @@
     <br>
           <form action="{{url('/adquirido')}}" method="post">
             {{ csrf_field() }}
+          <div>
+            <label>Selecione Jaula:</label>
+            <select class="form-control" name="Id_Jaula">
+              <option value="0000"> -- Seleccione Jaula -- </option>
+              @foreach($jaulas as $jaula)
+                <option value="{{$jaula->Id_Jaula}}">{{$jaula->Id_Jaula}}</option>
+              @endforeach 
+            </select>
+          </div>         
+          <br>   
           <div class="form-group">
             <label for="Conejo_Adquirido">Número de tatuaje derecho:</label>
             <input class="form-control" onkeypress="return solonumeros(event)" name="Tatuaje_Derecho" type="text" >

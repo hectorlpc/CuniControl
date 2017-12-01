@@ -7,6 +7,8 @@ use App\Cemental;
 use App\Conejo;
 use App\Monta;
 use App\Desecho;
+use App\Engorda;
+use App\Jaula;
 
 class CementalController extends Controller
 {
@@ -14,14 +16,13 @@ class CementalController extends Controller
      {
         $conejos = Conejo::Select('Conejo.Id_Conejo')
             ->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
-            ->leftJoin('Conejo_Engorda','Conejo.Id_Conejo','=','Conejo_Engorda.Id_Conejo_Engorda')
             ->leftJoin('Transferencia_Conejo','Conejo.Id_Conejo','=','Transferencia_Conejo.Id_Conejo')
             ->where('Conejo.Genero','Macho')
             ->whereNull('Transferencia_Conejo.Id_Conejo')
             ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
-            ->whereNull('Conejo_Engorda.Id_Conejo_Engorda')
             ->get();
-    	return view('ConejoCemental.create',['conejos' => $conejos]);
+        $jaulas = Jaula::all();
+    	return view('ConejoCemental.create',['conejos' => $conejos, 'jaulas' => $jaulas]);
     }
 
     public function edit($id_cemental)
@@ -82,8 +83,18 @@ class CementalController extends Controller
             $cemental->Fecha_Activo = $request->input('Fecha_Activo');
             $cemental->Status = 'Activo';
             $cemental->save();
-            session()->flash("Exito","Semental registrado");
 
+            $conejo = Conejo::where('Id_Conejo', $cemental->Id_Conejo_Macho)->first();
+            $conejo->Id_Jaula = $request->input('Id_Jaula');
+            $conejo->save();
+
+            $engorda = Engorda::where('Id_Conejo_Engorda', $cemental->Id_Conejo_Macho)->first();
+            if(is_null($engorda)) {
+                session()->flash("Exito","Semental registrado");
+                return redirect('/cemental');                
+            }
+            $engorda->delete();
+            session()->flash("Exito","Semental registrado");
             return redirect('/cemental');
         }catch (\Illuminate\Database\QueryException $e){
             session()->flash("Error","No es posible crear, Semental existente");

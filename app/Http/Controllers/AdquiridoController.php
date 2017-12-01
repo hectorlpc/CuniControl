@@ -7,6 +7,7 @@ use App\Adquirido;
 use App\Adquisicion;
 use App\Raza;
 use App\Conejo;
+use App\Jaula;
 
 class AdquiridoController extends Controller{
     //
@@ -15,11 +16,13 @@ class AdquiridoController extends Controller{
         $adquiridos = Adquirido::all();
         $adquisiciones = Adquisicion::all();
         $razas = Raza::all();
+        $jaulas = Jaula::all();
 
     	return view('ConejoAdquirido.create',[
             'adquisiciones' => $adquisiciones,
             'adquiridos' => $adquiridos,
-            'razas' => $razas
+            'razas' => $razas,
+            'jaulas' => $jaulas
             ]);
     }
 
@@ -80,6 +83,7 @@ class AdquiridoController extends Controller{
             $conejo->Fecha_Nacimiento = $request->input('Fecha_Adquisicion');
             $conejo->Genero = $request->input('Genero');
             $conejo->Status = 'Vivo';
+            $conejo->Id_Jaula = $request->input('Id_Jaula'); 
             $conejo->save();
             $conejoAdquirido->Id_Conejo = $conejo->Id_Conejo;
             $conejoAdquirido->Id_Adquisicion = $request->input('Id_Adquisicion');

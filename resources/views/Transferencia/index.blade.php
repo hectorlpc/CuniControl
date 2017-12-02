@@ -22,7 +22,7 @@
       <th>Tatuajes del conejo:</th>
       <th>Fecha de baja:</th>
       <th>Motivo de baja:</th>
-      <th>DescripciÓn de baja:</th>
+      <th>Descripción de baja:</th>
       <th>Registró:</th>
       <th></th>
     </tr>

@@ -19,7 +19,6 @@ class CreateConejoCementalTable extends Migration
             $table->string('Id_Raza',5);
             $table->foreign('Id_Raza')->references('Id_Raza')->on('Raza');
             $table->date('Fecha_Activo');
-            $table->date('Fecha_Ultima_Monta')->nullable();
             $table->smallInteger('Numero_Monta')->default(0);
             $table->smallInteger('Monta_Positiva')->default(0);
             $table->enum('Status',['Activo', 'Desecho','Baja'])->nullable()->index();

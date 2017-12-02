@@ -42,18 +42,18 @@
 @if(Auth::user()->tieneRol('ROLEMO'))
               <li><a href="#"><i class="icono izquierda fa fa-clone" aria-hidden="true"></i>Encargado Modulo<i class="icono derecha fa fa-chevron-down" aria-hidden="true"></i></a>
                   <ul>
+                    <li> <a href="{{url('/adquirido/')}}">Registro de conejo adquirido</a> </li>
                     <li> <a href="{{url('/cemental/')}}">Registro de conejos sementales</a> </li>
                     <li> <a href="{{url('/productora/')}}">Registro de conejas productoras</a> </li>
-                    <li> <a href="{{url('/jaula/')}}">Registro de Jaulas</a> </li>
-                    <li> <a href="{{url('/area/')}}">Registro Areas De Destino</a> </li>
-                    <li> <a href="{{url('/adquisicion/')}}">Registro de Tipo de Adquisicion</a> </li>
-                    <li> <a href="{{url('/raza/')}}">Registro de Raza</a> </li>
-                    <li> <a href="{{url('/adquirido/')}}">Registro de Conejo Adquirido</a> </li>
-                    <li> <a href="{{url('/enfermedad/')}}">Registro de Enfermedad</a> </li>
-                    <li> <a href="{{url('/medicamento/')}}">Registro de Medicamentos</a>
+                    <li> <a href="{{url('/jaula/')}}">Registro de jaulas</a> </li>
+                    <li> <a href="{{url('/area/')}}">Registro áreas de destino</a> </li>
+                    <li> <a href="{{url('/adquisicion/')}}">Registro de tipo de adquisición</a> </li>
+                    <li> <a href="{{url('/raza/')}}">Registro de razas</a> </li>
+                    <li> <a href="{{url('/enfermedad/')}}">Registro de enfermedades</a> </li>
+                    <li> <a href="{{url('/medicamento/')}}">Registro de medicamentos</a>
                    </li>
-                   <li> <a href="{{url('/periodo/')}}">Registro de Periodos</a> </li>
-                    <li> <a href="{{url('/carrera/')}}">Registro de Carreras</a> </li>
+                   <li> <a href="{{url('/periodo/')}}">Registro de periodos</a> </li>
+                    <li> <a href="{{url('/carrera/')}}">Registro de carreras</a> </li>
                     
                   </ul>
               </li>

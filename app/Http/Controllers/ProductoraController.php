@@ -16,6 +16,7 @@ class ProductoraController extends Controller{
             ->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
             ->leftJoin('Transferencia_Conejo','Conejo.Id_Conejo','=','Transferencia_Conejo.Id_Conejo')            
             ->where('Conejo.Genero','Hembra')
+            ->where('Conejo.Status','Vivo')
             ->whereNull('Coneja_Productora.Id_Conejo_Hembra')
             ->whereNull('Transferencia_Conejo.Id_Conejo')
             ->get();  

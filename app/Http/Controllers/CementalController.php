@@ -18,6 +18,7 @@ class CementalController extends Controller
             ->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
             ->leftJoin('Transferencia_Conejo','Conejo.Id_Conejo','=','Transferencia_Conejo.Id_Conejo')
             ->where('Conejo.Genero','Macho')
+            ->where('Conejo.Status','Vivo')
             ->whereNull('Transferencia_Conejo.Id_Conejo')
             ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
             ->get();

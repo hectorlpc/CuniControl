@@ -5,19 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Conejo;
-use App\Area;
 use App\Engorda;
+use App\Cemental;
+use App\Productora;
+use App\Area;
 use App\Transferencia;
 
 class TransferenciaController extends Controller{
 	public function create(){
 		$areas = Area::all();
     	$conejos = Conejo::Select('Id_Conejo')
-            ->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
-            ->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
+            //->leftJoin('Conejo_Cemental','Conejo.Id_Conejo','=','Conejo_Cemental.Id_Conejo_Macho')
+            //->leftJoin('Coneja_Productora','Conejo.Id_Conejo','=','Coneja_Productora.Id_Conejo_Hembra')
             ->where('Conejo.Status','Vivo')
-            ->whereNull('Conejo_Cemental.Id_Conejo_Macho')
-            ->whereNull('Coneja_Productora.Id_Conejo_Hembra')
+            //->whereNull('Conejo_Cemental.Id_Conejo_Macho')
+            //->whereNull('Coneja_Productora.Id_Conejo_Hembra')
             ->orderBy('Id_Conejo')
             ->get();
 
@@ -34,12 +36,28 @@ class TransferenciaController extends Controller{
 			$transferencia->Id_Area = $request->input('Id_Area');
 			$transferencia->Fecha_Baja = $request->input('Fecha_Baja');
 			$transferencia->Creador = Auth::user()->CURP;
-
+			$transferencia->save();
 			$conejo = Conejo::where('Id_Conejo', $request->input('Id_Conejo'))->first();
 			$conejo->Status = 'Transferido';
 			$conejo->save();
-			$transferencia->save();
-
+			$genero = $conejo->Genero;
+			$engorda = Engorda::where('Id_Conejo_Engorda', $request->input('Id_Conejo'))->first();
+			if (is_null($engorda)) {
+				if ($genero == 'Macho') {
+					$semental = Cemental::where('Id_Conejo_Macho', $request->input('Id_Conejo'))->first();
+					$semental->Status = 'Baja';
+					$semental->save();
+					session()->flash("Exito","Transferencia creada");
+					return redirect('/transferencia');					
+				} else if ($genero == 'Hembra') {
+					$productora = Productora::where('Id_Conejo_Hembra', $request->input('Id_Conejo'))->first();
+					$productora->Status = 'Baja';
+					$productora->save();
+					session()->flash("Exito","Transferencia creada");
+					return redirect('/transferencia');
+				}
+			}
+			$engorda->delete();
 			session()->flash("Exito","Transferencia creada");
 			return redirect('/transferencia');
 		}catch (\Illuminate\Database\QueryException $e){

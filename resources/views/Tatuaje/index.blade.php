@@ -4,7 +4,7 @@
 <div class="container">
     @include("compartidas.alertas")
           <center><h1>Tatuado de Conejos</h1></center>
-          <center><h3>Conejos Recién Tatuados Sin Asignar</h3></center>
+          <center><h3>Conejos de engorda</h3></center>
           <form method="get" action="{{url('/tatuaje')}}">
           <div class="form-group">
             <label for="">Tatuajes del conejo: </label>
@@ -22,8 +22,7 @@
       <th>Raza:</th>
       <th>Jaula:</th>
       <th>Género:</th>
-{{--       <th>Status:</th>
-      <th>Fecha Muerte:</th> --}}
+      <th>Status:</th>
       <th>Registró</th>
       <th>Actualizó</th>
       <th></th>
@@ -37,8 +36,7 @@
       <td> {{$conejo->Id_Raza}} </td>
       <td> {{$conejo->Id_Jaula}} </td>
       <td> {{$conejo->Genero}} </td>
-{{--       <td> {{$conejo->Status}} </td>
-      <td> {{$conejo->Fecha_Muerte}} </td> --}}
+      <td> {{$conejo->Status}} </td>
       <td> {{$conejo->Creador}} </td>
       <td> {{$conejo->Modificador}} </td>
       <td></td>

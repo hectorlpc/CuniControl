@@ -34,7 +34,7 @@
               <li> <a href="{{url('/donacion/')}}">Donación de conejos</a> </li>
               <li> <a href="{{url('/destete/')}}">Destete de gazapos</a> </li>
               <li> <a href="{{url('/tatuaje/')}}">Tatuado de conejos </a> </li>
-              <li> <a href="{{url('/engorda/')}}">Conejos de engorda </a> </li>
+              {{-- <li> <a href="{{url('/engorda/')}}">Conejos de engorda </a> </li> --}}
               <li> <a href="{{url('/enfermo/')}}">Conejos enfermos</a> </li>
            </ul>
           </li>

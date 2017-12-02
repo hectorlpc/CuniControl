@@ -33,13 +33,13 @@
           <td>{{$adquirido->Fecha_Adquisicion}}</td>
           <td>
             <div class="btn-group btn-group-sm" role="group" aria-label="">
-              <form method="POST" action="{{url('/adquirido/' . $adquirido->Id_Adquirido)}}">
+ {{--              <form method="POST" action="{{url('/adquirido/' . $adquirido->Id_Adquirido)}}">
                 {{csrf_field()}}
                 {{method_field('delete')}}
               <input type="hidden" name="Id_Adquirido" value="{{$adquirido->Id_Adquirido}}">
 
            <div align="right"> <button type="submit" class="btn btn-secondary btn-outline-danger ">Eliminar</button>
-          </form> <a href="{{url('/adquirido/' . $adquirido->Id_Adquirido . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
+          </form> --}} <a href="{{url('/adquirido/' . $adquirido->Id_Adquirido . '/edit')}}" class="btn btn-secondary btn-outline-info">Modificar</a>
             </div>
           </td>
         </tr>

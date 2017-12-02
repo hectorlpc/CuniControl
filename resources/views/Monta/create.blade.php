@@ -9,17 +9,7 @@
           <div class="form-group">
             <label for="">Fecha de Monta:</label>
             <input value="{{$fecha_actual = date('Y-m-d')}}" type="date" class="form-control" name="Fecha_Monta" placeholder="Introduce la monta">
-          </div>
-          <div class="form-group">
-            <label for="">Jaula:</label>
-            <select class="form-control" name="Id_Jaula">
-              <option> -- Seleccione la jaula -- </option>
-              @foreach($jaulas as $jaula)
-                  <option value="{{$jaula->Id_Jaula}}">{{$jaula->Id_Jaula}}</option>
-              @endforeach
-            </select>
           </div>        
-          <br>
           <div class="form-group">
             <label for="">Tatuaje De Hembra Productora:</label>
             <select class="form-control" name="Id_Conejo_Hembra" id="coneja">
@@ -34,6 +24,15 @@
             <select class="form-control" name="Id_Conejo_Macho" id="sementales">
             </select>
           </div>
+          <div class="form-group">
+            <label for="">Jaula:</label>
+            <select class="form-control" name="Id_Jaula">
+              <option> -- Seleccione la jaula -- </option>
+              @foreach($jaulas as $jaula)
+                  <option value="{{$jaula->Id_Jaula}}">{{$jaula->Id_Jaula}}</option>
+              @endforeach
+            </select>
+          </div>          
           <div align="right">
             <a class="btn btn-outline-secondary" href="{{url('/monta/')}}">Regresar</a>
             <button type="submit" class="btn btn-outline-primary">Enviar Registro</button>

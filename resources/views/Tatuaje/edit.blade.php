@@ -5,20 +5,29 @@
         <center><h2>Tatuado de Conejos:</h2></center>
   <form action="{{url('/tatuaje/' . $conejo->Id_Conejo)}}" method="POST" role="form">
           {{csrf_field()}}
-          {{method_field('patch')}}
-          <div class="form-group">
-            <label for="">Tatuaje Derecho: </label>
-            <input readonly class="form-control" name="Tatuaje_Derecho" value="{{$conejo->Tatuaje_Derecho}}">
-          </div>
-          <div class="form-group">
-            <label for="">Tatuaje Izquierdo: </label>
-            <input readonly class="form-control" name="Tatuaje_Izquierdo" value="{{$conejo->Tatuaje_Izquierdo}}">
+          {{method_field('patch')}} 
+<div class="form-group" >
+            {{-- <label>Fecha de baja:</label> --}}
+            <input hidden class="form-control" type="date" name="Fecha_Muerte" value="{{$fecha = date('Y-m-d')}}">
           </div>
           <div>
-            <label for="">Fecha Nacimiento:</label>
-            <input readonly class="form-control" type="date" name="Fecha_Nacimiento" value="{{$conejo->Fecha_Nacimiento}}">
+            <label>Jaula:</label>
+            <select class="form-control" name="Id_Jaula">
+              <option> -- Seleccione Jaula -- </option>
+              @foreach($jaulas as $jaula)
+                @if($jaula->Id_Jaula == $conejo->Id_Jaula)
+                  <option value="{{$jaula->Id_Jaula}}" selected>{{$jaula->Id_Jaula}}</option>
+                @else
+                  <option value="{{$jaula->Id_Jaula}}">{{$jaula->Id_Jaula}}</option>
+                @endif
+              @endforeach
+            </select>
           </div>
           <br>
+          <div class="form-group" >
+            <label>Tatuajes del conejo de engorda:</label>
+            <input readonly class="form-control" type="text" name="Id_Conejo" value="{{$conejo->Id_Conejo}}">
+          </div>
           <div class="form-group">
             <label for="">Género:</label>
             <select class="form-control" name="Genero">
@@ -29,21 +38,21 @@
               <option value="Hembra">Hembra</option>
             @endif
             </select>
-          </div>
-{{--           <div class="form-group">
-            <label for="">Status:</label>
+          </div>          
+          <div class="form-group" >
+            <label>Status:</label>
             <select class="form-control" name="Status">
-            <option value="{{$conejo->Status}}">{{$conejo->Status}}</option>
-            @if($conejo->Status == 'Vivo')
-              <option value="Muerto">Muerto</option>
-            @else 
-              <option value="Vivo">vivo</option>
-            @endif
+              @if($conejo->Status == 'Vivo')
+                  <option value="Vivo">Vivo</option>
+                  <option value="Muerto"> Muerto </option>
+              @else
+                  <option value="Muerto"> Muerto </option>
+                  <option value="Vivo">Vivo</option>
+              @endif 
             </select>
-          </div> --}}
-          <br>
-          <div class="form-group">
-         <div align="right"> <button type="submit" class="btn btn-outline-primary">Actualizar</button>
-        </form>
+          </div>
+        <br>
+          <div align="right"><button type="submit" class="btn btn-outline-primary">Actualizar</button>
+</form>
       </div>
 @endsection

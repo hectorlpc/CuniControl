@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Adquirido;
 use App\Adquisicion;
 use App\Raza;
 use App\Conejo;
 use App\Jaula;
+use App\Engorda;
 
 class AdquiridoController extends Controller{
     //
@@ -83,13 +85,24 @@ class AdquiridoController extends Controller{
             $conejo->Fecha_Nacimiento = $request->input('Fecha_Adquisicion');
             $conejo->Genero = $request->input('Genero');
             $conejo->Status = 'Vivo';
-            $conejo->Id_Jaula = $request->input('Id_Jaula'); 
+            $conejo->Id_Jaula = $request->input('Id_Jaula');
+            $conejo->Creador = Auth::user()->CURP;
             $conejo->save();
             $conejoAdquirido->Id_Conejo = $conejo->Id_Conejo;
             $conejoAdquirido->Id_Adquisicion = $request->input('Id_Adquisicion');
             $conejoAdquirido->Fecha_Adquisicion = $conejo->Fecha_Nacimiento;
             $conejoAdquirido->Id_Adquirido = $conejoAdquirido->Id_Conejo . $conejoAdquirido->Id_Adquisicion;
             $conejoAdquirido->save();
+
+//Guardar conejo de engorda por defecto
+            $engorda = new Engorda;
+            $engorda->Id_Conejo_Engorda = $conejo->Id_Conejo;
+            $engorda->Id_Raza = $conejo->Id_Raza;
+            $engorda->Fecha_Alta = $conejo->Fecha_Nacimiento;
+            $engorda->Status = 'Activo';
+            $engorda->Creador = Auth::user()->CURP;
+            $engorda->save();
+
             session()->flash("Exito","Conejo Adquirido creado");
             return redirect('/adquirido');
         }catch (\Illuminate\Database\QueryException $e){

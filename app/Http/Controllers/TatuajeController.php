@@ -11,12 +11,14 @@ use App\Parto;
 use App\Productora;
 use App\Destete;
 use App\Jaula;
+use App\Engorda;
 use Illuminate\Support\Facades\DB;
 
 class TatuajeController extends Controller
 {
     public function create()
-    {
+    {   
+        $jaulas = Jaula::all();
         $destetes = Destete::all();
 
         return view('Tatuaje.create', ['destetes' => $destetes]);
@@ -53,7 +55,15 @@ class TatuajeController extends Controller
         $conejo->Creador = Auth::user()->CURP;
         $conejo->save();
         $destete->save();
-
+//Guardar conejo de engorda por defecto
+        $engorda = new Engorda;
+        $engorda->Id_Conejo_Engorda = $conejo->Id_Conejo;
+        $engorda->Id_Raza = $conejo->Id_Raza;
+        $engorda->Fecha_Alta = $conejo->Fecha_Nacimiento;
+        $engorda->Status = 'Activo';
+        $engorda->Creador = Auth::user()->CURP;
+        $engorda->save();
+        
         session()->flash("Exito","Conejo Registrado con tatuajes: Derecho: " . $conejo->Tatuaje_Derecho . " Izquierdo: ". $conejo->Tatuaje_Izquierdo);
         	return redirect ('/tatuaje');
         }catch (\Illuminate\Database\QueryException $e){
@@ -84,21 +94,42 @@ class TatuajeController extends Controller
 
     public function edit($id_conejo)
     {
+        $jaulas = Jaula::all();
         $conejo = Conejo::where('Id_Conejo', $id_conejo)->first();
-        return view('Tatuaje.edit', ['conejo' => $conejo]);
+        return view('Tatuaje.edit', ['conejo' => $conejo, 'jaulas' => $jaulas]);
     }
 
-    public function update(Request $request, $id_conejo)
-    {
+    public function update(Request $request, $id_conejo) {
       try{
-        $conejo = Conejo::where('Id_Conejo', $id_conejo)->first();
-        $conejo->Genero = $request->input('Genero');
-        $conejo->Modificador = Auth::user()->CURP;
-        $conejo->save();
-
-        return redirect('/tatuaje');
+        $situacion = $request->input('Status');
+        if ($situacion == 'Vivo') {
+            $conejo = Conejo::where('Id_Conejo', $id_conejo)->first();
+            $conejo->Genero = $request->input('Genero');
+            $conejo->Id_Jaula = $request->input('Id_Jaula');
+            $conejo->Modificador = Auth::user()->CURP;
+            $conejo->save();
+            session()->flash("Exito","Datos del conejo actualizados");
+            return redirect('/tatuaje');
+        } else if ($situacion == 'Muerto') {
+            $conejo = Conejo::where('Id_Conejo', $request->Id_Conejo)->first();
+            $conejo->Genero = $request->input('Genero');
+            $conejo->Id_Jaula = $request->input('Id_Jaula');
+            $conejo->Status = 'Muerto';
+            $conejo->Fecha_Muerte = $request->input('Fecha_Muerte');
+            $conejo->Modificador = Auth::user()->CURP;
+            $engorda = Engorda::where('Id_Conejo_Engorda', $id_conejo)->first();
+            if (is_null($engorda)) {
+                session()->flash("Exito","Datos del conejo actualizados");
+                return redirect('/tatuaje');
+            }
+            $engorda->Status = 'Baja';
+            $conejo->save();
+            $engorda->save();
+            session()->flash("Exito","Datos del conejo actualizados");
+            return redirect('/tatuaje');
+        }
       }catch (\Illuminate\Database\QueryException $e){
-          session()->flash("Error","No es posible Modificar");
+        session()->flash("Error","No es posible Modificar");
         return redirect('/tatuaje');
       }
     }

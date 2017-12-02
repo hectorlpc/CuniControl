@@ -59,7 +59,6 @@ class DesteteController extends Controller{
     public function store(Request $request)
     {
         try{
-
             $destete = new Destete;
             $destete->Id_Parto = $request->input('Id_Parto');
             $parto = Parto::where('Id_Parto', $destete->Id_Parto)->first();
@@ -82,8 +81,8 @@ class DesteteController extends Controller{
                             $destete->Adoptados_No_Destetados = 0;
                             $destete->save();
                             $parto->save();
-                            return redirect('/destete');
                             session()->flash("Exito","Destete creado");
+                            return redirect('/destete');
                         }                        
                     }
                     $donacion->Id_Parto_Donante;

@@ -20,63 +20,29 @@
       <label for="exampleInputPassword2">Fecha de Parto:</label>
       <input id="fechaDeParto" class="form-control" type="date" name="Fecha_Parto">
     </div>
+    <br>
     <div>
         <label for="cant_vivos">Cantidad de gazapos vivos:</label>
             <select class="form-control" name="Numero_Vivos">
-              <option value="01">0</option>
-              <option value="01">1</option>
-              <option value="02">2</option>
-              <option value="03">3</option>
-              <option value="04">4</option>
-              <option value="05">5</option>
-              <option value="06">6</option>
-              <option value="07">7</option>
-              <option value="08">8</option>
-              <option value="09">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
+              @for($i = 0; $i <= 30; $i++)
+                <option value="{{$i}}">{{$i}}</option>
+              @endfor
             </select>
     </div>
-
+    <br>
     <div>
         <label for="cant_muertos">Cantidad de gazapos muertos:</label>
             <select class="form-control" name="Numero_Muertos">
-              <option value="00">0</option>
-              <option value="01">1</option>
-              <option value="02">2</option>
-              <option value="03">3</option>
-              <option value="04">4</option>
-              <option value="05">5</option>
-              <option value="06">6</option>
-              <option value="07">7</option>
-              <option value="08">8</option>
-              <option value="09">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
-              <option value="13">13</option>
-              <option value="14">14</option>
-              <option value="15">15</option>
-              <option value="16">16</option>
-              <option value="17">17</option>
-              <option value="18">18</option>
-              <option value="19">19</option>
-              <option value="20">20</option>
+              @for($i = 0; $i <= 30; $i++)
+                <option value="{{$i}}">{{$i}}</option>
+              @endfor              
             </select>
     </div>
-
+    <br>
     <div>
         <label for="peso">Peso promedio al nacer:</label>
         <select class="form-control" name="Peso_Nacer">
+           <option value="0.000">0.000</option>
            <option value="0.010">0.010</option>
            <option value="0.020">0.020</option>
            <option value="0.030">0.030</option>
